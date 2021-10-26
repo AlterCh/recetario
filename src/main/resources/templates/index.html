@@ -1,13 +1,17 @@
 <!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8"> 
-
-        <meta name="viewport" content="width=device-width, initialscale=1.0">
-    </head>
-    <body>
+<!--
+Para asignar un fragmento se puede:
+reemplazar  (th:replace)
+insertar    (th:insert)
+-->
+    <head th:replace="fragmentos/Head :: #head"></head>
+    <body >
         <p> HOLIS </p>
+        <a href="/registro"> Registro </a>
+        <br>
+        <a href="/login"> login</a>
     </body>
 </html> 
+

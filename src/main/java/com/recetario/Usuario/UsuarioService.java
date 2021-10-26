@@ -34,12 +34,22 @@ public class UsuarioService implements UserDetailsService {
     @Autowired
     private FotoService fotoService;
 
+
+    /**
+     * TODO Falta realizar la verificacion de claves
+     *
+     * @param archivo: Imagen
+     * @param u : Usuario
+     * @param clave2 : clave para verificacion
+     * @throws Exception
+     */
     @Transactional
     public void registrar(
             @Nullable MultipartFile archivo,
             @NonNull Usuario u,
             @NonNull String clave2
     ) throws Exception {
+
         try {
             u.setAlta(new Date());
             try {

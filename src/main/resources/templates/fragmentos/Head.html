@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<!--
+Para que los fragmentos funcionen se debe utilizar el atributo:
+th:fragment="nombreFragmento"
+
+Hay dos formas de encontrar un fragmento:
+por id o por el nombre del fragmento
+-->
+<head id="head" th:fragment="head2" >
+    <meta charset="UTF-8">
+<!--
+    Este titulo se agregó en src.main.resources.values.properties
+    y se configuró en la linea 11 de com.recetario.controladores.CusControlador
+-->
+    <title th:text="#{Titulo}">Titulito que va a ser reemplazado</title>
+</head>
+</html>
