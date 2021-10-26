@@ -1,6 +1,6 @@
-package com.recetario.Usuario;
+package com.recetario.usuario;
 
-import com.recetario.Foto.FotoService;
+import com.recetario.foto.FotoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

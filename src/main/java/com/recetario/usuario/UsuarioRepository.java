@@ -1,4 +1,4 @@
-package com.recetario.Usuario;
+package com.recetario.usuario;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

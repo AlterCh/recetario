@@ -1,4 +1,4 @@
-package com.recetario.Foto;
+package com.recetario.foto;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

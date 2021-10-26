@@ -1,4 +1,4 @@
-package com.recetario.Usuario;
+package com.recetario.usuario;
 
 import com.recetario.controladores.CusControlador;
 import org.springframework.beans.factory.annotation.Autowired;

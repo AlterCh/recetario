@@ -1,4 +1,4 @@
-package com.recetario.Foto;
+package com.recetario.foto;
 
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;

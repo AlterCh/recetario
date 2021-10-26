@@ -1,6 +1,6 @@
-package com.recetario.Usuario;
+package com.recetario.usuario;
 
-import com.recetario.Foto.Foto;
+import com.recetario.foto.Foto;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 

@@ -1,8 +1,8 @@
-package com.recetario.Foto;
+package com.recetario.foto;
 
-import com.recetario.Usuario.Usuario;
-import com.recetario.Usuario.UsuarioRepository;
-import com.recetario.Usuario.UsuarioService;
+import com.recetario.usuario.Usuario;
+import com.recetario.usuario.UsuarioRepository;
+import com.recetario.usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,6 @@
-package com.recetario.Config;
+package com.recetario.config;
 
-import com.recetario.Usuario.UsuarioService;
+import com.recetario.usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
