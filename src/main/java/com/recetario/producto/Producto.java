@@ -6,6 +6,7 @@ import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity //JPA
@@ -26,7 +27,7 @@ public class Producto {
     private UnidadMedicion unidadMedicion;
     private Double stock;
     @OneToMany
-    private Categoria categoria; //TODO
+    private List<Categoria> categoria; //TODO
 
 
 

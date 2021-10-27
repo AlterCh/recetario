@@ -38,7 +38,8 @@ public class Receta {
     private String descripcion;
     
     private Integer tiempo;
-    
-    private Categoria categoria; //TODO Hay que hacer la Clase Entidad, CRUD, Repositorio
+
+    @OneToMany
+    private List<Categoria> categoria; //TODO Hay que hacer la Clase Entidad, CRUD, Repositorio
     
 }

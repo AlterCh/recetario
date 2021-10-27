@@ -32,12 +32,13 @@ public class ProductoController extends CusControlador {
     public String listaGet(HttpSession httpSession,
                            ModelMap modelMap){
         modelMap.addAttribute("productos",productoService.getAll());
+
         return "producto/lista";
     }
     @GetMapping("/editar")
     public String editarGet(HttpSession httpSession,
                             ModelMap modelMap){
-
+        //TODO
         return "producto/editar";
     }
 
@@ -55,21 +56,21 @@ public class ProductoController extends CusControlador {
     public String nuevoPost(HttpSession httpSession,
                             ModelMap modelMap,
                             @ModelAttribute Producto producto){
-
+        //TODO
         return "producto/nuevo";
     }
     @PostMapping("/lista")
     public String listaPost(HttpSession httpSession,
                             ModelMap modelMap,
                             @ModelAttribute Producto producto){
-
+        //TODO
         return "producto/lista";
     }
     @PostMapping("/editar")
     public String editarPost(HttpSession httpSession,
                              ModelMap modelMap,
                              @ModelAttribute Producto producto){
-
+        //TODO
         return "producto/editar";
     }
 
