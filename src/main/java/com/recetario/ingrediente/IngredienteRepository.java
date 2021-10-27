@@ -1,5 +1,9 @@
 package com.recetario.ingrediente;
 
-public interface IngredienteRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface IngredienteRepository extends JpaRepository<Ingrediente, String> {
     
 }
