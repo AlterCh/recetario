@@ -2,6 +2,7 @@ package com.recetario.usuario;
 
 import com.recetario.foto.Foto;
 import com.recetario.provincia.Provincia;
+import com.recetario.rol.Rol;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -45,6 +46,8 @@ public class Usuario {
     @OneToOne(cascade = CascadeType.ALL)
     private Foto foto;
 
-
+    @JoinColumn(name = "rol_ID")
+    @OneToOne
+    private Rol rol;
 
 }
