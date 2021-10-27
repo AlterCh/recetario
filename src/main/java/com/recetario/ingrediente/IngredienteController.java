@@ -32,6 +32,13 @@ public class IngredienteController extends CusControlador {
         return "ingrediente/lista"; //Lista todos los Ingredientes que existen.
     }
     
+    @GetMapping("/editar")
+    public String editarGet(HttpSession httpSession,
+                            ModelMap modelMap){
+        //TODO
+        return "ingrediente/editar";
+    }
+    
     @PostMapping("/nuevo")
     public String nuevoPost(Model model, @ModelAttribute("ingrediente") Ingrediente ingrediente) {
         try {
@@ -45,6 +52,13 @@ public class IngredienteController extends CusControlador {
         
     }
     
+    @PostMapping("/editar")
+    public String editarPost(HttpSession httpSession,
+                             ModelMap modelMap,
+                             @ModelAttribute Ingrediente ingrediente){
+        //TODO
+        return "ingrediente/editar";
+    }
     
 
 }
