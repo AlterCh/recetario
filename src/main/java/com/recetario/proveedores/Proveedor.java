@@ -1,10 +1,24 @@
 
 package com.recetario.proveedores;
 
+import com.recetario.producto.Producto;
+import java.util.ArrayList;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
+@Entity
+@Data //Getter y Setter
+@ToString //To String
+@Builder //Defaults
+@AllArgsConstructor //Constructor con todos los parametros
+@NoArgsConstructor //
 public class Proveedor {
     
     @Id
@@ -18,5 +32,6 @@ public class Proveedor {
 
     private String telefono;
 
-    private 
+    private ArrayList<Producto> productos;
+    
 }
