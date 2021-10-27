@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProductoService {
+
     @Autowired
-    ProductoRepository
+    ProductoRepository productoRepository;
+
+
 }
