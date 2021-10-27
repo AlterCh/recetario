@@ -7,12 +7,12 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Data
-@ToString
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
+@Entity //JPA
+@Data //Getter y Setter
+@ToString //To String
+@Builder //Defaults
+@AllArgsConstructor //Constructor con todos los parametros
+@NoArgsConstructor //Constructor vacío
 public class Usuario {
 
     @Id
