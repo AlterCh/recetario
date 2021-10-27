@@ -29,6 +29,8 @@ public class Usuario {
 
     private String clave;
 
+    private String telefono;
+
     private String domicilio;
 
     @OneToOne
