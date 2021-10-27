@@ -27,6 +27,8 @@ public class Receta {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     
+    private String nombre;
+    
     @OneToMany
     private List<Ingrediente> ingredientes;
     
