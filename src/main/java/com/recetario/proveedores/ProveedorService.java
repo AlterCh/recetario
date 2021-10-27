@@ -1,7 +1,9 @@
 package com.recetario.proveedores;
 
 import com.recetario.errores.ErrorServicio;
+import com.recetario.ingrediente.Ingrediente;
 import com.recetario.provincia.Provincia;
+import java.util.List;
 
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -63,7 +65,26 @@ public class ProveedorService implements UserDetailsService {
         }
 
     }
+    
+     @Transactional
+    public List<Proveedor> listarProveedores() { //R
+        return repo.findAll();
+    }
 
+
+    @Transactional
+    public void borrar(@NonNull Proveedor proveedor) throws Exception {
+       
+         String id = proveedor.getId();
+         Optional<Proveedor> respuesta = repo.findById(id);
+            if (respuesta.isPresent()) {
+                Proveedor prov = respuesta.get();
+                repo.delete(prov);
+            } else {
+                throw new ErrorServicio("No se encontró el Proveedor solicitado.");
+            }
+
+    }
 
     private void validar(String nombre, String direccion, Provincia provincia, String telefono) throws ErrorServicio {
 
@@ -71,7 +92,9 @@ public class ProveedorService implements UserDetailsService {
             throw new ErrorServicio("El nombre del Proveedor no puede ser nulo");
         }
 
-        //TODO provinicia
+        if (provincia == null || provincia.getId().isEmpty()) {
+            throw new ErrorServicio ("La Provincia del Proveedor no puede ser nula");
+        }
 
         if (direccion == null || direccion.isEmpty()) {
             throw new ErrorServicio("La direccion del Proveedor no puede ser nula");
