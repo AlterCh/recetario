@@ -1,5 +1,6 @@
 package com.recetario.producto;
 
+import com.recetario.enumeraciones.UnidadMedicion;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -20,6 +21,12 @@ public class Producto {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
+    private String nombre;
+    private Double precio;
+    private Double cantidad;
+    private UnidadMedicion unidadMedicion;
+    private Double stock;
+
 
 
 }
