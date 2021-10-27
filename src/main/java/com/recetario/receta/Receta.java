@@ -1,5 +1,6 @@
 package com.recetario.receta;
 
+import com.recetario.categoria.Categoria;
 import com.recetario.ingrediente.Ingrediente;
 import java.util.List;
 import javax.persistence.Entity;

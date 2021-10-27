@@ -29,7 +29,7 @@ public class Ingrediente {
     @OneToOne
     private Producto producto;
     
-    private Integer cantidad;
+    private Double cantidad;
     
     private UnidadMedicion unidades;
 
