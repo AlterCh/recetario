@@ -18,5 +18,5 @@ public class Proveedor {
 
     private String telefono;
 
-    //Falta la lista de productos como atributo
+    private 
 }
