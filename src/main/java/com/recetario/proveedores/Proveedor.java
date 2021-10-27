@@ -29,6 +29,8 @@ public class Proveedor {
     private String nombre;
 
     private String direccion;
+    
+    //private String provincia;
 
     private String telefono;
 
