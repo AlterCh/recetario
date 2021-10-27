@@ -1,25 +1,17 @@
 package com.recetario.proveedores;
 
 import Errores.ErrorServicio;
-import com.recetario.foto.FotoService;
 import com.recetario.producto.Producto;
-import com.recetario.usuario.Usuario;
-import com.recetario.usuario.UsuarioRepository;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.NonNull;
-import org.springframework.lang.Nullable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class ProveedorService implements UserDetailsService {
@@ -73,7 +65,7 @@ public class ProveedorService implements UserDetailsService {
     private void validar(String id, String nombre, String direccion, String telefono, ArrayList<Producto> productos) throws ErrorServicio {
 
         if (nombre == null || nombre.isEmpty()) {
-            throw new ErrorServicio("El nombre del usuario no puede ser nulo");
+            throw new ErrorServicio("El nombre del Proveedor no puede ser nulo");
         }
 
         if (direccion == null || direccion.isEmpty()) {
