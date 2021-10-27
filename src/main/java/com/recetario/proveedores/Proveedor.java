@@ -4,9 +4,9 @@ package com.recetario.proveedores;
 import com.recetario.producto.Producto;
 import com.recetario.provincia.Provincia;
 import java.util.ArrayList;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import java.util.List;
+import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,11 +30,13 @@ public class Proveedor {
     private String nombre;
 
     private String direccion;
-    
+
+    @OneToOne
     private Provincia provincia;
 
     private String telefono;
 
-    private ArrayList<Producto> productos;
+    @OneToMany
+    private List<Producto> productos;
     
 }

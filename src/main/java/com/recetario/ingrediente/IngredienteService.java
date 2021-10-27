@@ -1,6 +1,6 @@
 package com.recetario.ingrediente;
 
-import Errores.ErrorServicio;
+import com.recetario.errores.ErrorServicio;
 import com.recetario.enumeraciones.UnidadMedicion;
 import java.util.List;
 import java.util.Optional;

@@ -7,17 +7,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+/**
+ * Repositorios = Interfaces
+ * deben extender de JpaRepository<tipo,tipo_id>
+ */
 @Repository
-public class ProveedorRepository{ //extends JpaRepository<>{
-
-    
-    void save(Proveedor proveedor) {
-
-    }
-    
-    @Query("SELECT c FROM Proveedor c WHERE c.id = :id")
-    Optional<Proveedor> findById(String id) {
-        return null;
-    }
+public interface ProveedorRepository extends JpaRepository<Proveedor,String>{
     
 }
