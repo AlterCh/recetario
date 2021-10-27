@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+
 @Entity //JPA
 @Data //Getter y Setter
 @ToString //To String
@@ -26,6 +27,7 @@ public class Producto {
     private Double cantidad;
     private UnidadMedicion unidadMedicion;
     private Double stock;
+    //private Categoria categoria; //TODO
 
 
 
