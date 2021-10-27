@@ -3,10 +3,8 @@ package com.recetario.receta;
 import com.recetario.categoria.Categoria;
 import com.recetario.ingrediente.Ingrediente;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -39,6 +37,7 @@ public class Receta {
     
     private Integer tiempo;
 
+    @Embedded
     @OneToMany
     private List<Categoria> categoria; //TODO Hay que hacer la Clase Entidad, CRUD, Repositorio
     

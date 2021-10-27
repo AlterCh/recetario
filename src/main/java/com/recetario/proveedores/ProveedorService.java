@@ -83,7 +83,6 @@ public class ProveedorService implements UserDetailsService {
             } else {
                 throw new ErrorServicio("No se encontró el Proveedor solicitado.");
             }
-
     }
 
     private void validar(String nombre, String direccion, Provincia provincia, String telefono) throws ErrorServicio {
@@ -103,9 +102,7 @@ public class ProveedorService implements UserDetailsService {
         if (telefono == null || telefono.isEmpty()) {
             throw new ErrorServicio("El telefono no puede ser nulo");
         }
-
     }
-
 }
 
 

@@ -32,7 +32,6 @@ public class ProductoController extends CusControlador {
     public String listaGet(HttpSession httpSession,
                            ModelMap modelMap){
         modelMap.addAttribute("productos",productoService.getAll());
-
         return "producto/lista";
     }
     @GetMapping("/editar")

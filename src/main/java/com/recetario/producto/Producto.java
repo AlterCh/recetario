@@ -21,11 +21,18 @@ public class Producto {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
+
     private String nombre;
+
     private Double precio;
+
     private Double cantidad;
+
+    @Enumerated(EnumType.STRING)
     private UnidadMedicion unidadMedicion;
+
     private Double stock;
+
     @OneToMany
     private List<Categoria> categoria; //TODO
 
