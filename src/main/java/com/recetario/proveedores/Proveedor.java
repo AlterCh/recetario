@@ -2,6 +2,7 @@
 package com.recetario.proveedores;
 
 import com.recetario.producto.Producto;
+import com.recetario.provincia.Provincia;
 import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,7 +31,7 @@ public class Proveedor {
 
     private String direccion;
     
-    //private String provincia;
+    private Provincia provincia;
 
     private String telefono;
 
