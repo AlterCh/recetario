@@ -8,4 +8,6 @@ public interface RecetaRepository extends JpaRepository<Receta, String> {
     
     Receta findByNombre(String nombre);
     
+    Receta findByCategoria(String categoria);
+    
 }
