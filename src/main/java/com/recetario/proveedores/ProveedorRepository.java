@@ -2,8 +2,9 @@
 package com.recetario.proveedores;
 
 import java.util.Optional;
+import org.springframework.stereotype.Repository;
 
-
+@Repository
 public class ProveedorRepository {
 
     void save(Proveedor proveedor) {
