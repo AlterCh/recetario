@@ -70,7 +70,7 @@ public class PortalControlador extends CusControlador{
                     usuario,
                     clave2
             );
-            return "usuario/login";
+            return "login";
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error", e.getMessage());
