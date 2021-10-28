@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragmentos/head :: #head"></head>
+<body>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+    </tr>
+    </thead>
+    <tbody>
+<!--    th:each == foreach (Proveedor x : proveedores)-->
+        <tr th:each="proveedor : ${proveedores}">
+            <td th:text="${proveedor.nombre}" >Mark</td>
+            <td th:text="${proveedor.direccion}" >Otto</td>
+            <td th:text="${proveedor.telefono}">@mdo</td>
+        </tr>
+    </tbody>
+</table>
+
+<footer th:replace="fragmentos/footer :: #footer"></footer>
+<div th:replace="fragmentos/libs :: #libs"></div>
+</body>
+</html>

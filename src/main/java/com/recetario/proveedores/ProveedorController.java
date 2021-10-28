@@ -31,6 +31,8 @@ public class ProveedorController extends CusControlador {
     @GetMapping("/nuevo")
     public String nuevoGet(HttpSession httpSession,
             ModelMap modelMap) {
+        //atributo proveedor con un objeto vacio
+        //el objeto vacio trae todos los atributos en null
         modelMap.addAttribute("proveedor", new Proveedor());
         return "proveedor/nuevo";
     }
@@ -38,7 +40,7 @@ public class ProveedorController extends CusControlador {
     @GetMapping("/lista")
     public String listaGet(HttpSession httpSession,
             ModelMap modelMap) {
-        modelMap.addAttribute("proveedor", proveedorService.listarProveedores());
+        modelMap.addAttribute("proveedores", proveedorService.listarProveedores());
         return "proveedor/lista";
     }
 
