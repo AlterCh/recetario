@@ -5,6 +5,8 @@ import com.recetario.errores.ErrorServicio;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
+
+import com.recetario.producto.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,9 @@ public class RecetaController extends CusControlador {
 
     @Autowired
     private RecetaService recetaService;
+
+    @Autowired
+    private ProductoService productoService;
 
     @GetMapping("/nuevo")
     public String nuevoGet(HttpSession httpSession, ModelMap model) {

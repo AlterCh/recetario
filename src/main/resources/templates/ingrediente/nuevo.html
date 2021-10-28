@@ -3,9 +3,24 @@
 <head th:replace="fragmentos/head :: #head"></head>
 <body>
 
+<div class="container">
+    <form action="/ingrediente/nuevo" method="post" th:object="${ingrediente}">
+
+        <label for="producto">Elegir el Producto</label>
+        <select id="producto" th:field="*{producto}">
+            <option th:each="mprod: ${productos}" th:value="${mprod}" th:text="${mprod.nombre}"></option>
+        </select>
+
+        <label for="cantidad">Ingrese la cantidad (1.0)</label>
+        <input id="cantidad" type="number" th:field="*{cantidad}">
+
+
+    </form>
+</div>
+
 
 
 <footer th:replace="fragmentos/footer :: #footer"></footer>
-<div th:replace="fragmentos/libs :: #libs"></div>
+<div th:replace="fragmentos/libs :: libs"></div>
 </body>
 </html>
