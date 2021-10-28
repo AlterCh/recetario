@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragmentos/Head :: head2"></head>
+<head th:replace="fragmentos/head :: head2"></head>
 <body>
     <form action="/logincheck" method="POST">
         <p th:if="${error != null}" th:text="${error}"
