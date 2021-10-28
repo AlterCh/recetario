@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Este es el panel de inicio</h1>
-    <a href="/panel/logout">logout</a>
-    <br>
-    <a href="/panel/perfil">perfil</a>
-</body>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragmentos/head :: #head">
+    </head>
+    <body>
+        <nav th:replace="fragmentos/navbar :: Panel">
+        </nav>
+
+        <h1>Este es el panel de inicio </h1>
+        <a href="/panel/logout">logout</a>
+        <br>
+            <a href="/panel/perfil">perfil</a>
+
+            <footer th:replace="fragmentos/footer :: #footer"></footer>
+            <div th:replace="fragmentos/libs :: #libs"></div>
+
+    </body>
 </html>
