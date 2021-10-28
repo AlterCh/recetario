@@ -64,8 +64,13 @@ public class ProveedorController extends CusControlador {
     @PostMapping("/nuevo")
     public String nuevoPost(HttpSession httpSession,
             ModelMap modelMap,
-            @ModelAttribute Proveedor proveedor) {
-        //TODO
+            @ModelAttribute Proveedor proveedor) throws Exception {
+        try {
+            proveedorService.registrar(proveedor);
+            
+        } catch (ErrorServicio ex) {
+            Logger.getLogger(ProveedorController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return "proveedor/nuevo";
     }
 
@@ -73,7 +78,9 @@ public class ProveedorController extends CusControlador {
     public String listaPost(HttpSession httpSession,
             ModelMap modelMap,
             @ModelAttribute Proveedor proveedor) {
-        //TODO
+        
+            proveedorService.listarProveedores() ;
+       
         return "proveedor/lista";
     }
 
