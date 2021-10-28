@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragmentos/head :: #head">
 </head>
 <body>
-    <h1>Perfil</h1>
-    <a href="/panel/logout">logout</a>
-    <br>
-    <a href="/panel/perfil">perfil</a>
+<h1>Perfil</h1>
+<a href="/panel/logout">logout</a>
+<br>
+<a href="/panel/perfil">perfil</a>
+
+<footer th:replace="fragmentos/footer :: #footer"></footer>
+<div th:replace="fragmentos/libs :: libs"></div>
 </body>
 </html>
