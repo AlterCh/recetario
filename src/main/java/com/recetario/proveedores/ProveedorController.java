@@ -1,4 +1,3 @@
-
 package com.recetario.proveedores;
 
 import com.recetario.controladores.CusControlador;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 @Controller
 @RequestMapping("/proveedor")
 public class ProveedorController extends CusControlador {
@@ -26,29 +24,31 @@ public class ProveedorController extends CusControlador {
     ProveedorService proveedorService;
     @Autowired
     ProveedorRepository proveedorRepository;
+
     /**
      * GET
      */
     @GetMapping("/nuevo")
     public String nuevoGet(HttpSession httpSession,
-                           ModelMap modelMap){
-        modelMap.addAttribute("proveedor",new Proveedor());
+            ModelMap modelMap) {
+        modelMap.addAttribute("proveedor", new Proveedor());
         return "proveedor/nuevo";
     }
+
     @GetMapping("/lista")
     public String listaGet(HttpSession httpSession,
-                           ModelMap modelMap){
+            ModelMap modelMap) {
         modelMap.addAttribute("proveedor", proveedorService.listarProveedores());
         return "proveedor/lista";
     }
+
     @GetMapping("/editar")
     public String editarGet(HttpSession httpSession,
-                            ModelMap modelMap, 
-                            Proveedor proveedor){
-        modelMap.addAttribute("proveedor", proveedor); 
+            ModelMap modelMap,
+            Proveedor proveedor) {
+        modelMap.addAttribute("proveedor", proveedor);
         return "proveedor/editar";
     }
-
 
     /**
      * POST
@@ -61,28 +61,32 @@ public class ProveedorController extends CusControlador {
      */
     @PostMapping("/nuevo")
     public String nuevoPost(HttpSession httpSession,
-                            ModelMap modelMap,
-                            @ModelAttribute Proveedor proveedor){
+            ModelMap modelMap,
+            @ModelAttribute Proveedor proveedor) {
         //TODO
         return "proveedor/nuevo";
     }
+
     @PostMapping("/lista")
     public String listaPost(HttpSession httpSession,
-                            ModelMap modelMap,
-                            @ModelAttribute Proveedor proveedor){
+            ModelMap modelMap,
+            @ModelAttribute Proveedor proveedor) {
         //TODO
         return "proveedor/lista";
     }
+
     @PostMapping("/editar")
     public String editarPost(HttpSession httpSession,
-                             ModelMap modelMap,
-                             @ModelAttribute ("proveedor") Proveedor proveedor){
+            ModelMap modelMap,
+            @ModelAttribute("proveedor") Proveedor proveedor) {
         try {
             proveedorService.modificar(proveedor);
             return "proveedor/editar";
         } catch (ErrorServicio ex) {
             Logger.getLogger(ProveedorController.class.getName()).log(Level.SEVERE, null, ex);
         }
+       return "proveedor/editar";
     }
+    
 
 }
