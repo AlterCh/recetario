@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 @PreAuthorize("hasAnyRole('ROLE_USUARIO_REGISTRADO')")
 @RequestMapping("/panel")
-public class PanelUsuarioController extends CusControlador {
+public class UsuarioController extends CusControlador {
 
     @Autowired
     UsuarioService usuarioService;
