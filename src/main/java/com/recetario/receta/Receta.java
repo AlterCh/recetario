@@ -39,6 +39,6 @@ public class Receta {
 
     @Embedded
     @OneToMany
-    private List<Categoria> categoria; //TODO Hay que hacer la Clase Entidad, CRUD, Repositorio
+    private List<Categoria> categoria;
     
 }

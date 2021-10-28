@@ -3,6 +3,7 @@ package com.recetario.ingrediente;
 import com.recetario.controladores.CusControlador;
 import com.recetario.enumeraciones.UnidadMedicion;
 import com.recetario.errores.ErrorServicio;
+import com.recetario.producto.ProductoService;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
@@ -21,10 +22,14 @@ public class IngredienteController extends CusControlador {
 
     @Autowired
     private IngredienteService ingredienteService;
+    
+    @Autowired 
+    private ProductoService productoService;
 
     @GetMapping("/nuevo")
     public String nuevoGet(HttpSession httpSession, ModelMap model) {
         model.addAttribute("ingrediente", new Ingrediente());
+        model.addAttribute("productos", productoService.getAll());
 
         return "ingrediente/nuevo"; //Me crea un nuevo Ingrediente.
     }
