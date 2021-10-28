@@ -2,6 +2,9 @@
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragmentos/head :: head2"></head>
 <body>
+
+
+
     <form action="/logincheck" method="POST">
         <p th:if="${error != null}" th:text="${error}"
            style="color:red; text-shadow: 1px 1px 2px white;"></p>
@@ -15,6 +18,7 @@
 
         <br/>
         <button type="submit" class="btn btn-primary">Ingresar</button>
+
     </form>
 </body>
 </html>
