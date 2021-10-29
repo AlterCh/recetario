@@ -29,7 +29,7 @@ public class IngredienteController extends CusControlador {
     @GetMapping("/nuevo")
     public String nuevoGet(HttpSession httpSession, ModelMap model) {
         model.addAttribute("ingrediente", new Ingrediente());
-        model.addAttribute("productos", productoService.getAll());
+        model.addAttribute("productos", productoService.getAll()); //Te trae los Productos, en la Vista es un foreach
 
         return "ingrediente/nuevo"; //Me crea un nuevo Ingrediente.
     }
@@ -44,6 +44,7 @@ public class IngredienteController extends CusControlador {
     public String editarGet(HttpSession httpSession,
             ModelMap modelMap, Ingrediente ingrediente) {
         modelMap.addAttribute("ingrediente", ingrediente); //Envía el atributo Ingrediente con el Objeto editado
+        modelMap.addAttribute("productos", productoService.getAll());
         return "ingrediente/editar"; 
     }
 
