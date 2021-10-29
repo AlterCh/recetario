@@ -1,7 +1,6 @@
 package com.recetario.ingrediente;
 
 import com.recetario.controladores.CusControlador;
-import com.recetario.enumeraciones.UnidadMedicion;
 import com.recetario.errores.ErrorServicio;
 import com.recetario.producto.ProductoService;
 import java.util.logging.Level;
@@ -69,7 +68,7 @@ public class IngredienteController extends CusControlador {
             ingredienteService.modificar(ingrediente.getId(), ingrediente.getCantidad(), ingrediente.getUnidades());
             return "ingrediente/editar";
         } catch (ErrorServicio e) {
-            Logger.getLogger(IngredienteController.class.getName()).log(Level.SEVERE, null, e);
+            modelMap.addAttribute("error", e.getMessage());
         }
         return "ingrediente/editar";
     }

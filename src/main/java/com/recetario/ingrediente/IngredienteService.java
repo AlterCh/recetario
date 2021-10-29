@@ -1,7 +1,7 @@
 package com.recetario.ingrediente;
 
 import com.recetario.errores.ErrorServicio;
-import com.recetario.enumeraciones.UnidadMedicion;
+import com.recetario.siu.Unidad;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -33,7 +33,7 @@ public class IngredienteService {
     }
 
     @Transactional
-    public void modificar(String id, Double cantidad, UnidadMedicion unidad) throws ErrorServicio { //U
+    public void modificar(String id, Double cantidad, Unidad unidad) throws ErrorServicio { //U
 
         try {
             Optional<Ingrediente> respuesta = repo.findById(id);

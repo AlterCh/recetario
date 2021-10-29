@@ -1,7 +1,7 @@
 package com.recetario.producto;
 
 import com.recetario.categoria.Categoria;
-import com.recetario.enumeraciones.UnidadMedicion;
+import com.recetario.siu.Unidad;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -29,7 +29,7 @@ public class Producto {
     private Double cantidad;
 
     @Enumerated(EnumType.STRING)
-    private UnidadMedicion unidadMedicion;
+    private Unidad unidadMedicion;
 
     private Double stock;
 

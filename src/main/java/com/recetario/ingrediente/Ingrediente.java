@@ -1,7 +1,8 @@
 package com.recetario.ingrediente;
 
-import com.recetario.enumeraciones.UnidadMedicion;
+
 import com.recetario.producto.Producto;
+import com.recetario.siu.Unidad;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -31,6 +32,6 @@ public class Ingrediente {
     
     private Double cantidad;
     
-    private UnidadMedicion unidades;
+    private Unidad unidades;
 
 }

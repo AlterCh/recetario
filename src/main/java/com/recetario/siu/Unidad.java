@@ -1,6 +1,8 @@
 package com.recetario.siu;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -22,5 +24,12 @@ public class Unidad {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-
+    
+    private String nombre;
+    
+    @Enumerated(EnumType.STRING)
+    private TipoUnidad tipoUnidad;
+    
+    private String abrev;
+    
 }
