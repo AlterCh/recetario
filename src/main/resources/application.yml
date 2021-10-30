@@ -9,6 +9,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   #  Configuracion Creacion de tablas (Hibernate)
   jpa:
+    defer-datasource-initialization: true
     show-sql: false
     hibernate:
       ddl-auto: update
@@ -18,6 +19,9 @@ spring:
   #  Que thymeleaf no guarde datos en cache
   thymeleaf:
     cache: false
-
+  sql:
+    init:
+      data-locations: classpath:/sql/core/*.sql
+      mode: always
 server:
   port: 8080
