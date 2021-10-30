@@ -14,6 +14,16 @@
 
 
 USE `recetario`;
+/*!40000 ALTER TABLE `usuario`
+    DISABLE KEYS */;
+INSERT INTO `usuario` (`id`, `alta`, `apellido`, `baja`, `clave`, `domicilio`, `mail`, `nombre`, `telefono`, `foto_id`,
+                       `provincia_id`, `rol_id`)
+VALUES ('f2b81d0b-382e-487e-af04-f3ba6352698c', '2021-10-29 23:02:26.834000', 'admin', NULL,
+        '$2a$10$eX/sn.1W76K7ibGJyivBqe4FVTJ0z2JwWmlee2MuSXs.RjnBnjxp.', NULL, 'admin@admin', 'admin', NULL, NULL, NULL,
+        NULL);
+
+/*!40000 ALTER TABLE `usuario`
+    ENABLE KEYS */;
 
 /*!40000 ALTER TABLE `unidad`
     DISABLE KEYS */;

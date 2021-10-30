@@ -43,7 +43,7 @@ public class UsuarioController extends CusControlador {
         } catch (Exception ex) {
             model.addAttribute("error", ex.getMessage());
         }
-        return "panel/perfil";
+        return "panel/configuracion/perfil";
     }
 
     @PostMapping("/perfil")
@@ -74,7 +74,7 @@ public class UsuarioController extends CusControlador {
             return "redirect:/panel";
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
-            return "panel/perfil";
+            return "panel/configuracion/perfil";
         }
     }
 

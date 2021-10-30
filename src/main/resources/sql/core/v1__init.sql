@@ -307,15 +307,7 @@ CREATE TABLE IF NOT EXISTS `usuario`
   COLLATE = utf8mb4_0900_ai_ci;
 
 -- Dumping data for table recetario.usuario: ~1 rows (approximately)
-/*!40000 ALTER TABLE `usuario`
-    DISABLE KEYS */;
-INSERT INTO `usuario` (`id`, `alta`, `apellido`, `baja`, `clave`, `domicilio`, `mail`, `nombre`, `telefono`, `foto_id`,
-                       `provincia_id`, `rol_id`)
-VALUES ('f2b81d0b-382e-487e-af04-f3ba6352698c', '2021-10-29 23:02:26.834000', 'admin', NULL,
-        '$2a$10$eX/sn.1W76K7ibGJyivBqe4FVTJ0z2JwWmlee2MuSXs.RjnBnjxp.', NULL, 'admin@admin', 'admin', NULL, NULL, NULL,
-        NULL);
-/*!40000 ALTER TABLE `usuario`
-    ENABLE KEYS */;
+
 
 /*!40101 SET SQL_MODE = IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS = IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;

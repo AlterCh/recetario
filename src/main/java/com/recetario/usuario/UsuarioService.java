@@ -1,6 +1,8 @@
 package com.recetario.usuario;
 
+import com.recetario.errores.ErrorServicio;
 import com.recetario.foto.FotoService;
+import com.recetario.usuario.preferencias.PreferenciasUsuario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,6 +107,21 @@ public class UsuarioService implements UserDetailsService {
         } else {
             throw new Exception("Error al habilitar usuario");
         }
+    }
+
+    public Usuario modificarPreferencias(Usuario usuario, PreferenciasUsuario preferenciasUsuario) throws ErrorServicio {
+//        try{
+//            Optional<Usuario> aux = repo.findById(usuario.getId());
+//            if(!aux.isPresent()){
+//                throw new ErrorServicio("Usuario no encontrado");
+//            }
+//            if(!aux.get().getPreferenciasUsuario().equals(preferenciasUsuario)){
+//                aux.get().setPreferenciasUsuario(preferenciasUsuario);
+//            }
+//
+//        }
+//
+        return null;
     }
 
     @Override
