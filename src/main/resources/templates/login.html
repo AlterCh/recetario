@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragmentos/head :: head"></head>
+           <br>
+           <p style="font-family:monospace"> INGRESA, COCINAMOS, Y COM.EMOS!</p>
+           <br>
 <body>
-
-
 
     <form action="/logincheck" method="POST">
         <p th:if="${error != null}" th:text="${error}"
            style="color:red; text-shadow: 1px 1px 2px white;"></p>
         <!--                        <p th:if="${logout != null}" th:text="${logout}" style="color:green"></p> -->
 
+        
         <label>E-Mail</label>
         <input type="email" class="form-control" name="username"/>
 

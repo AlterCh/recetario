@@ -5,6 +5,9 @@
     al mismo head que el index.html
 -->
 <head th:replace="fragmentos/head :: head"></head>
+<br>
+           <p style="font-family:monospace"> REGISTRATE PARA COM.ER MEJOR, Y MAS RICO!</p>
+           <br>
 <body>
 <form th:action="@{/registro}" th:object="${usuario}" method="POST" enctype="multipart/form-data">
 
