@@ -3,14 +3,14 @@ spring:
   #  Configuracion BASE DE DATOS
   #  https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-initialization.using-basic-sql-scripts
   datasource: 
-    url: jdbc:mysql://localhost:3306/recetario
+    url: jdbc:mysql://localhost:3306/@schema@
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   #  Configuracion Creacion de tablas (Hibernate)
   jpa:
     defer-datasource-initialization: true
-    show-sql: false
+    show-sql: true
     hibernate:
       ddl-auto: update
     properties:
@@ -21,7 +21,13 @@ spring:
     cache: false
   sql:
     init:
+#      Ubicacion de scripts sql
       data-locations: classpath:/sql/core/*.sql
+#     Modo de inicializacion de base de datos (always, embedded, never)
       mode: always
+  batch:
+    jdbc:
+      schema: @schema@
+      initialize-schema: always
 server:
   port: 8080
