@@ -16,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor //Constructor con todos los parametros
 @NoArgsConstructor //Constructor vacío
 public class Producto {
+
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(generator = "uuid")
@@ -28,14 +29,13 @@ public class Producto {
 
     private Double cantidad;
 
-    @Enumerated(EnumType.STRING)
-    private Unidad unidadMedicion;
+    @OneToOne
+    private Unidad unidad;
 
     private Double stock;
 
     @OneToMany
     private List<Categoria> categoria; //TODO
-
 
 
 }

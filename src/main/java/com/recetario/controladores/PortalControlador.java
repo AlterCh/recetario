@@ -3,6 +3,7 @@ package com.recetario.controladores;
 import com.recetario.usuario.Usuario;
 import com.recetario.usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,11 +24,15 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/")
 public class PortalControlador extends CusControlador{
 
+    @Value("${msg}")
+    private String msg;
+
     @Autowired
     private UsuarioService usuarioService;
 
     @GetMapping("")
     public String index() {
+        System.out.println(msg);
         return "index.html";
     }
 
