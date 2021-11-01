@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/proveedor")
@@ -83,8 +84,17 @@ public class ProveedorController extends CusControlador {
     @PostMapping("/lista")
     public String listaPost(HttpSession httpSession,
             ModelMap modelMap,
-            @ModelAttribute Proveedor proveedor) {
-        
+            @ModelAttribute Proveedor proveedor, 
+            @RequestParam("id") String id) {
+            
+            if (id != null) {
+            
+                try {
+                    proveedorService.borrar(proveedorRepository.getById(id));
+                } catch (Exception ex) {
+                    Logger.getLogger(ProveedorController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
             proveedorService.listarProveedores() ;
        
         return "proveedor/lista";
