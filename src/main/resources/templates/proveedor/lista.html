@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragmentos/head :: #head"></head>
-<body>
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-        <th scope="col">Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-<!--    th:each == foreach (Proveedor x : proveedores)-->
-        <tr th:each="proveedor : ${proveedores}">
-            <td th:text="${proveedor.nombre}" >Mark</td>
-            <td th:text="${proveedor.direccion}" >Otto</td>
-            <td th:text="${proveedor.telefono}">@mdo</td>
-            <td><form action="/proveedor/lista" method="post">
-            <button th:name="${id}" th:value="${proveedor.id}">Delete</button>
-</form>
-</td>
-        </tr>
-    </tbody>
-</table>
+    <head th:replace="fragmentos/head :: #head"></head>
+    <body>
+        <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--    th:each == foreach (Proveedor x : proveedores)-->
+                <tr th:each="proveedor : ${proveedores}">
+                    <td th:text="${proveedor.nombre}" >Mark</td>
+                    <td th:text="${proveedor.direccion}" >Otto</td>
+                    <td th:text="${proveedor.telefono}">@mdo</td>
+                    <td><form action="/proveedor/lista" method="post">
+                            <button name="id" th:value="${proveedor.id}">Delete</button>
 
-<footer th:replace="fragmentos/footer :: #footer"></footer>
-<div th:replace="fragmentos/libs :: #libs"></div>
-</body>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <footer th:replace="fragmentos/footer :: #footer"></footer>
+        <div th:replace="fragmentos/libs :: #libs"></div>
+    </body>
 </html>

@@ -28,7 +28,7 @@ public class ProveedorController extends CusControlador {
     ProveedorRepository proveedorRepository;
 
     ErrorServicio ex;
-    
+
     /**
      * GET
      */
@@ -71,34 +71,34 @@ public class ProveedorController extends CusControlador {
             @ModelAttribute Proveedor proveedor) throws Exception {
         try {
             proveedorService.registrar(proveedor);
-             return "redirect:/proveedor/lista";
+            return "redirect:/proveedor/lista";
         } catch (ErrorServicio ex) {
             modelMap.put("error", ex.getMessage());
             Logger.getLogger(ProveedorController.class.getName()).log(Level.SEVERE, null, ex);
             return "proveedor/nuevo";
         }
-        
-       
+
     }
 
     @PostMapping("/lista")
     public String listaPost(HttpSession httpSession,
             ModelMap modelMap,
-            @ModelAttribute Proveedor proveedor, 
+            @ModelAttribute Proveedor proveedor,
             @RequestParam("id") String id) {
-            
-            if (id != null) {
-            
-                try {
-                    proveedorService.borrar(proveedorRepository.getById(id));
-                } catch (Exception ex) {
-                    Logger.getLogger(ProveedorController.class.getName()).log(Level.SEVERE, null, ex);
+
+            try {
+                if (id != null) {
+                proveedorService.borrar(proveedorRepository.getById(id));
+                return "redirect:/proveedor/lista";
+                }else{
+                    throw new Exception("No se ha eliminado el registro, disculpe las molestias");
                 }
+            } catch (Exception ex) {
+                modelMap.put("error", ex.getMessage());
+                Logger.getLogger(ProveedorController.class.getName()).log(Level.SEVERE, null, ex);
+                return "proveedor/lista";
+            }
         }
-            proveedorService.listarProveedores() ;
-       
-        return "proveedor/lista";
-    }
 
     @PostMapping("/editar")
     public String editarPost(HttpSession httpSession,
@@ -110,8 +110,7 @@ public class ProveedorController extends CusControlador {
         } catch (ErrorServicio ex) {
             Logger.getLogger(ProveedorController.class.getName()).log(Level.SEVERE, null, ex);
         }
-       return "proveedor/editar";
+        return "proveedor/editar";
     }
-    
 
 }
