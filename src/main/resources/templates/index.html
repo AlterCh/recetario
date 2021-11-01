@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <!--
-    Para asignar un fragmento se puede:
-    reemplazar  (th:replace)
-    insertar    (th:insert)
-    -->
 
-    <head th:replace="fragmentos/head :: #head">
+    
 
-    </head>
+    <head th:replace="fragmentos/head :: #head"> </head>
+    
     <body>
-        <nav th:replace ="fragmentos/navbar :: Index">
-        </nav>
+        <nav th:replace ="fragmentos/navbar :: Index"> </nav>   //VER BARRA NAVEGACION JUSTIFICADO DERECHA
         
-        <p style="font-family:monospace"> LA SOLUCION A TUS COM.IDAS!</p>
-        <a href="/registro"> Registro </a>
-        <br>
-        <a href="/login"> Login</a>
-        <br>
-        <a href="/login"> Quienes somos?</a>
+        <h1 class="masthead-heading mb-0">TU PROPIO RECETARIO</h1>
+        <p style="font-family:monospace"> Tu agenda de comida personalizada</p>
+
+      
+            
+            
+            
+            
+            
+            
+            
         
         <footer th:replace="fragmentos/footer :: #footer"></footer>
         <div th:replace="fragmentos/libs :: libs"></div>
