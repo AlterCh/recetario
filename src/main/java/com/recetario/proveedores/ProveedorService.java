@@ -91,9 +91,9 @@ public class ProveedorService implements UserDetailsService {
             throw new ErrorServicio("El nombre del Proveedor no puede ser nulo");
         }
 
-        if (provincia == null || provincia.getId().isEmpty()) {
+        /*if (provincia == null || provincia.getId().isEmpty()) {
             throw new ErrorServicio ("La Provincia del Proveedor no puede ser nula");
-        }
+        }*/
 
         if (direccion == null || direccion.isEmpty()) {
             throw new ErrorServicio("La direccion del Proveedor no puede ser nula");

@@ -5,6 +5,7 @@ import com.recetario.errores.ErrorServicio;
 import com.recetario.producto.Producto;
 import com.recetario.producto.ProductoRepository;
 import com.recetario.producto.ProductoService;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
@@ -25,14 +26,16 @@ public class ProveedorController extends CusControlador {
     @Autowired
     ProveedorRepository proveedorRepository;
 
+    ErrorServicio ex;
+    
     /**
      * GET
      */
     @GetMapping("/nuevo")
-    public String nuevoGet(HttpSession httpSession,
-            ModelMap modelMap) {
+    public String nuevoGet(HttpSession httpSession, ModelMap modelMap) {
         //atributo proveedor con un objeto vacio
         //el objeto vacio trae todos los atributos en null
+
         modelMap.addAttribute("proveedor", new Proveedor());
         return "proveedor/nuevo";
     }
@@ -67,11 +70,14 @@ public class ProveedorController extends CusControlador {
             @ModelAttribute Proveedor proveedor) throws Exception {
         try {
             proveedorService.registrar(proveedor);
-            
+             return "redirect:/proveedor/lista";
         } catch (ErrorServicio ex) {
+            modelMap.put("error", ex.getMessage());
             Logger.getLogger(ProveedorController.class.getName()).log(Level.SEVERE, null, ex);
+            return "proveedor/nuevo";
         }
-        return "proveedor/nuevo";
+        
+       
     }
 
     @PostMapping("/lista")
