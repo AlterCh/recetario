@@ -32,7 +32,7 @@ public class PortalControlador extends CusControlador{
 
     @GetMapping("")
     public String index() {
-        System.out.println(msg);
+        //System.out.println(msg);
         return "index.html";
     }
 
