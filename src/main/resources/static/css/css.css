@@ -6,3 +6,28 @@ background-size: cover;
   background-position: center center;
 }
 
+.background-login{
+    heigh:665px;
+  background-image: url("https://image.freepik.com/free-vector/seamless-background-with-various-sketch-cheeses-spices-garlic-pepper-hand-drawn-illustration_257845-1770.jpg");
+  background-size: 10rem;
+}
+
+.background-index{
+     heigh:665px;
+  background-image: url("https://image.freepik.com/free-vector/seamless-background-with-various-sketch-cheeses-spices-garlic-pepper-hand-drawn-illustration_257845-1770.jpg");
+  background-size: 10rem; 
+}
+
+.background-registro{
+      heigh:665px;
+  background-image: url("https://image.freepik.com/free-vector/seamless-background-with-various-sketch-cheeses-spices-garlic-pepper-hand-drawn-illustration_257845-1770.jpg");
+  background-size: 10rem;
+}
+
+.background-inicio{
+     heigh:665px;
+  background-image: url("https://image.freepik.com/free-vector/seamless-background-with-various-sketch-cheeses-spices-garlic-pepper-hand-drawn-illustration_257845-1770.jpg");
+  background-size: 10rem; 
+}
+
+
