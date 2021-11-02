@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    
+
 
     <head th:replace="fragmentos/head :: #head"> </head>
-    
-    <title>TU PROPIO RECETARIO</title>
-    
-    
-    <body>
-             
-        <nav th:replace ="fragmentos/navbar :: Index"> </nav>   <!--VER BARRA NAVEGACION JUSTIFICADO DERECHA-->
-        
-        <p style="font-family:monospace"> Tu agenda de comida personalizada</p>
+    <h2>TU PROPIO RECETARIO</h2>
 
-      
-            
-            
-            
-            
-            
-            
-            
-        
+
+    <body>
+
+        <nav th:replace ="fragmentos/navbar :: Index"> </nav>   <!--VER BARRA NAVEGACION JUSTIFICADO DERECHA-->
+
+        <p style="font-family:monospace"><b> Tu agenda de comida personalizada </b></p>
+
+        <div id="navegador">
+            <ul>
+                <li><a href="#"> Recetario </a></li>
+                <li><a href="#"> Proveedores</a></li>
+                <li><a href="#"> Favoritos </a></li>
+            </ul>
+        </div>        
         <footer th:replace="fragmentos/footer :: #footer"></footer>
         <div th:replace="fragmentos/libs :: libs"></div>
     </body>
 </html> 
+
+
 
