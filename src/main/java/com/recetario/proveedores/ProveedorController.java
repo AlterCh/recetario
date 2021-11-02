@@ -51,9 +51,20 @@ public class ProveedorController extends CusControlador {
     @GetMapping("/editar")
     public String editarGet(HttpSession httpSession,
             ModelMap modelMap,
-            Proveedor proveedor) {
-        modelMap.addAttribute("proveedor", proveedor);
-        return "proveedor/editar";
+           @RequestParam String id) {
+                 
+        try {
+            if (id != null && proveedorRepository.getById(id) != null) {
+               modelMap.addAttribute("proveedor", proveedorRepository.getById(id)); 
+               return "proveedor/editar";
+            }else{
+                throw new Exception("No se ha podido encontrar el registro");
+            }
+        } catch (Exception ex) {
+            modelMap.put("error", ex.getMessage());
+            Logger.getLogger(ProveedorController.class.getName()).log(Level.SEVERE, null, ex);
+            return "redirect:/proveedor/lista";
+        }
     }
 
     /**
@@ -105,12 +116,18 @@ public class ProveedorController extends CusControlador {
             ModelMap modelMap,
             @ModelAttribute("proveedor") Proveedor proveedor) {
         try {
-            proveedorService.modificar(proveedor);
-            return "proveedor/editar";
-        } catch (ErrorServicio ex) {
+            if (proveedor != null) {
+                 proveedorService.modificar(proveedor);
+            return "redirect:/proveedor/lista";
+            }else{
+                throw new Exception("No se ha podido modificar el registro");
+            }
+        } catch (Exception ex) {
+            modelMap.put("error", ex.getMessage());
             Logger.getLogger(ProveedorController.class.getName()).log(Level.SEVERE, null, ex);
+            return "proveedor/editar";
         }
-        return "proveedor/editar";
+        
     }
 
 }

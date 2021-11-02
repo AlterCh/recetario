@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragmentos/head :: #head"></head>
-<body>
+    <head th:replace="fragmentos/head :: #head"></head>
+    <body>
+        <!--      Llamamos al objeto del controlador ProveedorController    -->
+        <form action="/proveedor/editar" method="post" th:object="${proveedor}">
 
-<!-- CREAN EL ELEMENTO-->
-<header th:replace="fragmentos/header :: header">
-</header>
+             <input type="hidden" name="id" th:field="*{id}" th:value="*{id}"/>
+
+            <label>Nombre</label>
+            <!--    th:field == los atributos del objeto -->
+            <input type="text" class="form-control" name="nombre" th:field="*{nombre}" th:value="*{nombre}"/>
+
+            <label>Direccion</label>
+            <input type="text" class="form-control" name="direccion" th:field="*{direccion}"th:value="*{direccion}"/>
+
+            <label>Telefono</label>
+            <input type="number" class="form-control" name="telefono" th:field="*{telefono}"th:value="*{telefono}"/>
+
+            <label>Provincia</label>
+            
+            <!-- TO DO Listado Provincias desplegable
+            <select id="unidades1" th:field="*{unidadesFundamentales}">
+                <option th:each="unidad : ${unidadesServicio.getUnidadesByMagnitud(mMagnitud)}" th:value="${unidad}" th:text="${unidad}"></option>
+            </select>-->
+
+            <br/>
+            <button type="submit" class="btn btn-primary">Modificar Proveedor</button>
+            
+            <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+        </form>
 
 
-<!-- CONTENIDO -->
-<form action="/proveedor/editar" method="post" >
-
-    <input class="form-control" type="text" placeholder="nombre" aria-label="default input example">
-    <input class="form-control" type="text" placeholder="direccion" aria-label="default input example">
-    <input class="form-control" type="number" placeholder="telefono" aria-label="default input example">
-</form>
-
-<!-- END CONTENIDO-->
-
-<footer th:replace="fragmentos/footer :: #footer"></footer>
-<div th:replace="fragmentos/libs :: #libs"></div>
-</body>
+        <footer th:replace="fragmentos/footer :: #footer"></footer>
+        <div th:replace="fragmentos/libs :: #libs"></div>
+    </body>
 </html>
