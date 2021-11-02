@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+
     <head th:replace="fragmentos/head :: #head"> </head>
+    <h2>TU PROPIO RECETARIO</h2>
 
 
     <body>
 
         <nav th:replace ="fragmentos/navbar :: Index"> </nav>   <!--VER BARRA NAVEGACION JUSTIFICADO DERECHA-->
+<<<<<<< HEAD
 
         <h1>¡BIENVENIDO A HUEVO FRITO! Tu recetario personalizado. </h1>        
 
@@ -52,10 +56,22 @@
 
 
 
+=======
+>>>>>>> parent of a18c504 (Revert "Merge remote-tracking branch 'origin/En-Edicion' into En-Edicion")
 
+        <p style="font-family:monospace"><b> Tu agenda de comida personalizada </b></p>
 
+        <div id="navegador">
+            <ul>
+                <li><a href="#"> Recetario </a></li>
+                <li><a href="#"> Proveedores</a></li>
+                <li><a href="#"> Favoritos </a></li>
+            </ul>
+        </div>        
         <footer th:replace="fragmentos/footer :: #footer"></footer>
         <div th:replace="fragmentos/libs :: libs"></div>
     </body>
 </html> 
+
+
 

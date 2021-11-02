@@ -10,6 +10,7 @@ and open the template in the editor.
     <!--CAMBIAR ESTA NAVBAR-->
 
     <body>
+<<<<<<< HEAD
         <nav th:fragment="Index" class="navbar navbar-light" style="background-color: #f99a42;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
@@ -25,12 +26,26 @@ and open the template in the editor.
                     </li>
                 </ul>
             </div>
+=======
+        <nav th:fragment="Index" class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="/">Recetario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/registro">Registro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+            </ul>
+>>>>>>> parent of a18c504 (Revert "Merge remote-tracking branch 'origin/En-Edicion' into En-Edicion")
         </nav>
 
 
-        <nav th:fragment="Panel" class="navbar navbar-expand-lg navbar-light" style="background-color: #f99a42;">
+        <nav th:fragment="Panel" class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">Tu Recetario</a>
+                <a class="navbar-brand" href="/">Recetario</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -39,44 +54,46 @@ and open the template in the editor.
                     <ul class="nav justify-content-end">
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="/proveedor" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Proveedor
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/proveedor/nuevo">Agregar</a></li>
-                                <li><a class="dropdown-item" href="proveedor/lista">Ver Lista</a></li>
-                                <li><a class="dropdown-item" href="/proveedor/editar">Editar</a></li>
-
-
+                                <li><a class="dropdown-item" href="/proveedor">Proveedores</a></li>
+                                <li><a class="dropdown-item" href="/receta">Recetas</a></li>
+                                <li><a class="dropdown-item" href="/favoritos">Favoritos</a></li>
 
                             </ul>
                         </li> 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="/receta" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Recetas
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Ingredientes
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/receta/nuevo">Agregar</a></li>
-                                <li><a class="dropdown-item" href="receta/lista">Ver Lista</a></li>
-                                <li><a class="dropdown-item" href="/receta/editar">Editar</a></li>
+                                <li><a class="dropdown-item" href="/favoritos">Favoritos</a></li>
+                                <li><a class="dropdown-item" href="/">Agregar a favoritos </a></li>
+                                <li><hr class="dropdown-divider"></li>
+
                             </ul>
                         </li> 
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Favoritos
+                                Recetas
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="/misrecetas">Mis recetas</a></li>
+                                <li><a class="dropdown-item" href="#">Explorar</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li> 
 
 
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/login">Logout</a><!-- comment -->
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                               <p align="right"> <button class="btn btn-primary me-md-2" type="/logout">Logout</button>
+                               <!--<a class="nav-link active" aria-current="page" href="/login">Logout</a> <!-- comment -->
+                            </div>
+
                         </li> 
                     </ul>
                 </div>
