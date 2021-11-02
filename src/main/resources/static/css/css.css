@@ -1,9 +1,6 @@
 .error {
-  height: 400px;
-  background-image: url("https://image.freepik.com/free-photo/dirty-pattern-paint-room-block_1203-5709.jpg");
-background-size: cover;
-  background-repeat:no-repeat;
-  background-position: center center;
+  height: 800px;
+background-size: 10rem;
 }
 
 .background-login{
