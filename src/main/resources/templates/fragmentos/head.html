@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<!--
-Para que los fragmentos funcionen se debe utilizar el atributo:
-th:fragment="nombreFragmento"
-
-Hay dos formas de encontrar un fragmento:
-por id o por el nombre del fragmento
--->
-<head id="head" th:fragment="head">
     <meta charset="UTF-8">
+        <link href="/css/styleindex.css" rel="stylesheet" type="text/css"/>
+        <head id="head" th:fragment="head">
 
-    <title>Recetario</title>
 
-    <!--    Estilos     -->
-    <!--
-        Bootstrap
-    -->
-    <link rel="stylesheet" href="/vendors/bootstrap5/css/bootstrap.css">
-    <link rel="stylesheet" href="/vendors/bootstrap5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/vendors/bootstrap5/css/bootstrap-grid.css">
-    <!--
-    Custom
-    -->
-    <link rel="stylesheet" href="/css/css.css">
-    <!--    -->
-</head>
+            <header class="headerindex">
+                <div class="container logo-nav-container">
+                    <a href="#">
+                        <img src="https://th.bing.com/th/id/R.cf61de8b9be1b46b167f19ff97c3a843?rik=wUk02rh2gje3wA&pid=ImgRaw&r=0" width="80" height= "80"></a>
+                    <nav class="navigation">
+                        <ul>
+                            <li><a href="/registro">Registro</a></li>
+                            <li><a href="/login">Login</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </header>
+
+         
+        </head>
 </html>
