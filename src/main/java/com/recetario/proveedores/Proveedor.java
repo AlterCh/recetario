@@ -35,7 +35,7 @@ public class Proveedor {
 //    private Provincia provincia;
 
     private String telefono;
-
+    
     @OneToMany
     private List<Producto> productos;
     
