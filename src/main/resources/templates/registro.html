@@ -1,42 +1,119 @@
 <!DOCTYPE html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<!--
-    En este caso se esta utilizando el nombre de head2 para referirse
-    al mismo head que el index.html
--->
-<head th:replace="fragmentos/head :: head"></head>
-<br>
-    <p style="font-family:monospace"><h1><b>REGISTRATE </b></p></h1>
-           <br>
-<body>
-<form th:action="@{/registro}" th:object="${usuario}" method="POST" enctype="multipart/form-data">
+<html lang="es">
+    <head>
+        <title>RECETARIO</title>
+        <meta charset="UTF-8"
+              <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
-    <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+        <link href="/css/login-registro.css" rel="stylesheet" type="text/css"/>
 
-    <label>Nombre</label>
-    <input type="text" class="form-control" name="nombre" th:field="*{nombre}"/>
-    <br/>
-    <label>Apellido</label>
-    <input type="text" class="form-control" name="apellido" th:field="*{apellido}"/>
-    <br/>
-    <label>E-Mail</label>
-    <input type="email" class="form-control" name="mail" th:field="*{mail}"/>
-    <br/>
-    <label>Foto</label>
-    <input type="file" class="form-control" name="archivo"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-    <br/>
-    <label>Clave</label>
-    <input type="password" class="form-control" name="clave1" th:field="*{clave}"/>
-    <br/>
-    <label>Repetir Clave</label>
-    <input type="password" class="form-control" name="clave2"/>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
 
-    <br/>
-    <button type="submit" class="btn btn-primary"><h5>Registrarme</h5> </button>
-</form>
+        <!-- Estilos -->
+        <link rel="stylesheet" href="css/estilos.css">
 
-<footer th:replace="fragmentos/footer :: #footer"></footer>
-<div th:replace="fragmentos/libs :: libs"></div>
-</body>
+        <title>Formulario Login y Registro de Usuarios</title>
+    </head>
+
+    <body>
+
+        <!-- Formularios -->
+        <div class="contenedor-formularios">
+            <!-- Links de los formularios -->
+            <ul class="contenedor-tabs">
+                <li class="tab tab-segunda active"><a href="/login">Iniciar Sesión</a></li>
+                <li class="tab tab-primera"><a href="/registro">Registrarse</a></li>
+            </ul>
+
+            <!-- Contenido de los Formularios -->
+            <div class="contenido-tab">
+                <!-- Iniciar Sesion -->
+                <div id="iniciar-sesion">
+                    <h1>Iniciar Sesión</h1>
+                    <form action="#" method="post">
+                        <div class="contenedor-input">
+                            <label>
+                                Usuario <span class="req">*</span>
+                            </label>
+                            <input type="text" required>
+                        </div>
+
+                        <div class="contenedor-input">
+                            <label>
+                                Contraseña <span class="req">*</span>
+                            </label>
+                            <input type="password" required>
+                        </div>
+                        <p class="forgot"><a href="#">Se te olvidó la contraseña?</a></p>
+                        <input type="submit" class="button button-block" value="Iniciar Sesión">
+                    </form>
+                </div>
+
+                <!-- Registrarse -->
+                <div id="registrarse">
+                    <h1>Registrarse</h1>
+                    <form action="#" method="post">
+                        <div class="fila-arriba">
+                            <div class="contenedor-input">
+                                <label>
+                                    Nombre <span class="req">*</span>
+                                </label>
+                                <input type="text" required>
+                            </div>
+
+                            <div class="contenedor-input">
+                                <label>
+                                    Apellido <span class="req">*</span>
+                                </label>
+                                <input type="text" required>
+                            </div>
+                        </div>
+                        <div class="contenedor-input">
+                            <label>
+                                Usuario <span class="req">*</span>
+                            </label>
+                            <input type="text" required>
+                        </div>
+                        <div class="contenedor-input">
+                            <label>
+                                Email <span class="req">*</span>
+                            </label>
+                            <input type="email" required>
+                        </div>
+                        <div class="contenedor-input">
+                            <label>
+                                Contraseña <span class="req">*</span>
+                            </label>
+                            <input type="password" required>
+                        </div>
+
+                        <div class="contenedor-input">
+                            <label>
+                                Repetir Contraseña <span class="req">*</span>
+                            </label>
+                            <input type="password" required>
+                        </div>
+
+                        <input type="submit" class="button button-block" value="Registrarse">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/jquery.js"></script>
+        <script src="js/main.js"></script>
+
+        <footer class="footer">
+            <div class="container">
+                <p>Pagina diseñada por Huevo</p>
+            </div>
+
+        </footer>
+
+    </body>
+
 </html>
