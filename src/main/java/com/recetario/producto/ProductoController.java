@@ -75,9 +75,9 @@ public class ProductoController extends CusControlador {
     @PostMapping("/nuevo")
     public String nuevoPost(HttpSession httpSession,
             ModelMap modelMap,
-            @ModelAttribute Proveedor proveedor) throws Exception {
+            @ModelAttribute Producto producto) throws Exception {
         try {
-            productoService.registrar(producto);//TO DO METODO REGISTRAR PRODUCTO SERVICE
+            productoService.registrar(producto);
              return "redirect:/proveedor/lista";
         } catch (ErrorServicio ex) {
             modelMap.put("error", ex.getMessage());
@@ -91,7 +91,7 @@ public class ProductoController extends CusControlador {
     @PostMapping("/lista")
     public String listaPost(HttpSession httpSession,
             ModelMap modelMap,
-            @ModelAttribute Proveedor proveedor,
+            @ModelAttribute Producto producto,
             @RequestParam("id") String id) {
 
             try {
@@ -113,7 +113,7 @@ public class ProductoController extends CusControlador {
     @PostMapping("/editar")
     public String editarPost(HttpSession httpSession,
             ModelMap modelMap,
-            @ModelAttribute("producto") Proveedor proveedor) {
+            @ModelAttribute("producto") Producto producto) {
         try {
             productoService.modificar(producto);// TO DO METODO MODIFICAR SERVICE PRODUCTO
             return "redirect:/producto/lista";
