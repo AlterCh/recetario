@@ -23,19 +23,20 @@
             <!-- Iniciar Sesion -->
             <div id="iniciar-sesion">
                 <h1>Iniciar Sesión</h1>
-                <form action="#" method="post">
+                <p th:if="${error != null}" th:text="${error}" style="color:red; text-shadow: 1px 1px 2px white;"></p>
+                <form action="/logincheck" method="post">
                     <div class="contenedor-input">
                         <label>
                             Usuario <span class="req">*</span>
                         </label>
-                        <input type="text" required>
+                        <input type="text" name="username" required>
                     </div>
 
                     <div class="contenedor-input">
                         <label>
                             Contraseña <span class="req">*</span>
                         </label>
-                        <input type="password" required>
+                        <input type="password" name="password"required>
                     </div>
                     <p class="forgot"><a href="#">Se te olvidó la contraseña?</a></p>
                     <input type="submit" class="button button-block" value="Iniciar Sesión">
@@ -45,70 +46,55 @@
             <!-- Registrarse -->
             <div id="registrarse">
                 <h1>Registrarse</h1>
-                <form action="#" method="post">
+                <form th:action="@{/registro}" th:object="${usuario}" method="POST" enctype="multipart/form-data">
                     <div class="fila-arriba">
                         <div class="contenedor-input">
                             <label>
                                 Nombre <span class="req">*</span>
                             </label>
-                            <input type="text" required>
+                            <input type="text" class="form-control" name="nombre" th:field="*{nombre}" required/>
                         </div>
 
                         <div class="contenedor-input">
                             <label>
                                 Apellido <span class="req">*</span>
                             </label>
-                            <input type="text" required>
+                            <input type="text" class="form-control" name="apellido" th:field="*{apellido}"/>
                         </div>
                     </div>
                     <div class="contenedor-input">
                         <label>
                             Usuario <span class="req">*</span>
                         </label>
-                        <input type="text" required>
                     </div>
                     <div class="contenedor-input">
                         <label>
                             Email <span class="req">*</span>
                         </label>
-                        <input type="email" required>
+                        <input type="email" class="form-control" name="mail" th:field="*{mail}"/>
                     </div>
                     <div class="contenedor-input">
                         <label>
                             Contraseña <span class="req">*</span>
                         </label>
-                        <input type="password" required>
+                       <input type="password" class="form-control" name="clave1" th:field="*{clave}" required/>
                     </div>
 
                     <div class="contenedor-input">
                         <label>
                             Repetir Contraseña <span class="req">*</span>
                         </label>
-                        <input type="password" required>
+                        <input type="password" class="form-control" name="clave2" required/>
                     </div>
+
+                    <label>Foto</label>
+                    <input type="file" class="form-control" name="archivo"/>
 
                     <input type="submit" class="button button-block" value="Registrarse">
                 </form>
             </div>
         </div>
     </div>
-
-    <form action="/logincheck" method="POST">
-        <p th:if="${error != null}" th:text="${error}" style="color:red; text-shadow: 1px 1px 2px white;"></p>
-        <!--                        <p th:if="${logout != null}" th:text="${logout}" style="color:green"></p> -->
-
-
-        <label>E-Mail</label>
-        <input type="email" class="form-control" name="username" />
-
-        <label>Clave</label>
-        <input type="password" class="form-control" name="password" />
-
-        <br />
-        <button type="submit" class="btn btn-primary">Ingresar</button>
-
-    </form>
-
 
     <footer th:replace="fragmentos/footer :: #footer"></footer>
     <div th:replace="fragmentos/libs :: libs"></div>
