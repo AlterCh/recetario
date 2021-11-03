@@ -12,10 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/proveedor")
@@ -49,10 +46,21 @@ public class ProveedorController extends CusControlador {
 
     @GetMapping("/editar")
     public String editarGet(HttpSession httpSession,
-            ModelMap modelMap,
-            Proveedor proveedor) {
-        modelMap.addAttribute("proveedor", proveedor);
-        return "proveedor/editar";
+                            ModelMap modelMap,
+                            @RequestParam String id) {
+
+        try {
+            if (id != null && proveedorRepository.getById(id) != null) {
+                modelMap.addAttribute("proveedor", proveedorRepository.getById(id));
+                return "proveedor/editar";
+            }else{
+                throw new Exception("No se ha podido encontrar el registro");
+            }
+        } catch (Exception ex) {
+            modelMap.put("error", ex.getMessage());
+            Logger.getLogger(ProveedorController.class.getName()).log(Level.SEVERE, null, ex);
+            return "redirect:/proveedor/lista";
+        }
     }
 
     /**
