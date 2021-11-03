@@ -35,9 +35,9 @@ public class ProveedorService implements UserDetailsService {
 
         String nombre = proveedor.getNombre();
         String direccion = proveedor.getDireccion();
-        Provincia provincia = proveedor.getProvincia();
+//        Provincia provincia = proveedor.getProvincia();
         String telefono = proveedor.getTelefono();
-        validar(nombre, direccion, provincia, telefono);
+        validar(nombre, direccion, telefono);
         repo.save(proveedor);
 
     }
@@ -47,16 +47,16 @@ public class ProveedorService implements UserDetailsService {
     public void modificar(@NonNull Proveedor proveedor) throws ErrorServicio {
         String nombre = proveedor.getNombre();
         String direccion = proveedor.getDireccion();
-        Provincia provincia = proveedor.getProvincia();
+//        Provincia provincia = proveedor.getProvincia();
         String telefono = proveedor.getTelefono();
-        validar(nombre, direccion, provincia, telefono);
+        validar(nombre, direccion, telefono);
 
         Optional<Proveedor> respuesta = repo.findById(proveedor.getId());
         if (respuesta.isPresent()) {
             Proveedor aProveedor = respuesta.get();
             aProveedor.setNombre(nombre);
             aProveedor.setDireccion(direccion);
-            aProveedor.setProvincia(provincia);
+//            aProveedor.setProvincia(provincia);
             aProveedor.setTelefono(telefono);
             aProveedor.setProductos(proveedor.getProductos());
             repo.save(aProveedor);
@@ -85,7 +85,7 @@ public class ProveedorService implements UserDetailsService {
             }
     }
 
-    private void validar(String nombre, String direccion, Provincia provincia, String telefono) throws ErrorServicio {
+    private void validar(String nombre, String direccion, String telefono) throws ErrorServicio {
 
         if (nombre == null || nombre.isEmpty()) {
             throw new ErrorServicio("El nombre del Proveedor no puede ser nulo");
