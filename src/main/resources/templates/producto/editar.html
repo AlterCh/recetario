@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragmentos/head :: #head"></head>
+    <body>
+        <!--      Llamamos al objeto del controlador ProveedorController    -->
+        <form action="/producto/editar" method="post" th:object="${producto}">
+
+            <input type="hidden" name="id" th:field="*{id}" th:value="*{id}"/>
+
+            <label>Nombre</label>
+            <!--    th:field == los atributos del objeto -->
+            <input type="text" class="form-control" name="nombre" th:field="*{nombre}" th:value="*{nombre}"/>
+            <label>Precio</label>
+            <input type="number" class="form-control" name="precio" th:field="*{precio}" th:value="*{precio}"/>
+            <label>Cantidad</label>
+            <input type="number" class="form-control" name="cantidad" th:field="*{cantidad}"th:value="*{cantidad}"/>
+            <label>Unidad</label>
+            <input type="text" class="form-control" name="unidad" th:field="*{unidad}"th:value="*{unidad}"/>
+            <label>Stock</label>
+            <input type="number" class="form-control" name="stock" th:field="*{stock}"th:value="*{stock}"/>
+            <br/>
+            <button type="submit" class="btn btn-primary">Modificar Producto</button>
+            <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+        </form>
+
+
+
+        <footer th:replace="fragmentos/footer :: #footer"></footer>
+        <div th:replace="fragmentos/libs :: #libs"></div>
+
+    </body>
+</html>

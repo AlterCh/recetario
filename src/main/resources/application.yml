@@ -1,15 +1,30 @@
+
 spring:
- 
+  #  Configuracion BASE DE DATOS
+  #  https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-initialization.using-basic-sql-scripts
   datasource: 
-    url: jdbc:mysql://localhost:3306/recetario?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/@schema@
     username: root
     password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver 
-  jpa: 
-    show-sql: false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #  Configuracion Creacion de tablas (Hibernate)
+  jpa:
+#    defer-datasource-initialization: true
+    show-sql: true
     hibernate:
-      ddl-auto: update 
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect #MYSQL
+  #  Que thymeleaf no guarde datos en cache
   thymeleaf:
-    cache: false 
+    cache: false
+#  sql:
+#    init:
+#      Ubicacion de scripts sql
+#      data-locations: classpath:/sql/core/*.sql
+#     Modo de inicializacion de base de datos (always, embedded, never)
+#      mode: always
+
 server:
   port: 8080

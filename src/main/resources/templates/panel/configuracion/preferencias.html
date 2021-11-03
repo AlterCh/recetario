@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragmentos/head :: #head"></head>
+<body>
+<nav th:replace="fragmentos/navbar :: Panel"></nav>
+        <h1>PREFERENCIAS</h1>
+        <form action="/panel/preferencias" method="post" th:object="${preferencias}">
+            <div th:each="mMagnitud : ${magnitudes}">
+                <label for="unidades1" th:text="${'Ingrese la unidad para '+ mMagnitud.nombre}">Unidad</label>
+                <select id="unidades1" th:field="*{unidadesFundamentales}">
+                    <option th:each="unidad : ${unidadesServicio.getUnidadesByMagnitud(mMagnitud)}" th:value="${unidad}" th:text="${unidad}"></option>
+                </select>
+            </div>
+        </form>
+
+    <footer th:replace="fragmentos/footer :: #footer"></footer>
+    <div th:replace="fragmentos/libs :: libs"></div>
+</body>
+</html>
