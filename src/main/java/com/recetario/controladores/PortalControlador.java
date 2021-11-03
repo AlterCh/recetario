@@ -51,17 +51,13 @@ public class PortalControlador extends CusControlador{
             httpSession.setAttribute("usuariosession", null);
         }
         String usuariosession = super.redirectUsuario(httpSession, "/panel");
+        model.addAttribute(
+                "usuario",
+                new Usuario() );
         //Si el usuariosession es distinto de null ENTONCES devolver usuario session SINO devolver "login"
         return usuariosession != null ? usuariosession : "login";
     }
 
-    @GetMapping("/registro")
-    public String registro(Model model) {
-        model.addAttribute(
-                "usuario",
-                new Usuario() );
-        return "registro";
-    }
 
     @PostMapping("/registro")
     public String registro(
