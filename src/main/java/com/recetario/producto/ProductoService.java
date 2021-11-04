@@ -62,37 +62,38 @@ public class ProductoService implements UserDetailsService{
         
         validar(nombre, cantidad, unidad, stock);
 
-        Optional<Producto> respuesta = repo.findById(proveedor.getId());
+        Optional<Producto> respuesta = productoRepository.findById(producto.getId());
         if (respuesta.isPresent()) {
-            Proveedor aProveedor = respuesta.get();
-            aProveedor.setNombre(nombre);
-            aProveedor.setDireccion(direccion);
-//            aProveedor.setProvincia(provincia);
-            aProveedor.setTelefono(telefono);
-            aProveedor.setProductos(proveedor.getProductos());
-            repo.save(aProveedor);
+            Producto aProducto = respuesta.get();
+            aProducto.setNombre(nombre);
+            aProducto.setCantidad(cantidad);
+            aProducto.setUnidad(unidad);
+            aProducto.setStock(stock);
+            aProducto.setCategoria(categoria);
+            productoRepository.save(aProducto);
+            
         } else {
-            throw new ErrorServicio("No se encontró el proveedor solicitado");
+            throw new ErrorServicio("No se encontró el producto solicitado");
         }
 
     }
     
      @Transactional
-    public List<Proveedor> listarProveedores() { //R
-        return repo.findAll();
+    public List<Producto> listarProductos() { 
+        return productoRepository.findAll();
     }
 
 
     @Transactional
-    public void borrar(@NonNull Proveedor proveedor) throws Exception {
+    public void borrar(@NonNull Producto producto) throws Exception {
        
-         String id = proveedor.getId();
-         Optional<Proveedor> respuesta = repo.findById(id);
+         String id = producto.getId();
+         Optional<Producto> respuesta = productoRepository.findById(id);
             if (respuesta.isPresent()) {
-                Proveedor prov = respuesta.get();
-                repo.delete(prov);
+                Producto product = respuesta.get();
+                productoRepository.delete(product);
             } else {
-                throw new ErrorServicio("No se encontró el Proveedor solicitado.");
+                throw new ErrorServicio("No se encontró el Producto solicitado.");
             }
     }
 
