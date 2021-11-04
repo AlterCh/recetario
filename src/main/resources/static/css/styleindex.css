@@ -13,7 +13,7 @@ h1{
 
 p{
     margin-bottom: 1.6em;
-    text-align: center; 
+    text-align: left; 
      
 }
 
@@ -71,5 +71,6 @@ p{
 }
 
 .footer p{
+    text-align: center;
     color:rgb(233, 163, 58)
 }
