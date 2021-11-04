@@ -21,6 +21,7 @@ public class IngredienteService {
         try {
             validar(i);
             repo.save(i);
+            //TODO SERVICE : Sub proceso para crear producto asi no lo tiene que traer de antemano
         } catch (ErrorServicio e) {
             throw new ErrorServicio("No se pudo registrar el ingrediente, intente de nuevo.");
         }
