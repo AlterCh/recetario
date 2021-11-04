@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragmentos/head :: #login"> </head>
+<!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+
+<head th:replace="fragmentos/head :: login"></head>
+<br>
+<p style="font-family:monospace"> INGRESA, COCINAMOS, Y COM.EMOS!</p>
+<br>
 
 <body>
+
 
 <!-- Formularios -->
 <div class="contenedor-formularios">
     <!-- Links de los formularios -->
     <ul class="contenedor-tabs">
-        <li class="tab tab-segunda active"><a href="/login">Iniciar Sesión</a></li>
-        <li class="tab tab-primera"><a href="/registro">Registrarse</a></li>
+        <li class="tab tab-segunda active"><a href="#iniciar-sesion">Iniciar Sesión</a></li>
+        <li class="tab tab-primera"><a href="#registrarse">Registrarse</a></li>
     </ul>
 
     <!-- Contenido de los Formularios -->
@@ -85,7 +91,9 @@
         </div>
     </div>
 </div>
+
 <footer th:replace="fragmentos/footer :: #footer"></footer>
 <div th:replace="fragmentos/libs :: libs"></div>
 </body>
+
 </html>
