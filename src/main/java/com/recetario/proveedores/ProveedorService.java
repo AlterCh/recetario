@@ -1,8 +1,6 @@
 package com.recetario.proveedores;
 
 import com.recetario.errores.ErrorServicio;
-import com.recetario.ingrediente.Ingrediente;
-import com.recetario.provincia.Provincia;
 import java.util.List;
 
 import java.util.Optional;

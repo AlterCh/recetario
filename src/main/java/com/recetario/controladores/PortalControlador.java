@@ -11,6 +11,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 
+
+
+    //TODO Esto es algo que se debe realizar/modificar/eliminar
+
+
 /**
  * Controlador principal del portal.
  * Contiene:
@@ -31,6 +36,7 @@ public class PortalControlador extends CusControlador{
     private UsuarioService usuarioService;
 
     @GetMapping("")
+
     public String index() {
         System.out.println(msg);
         return "index.html";
