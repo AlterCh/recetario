@@ -58,7 +58,21 @@ public class PortalControlador extends CusControlador{
         return usuariosession != null ? usuariosession : "login";
     }
 
-
+    @GetMapping("/registro")
+    public String registro(HttpSession httpSession,
+                           Model model,
+                           @RequestParam(required = false) String error) {
+        if (error != null) {
+            model.addAttribute("error", "Usuario y/o contraseña incorrecto");
+            httpSession.setAttribute("usuariosession", null);
+        }
+        String usuariosession = super.redirectUsuario(httpSession, "/panel");
+        model.addAttribute(
+                "usuario",
+                new Usuario() );
+        //Si el usuariosession es distinto de null ENTONCES devolver usuario session SINO devolver "login"
+        return usuariosession != null ? usuariosession : "registro";
+    }
     @PostMapping("/registro")
     public String registro(
             Model model,
