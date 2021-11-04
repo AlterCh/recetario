@@ -1,14 +1,7 @@
 <!DOCTYPE html>
-<html lang="es">
-    <head>
-        <title>RECETARIO</title>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        
-        <link href="/css/styleindex.css" rel="stylesheet" type="text/css"/>
-        
-    </head>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragmentos/head :: #index"> </head>
+
     <body>
         <header class="header">
             <div class="container logo-nav-container">
@@ -56,12 +49,8 @@
             </div>
         </main>
 
-        <footer class="footer">
-            <div class="container">
-                <p>Pagina diseñada por Huevo</p>
-            </div>
-
-        </footer>
+        <footer th:replace="fragmentos/footer :: #footer"></footer>
+        <div th:replace="fragmentos/libs :: libs"></div>
 
     </body>
 
