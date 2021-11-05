@@ -75,9 +75,9 @@ public class ProductoController extends CusControlador {
     @PostMapping("/nuevo")
     public String nuevoPost(HttpSession httpSession,
             ModelMap modelMap,
-            @ModelAttribute Proveedor proveedor) throws Exception {
+            @ModelAttribute Producto producto) throws Exception {
         try {
-            productoService.registrar(producto);//TO DO METODO REGISTRAR PRODUCTO SERVICE
+            productoService.registrar(producto);
              return "redirect:/proveedor/lista";
         } catch (ErrorServicio ex) {
             modelMap.put("error", ex.getMessage());
@@ -96,7 +96,7 @@ public class ProductoController extends CusControlador {
 
             try {
                 if (id != null) {
-                productoService.borrar(productoRepository.getById(id));// TO DO METODO BORRAR SERVICE PRODUCTO
+                productoService.borrar(productoRepository.getById(id));
                 return "redirect:/producto/lista";
                 }else{
                     throw new Exception("No se ha eliminado el registro, disculpe las molestias");
@@ -113,9 +113,9 @@ public class ProductoController extends CusControlador {
     @PostMapping("/editar")
     public String editarPost(HttpSession httpSession,
             ModelMap modelMap,
-            @ModelAttribute("producto") Proveedor proveedor) {
+            @ModelAttribute("producto") Producto producto) {
         try {
-            productoService.modificar(producto);// TO DO METODO MODIFICAR SERVICE PRODUCTO
+            productoService.modificar(producto);
             return "redirect:/producto/lista";
         } catch (ErrorServicio ex) {
             Logger.getLogger(ProductoController.class.getName()).log(Level.SEVERE, null, ex);
