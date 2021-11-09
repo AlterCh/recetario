@@ -10,8 +10,8 @@ public interface RecetaRepository extends JpaRepository<Receta, String> {
     
     Receta findByNombre(String nombre);
     
-    Receta findByCategoria(String categoria);
+//    Receta findByCategoria(String categoria);
 
-    Page<Receta> findAllByCategoriaNombre(String nombre, Pageable pageable);
+//    Page<Receta> findAllByCategoriaNombre(String nombre, Pageable pageable);
 
 }

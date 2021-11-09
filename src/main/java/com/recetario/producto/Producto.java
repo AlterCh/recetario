@@ -29,8 +29,7 @@ public class Producto {
 
     private Double cantidad;
 
-    @OneToOne
-    private Unidad unidad;
+    private String unidad;
 
     private Double stock;
 

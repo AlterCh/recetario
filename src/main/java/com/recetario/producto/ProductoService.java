@@ -18,6 +18,7 @@ public class ProductoService {
         List<Producto> productos = repo.findAll();
         return productos;
     }
+
     public void registrar(Producto producto) throws ErrorServicio {
         try {
             repo.save(producto);
