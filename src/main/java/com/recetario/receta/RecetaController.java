@@ -2,19 +2,21 @@ package com.recetario.receta;
 
 import com.recetario.controladores.CusControlador;
 import com.recetario.errores.ErrorServicio;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 
+import com.recetario.ingrediente.Ingrediente;
+import com.recetario.ingrediente.IngredienteService;
 import com.recetario.producto.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/receta")
@@ -24,13 +26,36 @@ public class RecetaController extends CusControlador {
     private RecetaService recetaService;
 
     @Autowired
-    private ProductoService productoService;
+    private IngredienteService ingredienteService;
+
+
+
 
     @GetMapping("/nuevo")
-    public String nuevoGet(HttpSession httpSession, ModelMap model) {
+    public String nuevoGet(
+            @RequestParam(value = "id_ingrediente",required = false) String id_ingrediente,
+            HttpSession httpSession,
+            ModelMap model) {
+        try{
+            if(id_ingrediente != null){
+                ingredienteList.add(ingredienteService.getIngrediente(id_ingrediente));
+            }
+        } catch (ErrorServicio errorServicio) {
+            errorServicio.printStackTrace();
+            model.addAttribute("error", errorServicio.getMessage());
+        }
+        model.addAttribute("ingredientes_agregados",ingredienteList);
         model.addAttribute("receta", new Receta());
         return "receta/nuevo";
     }
+    @GetMapping("/ingrediente")
+    public String nuevoIngrediente(
+            HttpSession httpSession,
+            ModelMap modelMap){
+
+        return "receta/RecetaIngrediente";
+    }
+
 
     @GetMapping("/lista")
     public String listaGet(HttpSession httpSession, ModelMap model) {

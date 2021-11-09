@@ -31,8 +31,7 @@ public class Ingrediente {
     private Producto producto;
     
     private Double cantidad;
-    
-    @OneToOne
-    private Unidad unidades;
+
+    private String unidades;
 
 }
