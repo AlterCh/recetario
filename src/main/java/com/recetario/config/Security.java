@@ -1,6 +1,6 @@
 package com.recetario.config;
 
-import com.recetario.usuario.UsuarioService;
+import com.recetario.usuario.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -47,7 +47,7 @@ public class Security extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/panel")
                 .permitAll()
                 .and().logout()
-                .logoutUrl("/panel/logout")
+                .logoutUrl("/logout")
                 .logoutSuccessUrl("/")
                 .permitAll()
                 .and().csrf().disable();

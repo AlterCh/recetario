@@ -3,14 +3,11 @@ package com.recetario.usuario.preferencias;
 import com.recetario.controladores.CusControlador;
 import com.recetario.siu.Magnitud;
 import com.recetario.siu.UnidadesServicio;
-import com.recetario.usuario.UsuarioController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 @Controller

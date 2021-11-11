@@ -1,7 +1,9 @@
-package com.recetario.usuario;
+package com.recetario.usuario.service;
 
 import com.recetario.errores.ErrorServicio;
 import com.recetario.foto.FotoService;
+import com.recetario.usuario.domain.Usuario;
+import com.recetario.usuario.repository.UsuarioRepository;
 import com.recetario.usuario.preferencias.PreferenciasUsuario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,8 +43,8 @@ public class UsuarioService implements UserDetailsService {
      * TODO Falta realizar la verificacion de claves
      *
      * @param archivo: Imagen
-     * @param u : Usuario
-     * @param clave2 : clave para verificacion
+     * @param u        : Usuario
+     * @param clave2   : clave para verificacion
      * @throws Exception
      */
     @Transactional
@@ -156,4 +158,25 @@ public class UsuarioService implements UserDetailsService {
                 .encode(u.getClave()));
     }
 
+    public Usuario getUsuarioById(Usuario usuario) throws ErrorServicio {
+        Optional<Usuario> u = repo.findById(usuario.getId());
+        if (!u.isPresent()) {
+            throw new ErrorServicio(this.getClass().getName() + ": El usuario no se ha podido encontrar");
+        }
+
+        return u.get();
+    }
+
+    public void modificar(Usuario usuario) throws ErrorServicio {
+        try {
+            Optional<Usuario> respuesta = repo.findById(usuario.getId());
+            if (respuesta.isPresent()) {
+                Usuario aux = respuesta.get();
+                aux = usuario;
+                repo.save(aux);
+            }
+        } catch (Exception e) {
+            throw new ErrorServicio(this.getClass().getName() + ": No se ha podido modificar el usuario");
+        }
+    }
 }

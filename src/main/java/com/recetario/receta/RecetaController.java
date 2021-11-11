@@ -31,11 +31,14 @@ public class RecetaController extends CusControlador {
 
 
 
-    @GetMapping("/nuevo")
+    @GetMapping("/nuevo") //TODO
     public String nuevoGet(
             @RequestParam(value = "id_ingrediente",required = false) String id_ingrediente,
             HttpSession httpSession,
             ModelMap model) {
+        //lista ingredientes
+        //nueva receta
+        //lista de ingredientes agregados
         try{
             if(id_ingrediente != null){
                 ingredienteList.add(ingredienteService.getIngrediente(id_ingrediente));
