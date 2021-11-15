@@ -1,4 +1,4 @@
-package com.recetario.usuario.preferencias;
+package com.recetario.usuario.domain;
 
 import com.recetario.siu.Magnitud;
 import com.recetario.siu.Unidad;

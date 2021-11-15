@@ -1,6 +1,13 @@
-package com.recetario.usuario;
+package com.recetario.usuario.controller;
 
 import com.recetario.controladores.CusControlador;
+import com.recetario.errores.ErrorServicio;
+import com.recetario.proveedores.ProveedorService;
+import com.recetario.receta.RecetaService;
+import com.recetario.usuario.repository.UsuarioRepository;
+import com.recetario.usuario.domain.Usuario;
+import com.recetario.usuario.service.ListaDeCompraService;
+import com.recetario.usuario.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -16,16 +23,34 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/panel")
 public class UsuarioController extends CusControlador {
 
-    @Autowired
     UsuarioService usuarioService;
+    UsuarioRepository usuarioRepository;
+    ProveedorService proveedorService;
+    RecetaService recetaService;
+    ListaDeCompraService listaService;
 
     @Autowired
-    UsuarioRepository usuarioRepository;
+    public UsuarioController(UsuarioService usuarioService, UsuarioRepository usuarioRepository, ProveedorService proveedorService, RecetaService recetaService, ListaDeCompraService listaDeCompraService) {
+        this.usuarioService = usuarioService;
+        this.usuarioRepository = usuarioRepository;
+        this.proveedorService = proveedorService;
+        this.recetaService = recetaService;
+        this.listaService = listaDeCompraService;
+    }
+
+
 
     @GetMapping("")
-    public String panel(HttpSession httpSession) {
+    public String panel(HttpSession httpSession,Model model) {
         String x = checkUsuario(httpSession);
-        if (x != null) return x;
+        if (x != null) {
+            return x;
+        }
+        try {
+            model.addAttribute("listas",((Usuario) httpSession.getAttribute("usuariosession")).getListaCompra());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "panel/inicio";
     }
 
@@ -34,7 +59,9 @@ public class UsuarioController extends CusControlador {
     public String editar(HttpSession httpSession, Model model) {
         //Check login
         String x = checkUsuario(httpSession);
-        if (x != null) return x;
+        if (x != null) {
+            return x;
+        }
         Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
 
         model.addAttribute("usuario", usuario);
@@ -55,7 +82,9 @@ public class UsuarioController extends CusControlador {
             @RequestParam("archivo") MultipartFile archivo) {
         //Check login
         String x = checkUsuario(httpSession);
-        if (x != null) return x;
+        if (x != null) {
+            return x;
+        }
 
         //TODO falta verificar si las contraseñas son ingresadas para cambiar la clave o no
         Usuario aux = usuarioRepository.getById(((Usuario) httpSession.getAttribute("usuariosession")).getId());
@@ -77,5 +106,7 @@ public class UsuarioController extends CusControlador {
             return "panel/configuracion/perfil";
         }
     }
+
+
 
 }

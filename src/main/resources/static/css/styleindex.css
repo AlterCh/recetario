@@ -73,3 +73,6 @@ p{
 .footer p{
     color:rgb(233, 163, 58)
 }
+input.form-control{
+    color: black;
+}

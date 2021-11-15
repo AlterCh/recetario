@@ -1,7 +1,7 @@
 package com.recetario.controladores;
 
-import com.recetario.usuario.Usuario;
-import com.recetario.usuario.UsuarioService;
+import com.recetario.usuario.domain.Usuario;
+import com.recetario.usuario.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
