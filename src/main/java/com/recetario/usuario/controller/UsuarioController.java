@@ -6,7 +6,7 @@ import com.recetario.proveedores.ProveedorService;
 import com.recetario.receta.RecetaService;
 import com.recetario.usuario.repository.UsuarioRepository;
 import com.recetario.usuario.domain.Usuario;
-import com.recetario.usuario.service.UsuarioListaCompraService;
+import com.recetario.usuario.service.ListaDeCompraService;
 import com.recetario.usuario.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -27,15 +27,15 @@ public class UsuarioController extends CusControlador {
     UsuarioRepository usuarioRepository;
     ProveedorService proveedorService;
     RecetaService recetaService;
-    UsuarioListaCompraService listaService;
+    ListaDeCompraService listaService;
 
     @Autowired
-    public UsuarioController(UsuarioService usuarioService, UsuarioRepository usuarioRepository, ProveedorService proveedorService, RecetaService recetaService, UsuarioListaCompraService usuarioListaCompraService) {
+    public UsuarioController(UsuarioService usuarioService, UsuarioRepository usuarioRepository, ProveedorService proveedorService, RecetaService recetaService, ListaDeCompraService listaDeCompraService) {
         this.usuarioService = usuarioService;
         this.usuarioRepository = usuarioRepository;
         this.proveedorService = proveedorService;
         this.recetaService = recetaService;
-        this.listaService = usuarioListaCompraService;
+        this.listaService = listaDeCompraService;
     }
 
 
@@ -46,13 +46,11 @@ public class UsuarioController extends CusControlador {
         if (x != null) {
             return x;
         }
-
         try {
-            model.addAttribute("listaCompra",listaService.getListaCompra((Usuario) httpSession.getAttribute("usuariosession")));
-        } catch (ErrorServicio e) {
+            model.addAttribute("listas",((Usuario) httpSession.getAttribute("usuariosession")).getListaCompra());
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
         return "panel/inicio";
     }
 

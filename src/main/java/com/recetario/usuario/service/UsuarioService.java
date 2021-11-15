@@ -4,7 +4,7 @@ import com.recetario.errores.ErrorServicio;
 import com.recetario.foto.FotoService;
 import com.recetario.usuario.domain.Usuario;
 import com.recetario.usuario.repository.UsuarioRepository;
-import com.recetario.usuario.preferencias.PreferenciasUsuario;
+import com.recetario.usuario.domain.PreferenciasUsuario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

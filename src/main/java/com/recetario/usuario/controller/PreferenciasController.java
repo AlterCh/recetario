@@ -1,8 +1,9 @@
-package com.recetario.usuario.preferencias;
+package com.recetario.usuario.controller;
 
 import com.recetario.controladores.CusControlador;
 import com.recetario.siu.Magnitud;
 import com.recetario.siu.UnidadesServicio;
+import com.recetario.usuario.domain.PreferenciasUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
