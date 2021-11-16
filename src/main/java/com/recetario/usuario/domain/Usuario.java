@@ -1,5 +1,6 @@
 package com.recetario.usuario.domain;
 
+import com.recetario.favoritos.Favorito;
 import com.recetario.foto.Foto;
 import com.recetario.proveedores.Proveedor;
 import com.recetario.provincia.Provincia;
@@ -7,6 +8,7 @@ import com.recetario.receta.Receta;
 import com.recetario.rol.Rol;
 
 import java.util.List;
+
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -57,7 +59,7 @@ public class Usuario {
     private Rol rol;
 
     @OneToOne
-    private PreferenciasUsuario preferenciasUsuario ;
+    private PreferenciasUsuario preferenciasUsuario;
 
     @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true)
@@ -71,4 +73,7 @@ public class Usuario {
             orphanRemoval = true)
     private List<Receta> listaRecetas;
 
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<Favorito> listaFavoritos;
 }
