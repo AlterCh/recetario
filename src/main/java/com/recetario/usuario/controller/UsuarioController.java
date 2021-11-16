@@ -1,7 +1,6 @@
 package com.recetario.usuario.controller;
 
 import com.recetario.controladores.CusControlador;
-import com.recetario.errores.ErrorServicio;
 import com.recetario.proveedores.ProveedorService;
 import com.recetario.receta.RecetaService;
 import com.recetario.usuario.repository.UsuarioRepository;
@@ -46,8 +45,11 @@ public class UsuarioController extends CusControlador {
         if (x != null) {
             return x;
         }
+        Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
         try {
-            model.addAttribute("listas",((Usuario) httpSession.getAttribute("usuariosession")).getListaCompra());
+            model.addAttribute("listas",listaService.getAllByUsuario(usuario));
+            model.addAttribute("proveedores",proveedorService.getAllByUsuario(usuario));
+            model.addAttribute("recetas",recetaService.getAllByUsuario(usuario));
         } catch (Exception e) {
             e.printStackTrace();
         }

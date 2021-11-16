@@ -11,6 +11,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 
+import com.recetario.usuario.domain.Usuario;
+import com.recetario.usuario.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -20,12 +22,17 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/proveedor")
 public class ProveedorController extends CusControlador {
 
-    @Autowired
     ProveedorService proveedorService;
-    @Autowired
     ProveedorRepository proveedorRepository;
-
+    UsuarioService usuarioService;
     ErrorServicio ex;
+
+    @Autowired
+    public ProveedorController(ProveedorService proveedorService, ProveedorRepository proveedorRepository, UsuarioService usuarioService) {
+        this.proveedorService = proveedorService;
+        this.proveedorRepository = proveedorRepository;
+        this.usuarioService = usuarioService;
+    }
 
     /**
      * GET
@@ -77,7 +84,9 @@ public class ProveedorController extends CusControlador {
                             ModelMap modelMap,
                             @ModelAttribute Proveedor proveedor) throws Exception {
         try {
-            proveedorService.registrar(proveedor);
+            Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
+            usuarioService.agregarProveedor(proveedor,usuario);
+            usuarioService.actualizarHttpSession(httpSession);
             return "redirect:/proveedor/lista";
         } catch (ErrorServicio ex) {
             modelMap.put("error", ex.getMessage());

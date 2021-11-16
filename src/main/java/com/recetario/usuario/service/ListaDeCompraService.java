@@ -4,6 +4,8 @@ import com.recetario.errores.ErrorServicio;
 import com.recetario.usuario.domain.Usuario;
 import com.recetario.usuario.domain.ListaDeCompra;
 import com.recetario.usuario.repository.ListaDeCompraRepository;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -45,5 +47,9 @@ public class ListaDeCompraService {
             }
             repo.save(ulc);
         }
+    }
+
+    public List<ListaDeCompra> getAllByUsuario(Usuario usuariosession) {
+        return repo.findListaDeCompraByUsuario(usuariosession.getId());
     }
 }

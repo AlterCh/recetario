@@ -6,6 +6,8 @@ import com.recetario.ingrediente.Ingrediente;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
+
+import com.recetario.usuario.domain.Usuario;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -93,5 +95,8 @@ public class RecetaService {
             throw new ErrorServicio("Ingrese un valor válido de tiempo.");
         }
     }
-    
+
+    public List<Receta> getAllByUsuario(Usuario usuario) {
+        return repo.findRecetaByUsuario(usuario.getId());
+    }
 }

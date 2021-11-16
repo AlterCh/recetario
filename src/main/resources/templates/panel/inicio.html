@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>RECETARIO</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head th:replace="fragmentos/head :: head"></head>
 
-    <link href="/css/styleinicio.css" rel="stylesheet" type="text/css"/>
-
-</head>
 <body>
 <header class="header">
     <div class="container logo-nav-container">
@@ -29,9 +22,35 @@
 <div class="container">
     <div id="lista-de-compras" class="">
         <h3>Lista de Compras</h3>
-
+        <a href="/panel/listacompra/nuevo">++</a>
+        <div th:if="${listas.size() != 0 && listas != null }"
+            th:each="lista : ${listas}"
+             th:object="${lista}">
+            <h2 th:text="*{fechaAgregado}"></h2>
+            <p th:text="*{lista}"></p>
+        </div>
     </div>
-
+    <div id="lista-de-proveedores" class="">
+        <h3>Lista de proveedores</h3>
+        <a href="/proveedor/nuevo">++</a>
+        <div th:if="${proveedores.size() != 0 && proveedores != null }"
+             th:each="proveedor : ${proveedores}"
+             th:object="${proveedor}">
+            <h3 th:text="*{nombre}"></h3>
+            <p th:text="*{direccion}"></p>
+            <p th:text="*{telefono}"></p>
+        </div>
+    </div>
+    <div id="lista-de-recetas" class="">
+        <h3>Lista de recetas</h3>
+        <a href="/receta/nuevo">++</a>
+        <div th:if="${recetas.size() != 0 && recetas != null }"
+             th:each="receta : ${recetas}"
+             th:object="${receta}">
+            <h3 th:text="*{nombre}"></h3>
+            <p th:text="*{descripcion}"></p>
+        </div>
+    </div>
 </div>
 
 <footer class="footer">

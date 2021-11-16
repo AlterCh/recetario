@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 
+import com.recetario.usuario.domain.Usuario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,6 +101,10 @@ public class ProveedorService implements UserDetailsService {
         if (telefono == null || telefono.isEmpty()) {
             throw new ErrorServicio("El telefono no puede ser nulo");
         }
+    }
+
+    public List<Proveedor> getAllByUsuario(Usuario usuario) {
+        return repo.findProveedorByUsuario(usuario.getId());
     }
 }
 
