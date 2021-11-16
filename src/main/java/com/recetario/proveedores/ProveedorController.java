@@ -39,9 +39,6 @@ public class ProveedorController extends CusControlador {
      */
     @GetMapping("/nuevo")
     public String nuevoGet(HttpSession httpSession, ModelMap modelMap) {
-        //atributo proveedor con un objeto vacio
-        //el objeto vacio trae todos los atributos en null
-
         modelMap.addAttribute("proveedor", new Proveedor());
         return "proveedor/nuevo";
     }
@@ -84,9 +81,8 @@ public class ProveedorController extends CusControlador {
                             ModelMap modelMap,
                             @ModelAttribute Proveedor proveedor) throws Exception {
         try {
-            Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
-            usuarioService.agregarProveedor(proveedor,usuario);
-            usuarioService.actualizarHttpSession(httpSession);
+            proveedorService.nuevo(httpSession,
+                    proveedor);
             return "redirect:/proveedor/lista";
         } catch (ErrorServicio ex) {
             modelMap.put("error", ex.getMessage());
@@ -105,7 +101,7 @@ public class ProveedorController extends CusControlador {
 
         try {
             if (id != null) {
-                proveedorService.borrar(proveedorRepository.getById(id));
+                proveedorService.borrar(httpSession,proveedorRepository.getById(id));
                 return "redirect:/proveedor/lista";
             } else {
                 throw new Exception("No se ha eliminado el registro, disculpe las molestias");

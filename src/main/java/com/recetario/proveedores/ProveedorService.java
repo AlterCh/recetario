@@ -4,9 +4,11 @@ import com.recetario.errores.ErrorServicio;
 import java.util.List;
 
 import java.util.Optional;
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import com.recetario.usuario.domain.Usuario;
+import com.recetario.usuario.service.UsuarioService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
 
 @Service
 public class ProveedorService implements UserDetailsService {
@@ -23,6 +26,8 @@ public class ProveedorService implements UserDetailsService {
 
     @Autowired
     private ProveedorRepository repo;
+    @Autowired
+    private UsuarioService usuarioService;
 
     @Override
     public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
@@ -72,15 +77,20 @@ public class ProveedorService implements UserDetailsService {
 
 
     @Transactional
-    public void borrar(@NonNull Proveedor proveedor) throws Exception {
+    public void borrar(HttpSession httpSession, @NonNull Proveedor proveedor) throws Exception {
        
          String id = proveedor.getId();
          Optional<Proveedor> respuesta = repo.findById(id);
+         Usuario usuarioOptional = usuarioService.getUsuarioById((Usuario) httpSession.getAttribute("usuariosession"));
             if (respuesta.isPresent()) {
                 Proveedor prov = respuesta.get();
-                repo.delete(prov);
+                List<Proveedor> proveedorList = usuarioOptional.getListaProveedores();
+                proveedorList.remove(prov);
+                usuarioOptional.setListaProveedores(proveedorList);
+                usuarioService.modificar(usuarioOptional);
+                usuarioService.actualizarHttpSession(httpSession);
             } else {
-                throw new ErrorServicio("No se encontró el Proveedor solicitado.");
+                throw new ErrorServicio("No se encontró/borró el Proveedor solicitado.");
             }
     }
 
@@ -105,6 +115,12 @@ public class ProveedorService implements UserDetailsService {
 
     public List<Proveedor> getAllByUsuario(Usuario usuario) {
         return repo.findProveedorByUsuario(usuario.getId());
+    }
+
+    public void nuevo(HttpSession httpSession,Proveedor proveedor) throws ErrorServicio {
+        Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
+        usuarioService.agregarProveedor(proveedor,usuario);
+        usuarioService.actualizarHttpSession(httpSession);
     }
 }
 
