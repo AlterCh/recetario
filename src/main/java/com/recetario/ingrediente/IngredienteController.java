@@ -48,9 +48,12 @@ public class IngredienteController extends CusControlador {
     }
 
     @PostMapping("/nuevo")
-    public String nuevoPost(Model model, @ModelAttribute("ingrediente") Ingrediente ingrediente) {
+    public String nuevoPost(HttpSession httpSession,
+            Model model,
+            @ModelAttribute("ingrediente") Ingrediente ingrediente) {
         try {
             ingredienteService.registrar(ingrediente);
+            
             return "ingrediente/nuevo";
         } catch (ErrorServicio e) {
             model.addAttribute("error", e.getMessage());

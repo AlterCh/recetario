@@ -6,6 +6,8 @@ import com.recetario.ingrediente.Ingrediente;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
+
+import com.recetario.usuario.domain.Usuario;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -33,10 +35,10 @@ public class RecetaService {
         return repo.findAll();
     }
     
-    @Transactional
-    public Page<Receta> listarNombresCategorias(String nombre, Pageable pageable) { //R
-        return repo.findAllByCategoriaNombre(nombre, pageable); //TODO , ver que tipo de dato se pasa en Pageable.
-    }
+//    @Transactional
+//    public Page<Receta> listarNombresCategorias(String nombre, Pageable pageable) { //R
+//        return repo.findAllByCategoriaNombre(nombre, pageable); //TODO , ver que tipo de dato se pasa en Pageable.
+//    }
     
     @Transactional
     public void modificar(@NonNull Receta r) throws ErrorServicio { //U
@@ -46,7 +48,7 @@ public class RecetaService {
         Integer porciones = r.getPorciones();
         String descripcion = r.getDescripcion();
         Integer tiempo = r.getTiempo();
-        List<Categoria> categoria = r.getCategoria();
+//        List<Categoria> categoria = r.getCategoria();
         
         Optional<Receta> respuesta = repo.findById(r.getId());
         if (respuesta.isPresent()) {
@@ -56,7 +58,7 @@ public class RecetaService {
             aReceta.setPorciones(porciones);
             aReceta.setDescripcion(descripcion);
             aReceta.setTiempo(tiempo);
-            aReceta.setCategoria(categoria);
+//            aReceta.setCategoria(categoria);
             repo.save(aReceta);
         } else {
             throw new ErrorServicio("La receta no se encuentra registrada.");
@@ -93,5 +95,8 @@ public class RecetaService {
             throw new ErrorServicio("Ingrese un valor válido de tiempo.");
         }
     }
-    
+
+    public List<Receta> getAllByUsuario(Usuario usuario) {
+        return repo.findRecetaByUsuario(usuario.getId());
+    }
 }

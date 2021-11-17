@@ -7,6 +7,8 @@ import com.recetario.proveedores.ProveedorRepository;
 import com.recetario.proveedores.ProveedorService;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.recetario.siu.UnidadesFundamentales;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -18,10 +20,14 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/producto")
 public class ProductoController extends CusControlador {
 
-    @Autowired
     ProductoService productoService;
-    @Autowired
     ProductoRepository productoRepository;
+
+    @Autowired
+    public ProductoController(ProductoService productoService, ProductoRepository productoRepository) {
+        this.productoService = productoService;
+        this.productoRepository = productoRepository;
+    }
 
     ErrorServicio ex;
     
@@ -32,7 +38,6 @@ public class ProductoController extends CusControlador {
     public String nuevoGet(HttpSession httpSession, ModelMap modelMap) {
         //atributo proveedor con un objeto vacio
         //el objeto vacio trae todos los atributos en null
-
         modelMap.addAttribute("producto", new Producto());
         return "producto/nuevo";
     }

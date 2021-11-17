@@ -1,11 +1,12 @@
 
 package com.recetario.proveedores;
 
-import com.recetario.usuario.Usuario;
-import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * Repositorios = Interfaces
@@ -13,5 +14,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface ProveedorRepository extends JpaRepository<Proveedor,String>{
-    
+
+    @Query(value = "select * from proveedor p left join usuario_lista_proveedores ulp on p.id = ulp.lista_proveedores_id where ulp.usuario_id = :id",nativeQuery = true)
+    List<Proveedor> findProveedorByUsuario(@Param("id") String id);
 }

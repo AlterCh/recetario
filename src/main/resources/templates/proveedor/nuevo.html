@@ -6,7 +6,7 @@
         <form action="/proveedor/nuevo" method="post" th:object="${proveedor}">
 
 
-            <label>Nombre</label>
+            <label class="form-label">Nombre</label>
             <!--    th:field == los atributos del objeto -->
             <input type="text" class="form-control" name="nombre" th:field="*{nombre}"/>
 

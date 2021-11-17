@@ -1,8 +1,12 @@
-package com.recetario.usuario;
+package com.recetario.usuario.service;
 
 import com.recetario.errores.ErrorServicio;
+import com.recetario.favoritos.Favorito;
 import com.recetario.foto.FotoService;
-import com.recetario.usuario.preferencias.PreferenciasUsuario;
+import com.recetario.proveedores.Proveedor;
+import com.recetario.usuario.domain.Usuario;
+import com.recetario.usuario.repository.UsuarioRepository;
+import com.recetario.usuario.domain.PreferenciasUsuario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +45,8 @@ public class UsuarioService implements UserDetailsService {
      * TODO Falta realizar la verificacion de claves
      *
      * @param archivo: Imagen
-     * @param u : Usuario
-     * @param clave2 : clave para verificacion
+     * @param u        : Usuario
+     * @param clave2   : clave para verificacion
      * @throws Exception
      */
     @Transactional
@@ -156,4 +160,56 @@ public class UsuarioService implements UserDetailsService {
                 .encode(u.getClave()));
     }
 
+    public Usuario getUsuarioById(Usuario usuario) throws ErrorServicio {
+        Optional<Usuario> u = repo.findById(usuario.getId());
+        if (!u.isPresent()) {
+            throw new ErrorServicio(this.getClass().getName() + ": El usuario no se ha podido encontrar");
+        }
+
+        return u.get();
+    }
+
+    public void modificar(Usuario usuario) throws ErrorServicio {
+        try {
+            Optional<Usuario> respuesta = repo.findById(usuario.getId());
+            if (respuesta.isPresent()) {
+                Usuario aux = respuesta.get();
+                aux = usuario;
+                repo.save(aux);
+            }
+        } catch (Exception e) {
+            throw new ErrorServicio(this.getClass().getName() + ": No se ha podido modificar el usuario");
+        }
+    }
+
+    public void agregarProveedor(Proveedor proveedor, Usuario usuario) throws ErrorServicio {
+        try{
+
+            Optional<Usuario> usuarioOptional = repo.findById(usuario.getId());
+            if(usuarioOptional.isPresent()){
+                Usuario aux = usuarioOptional.get();
+                aux.getListaProveedores().add(proveedor);
+                repo.save(aux);
+            }
+        }catch (Exception ex){
+            throw new ErrorServicio("No se ha podido agregar el proveedor");
+        }
+    }
+    public void actualizarHttpSession(HttpSession httpSession){
+            httpSession.setAttribute("usuariosession",repo.getById(((Usuario) httpSession.getAttribute("usuariosession")).getId()));
+    }
+
+    public void agregarFavorito(Favorito favorito, Usuario usuario) throws ErrorServicio {
+        
+        try {
+            Optional<Usuario> respuesta = repo.findById(usuario.getId());
+            if (respuesta.isPresent()) {
+                Usuario aux = respuesta.get();
+                aux.getListaFavoritos().add(favorito);
+                repo.save(aux);
+            }
+        } catch (Exception e) {
+            throw new ErrorServicio("No se pudo completar esta acción.");
+        }
+    }
 }
