@@ -1,66 +1,88 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragmentos/head :: head"></head>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="styleinicio.css">
+
+</head>
 
 <body>
-<header class="header">
-    <div class="container logo-nav-container">
-        <a href="#">
-            <img src="https://th.bing.com/th/id/R.cf61de8b9be1b46b167f19ff97c3a843?rik=wUk02rh2gje3wA&pid=ImgRaw&r=0"
-                 width="80" height="80"></a>
-        <nav class="navigation">
-            <ul>
-                <li><a href="/proveedor">Proveedores</a></li>
-                <li><a href="/receta">Recetas</a></li>
-                <li><a href="/favoritos">Favoritos</a></li>
-            </ul>
-        </nav>
-    </div>
 
+<!-- CABECERA NAV BAR-->
+<header class="encabezado">
+    <nav>
+        <div><img src="img/logoRecurso 6MARCA2.png" alt=""></div> <!--LOGO HUEVO FRITO-->
+
+        <ul>
+            <li>
+                <a href="/">PROVEEDORES</a>
+                <ul>
+                    <li><a href="/nuevoproveedor">Agregar</a></li>
+                    <li><a href="/editarproveedor">Editar</a></li>
+                    <li><a href="/verlistaproveedores">Ver Lista</a></li>
+                    <li><a href="/proveedoresfavoritos">Favoritos</a></li>
+
+                    <li>
+                        <a href="/">PRODUCTOS</a>
+                        <ul>
+                            <li><a href="/nuevoproducto">Agregar</a></li>
+                            <li><a href="/editarproductos">Editar</a></li>
+                            <li><a href="/verlistaproductos">Ver Lista</a></li>
+                            <li><a href="/productosfavoritos">Favoritos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/">RECETAS</a>
+                <ul>
+                    <li><a href="/nuevoreceta">Agregar</a></li>
+                    <li><a href="/editarreceta">Editar</a></li>
+                    <li><a href="/verlistareceta">Ver Lista</a></li>
+                    <li><a href="/recetasfavoritos">Favoritos</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/">MI ALACENA</a>
+                <ul>
+                    <li><a href="/verlistaproductos">VER STOCK</a></li>
+                    <li><a href="/listadecompras">Compras</a></li>
+                </ul>
+            </li>
+            <li class="perfil">
+                <a href="/">PERFIL</a>
+                <ul>
+                    <li><a href="/configuracionperfil">Editar</a></li>
+                    <li><a href="/favoritos">Favoritos</a></li>
+                    <li><a href="/logout">SALIR</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 </header>
 
-<div class="container">
-    <div id="lista-de-compras" class="">
-        <h3>Lista de Compras</h3>
-        <a href="/panel/listacompra/nuevo">++</a>
-        <div th:if="${listas.size() != 0 && listas != null }"
-            th:each="lista : ${listas}"
-             th:object="${lista}">
-            <h2 th:text="*{fechaAgregado}"></h2>
-            <p th:text="*{lista}"></p>
-        </div>
-    </div>
-    <div id="lista-de-proveedores" class="">
-        <h3>Lista de proveedores</h3>
-        <a href="/proveedor/nuevo">++</a>
-        <div th:if="${proveedores.size() != 0 && proveedores != null }"
-             th:each="proveedor : ${proveedores}"
-             th:object="${proveedor}">
-            <h3 th:text="*{nombre}"></h3>
-            <p th:text="*{direccion}"></p>
-            <p th:text="*{telefono}"></p>
-        </div>
-    </div>
-    <div id="lista-de-recetas" class="">
-        <h3>Lista de recetas</h3>
-        <a href="/receta/nuevo">++</a>
-        <div th:if="${recetas.size() != 0 && recetas != null }"
-             th:each="receta : ${recetas}"
-             th:object="${receta}">
-            <h3 th:text="*{nombre}"></h3>
-            <p th:text="*{descripcion}"></p>
-        </div>
-    </div>
-</div>
+<!--CUERPO DE LA PAGINA DENTRO DEL MAIN-->
+<main class="main">
 
+
+
+
+</main>
+
+<!--PIE DE PAGINA FUERA DEL MAIN-->
 <footer class="footer">
-    <div class="container">
-        <p>Pagina diseñada por Huevo</p>
+    <div>
+        <p align="center">Copyright HUEVO FRITO</p>
     </div>
-
 </footer>
 
-</body>
 
+</body>
 
 </html>
