@@ -1,3 +1,21 @@
 body{
     background-color: #EAB328;
 }
+
+.huevo h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    color: #2C747E;
+    margin: 5%;
+    align-items: center;
+}
+
+.main img{
+    
+    padding-right: 8%;
+    margin-right: 2%;
+    width: 30%;
+    object-position: right;
+    top: 30%;
+    
+}
