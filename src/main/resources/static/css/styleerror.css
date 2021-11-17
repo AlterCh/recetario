@@ -3,19 +3,19 @@ body{
 }
 
 .huevo h1{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 32px;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 42px;
     color: #2C747E;
     margin: 5%;
     align-items: center;
+    margin-top: 15%;
 }
 
+
 .main img{
-    
-    padding-right: 8%;
-    margin-right: 2%;
+    position: fixed;
+    top: 150px;
+    right: 85px;
     width: 30%;
-    object-position: right;
-    top: 30%;
     
 }
