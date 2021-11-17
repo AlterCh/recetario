@@ -8,6 +8,7 @@ services:
       - ./recetario-db/db:/var/lib/mysql
     restart: always
     environment:
+      MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: root
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "--password=root" ]
