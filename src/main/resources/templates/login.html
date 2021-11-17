@@ -4,112 +4,109 @@
 <head>
     <title>MI RECETARIO</title>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="/css/styleinicio.css"> 
+
+    <link rel="stylesheet" href="/css/styleinicio.css">
     <link rel="stylesheet" href="/css/stylelogin.css">
 
 </head>
-       
-    <body>
-        <header class="encabezado">
-            <nav>
-                <div><img src="/img/logotipo.png" alt=""></div>
-                
-                <ul>
-                    <li><a href="/index">VOLVER</a></li>                       
-                </ul>
-            </nav> 
-        </header>
-    
-    <main class="main">
-    <!-- Formularios -->
-    <div class="contenedor-formularios">
-        <!-- Links de los formularios -->
-        <ul class="contenedor-tabs">
-            <li class="tab tab-segunda active"><a href="/login">Iniciar Sesión</a></li>
-            <li class="tab tab-primera"><a href="/registrarse">Registrarse</a></li>
-        </ul>
-    
-        <!-- Contenido de los Formularios -->
-        <div class="contenido-tab">
-            <!-- Iniciar Sesion -->
-            <div id="iniciar-sesion">
-                <h3>Iniciar Sesión</h3>
-                <p th:if="${error != null}" th:text="${error}" style="color:red; text-shadow: 1px 1px 2px white;"></p>
-                <form action="/logincheck" method="post">
-                    <div class="contenedor-input">
-                        <label>
-                            Usuario <span class="req"></span>
-                        </label>
-                        <input type="text" name="username" required>
-                    </div>
-    
-                    <div class="contenedor-input">
-                        <label>
-                            Contraseña <span class="req"></span>
-                        </label>
-                        <input type="password" name="password" required>
-                    </div>
-    
-                    <input type="submit" class="button button-block" value="Iniciar Sesión">
-                </form>
-            </div>
-    
-            <!-- Registrarse -->
-            <div id="registrarse">
-                <h1>Registrarse</h1>
-                <form action="/registro" th:object="${usuario}" method="POST" enctype="multipart/form-data">
-                    <div class="fila-arriba">
-                        <div class="contenedor-input">
-                            <label>
-                                Nombre <span class="req"></span>
-                            </label>
-                            <input type="text" name="nombre" th:field="*{nombre}" required/>
-                        </div>
-    
-                        <div class="contenedor-input">
-                            <label>
-                                Apellido <span class="req"></span>
-                            </label>
-                            <input type="text" name="apellido" th:field="*{apellido}"/>
-                        </div>
-                    </div>
-    
-                    <div class="contenedor-input">
-                        <label>
-                            Email <span class="req"></span>
-                        </label>
-                        <input type="email" name="mail" th:field="*{mail}"/>
-                    </div>
-                    <div class="contenedor-input">
-                        <label>
-                            Contraseña <span class="req"></span>
-                        </label>
-                        <input type="password" name="clave1" th:field="*{clave}" required/>
-                    </div>
-    
-                    <div class="contenedor-input">
-                        <label>
-                            Repetir Contraseña <span class="req"></span>
-                        </label>
-                        <input type="password" name="clave2" required/>
-                    </div>
-                    <div class="contenedor-input">
-                        <label>Foto</label>
-                        <input type="file" name="archivo"/>
-                    </div>
-                    <input type="submit" class="button button-block" value="Registrarse">
-                </form>
-            </div>
-        </div>
-    </div>
-    </main>
-    
-    </body>
-    
-    </html>
-
 
 <body>
+<header class="encabezado">
+    <nav>
+        <div><img src="/img/logotipo.png" alt=""></div>
+
+        <ul>
+            <li><a href="/index">VOLVER</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!--    <main class="main">-->
+<!-- Formularios -->
+<div class="contenedor-formularios">
+    <!-- Links de los formularios -->
+    <ul class="contenedor-tabs">
+        <li class="tab tab-segunda active"><a href="#iniciar-sesion">Iniciar Sesión</a></li>
+        <li class="tab tab-primera"><a href="#registrarse">Registrarse</a></li>
+    </ul>
+
+    <!-- Contenido de los Formularios -->
+    <div class="contenido-tab">
+        <!-- Iniciar Sesion -->
+        <div id="iniciar-sesion">
+            <h3>Iniciar Sesión</h3>
+            <p th:if="${error != null}" th:text="${error}" style="color:red; text-shadow: 1px 1px 2px white;"></p>
+            <form action="/logincheck" method="post">
+                <div class="contenedor-input">
+                    <label>
+                        Usuario <span class="req"></span>
+                    </label>
+                    <input type="text" name="username" required>
+                </div>
+
+                <div class="contenedor-input">
+                    <label>
+                        Contraseña <span class="req"></span>
+                    </label>
+                    <input type="password" name="password" required>
+                </div>
+
+                <input type="submit" class="button button-block" value="Iniciar Sesión">
+            </form>
+        </div>
+
+        <!-- Registrarse -->
+        <div id="registrarse">
+            <h1>Registrarse</h1>
+            <form action="/registro" th:object="${usuario}" method="POST" enctype="multipart/form-data">
+                <div class="fila-arriba">
+                    <div class="contenedor-input">
+                        <label>
+                            Nombre <span class="req"></span>
+                        </label>
+                        <input type="text" name="nombre" th:field="*{nombre}" required/>
+                    </div>
+
+                    <div class="contenedor-input">
+                        <label>
+                            Apellido <span class="req"></span>
+                        </label>
+                        <input type="text" name="apellido" th:field="*{apellido}"/>
+                    </div>
+                </div>
+
+                <div class="contenedor-input">
+                    <label>
+                        Email <span class="req"></span>
+                    </label>
+                    <input type="email" name="mail" th:field="*{mail}"/>
+                </div>
+                <div class="contenedor-input">
+                    <label>
+                        Contraseña <span class="req"></span>
+                    </label>
+                    <input type="password" name="clave1" th:field="*{clave}" required/>
+                </div>
+
+                <div class="contenedor-input">
+                    <label>
+                        Repetir Contraseña <span class="req"></span>
+                    </label>
+                    <input type="password" name="clave2" required/>
+                </div>
+                <div class="contenedor-input">
+                    <label>Foto</label>
+                    <input type="file" name="archivo"/>
+                </div>
+                <input type="submit" class="button button-block" value="Registrarse">
+            </form>
+        </div>
+    </div>
+</div>
+<!--    </main>-->
+<div th:replace="fragmentos/libs :: #libs"></div>
+</body>
+
+</html>
