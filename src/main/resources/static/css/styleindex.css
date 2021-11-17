@@ -7,14 +7,14 @@ body{
     font-size: 42px;
     color: #2C747E;
     margin-left: 5%;
-    margin-top: 5%;
+    margin-top: -2%;
 }
 .textinicial h2{
     font-family: 'Franklin Gothic Medium';
     font-size: 30px;
     color: #000000; 
     margin-left: 5%;
-    
+    margin-top: 0%;
 }
 
 .textinicial p{
@@ -23,6 +23,7 @@ body{
     color: #000000; 
     margin-left: 5%;
     margin-right: 50%;
+    margin-top: 2%;
 }
 
 .logoback{
