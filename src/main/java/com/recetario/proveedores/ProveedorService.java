@@ -1,12 +1,15 @@
 package com.recetario.proveedores;
 
 import com.recetario.errores.ErrorServicio;
+
 import java.util.List;
 
 import java.util.Optional;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
+import com.recetario.producto.Producto;
+import com.recetario.producto.ProductoService;
 import com.recetario.usuario.domain.Usuario;
 import com.recetario.usuario.service.UsuarioService;
 import org.slf4j.Logger;
@@ -20,7 +23,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
 
 @Service
-public class ProveedorService implements UserDetailsService {
+public class ProveedorService {
 
     private Logger log = LoggerFactory.getLogger(this.getClass().getName());
 
@@ -28,11 +31,9 @@ public class ProveedorService implements UserDetailsService {
     private ProveedorRepository repo;
     @Autowired
     private UsuarioService usuarioService;
+    @Autowired
+    private ProductoService productoService;
 
-    @Override
-    public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Transactional
     public void registrar(@NonNull Proveedor proveedor) throws Exception {
@@ -46,6 +47,12 @@ public class ProveedorService implements UserDetailsService {
 
     }
 
+    @Transactional
+    public void nuevo(HttpSession httpSession, Proveedor proveedor) throws ErrorServicio {
+        Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
+        usuarioService.agregarProveedor(proveedor, usuario);
+        usuarioService.actualizarHttpSession(httpSession);
+    }
 
     @Transactional
     public void modificar(@NonNull Proveedor proveedor) throws ErrorServicio {
@@ -69,29 +76,28 @@ public class ProveedorService implements UserDetailsService {
         }
 
     }
-    
-     @Transactional
+
+    @Transactional
     public List<Proveedor> listarProveedores() { //R
         return repo.findAll();
     }
 
-
     @Transactional
     public void borrar(HttpSession httpSession, @NonNull Proveedor proveedor) throws Exception {
-       
-         String id = proveedor.getId();
-         Optional<Proveedor> respuesta = repo.findById(id);
-         Usuario usuarioOptional = usuarioService.getUsuarioById((Usuario) httpSession.getAttribute("usuariosession"));
-            if (respuesta.isPresent()) {
-                Proveedor prov = respuesta.get();
-                List<Proveedor> proveedorList = usuarioOptional.getListaProveedores();
-                proveedorList.remove(prov);
-                usuarioOptional.setListaProveedores(proveedorList);
-                usuarioService.modificar(usuarioOptional);
-                usuarioService.actualizarHttpSession(httpSession);
-            } else {
-                throw new ErrorServicio("No se encontró/borró el Proveedor solicitado.");
-            }
+
+        String id = proveedor.getId();
+        Optional<Proveedor> respuesta = repo.findById(id);
+        Usuario usuarioOptional = usuarioService.getUsuarioById((Usuario) httpSession.getAttribute("usuariosession"));
+        if (respuesta.isPresent()) {
+            Proveedor prov = respuesta.get();
+            List<Proveedor> proveedorList = usuarioOptional.getListaProveedores();
+            proveedorList.remove(prov);
+            usuarioOptional.setListaProveedores(proveedorList);
+            usuarioService.modificar(usuarioOptional);
+            usuarioService.actualizarHttpSession(httpSession);
+        } else {
+            throw new ErrorServicio("No se encontró/borró el Proveedor solicitado.");
+        }
     }
 
     private void validar(String nombre, String direccion, String telefono) throws ErrorServicio {
@@ -117,10 +123,16 @@ public class ProveedorService implements UserDetailsService {
         return repo.findProveedorByUsuario(usuario.getId());
     }
 
-    public void nuevo(HttpSession httpSession,Proveedor proveedor) throws ErrorServicio {
+
+    public void agregarProducto(HttpSession httpSession, String idProveedor, Producto producto) throws ErrorServicio {
         Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
-        usuarioService.agregarProveedor(proveedor,usuario);
-        usuarioService.actualizarHttpSession(httpSession);
+        Usuario aux = usuarioService.getUsuarioById(usuario);
+        aux.getListaProveedores().forEach(proveedor -> {
+            if(proveedor.getId().equals(idProveedor)){
+
+            }
+        });
+        usuarioService.actualizarHttpSession(httpSession, usuario);
     }
 }
 
