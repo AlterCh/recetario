@@ -39,12 +39,6 @@ public class IngredienteService {
 
         try {
             validar(i);
-
-            ingredienteRepository.save(i);
-
-            productoService.registrar(i.getProducto());
-            //TODO agregar ingrediente y que se verifique que exista el producto
-            //de no existir se creará uno nuevo
         } catch (ErrorServicio e) {
             throw new ErrorServicio("No se pudo registrar el ingrediente, intente de nuevo.");
         }
