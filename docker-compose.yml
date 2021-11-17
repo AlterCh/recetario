@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  # Backend service
+  mysql_server:
+    image: mysql:8.0.27
+    volumes:
+      - ./recetario-db/docker:/docker-entrypoint-initdb.d:Z,ro
+      - ./recetario-db/db:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "--password=root" ]
+      timeout: 10s
+      retries: 10
+    ports:
+      - "3306:3306"
