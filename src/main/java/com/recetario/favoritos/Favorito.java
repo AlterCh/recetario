@@ -32,7 +32,7 @@ public class Favorito {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     
-    private Usuario usuario;
+//    private Usuario usuario;
     
     @OneToMany (cascade = CascadeType.ALL,
             orphanRemoval = true)

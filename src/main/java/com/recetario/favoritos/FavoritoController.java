@@ -63,7 +63,7 @@ public class FavoritoController extends CusControlador {
         }
     }
 
-    @GetMapping("")
+    @GetMapping("/proveedor")
     public String proveedoresFavoritosGet(HttpSession httpSession, Model model) {
         String x = checkUsuario(httpSession);
         if (x != null) {
@@ -80,7 +80,7 @@ public class FavoritoController extends CusControlador {
         return "favoritos/proveedorfav";
     }
     
-    @GetMapping("")
+    @GetMapping("/recetas")
     public String recetasFavoritasGet(HttpSession httpSession, Model model) {
         String x = checkUsuario(httpSession);
         if (x != null) {
