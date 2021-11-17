@@ -1,6 +1,7 @@
 package com.recetario.usuario.service;
 
 import com.recetario.errores.ErrorServicio;
+import com.recetario.favoritos.Favorito;
 import com.recetario.foto.FotoService;
 import com.recetario.proveedores.Proveedor;
 import com.recetario.usuario.domain.Usuario;
@@ -196,5 +197,19 @@ public class UsuarioService implements UserDetailsService {
     }
     public void actualizarHttpSession(HttpSession httpSession){
             httpSession.setAttribute("usuariosession",repo.getById(((Usuario) httpSession.getAttribute("usuariosession")).getId()));
+    }
+
+    public void agregarFavorito(Favorito favorito, Usuario usuario) throws ErrorServicio {
+        
+        try {
+            Optional<Usuario> respuesta = repo.findById(usuario.getId());
+            if (respuesta.isPresent()) {
+                Usuario aux = respuesta.get();
+                aux.getListaFavoritos().add(favorito);
+                repo.save(aux);
+            }
+        } catch (Exception e) {
+            throw new ErrorServicio("No se pudo completar esta acción.");
+        }
     }
 }

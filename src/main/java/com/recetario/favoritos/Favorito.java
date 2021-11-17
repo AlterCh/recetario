@@ -3,10 +3,13 @@ package com.recetario.favoritos;
 import com.recetario.proveedores.Proveedor;
 import com.recetario.receta.Receta;
 import com.recetario.usuario.domain.Usuario;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,8 +34,12 @@ public class Favorito {
     
     private Usuario usuario;
     
-    private Receta favoritosRecetas;
+    @OneToMany (cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<Receta> favoritosRecetas;
     
-    private Proveedor favoritosProveedores;
+    @OneToMany (cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<Proveedor> favoritosProveedores;
     
 }
