@@ -39,15 +39,12 @@
             <label>Telefono</label>
             <input type="number" class="form-control" name="telefono" th:field="*{telefono}"/>
 
-            <label>Provincia</label>
-            <input type="number" class="form-control" name="telefono" th:field="*{provincia}"/>
+            
             <aside class="bd-sidebar">
         </main>
         
         
-            <select id="unidades1" th:field="*{unidadesFundamentales}">
-                <option th:each="unidad : ${unidadesServicio.getUnidadesByMagnitud(mMagnitud)}" th:value="${unidad}" th:text="${unidad}"></option>
-            </select>
+  
 
             <div style="width:100%; height:100%"></div>
     <button type="button" class="btn btn-secondary btn-lg">Guardar</button> 
