@@ -1,9 +1,13 @@
 package com.recetario.producto;
 
 import com.recetario.errores.ErrorServicio;
+import com.recetario.proveedores.Proveedor;
+import com.recetario.proveedores.ProveedorService;
+import com.recetario.usuario.domain.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,16 +16,17 @@ public class ProductoService {
 
     @Autowired
     ProductoRepository repo;
-
+    @Autowired
+    ProveedorService proveedorService;
 
     public List<Producto> getAll() {
         List<Producto> productos = repo.findAll();
         return productos;
     }
 
-    public void registrar(Producto producto) throws ErrorServicio {
+    public void registrar(HttpSession httpSession,String idProveedor, Producto producto) throws ErrorServicio {
         try {
-            repo.save(producto);
+            proveedorService.agregarProducto(httpSession,idProveedor, producto);
         }catch (Exception e){
             throw new ErrorServicio("Error al registrar producto");
         }

@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@PreAuthorize("hasAnyRole('ROLE_USUARIO_REGISTRADO')")
 @RequestMapping("/favorito")
 public class FavoritoController extends CusControlador {
 
@@ -32,9 +34,7 @@ public class FavoritoController extends CusControlador {
 
     @GetMapping("/nuevo")
     public String nuevoGet(HttpSession httpSession, ModelMap model) {
-
         model.addAttribute("favorito", new Favorito());
-
         return "favorito/nuevo";
     }
 

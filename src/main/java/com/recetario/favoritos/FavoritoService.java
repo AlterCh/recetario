@@ -28,7 +28,7 @@ public class FavoritoService {
     public void nuevoFavorito(@ModelAttribute Favorito favorito, HttpSession httpSession, ModelMap model) throws ErrorServicio {
         Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
         usuarioService.agregarFavorito(favorito, usuario);
-        usuarioService.actualizarHttpSession(httpSession);
+        usuarioService.actualizarHttpSession(httpSession,usuario);
     }
 
     @Transactional
