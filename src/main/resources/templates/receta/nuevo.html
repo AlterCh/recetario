@@ -1,55 +1,60 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragmentos/head :: #head"></head>
-<body>
 
- <header class="header">
-        <div class="container logo-nav-container">
-            <a href="#">
-                <img src="https://th.bing.com/th/id/R.cf61de8b9be1b46b167f19ff97c3a843?rik=wUk02rh2gje3wA&pid=ImgRaw&r=0"
-                    width="100" height="100"></a>
-            <nav class="navigation">
-                <ul>
-                    <li><a href="/proveedor">Receta</a></li>
-    </header>   
-</body>
+    <head>
+        <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<body>	
-    <div class="wrap">
-              <div class="store-wrapper">
-                <div class="category_list">
-                  <a href="#" class="category_item" category="editar">Nueva</a>           </div>
-                <section class="products-list">
-                    <div class="product-item" category="receta">
-                            <div class="product-item" category="editar">
-                                <body>
-    
-        <main>
-        <form action="../../form-result.php" target="_blank">
-    <div class="product-item" category="editar">
-                
-           <p><label>Nombre<input type="text" name="nombre"></label></p>
-        <p><label>Ingredientes<input type="text" name="ingredientes"></label></p>
-        <p><label>Tiempo<input type="text" name="tiempo"></label></p>
-        <p><label>Porciones<input type="text" name="porciones"></label></p>
-       <p><label>Descripcion<input type="text" name="porciones"></label></p>
-       <p><label>Categoria<input type="text" name="porciones"></label></p> 
-        </main>
-         <input type="submit" value="Guardar">
+                    <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
+                        </head>
 
-             
+                        <body>
+ <header class="encabezado">
+        <nav>
+            <div><img src="/img/logotipo.png" alt=""></div>
+            <ul>
+                <li><a href="/">INICIO</a></li> 
+                <li><a href="/">VOLVER</a></li>    
+            </ul>
+        </nav> 
+    </header> 
+                                           
+                                          
+                                            <body>
+                                                 <main class="main">
+                                                <div class="wrap">
+                                                    <div class="store-wrapper">
+                                                        <div class="category_list">
+                                                            <b><h2>AGREGAR RECETA</h2></b>
+                                                        </div>
+                                                        <section class="products-list">
+                                                            <div class="product-item" category="receta">
+                                                                <div class="product-item" category="editar">
 
-  <footer class="footer">
-        <div class="container">
-            <p>Pagina diseñada por Huevo</p>
-        </div>
+                                                                            <form action="../../form-result.php" target="_blank">
+                                                                                <div class="product-item" category="editar">
 
-    </footer> 
-<div th:replace="fragmentos/libs :: #libs"></div>
+                                                                                    <p><label>Nombre<input type="text" name="nombre"></label></p>
+                                                                                    <p><label>Ingredientes<input type="text" name="ingredientes"></label></p>
+                                                                                    <p><label>Tiempo<input type="text" name="tiempo"></label></p>
+                                                                                    <p><label>Porciones<input type="text" name="porciones"></label></p>
+                                                                                    <p><label>Descripcion<input type="text" name="porciones"></label></p>
+                                                                                    <p><label>Categoria<input type="text" name="porciones"></label></p> 
+                                                                                 
+                                                                                    <input type="submit" value="Guardar">
+                                                                                      </main>
 
 
-<footer th:replace="fragmentos/footer :: #footer"></footer>
-<div th:replace="fragmentos/libs :: #libs"></div>
+                                                                                        <footer class="footer">
+                                                                                            <div class="container">
+                                                                                                <p>Pagina diseñada por Huevo</p>
+                                                                                            </div>
 
-</body>
-</html>
+                                                                                        </footer> 
+                                                                                        <div th:replace="fragmentos/libs :: #libs"></div>
+
+                                                                                        <div th:replace="fragmentos/libs :: #libs"></div>
+
+                                                                                        </body>
+                                                                                        </html>
