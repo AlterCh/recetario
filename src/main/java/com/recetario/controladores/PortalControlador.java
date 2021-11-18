@@ -39,7 +39,7 @@ public class PortalControlador extends CusControlador{
 
     public String index() {
         System.out.println(msg);
-        return "index.html";
+        return "index";
     }
 
 
