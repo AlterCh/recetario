@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="fragmentos/head :: #head"></head>
-    <body>
+    
+       <link rel="stylesheet" href="styleinicio.css">
+           
+    <head th:replace="fragmentos/head :: #head">
+               <title>RECETARIO COCINA </title>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+         <link href="/css/styleinicio.css" rel="stylesheet" type="text/css">
+    </head>
+           
+           
+  <body>
+        
+    <header class="encabezado">
+        <nav>
+            <div><img src="WhatsApp Image 2021-11-16 at 18.49.32.jpeg" alt=""></div>
+            <ul>
+                <li><a href="/">PROVEEDORES</a></li> 
+                <li><a href="/">PRODUCTOS</a></li>    
+            </ul>
+        </nav> 
+    </header>
+      
+      
         <!--      Llamamos al objeto del controlador ProveedorController    -->
-        <form action="/proveedor/nuevo" method="post" th:object="${proveedor}">
+        <main class="main">
+          <form action="/proveedor/nuevo" method="post" th:object="${proveedor}">
+          <fieldset>
+  
+           <b><h2>AGREGAR PROVEEDOR</h2></b>
 
-
-            <label class="form-label">Nombre</label>
+            <label>Nombre</label>
             <!--    th:field == los atributos del objeto -->
             <input type="text" class="form-control" name="nombre" th:field="*{nombre}"/>
 
@@ -16,15 +43,19 @@
             <label>Telefono</label>
             <input type="number" class="form-control" name="telefono" th:field="*{telefono}"/>
 
-            <!--<label>Provincia</label>
-            
-             TO DO Listado Provincias desplegable
+            <label>Provincia</label>
+            <input type="number" class="form-control" name="telefono" th:field="*{provincia}"/>
+            <aside class="bd-sidebar">
+        </main>
+        
+        
             <select id="unidades1" th:field="*{unidadesFundamentales}">
                 <option th:each="unidad : ${unidadesServicio.getUnidadesByMagnitud(mMagnitud)}" th:value="${unidad}" th:text="${unidad}"></option>
-            </select>-->
+            </select>
 
-            <br/>
-            <button type="submit" class="btn btn-primary">Agendar Proveedor</button>
+            <div style="width:100%; height:100%"></div>
+    <button type="button" class="btn btn-secondary btn-lg">Guardar</button> 
+            
             
             <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
         </form>

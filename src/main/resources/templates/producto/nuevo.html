@@ -1,25 +1,70 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragmentos/head :: #head"></head>
+
+<head th:replace="fragmentos/head :: #head">
+    <title>RECETARIO COCINA </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="/css/styleinicio.css" rel="stylesheet" type="text/css">
+</head>
+
+
+
 <body>
-    <form action="/producto/nuevo" method="post" th:object="${producto}">
-            <label>Nombre</label>
-            <!--    th:field == los atributos del objeto -->
-            <input type="text" class="form-control" name="nombre" th:field="*{nombre}"/>
+    <header class="encabezado">
+        <nav>
+            <div><img src="WhatsApp Image 2021-11-16 at 18.49.32.jpeg" alt=""></div>
+            <ul>
+                <li><a href="/">PROVEEDORES</a></li> 
+                <li><a href="/">PRODUCTOS</a></li>    
+            </ul>
+        </nav> 
+    </header>
+    <main class="main">
+        <form action="form-result.php" target="_blank">
+         <fieldset>
+      
+         <b><h2>AGREGAR PRODUCTO</h2></b>
+
+            <p><label>Nombre</label>
+            <input type="text" class="form-control" name="nombre" th:field="*{nombre}"/></p>
+
             <label>Precio</label>
             <input type="number" class="form-control" name="precio" th:field="*{precio}"/>
-            <label>Cantidad</label>
-            <input type="number" class="form-control" name="cantidad" th:field="*{cantidad}"/>
-            <label>Unidad</label>
-            <input type="text" class="form-control" name="unidad" th:field="*{unidad}"/>
-            <label>Stock</label>
-            <input type="number" class="form-control" name="stock" th:field="*{stock}"/>
-            <br/>
+
+            <p><label>Cantidad</label>
+            <input type="number" class="form-control" name="cantidad" th:field="*{cantidad}"/></p>
+
+            <p> <label>Unidad</label>
+            <input type="text" class="form-control" name="unidad" th:field="*{unidad}"/></p>
+
+            <p></p><label>Stock</label>
+            <input type="number" class="form-control" name="stock" th:field="*{stock}"/></p>
+
+            <p></p><label>Categoria</label>
+            <input type="number" class="form-control" name="Categoria" th:field="*{Categoria}"/></p>
+    
             <button type="submit" class="btn btn-primary">Ingresar Producto</button>
+            <aside class="bd-sidebar">
+                
+            </main>
+            <br/>
+            <div style="width:100%; height:100%"></div>
+            
+            
             <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
         </form>
 
-<footer th:replace="fragmentos/footer :: #footer"></footer>
+
+        <footer class="footer">
+            <div>
+                <p>QUIENES SOMOS</p>
+                <p>Copyright HUEVO FRITO </p>
+            </div>
+        </footer>
+
 <div th:replace="fragmentos/libs :: #libs"></div>
 </body>
 </html>
