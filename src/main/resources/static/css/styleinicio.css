@@ -43,13 +43,14 @@ a{
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px 18px;
     display: block;
+    background-color: black;
 }
 
 a:hover{
-    background-color: black;
-    border-radius: 8px;
+    background-color: rgb(61, 60, 57);
     transition: all 0.4s linear;
     top:0px;
+    
 }
 
 
@@ -61,19 +62,21 @@ a:hover{
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px 18px;
     display: block;
+    
 }
 
 .perfil a:hover{
-    background-color: black;
-    border-radius: 5px;
+    background-color: rgb(61, 60, 57);
     transition: all 0.4s linear;
     top:0px;
+    right: 5%;
 }
 
 .encabezado nav{
     display: flex;
     justify-content: space-between;
     padding: 10px 18px;
+    margin-right: 2%;
 }
 
 .encabezado nav ul{
@@ -154,7 +157,7 @@ a:hover{
 
 .encabezado nav ul li ul li ul{
     top: 0%;
-    left: 135px;
+    left: 150px;
     position: absolute;
     display: none;
     
