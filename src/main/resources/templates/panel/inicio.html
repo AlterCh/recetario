@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-    <link rel="stylesheet" href="/css/styleinicio.css">
+    <!-- <link rel="stylesheet" href="/css/styleNAVFOOTER.css"> -->
+    <!-- <link rel="stylesheet" href="/css/styleinicio.css"> -->
+    <link rel="stylesheet" href="/src/main/resources/static/css/styleinicio.css"> <!--BORRAR ESTA LINEA NETBEANS-->
+    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css"> <!--BORRAR ESTA LINEA NETBEANS-->
 
 </head>
 
@@ -17,12 +19,22 @@
 <!-- CABECERA NAV BAR-->
 <header class="encabezado">
     <nav>
-        <div><img src="/img/logotipo.png" alt=""></div> <!--LOGO HUEVO FRITO-->
+        <!-- <div><img src="/img/logotipo.png" alt=""></div> LOGO HUEVO FRITO -->
+        <div><img src="/src/main/resources/static/img/logotipo.png" alt=""></div> <!--LOGO HUEVO FRITO--> <!--BORRAR ESTA LINEA NETBEANS-->
 
         <ul>
             <li>
-                <a href="/">PROVEEDORES</a>
+                <a href="/">RECETAS</a>
                 <ul>
+                    <li><a href="/receta/nuevo.html">Agregar</a></li>
+                    <li><a href="/receta/editar.html">Editar</a></li>
+                    <li><a href="/receta/lista">Ver Lista</a></li>
+                    <li><a href="/favoritos/recetafav.html">Favoritos</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/">PROVEEDORES</a>
+                <ul> <!--SIN HTML PARA PROBAR VISUAL-->
                     <li><a href="/proveedor/nuevo">Agregar</a></li>
                     <li><a href="/proveedor/editar">Editar</a></li>
                     <li><a href="/proveedor/lista">Ver Lista</a></li>
@@ -32,19 +44,11 @@
                         <a href="/">PRODUCTOS</a>
                         <ul>
                             <li><a href="/producto/nuevo">Agregar</a></li>
-                            <li><a href="/producto/editar"">Editar</a></li>
+
+                            <li><a href="/producto/editar">Editar</a></li>
                             <li><a href="/producto/lista">Ver Lista</a></li>
                          </ul>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/">RECETAS</a>
-                <ul>
-                    <li><a href="/receta/nuevo">Agregar</a></li>
-                    <li><a href="/receta/editar">Editar</a></li>
-                    <li><a href="/receta/lista">Ver Lista</a></li>
-                    <li><a href="/favoritos/recetafav">Favoritos</a></li>
                 </ul>
             </li>
             <li>
@@ -66,7 +70,7 @@
     </nav>
 </header>
 
-<!--CUERPO DE LA PAGINA DENTRO DEL MAIN-->
+<!--CUERPO DE LA PAGINA DENTRO DEL MAIN ACA VAN COLUMNAS / METODOS GET-->
 <main class="main">
     <div class="grid-container">
         <div>LISTA DE COMPRAS</div>

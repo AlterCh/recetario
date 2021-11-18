@@ -1,32 +1,6 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
 body{
-    background-color: rgb(250, 200, 135);
-    background-image: url();
-    background-repeat: no-repeat;
-    background-size: 28%;
-    background-position: 110% -125%;
     
 
-}
-
-/*header */
-.encabezado {
-    background: rgb(53, 160, 94);
-
-    position: fixed;
-    left: 0%;
-    top: 0%;
-    width: 100%;
-}
-
-/*logo*/
-img{
-    width: 200px;
-    
 }
 
 /*imagen perfil usuario*/
@@ -34,24 +8,6 @@ img{
     width: 30px;
        
 }
-
-/*enlaces navbar*/
-a{
-    text-decoration: none;
-    color: honeydew;
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 10px 18px;
-    display: block;
-}
-
-a:hover{
-    background-color: black;
-    border-radius: 8px;
-    transition: all 0.4s linear;
-    top:0px;
-}
-
 
 /*enlace boton perfil*/
 .perfil a{
@@ -61,136 +17,15 @@ a:hover{
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px 18px;
     display: block;
+    
 }
 
 .perfil a:hover{
-    background-color: black;
-    border-radius: 5px;
+    background-color: rgb(61, 60, 57);
     transition: all 0.4s linear;
     top:0px;
-}
-
-.encabezado nav{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 18px;
-}
-
-.encabezado nav ul{
-    list-style: none;
-    display: flex;
-    align-items:flex-end;
-    align-content: flex-end;
-
-    
-}
-
-.encabezado nav ul li ul{
-    position: absolute;
-    background-color: rgb(0, 0, 0);    
-    opacity: 80%;   
-    
-}
-
-.encabezado nav ul li ul li{
-    width: 150px;
-    position: relative;
-    display: list-item;
-    
-}
-
-.encabezado nav ul li ul{
-       flex-direction: column;
-}
-
-.encabezado nav ul li ul li ul{
-    top: 0%;
-    left: 150px;
-    position: absolute;
-    display: none;
-    
-}
-.encabezado nav ul li ul{
-    display: none;
-}
-.encabezado nav ul li:hover > ul{
-    display: block;
-}
-
-.encabezado nav{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 18px;
+    right: 5%;
 }
 
 
-.encabezado nav ul{
-    list-style: none;
-    display: flex;
-    align-items:flex-end;
-    align-content: flex-end;
-
-    
-}
-
-.encabezado nav ul li ul{
-    position: absolute;
-    background-color: rgb(0, 0, 0);    
-    opacity: 80%;
-   
-    
-}
-
-.encabezado nav ul li ul li{
-    width: 150px;
-    position: relative;
-    display: list-item;
-    
-}
-
-.encabezado nav ul li ul{
-       flex-direction: column;
-}
-
-.encabezado nav ul li ul li ul{
-    top: 0%;
-    left: 135px;
-    position: absolute;
-    display: none;
-    
-}
-.encabezado nav ul li ul{
-    display: none;
-}
-.encabezado nav ul li:hover > ul{
-    display: block;
-}
-
-
-
-/*pie de pagina*/
-.footer {
-    background:rgb(0, 0, 0);
-    padding: 15px 30px;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-
-    position:fixed;  /*posicion fija del footer*/
-    left:0px;
-    bottom:0px;
-    height:30px;
-    width:100%;
-}
-
-/*espaciado del cuerpo del html para que el navbar quede fijo*/
-.main {
-    padding-top: 80px;
-}
-
-.main h1{
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 20px 3px;
-  
-}
 
