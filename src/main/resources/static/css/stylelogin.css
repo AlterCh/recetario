@@ -138,9 +138,9 @@ input:focus {
   border-radius: 5px;
   cursor: pointer;
   padding: 15px 0;
-  font-size: 2rem;
+  font-size: 22px;
   background: #df9814;
-  color: #fff;
+  color: rgb(0, 0, 0);
   transition: all 0.5s ease;
   -webkit-appearance: none;
 }

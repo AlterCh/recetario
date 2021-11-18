@@ -1,38 +1,43 @@
+<!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragmentos/head :: #head"> </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/styleinicio.css">
+    <link rel="stylesheet" href="/css/styleerror.css">
+</head>
+
+
 <body>
+    <header class="encabezado">
+        <nav>
+            <div><img src="/img/logotipo.png" alt=""></div>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-<nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="/"><h1>Ops! Ha ocurrido un error!</h1></a>
-    </div>
-</nav>
+            <ul>
+                <li><a href="/">INICIO</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header class=" text-center text-white">
-<div class="container-fluid">
-            <img class="img-fluid error "  src="https://image.freepik.com/free-photo/dirty-pattern-paint-room-block_1203-5709.jpg" alt="">
-</div>
-<header class="">
-<!--<div class="container-fluid">-->
-
-<!--</div>-->
-<h1 class="masthead-heading mb-0" th:text="${'ERROR ' +codigo}"></h1>
-<h2 class="masthead-subheading mb-0" th:text="${mensaje == null ? 'ALGO SALIÓ MAL':mensaje}"></h2>
-<a href="/" class="btn btn-primary btn-xl rounded-pill mt-5">Volver</a>
-
-</header>
-    
+    <main class="main">
+        <div class="huevo">
+            <h1>UPS! PARECE QUE ALGO SE ROMPIÓ.</h1>
+        </div>
+        
+        <div>
+            <img src="/img/eggquebrado.png" style='vertical-align: middle; float: right;'>
+        </div>
+    </main>
 
 
-
-
-
-
-<footer th:replace="fragmentos/footer :: #footer"></footer>
-<div th:replace="fragmentos/libs :: libs"></div>
+    <footer class="footer">
+        <div>
+            <p align="center">Copyright HUEVO FRITO</p>
+        </div>
+    </footer>
 </body>
 
 </html>
