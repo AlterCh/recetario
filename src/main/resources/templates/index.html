@@ -1,66 +1,45 @@
 <!DOCTYPE html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"></html>>
 
 
-    <head th:replace="fragmentos/head :: #head"> </head>
-    <body>
+<head>
+    <title>RECETARIO</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <link href="/css/styleinicio.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/css/styleindex.css">
+</head>
 
-        <nav th:replace ="fragmentos/navbar :: Index"> </nav>   <!--VER BARRA NAVEGACION JUSTIFICADO DERECHA-->
-
-        <h1>¡BIENVENIDO A HUEVO FRITO! Tu recetario personalizado. </h1>        
-
-        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="10000">
-                    <img src="https://www.cocinavital.mx/wp-content/uploads/2017/06/consecuencias_de_comer_comida_chatarra_portada.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
-                        </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                    <img src="https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/09/10122830/6321.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>COMIDAAAA</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
-                        </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="https://www.elchatarrero.com/wp-content/uploads/2013/11/fastfood.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
-                        </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+<body>
+    <header class="encabezado">
+        <nav>
+            <div><img src="/img/Logotipo.png" alt=""></div>
+            
+            <ul>
+                <li><a href="/login">ACCEDER</a></li>
+            </ul>
+        </nav> 
+    </header>
+    
+    <main class="main">
+    <div class="textinicial">
+        <h1>¡BIENVENIDOS A HUEVO FRITO!</h1>
+        <h2>Tu agenda personalizada de todos los días.</h2>
+        <p align="left">Esta es una plataforma en la que te puedes registrar y llevar un registro de tu inventario en alimentos, cargar recetas, buscar proveedores en caso de que te quedes sin stock, y compartir recetas con tus amigos.</p>
+        <p align="left">Registrate y aldsñajdajdskdjalskd</p>
+     
+    </div>
+    <div class="logoback">
+        <img src="/img/HUEVO.png"></a>
+    </div>
+    
+    </main>
+    <footer class="footer">
+        <div>
+            <p align="center">Copyright HUEVO FRITO</p>
         </div>
-
-
-
-
-
-
-
-        <p style="font-family:monospace"><b> Tu agenda de comida personalizada </b></p>
-
-             
-        <footer th:replace="fragmentos/footer :: #footer"></footer>
-        <div th:replace="fragmentos/libs :: libs"></div>
+    </footer>
     </body>
-</html> 
-
-
-
+    </html>

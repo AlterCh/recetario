@@ -1,0 +1,128 @@
+{
+  "provincia": {
+    "AR-A": {
+      "url": "/salta",
+      "color": "#0072bb",
+      "label": "Salta"
+    },
+    "AR-B": {
+      "url": "/buenosaires",
+      "color": "#2897d4",
+      "label": "Buenos Aires"
+    },
+    "AR-C": {
+      "url": "/caba",
+      "color": "blue",
+      "label": "Capital Federal"
+    },
+    "AR-C_1_": {
+      "url": "/caba",
+      "color": "#0072bb"
+    },
+    "AR-D": {
+      "url": "/sanluis",
+      "color": "#0072bb",
+      "label": "San Luis"
+    },
+    "AR-E": {
+      "url": "/entre-rios",
+      "color": "#0072bb",
+      "label": "Entre Ríos"
+    },
+    "AR-F": {
+      "url": "/la-rioja",
+      "color": "#0072bb",
+      "label": "La Rioja"
+    },
+    "AR-G": {
+      "url": "/santiago",
+      "color": "#0072bb",
+      "label": "Santiago del Estero"
+    },
+    "AR-H": {
+      "url": "/chaco",
+      "color": "#0072bb",
+      "label": "Chaco"
+    },
+    "AR-K": {
+      "url": "/catamarca",
+      "color": "#0072bb",
+      "label": "Catamarca"
+    },
+    "AR-U": {
+      "url": "/chubut",
+      "color": "#0072bb",
+      "label": "Chubut"
+    },
+    "AR-P": {
+      "url": "/formosa",
+      "color": "#0072bb",
+      "label": "Formosa"
+    },
+    "AR-Y": {
+      "url": "/jujuy",
+      "color": "#0072bb",
+      "label": "Jujuy"
+    },
+    "AR-L": {
+      "url": "/lapampa",
+      "color": "#0072bb",
+      "label": "La Pampa"
+    },
+    "AR-M": {
+      "url": "/mendoza",
+      "color": "#0072bb",
+      "label": "Mendoza"
+    },
+    "AR-N": {
+      "url": "/misiones",
+      "color": "#0072bb",
+      "label": "Misiones"
+    },
+    "AR-Q": {
+      "url": "/neuquen",
+      "color": "#0072bb",
+      "label": "Neuquén"
+    },
+    "AR-R": {
+      "url": "/rionegro",
+      "color": "#0072bb",
+      "label": "Río Negro"
+    },
+    "AR-J": {
+      "url": "/sanjuan",
+      "color": "#0072bb",
+      "label": "San Juan"
+    },
+    "AR-Z": {
+      "url": "/santacruz",
+      "color": "#0072bb",
+      "label": "Santa Cruz"
+    },
+    "AR-S": {
+      "url": "/santafe",
+      "color": "#0072bb",
+      "label": "Santa Fe"
+    },
+    "AR-V": {
+      "url": "/tierradelfuego",
+      "color": "#0072bb",
+      "label": "Tierra del Fuego"
+    },
+    "AR-T": {
+      "url": "/tucuman",
+      "color": "#0072bb",
+      "label": "Tucumán"
+    },
+    "AR-W": {
+      "url": "/corrientes",
+      "color": "#0072bb",
+      "label": "Corrientes"
+    },
+    "AR-X": {
+      "url": "/cordoba",
+      "color": "#0072bb",
+      "label": "Córdoba"
+    }
+  }
+}

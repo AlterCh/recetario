@@ -1,0 +1,20 @@
+body{
+    background-color: #EAB328;
+}
+
+.huevo h1{
+    font-family: 'Franklin Gothic Medium';
+    font-size: 42px;
+    color: #2C747E;
+    margin: 5%;
+    margin-top: 15%;
+}
+
+
+.main img{
+    position: fixed;
+    top: 150px;
+    right: 85px;
+    width: 30%;
+    
+}

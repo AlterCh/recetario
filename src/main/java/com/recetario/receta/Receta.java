@@ -37,8 +37,8 @@ public class Receta {
     
     private Integer tiempo;
 
-    @Embedded
-    @OneToMany
-    private List<Categoria> categoria;
+//    @Embedded
+//    @OneToMany
+//    private List<Categoria> categoria;
     
 }

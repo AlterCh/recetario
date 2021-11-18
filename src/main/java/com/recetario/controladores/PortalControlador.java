@@ -1,7 +1,7 @@
 package com.recetario.controladores;
 
-import com.recetario.usuario.Usuario;
-import com.recetario.usuario.UsuarioService;
+import com.recetario.usuario.domain.Usuario;
+import com.recetario.usuario.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+
+
+
+    //TODO Esto es algo que se debe realizar/modificar/eliminar
+
 
 /**
  * Controlador principal del portal.
@@ -31,9 +36,10 @@ public class PortalControlador extends CusControlador{
     private UsuarioService usuarioService;
 
     @GetMapping("")
+
     public String index() {
         System.out.println(msg);
-        return "index.html";
+        return "index";
     }
 
 
@@ -51,18 +57,28 @@ public class PortalControlador extends CusControlador{
             httpSession.setAttribute("usuariosession", null);
         }
         String usuariosession = super.redirectUsuario(httpSession, "/panel");
+        model.addAttribute(
+                "usuario",
+                new Usuario() );
         //Si el usuariosession es distinto de null ENTONCES devolver usuario session SINO devolver "login"
         return usuariosession != null ? usuariosession : "login";
     }
 
     @GetMapping("/registro")
-    public String registro(Model model) {
+    public String registro(HttpSession httpSession,
+                           Model model,
+                           @RequestParam(required = false) String error) {
+        if (error != null) {
+            model.addAttribute("error", "Usuario y/o contraseña incorrecto");
+            httpSession.setAttribute("usuariosession", null);
+        }
+        String usuariosession = super.redirectUsuario(httpSession, "/panel");
         model.addAttribute(
                 "usuario",
                 new Usuario() );
-        return "registro";
+        //Si el usuariosession es distinto de null ENTONCES devolver usuario session SINO devolver "login"
+        return usuariosession != null ? usuariosession : "registro";
     }
-
     @PostMapping("/registro")
     public String registro(
             Model model,

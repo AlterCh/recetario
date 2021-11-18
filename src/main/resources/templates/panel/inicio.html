@@ -1,17 +1,91 @@
 <!DOCTYPE html>
-
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragmentos/head :: #head">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="/css/styleinicio.css">
+
 </head>
+
 <body>
-<nav th:replace="fragmentos/navbar :: Panel"></nav>
 
-<h1>ACA VAN LAS COLUMNAS
+<!-- CABECERA NAV BAR-->
+<header class="encabezado">
+    <nav>
+        <div><img src="/img/logotipo.png" alt=""></div> <!--LOGO HUEVO FRITO-->
 
-</h1> 
-<footer th:replace="fragmentos/footer :: #footer"></footer>
-<div th:replace="fragmentos/libs :: libs"></div>
+        <ul>
+            <li>
+                <a href="/">PROVEEDORES</a>
+                <ul>
+                    <li><a href="/proveedor/nuevo">Agregar</a></li>
+                    <li><a href="/proveedor/editar">Editar</a></li>
+                    <li><a href="/proveedor/lista">Ver Lista</a></li>
+                    <li><a href="/favoritos/proveedorfav">Favoritos</a></li>
+
+                    <li>
+                        <a href="/">PRODUCTOS</a>
+                        <ul>
+                            <li><a href="/producto/nuevo">Agregar</a></li>
+                            <li><a href="/producto/editar"">Editar</a></li>
+                            <li><a href="/producto/lista">Ver Lista</a></li>
+                         </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/">RECETAS</a>
+                <ul>
+                    <li><a href="/receta/nuevo">Agregar</a></li>
+                    <li><a href="/receta/editar">Editar</a></li>
+                    <li><a href="/receta/lista">Ver Lista</a></li>
+                    <li><a href="/favoritos/recetafav">Favoritos</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/">MI ALACENA</a>
+                <ul>
+                    <li><a href="/producto/lista">VER STOCK</a></li>
+                    <li><a href="/listacompra/">Compras</a></li>
+                </ul>
+            </li>
+            <li class="perfil">
+                <a href="/">PERFIL</a>
+                <ul>
+                    <li><a href="/panel/configuracion/perfil">Editar</a></li>
+                    <li><a href="/favoritos">Favoritos</a></li>
+                    <li><a href="/logout">SALIR</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!--CUERPO DE LA PAGINA DENTRO DEL MAIN-->
+<main class="main">
+    <div class="grid-container">
+        <div>LISTA DE COMPRAS</div>
+        <div>RECETAS</div>
+        <div>PROVEEDORES</div>
+    </div>
+
+
+
+</main>
+
+<!--PIE DE PAGINA FUERA DEL MAIN-->
+<footer class="footer">
+    <div>
+        <p align="center">Copyright HUEVO FRITO</p>
+    </div>
+</footer>
+
+
 </body>
+
 </html>
-
-

@@ -1,11 +1,13 @@
-package com.recetario.usuario;
+package com.recetario.usuario.domain;
 
+import com.recetario.favoritos.Favorito;
 import com.recetario.foto.Foto;
+import com.recetario.proveedores.Proveedor;
 import com.recetario.provincia.Provincia;
+import com.recetario.receta.Receta;
 import com.recetario.rol.Rol;
-import com.recetario.siu.Magnitud;
-import com.recetario.siu.UnidadesFundamentales;
-import com.recetario.usuario.preferencias.PreferenciasUsuario;
+
+import java.util.List;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -18,6 +20,7 @@ import java.util.Date;
 @Builder //Defaults
 @AllArgsConstructor //Constructor con todos los parametros
 @NoArgsConstructor //Constructor vacío
+@Table(name = "usuario")
 public class Usuario {
 
     @Id
@@ -57,4 +60,19 @@ public class Usuario {
     @OneToOne
     private PreferenciasUsuario preferenciasUsuario ;
 
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<ListaDeCompra> listaCompra;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<Proveedor> listaProveedores;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<Receta> listaRecetas;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<Favorito> listaFavoritos;
 }

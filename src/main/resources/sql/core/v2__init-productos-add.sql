@@ -42,9 +42,9 @@ INSERT INTO `producto` (`id`, `cantidad`, `nombre`, `precio`, `stock`, `unidad_i
 VALUES ('1', 1, 'Producto 1', 25.5, 10, '1'),
        ('2', 3, 'Producto 2', 25.5, 10, '2'),
        ('3', 4, 'Producto 3', 25.5, 10, '3');
+
 /*!40000 ALTER TABLE `producto`
     ENABLE KEYS */;
-
 /*!40101 SET SQL_MODE = IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS = IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT = @OLD_CHARACTER_SET_CLIENT */;

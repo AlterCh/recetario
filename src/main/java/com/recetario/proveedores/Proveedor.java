@@ -31,11 +31,8 @@ public class Proveedor {
 
     private String direccion;
 
-    @OneToOne
-    private Provincia provincia;
-
     private String telefono;
-
+    
     @OneToMany
     private List<Producto> productos;
     

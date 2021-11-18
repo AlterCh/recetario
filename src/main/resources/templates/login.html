@@ -1,32 +1,112 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
-        
-<head th:replace="fragmentos/head :: head"></head>
-           <br>
-           <p style="font-family:monospace"> INGRESA, COCINAMOS, Y COM.EMOS!</p>
-           <br>
+
+<head>
+    <title>MI RECETARIO</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/styleinicio.css">
+    <link rel="stylesheet" href="/css/stylelogin.css">
+
+</head>
+
 <body>
+<header class="encabezado">
+    <nav>
+        <div><img src="/img/logotipo.png" alt=""></div>
 
-    <form action="/logincheck" method="POST">
-        <p th:if="${error != null}" th:text="${error}"
-           style="color:red; text-shadow: 1px 1px 2px white;"></p>
-        <!--                        <p th:if="${logout != null}" th:text="${logout}" style="color:green"></p> -->
+        <ul>
+            <li><a href="/index">VOLVER</a></li>
+        </ul>
+    </nav>
+</header>
 
-        
-        <label>E-Mail</label>
-        <input type="email" class="form-control" name="username"/>
+<!--    <main class="main">-->
+<!-- Formularios -->
+<div class="contenedor-formularios">
+    <!-- Links de los formularios -->
+    <ul class="contenedor-tabs">
+        <li class="tab tab-segunda active"><a href="#iniciar-sesion">Iniciar Sesión</a></li>
+        <li class="tab tab-primera"><a href="#registrarse">Registrarse</a></li>
+    </ul>
 
-        <label>Clave</label>
-        <input type="password" class="form-control" name="password"/>
+    <!-- Contenido de los Formularios -->
+    <div class="contenido-tab">
+        <!-- Iniciar Sesion -->
+        <div id="iniciar-sesion">
+            <h3>Iniciar Sesión</h3>
+            <p th:if="${error != null}" th:text="${error}" style="color:red; text-shadow: 1px 1px 2px white;"></p>
+            <form action="/logincheck" method="post">
+                <div class="contenedor-input">
+                    <label>
+                        Usuario <span class="req"></span>
+                    </label>
+                    <input type="text" name="username" required>
+                </div>
 
-        <br/>
-        <button type="submit" class="btn btn-primary">Ingresar</button>
+                <div class="contenedor-input">
+                    <label>
+                        Contraseña <span class="req"></span>
+                    </label>
+                    <input type="password" name="password" required>
+                </div>
 
-    </form>
+                <input type="submit" class="button button-block" value="Iniciar Sesión">
+            </form>
+        </div>
 
+        <!-- Registrarse -->
+        <div id="registrarse">
+            <h1>Registrarse</h1>
+            <form action="/registro" th:object="${usuario}" method="POST" enctype="multipart/form-data">
+                <div class="fila-arriba">
+                    <div class="contenedor-input">
+                        <label>
+                            Nombre <span class="req"></span>
+                        </label>
+                        <input type="text" name="nombre" th:field="*{nombre}" required/>
+                    </div>
 
-    <footer th:replace="fragmentos/footer :: #footer"></footer>
-    <div th:replace="fragmentos/libs :: libs"></div>
+                    <div class="contenedor-input">
+                        <label>
+                            Apellido <span class="req"></span>
+                        </label>
+                        <input type="text" name="apellido" th:field="*{apellido}"/>
+                    </div>
+                </div>
+
+                <div class="contenedor-input">
+                    <label>
+                        Email <span class="req"></span>
+                    </label>
+                    <input type="email" name="mail" th:field="*{mail}"/>
+                </div>
+                <div class="contenedor-input">
+                    <label>
+                        Contraseña <span class="req"></span>
+                    </label>
+                    <input type="password" name="clave1" th:field="*{clave}" required/>
+                </div>
+
+                <div class="contenedor-input">
+                    <label>
+                        Repetir Contraseña <span class="req"></span>
+                    </label>
+                    <input type="password" name="clave2" required/>
+                </div>
+                <div class="contenedor-input">
+                    <label>Foto</label>
+                    <input type="file" name="archivo"/>
+                </div>
+                <input type="submit" class="button button-block" value="Registrarse">
+            </form>
+        </div>
+    </div>
+</div>
+<!--    </main>-->
+<div th:replace="fragmentos/libs :: #libs"></div>
 </body>
+
 </html>

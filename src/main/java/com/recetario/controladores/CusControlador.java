@@ -1,8 +1,11 @@
 package com.recetario.controladores;
 
+import com.recetario.ingrediente.Ingrediente;
 import org.springframework.context.annotation.PropertySource;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -10,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 @PropertySource("classpath:values.properties")
 public class CusControlador {
-
+    protected static List<Ingrediente> ingredienteList = new ArrayList<>();
     /**
      * Verifica que el usuario se enuentre logueado.
      * de no existir retorna null

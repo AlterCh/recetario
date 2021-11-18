@@ -1,5 +1,6 @@
-package com.recetario.usuario.preferencias;
+package com.recetario.usuario.service;
 
+import com.recetario.usuario.repository.PreferenciasRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
