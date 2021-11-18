@@ -33,3 +33,6 @@ build/
 ### VS Code ###
 .vscode/
 /recetario-db/db/
+nbactions.tmp
+src/main/resources/templates/producto/.LCKlista.html~
+src/main/resources/templates/receta/.LCKlista.html~
