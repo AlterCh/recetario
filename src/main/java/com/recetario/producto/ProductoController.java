@@ -7,8 +7,6 @@ import com.recetario.proveedores.ProveedorRepository;
 import com.recetario.proveedores.ProveedorService;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import com.recetario.siu.UnidadesFundamentales;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -20,15 +18,10 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/producto")
 public class ProductoController extends CusControlador {
 
-    ProductoService productoService;
-    ProductoRepository productoRepository;
-    ProveedorService proveedorService;
     @Autowired
-    public ProductoController(ProductoService productoService, ProductoRepository productoRepository, ProveedorService proveedorService) {
-        this.productoService = productoService;
-        this.productoRepository = productoRepository;
-        this.proveedorService = proveedorService;
-    }
+    ProductoService productoService;
+    @Autowired
+    ProductoRepository productoRepository;
 
     ErrorServicio ex;
     
@@ -37,6 +30,9 @@ public class ProductoController extends CusControlador {
      */
     @GetMapping("/nuevo")
     public String nuevoGet(HttpSession httpSession, ModelMap modelMap) {
+        //atributo proveedor con un objeto vacio
+        //el objeto vacio trae todos los atributos en null
+
         modelMap.addAttribute("producto", new Producto());
         return "producto/nuevo";
     }
@@ -79,10 +75,9 @@ public class ProductoController extends CusControlador {
     @PostMapping("/nuevo")
     public String nuevoPost(HttpSession httpSession,
             ModelMap modelMap,
-            @RequestParam("idProveedor") String idProveedor,
             @ModelAttribute Producto producto) throws Exception {
         try {
-            productoService.registrar(httpSession,idProveedor, producto);
+            productoService.registrar(producto);
              return "redirect:/proveedor/lista";
         } catch (ErrorServicio ex) {
             modelMap.put("error", ex.getMessage());
@@ -96,12 +91,12 @@ public class ProductoController extends CusControlador {
     @PostMapping("/lista")
     public String listaPost(HttpSession httpSession,
             ModelMap modelMap,
-            @ModelAttribute Producto producto,
+            @ModelAttribute Proveedor proveedor,
             @RequestParam("id") String id) {
 
             try {
                 if (id != null) {
-                productoService.borrar(productoRepository.getById(id));// TO DO METODO BORRAR SERVICE PRODUCTO
+                productoService.borrar(productoRepository.getById(id));
                 return "redirect:/producto/lista";
                 }else{
                     throw new Exception("No se ha eliminado el registro, disculpe las molestias");
@@ -120,7 +115,7 @@ public class ProductoController extends CusControlador {
             ModelMap modelMap,
             @ModelAttribute("producto") Producto producto) {
         try {
-            productoService.modificar(producto);// TO DO METODO MODIFICAR SERVICE PRODUCTO
+            productoService.modificar(producto);
             return "redirect:/producto/lista";
         } catch (ErrorServicio ex) {
             Logger.getLogger(ProductoController.class.getName()).log(Level.SEVERE, null, ex);
