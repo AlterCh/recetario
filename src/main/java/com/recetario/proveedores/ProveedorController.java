@@ -14,11 +14,13 @@ import javax.servlet.http.HttpSession;
 import com.recetario.usuario.domain.Usuario;
 import com.recetario.usuario.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@PreAuthorize("hasAnyRole('ROLE_USUARIO_REGISTRADO')")
 @RequestMapping("/proveedor")
 public class ProveedorController extends CusControlador {
 
@@ -81,8 +83,9 @@ public class ProveedorController extends CusControlador {
                             ModelMap modelMap,
                             @ModelAttribute Proveedor proveedor) throws Exception {
         try {
-            proveedorService.nuevo(httpSession,
-                    proveedor);
+            Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
+            proveedorService.nuevo(usuario,proveedor);
+            usuarioService.actualizarHttpSession(httpSession,usuario);
             return "redirect:/proveedor/lista";
         } catch (ErrorServicio ex) {
             modelMap.put("error", ex.getMessage());
@@ -100,8 +103,10 @@ public class ProveedorController extends CusControlador {
                             @RequestParam("id") String id) {
 
         try {
+            Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
             if (id != null) {
                 proveedorService.borrar(httpSession,proveedorRepository.getById(id));
+                usuarioService.actualizarHttpSession(httpSession,usuario);
                 return "redirect:/proveedor/lista";
             } else {
                 throw new Exception("No se ha eliminado el registro, disculpe las molestias");

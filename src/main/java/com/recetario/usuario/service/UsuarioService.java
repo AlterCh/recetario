@@ -209,9 +209,7 @@ public class UsuarioService implements UserDetailsService {
             throw new ErrorServicio("No se ha podido agregar el proveedor");
         }
     }
-    public void actualizarHttpSession(HttpSession httpSession){
-            httpSession.setAttribute("usuariosession",repo.getById(((Usuario) httpSession.getAttribute("usuariosession")).getId()));
-    }
+
     public void actualizarHttpSession(HttpSession httpSession,Usuario usuario){
         httpSession.setAttribute("usuariosession",repo.getById(usuario.getId()));
     }

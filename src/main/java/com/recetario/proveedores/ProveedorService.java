@@ -48,10 +48,8 @@ public class ProveedorService {
     }
 
     @Transactional
-    public void nuevo(HttpSession httpSession, Proveedor proveedor) throws ErrorServicio {
-        Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
+    public void nuevo(Usuario usuario, Proveedor proveedor) throws ErrorServicio {
         usuarioService.agregarProveedor(proveedor, usuario);
-        usuarioService.actualizarHttpSession(httpSession);
     }
 
     @Transactional
@@ -94,7 +92,7 @@ public class ProveedorService {
             proveedorList.remove(prov);
             usuarioOptional.setListaProveedores(proveedorList);
             usuarioService.modificar(usuarioOptional);
-            usuarioService.actualizarHttpSession(httpSession);
+
         } else {
             throw new ErrorServicio("No se encontró/borró el Proveedor solicitado.");
         }
@@ -123,7 +121,7 @@ public class ProveedorService {
         return repo.findProveedorByUsuario(usuario.getId());
     }
 
-
+    //TODO
     public void agregarProducto(HttpSession httpSession, String idProveedor, Producto producto) throws ErrorServicio {
         Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
         Usuario aux = usuarioService.getUsuarioById(usuario);
