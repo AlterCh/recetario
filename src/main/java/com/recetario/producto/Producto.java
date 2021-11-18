@@ -33,8 +33,7 @@ public class Producto {
 
     private Double stock;
 
-    @OneToMany
-    private List<Categoria> categoria; //TODO
+
 
 
 }

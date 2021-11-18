@@ -8,7 +8,6 @@ import com.recetario.receta.Receta;
 import com.recetario.rol.Rol;
 
 import java.util.List;
-
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -59,7 +58,7 @@ public class Usuario {
     private Rol rol;
 
     @OneToOne
-    private PreferenciasUsuario preferenciasUsuario;
+    private PreferenciasUsuario preferenciasUsuario ;
 
     @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true)

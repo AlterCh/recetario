@@ -1,5 +1,10 @@
 {
   "provincia": {
+    "AR-A": {
+      "url": "/salta",
+      "color": "#0072bb",
+      "label": "Salta"
+    },
     "AR-B": {
       "url": "/buenosaires",
       "color": "#2897d4",
@@ -14,35 +19,40 @@
       "url": "/caba",
       "color": "#0072bb"
     },
-    "AR-K": {
-      "url": "/catamarca",
+    "AR-D": {
+      "url": "/sanluis",
       "color": "#0072bb",
-      "label": "Catamarca"
+      "label": "San Luis"
+    },
+    "AR-E": {
+      "url": "/entre-rios",
+      "color": "#0072bb",
+      "label": "Entre Ríos"
+    },
+    "AR-F": {
+      "url": "/la-rioja",
+      "color": "#0072bb",
+      "label": "La Rioja"
+    },
+    "AR-G": {
+      "url": "/santiago",
+      "color": "#0072bb",
+      "label": "Santiago del Estero"
     },
     "AR-H": {
       "url": "/chaco",
       "color": "#0072bb",
       "label": "Chaco"
     },
+    "AR-K": {
+      "url": "/catamarca",
+      "color": "#0072bb",
+      "label": "Catamarca"
+    },
     "AR-U": {
       "url": "/chubut",
       "color": "#0072bb",
       "label": "Chubut"
-    },
-    "AR-X": {
-      "url": "/cordoba",
-      "color": "#0072bb",
-      "label": "Córdoba"
-    },
-    "AR-W": {
-      "url": "/corrientes",
-      "color": "#0072bb",
-      "label": "Corrientes"
-    },
-    "AR-E": {
-      "url": "/entre-rios",
-      "color": "#0072bb",
-      "label": "Entre Ríos"
     },
     "AR-P": {
       "url": "/formosa",
@@ -58,11 +68,6 @@
       "url": "/lapampa",
       "color": "#0072bb",
       "label": "La Pampa"
-    },
-    "AR-F": {
-      "url": "/la-rioja",
-      "color": "#0072bb",
-      "label": "La Rioja"
     },
     "AR-M": {
       "url": "/mendoza",
@@ -84,20 +89,10 @@
       "color": "#0072bb",
       "label": "Río Negro"
     },
-    "AR-A": {
-      "url": "/salta",
-      "color": "#0072bb",
-      "label": "Salta"
-    },
     "AR-J": {
       "url": "/sanjuan",
       "color": "#0072bb",
       "label": "San Juan"
-    },
-    "AR-D": {
-      "url": "/sanluis",
-      "color": "#0072bb",
-      "label": "San Luis"
     },
     "AR-Z": {
       "url": "/santacruz",
@@ -109,11 +104,6 @@
       "color": "#0072bb",
       "label": "Santa Fe"
     },
-    "AR-G": {
-      "url": "/santiago",
-      "color": "#0072bb",
-      "label": "Santiago del Estero"
-    },
     "AR-V": {
       "url": "/tierradelfuego",
       "color": "#0072bb",
@@ -123,6 +113,16 @@
       "url": "/tucuman",
       "color": "#0072bb",
       "label": "Tucumán"
+    },
+    "AR-W": {
+      "url": "/corrientes",
+      "color": "#0072bb",
+      "label": "Corrientes"
+    },
+    "AR-X": {
+      "url": "/cordoba",
+      "color": "#0072bb",
+      "label": "Córdoba"
     }
   }
 }
