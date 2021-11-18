@@ -42,11 +42,11 @@ public class ProductoService implements UserDetailsService{
 
         String nombre = producto.getNombre();
         Double cantidad = producto.getCantidad();
-        Unidad unidad = producto.getUnidad();
+//        Unidad unidad = producto.getUnidad();
         Double stock = producto.getStock();
-        List <Categoria> categoria = producto.getCategoria();
+//        List <Categoria> categoria = producto.getCategoria();
         
-        validar(nombre, cantidad, unidad, stock);
+        validar(nombre, cantidad, stock);
         productoRepository.save(producto);
 
     }
@@ -56,20 +56,16 @@ public class ProductoService implements UserDetailsService{
     public void modificar(@NonNull Producto producto) throws ErrorServicio {
        String nombre = producto.getNombre();
         Double cantidad = producto.getCantidad();
-        Unidad unidad = producto.getUnidad();
         Double stock = producto.getStock();
-        List <Categoria> categoria = producto.getCategoria();
-        
-        validar(nombre, cantidad, unidad, stock);
+
+        validar(nombre, cantidad, stock);
 
         Optional<Producto> respuesta = productoRepository.findById(producto.getId());
         if (respuesta.isPresent()) {
             Producto aProducto = respuesta.get();
             aProducto.setNombre(nombre);
             aProducto.setCantidad(cantidad);
-            aProducto.setUnidad(unidad);
             aProducto.setStock(stock);
-            aProducto.setCategoria(categoria);
             productoRepository.save(aProducto);
             
         } else {
@@ -97,7 +93,7 @@ public class ProductoService implements UserDetailsService{
             }
     }
 
-    private void validar(String nombre, Double cantidad, Unidad unidad, Double stock) throws ErrorServicio {
+    private void validar(String nombre, Double cantidad, Double stock) throws ErrorServicio {
 
         if (nombre == null || nombre.isEmpty()) {
             throw new ErrorServicio("El nombre del Producto no puede ser nulo");
@@ -107,9 +103,7 @@ public class ProductoService implements UserDetailsService{
             throw new ErrorServicio ("La Cantidad no puede ser nula");
         }
 
-        if (unidad == null) {
-            throw new ErrorServicio("La unidad del producto no puede ser nula");
-        }
+
 
         if (stock == null) {
             throw new ErrorServicio("El stock no puede ser nulo");

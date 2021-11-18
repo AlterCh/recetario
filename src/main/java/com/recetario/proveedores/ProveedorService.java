@@ -36,15 +36,15 @@ public class ProveedorService {
 
 
     @Transactional
-    public void registrar(@NonNull Proveedor proveedor) throws Exception {
+    public void registrar(Usuario usuario,@NonNull Proveedor proveedor) throws Exception {
 
         String nombre = proveedor.getNombre();
         String direccion = proveedor.getDireccion();
-//        Provincia provincia = proveedor.getProvincia();
         String telefono = proveedor.getTelefono();
         validar(nombre, direccion, telefono);
-        repo.save(proveedor);
-
+        Usuario aux = usuarioService.getUsuarioById(usuario);
+        aux.getListaProveedores().add(proveedor);
+        usuarioService.modificar(aux);
     }
 
     @Transactional

@@ -7,6 +7,9 @@ import com.recetario.proveedores.ProveedorRepository;
 import com.recetario.proveedores.ProveedorService;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.recetario.usuario.domain.Usuario;
+import com.recetario.usuario.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -22,7 +25,8 @@ public class ProductoController extends CusControlador {
     ProductoService productoService;
     @Autowired
     ProductoRepository productoRepository;
-
+    @Autowired
+    UsuarioService usuarioService;
     ErrorServicio ex;
     
     /**
@@ -78,6 +82,7 @@ public class ProductoController extends CusControlador {
             @ModelAttribute Producto producto) throws Exception {
         try {
             productoService.registrar(producto);
+            usuarioService.actualizarHttpSession(httpSession,usuarioService.getUsuarioById((Usuario) httpSession.getAttribute("usuariosession")));
              return "redirect:/proveedor/lista";
         } catch (ErrorServicio ex) {
             modelMap.put("error", ex.getMessage());
