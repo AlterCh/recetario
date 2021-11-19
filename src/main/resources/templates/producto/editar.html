@@ -1,32 +1,72 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="fragmentos/head :: #head"></head>
-    <body>
+
+    <head th:replace="fragmentos/head :: #head">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
+    </head>
+<body>
+                  
+        <header class="encabezado">
+            <nav>
+                <ul>
+                    <li><a href="/">INICIO</a></li> 
+                </ul>
+            </nav> 
+        </header>
+    
+    
+    
+    
+ <main class="main">
+        <form action="form-result.php" target="_blank">
+    
+            <div class="justify-content-md-end">
+                <button class="btn btn-primary me-md-2" type="button">Buscar:
+                    <input type="text" name="nombre"></label></p></button>
+              </div>
+      <fieldset>
+
+        <b><legend>EDITAR PRODUCTO</legend></b>
+     <body>
         <!--      Llamamos al objeto del controlador ProveedorController    -->
         <form action="/producto/editar" method="post" th:object="${producto}">
 
             <input type="hidden" name="id" th:field="*{id}" th:value="*{id}"/>
 
-            <label>Nombre</label>
+            <p><label>Nombre</label>
             <!--    th:field == los atributos del objeto -->
-            <input type="text" class="form-control" name="nombre" th:field="*{nombre}" th:value="*{nombre}"/>
-            <label>Precio</label>
-            <input type="number" class="form-control" name="precio" th:field="*{precio}" th:value="*{precio}"/>
-            <label>Cantidad</label>
-            <input type="number" class="form-control" name="cantidad" th:field="*{cantidad}"th:value="*{cantidad}"/>
-            <label>Unidad</label>
-            <input type="text" class="form-control" name="unidad" th:field="*{unidad}"th:value="*{unidad}"/>
-            <label>Stock</label>
-            <input type="number" class="form-control" name="stock" th:field="*{stock}"th:value="*{stock}"/>
+            <input type="text" class="form-control" name="nombre" th:field="*{nombre}" th:value="*{nombre}"/></p>
+            <p><label>Precio</label>
+            <input type="number" class="form-control" name="precio" th:field="*{precio}" th:value="*{precio}"/></p>
+            <p><label>Cantidad</label>
+            <input type="number" class="form-control" name="cantidad" th:field="*{cantidad}"th:value="*{cantidad}"/></p>
+            <p><label>Unidad</label>
+            <input type="text" class="form-control" name="unidad" th:field="*{unidad}"th:value="*{unidad}"/></p>
+            <p><label>Stock</label>
+            <input type="number" class="form-control" name="stock" th:field="*{stock}"th:value="*{stock}"/></p>
+            <p><label>Categoria</label>
+            <input type="number" class="form-control" name="categoria" th:field="*{categoria}" th:value="*{Categoria}"/></p>
+            
             <br/>
             <button type="submit" class="btn btn-primary">Modificar Producto</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+           
             <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
         </form>
-
-
-
-        <footer th:replace="fragmentos/footer :: #footer"></footer>
+        <aside class="bd-sidebar">
+ </main>
+        <footer class="footer">
+            <div>
+                <p>QUIENES SOMOS</p>
+                <p>Copyright HUEVO FRITO </p>
+            </div>
+        </footer>
         <div th:replace="fragmentos/libs :: #libs"></div>
 
-    </body>
+ </body>
 </html>
