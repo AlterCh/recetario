@@ -1,10 +1,8 @@
 package com.recetario.producto;
 
-import com.recetario.categoria.Categoria;
 import com.recetario.errores.ErrorServicio;
-import com.recetario.proveedores.Proveedor;
-import com.recetario.proveedores.ProveedorRepository;
-import com.recetario.siu.Unidad;
+import com.recetario.usuario.domain.Usuario;
+import com.recetario.usuario.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,16 +12,14 @@ import javax.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.lang.NonNull;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 @Service
-public class ProductoService implements UserDetailsService{
+public class ProductoService{
 
     @Autowired
     ProductoRepository productoRepository;
-
+    @Autowired
+    UsuarioService usuarioService;
 
     public List<Producto> getAll() {
         List<Producto> productos = productoRepository.findAll();
@@ -32,46 +28,53 @@ public class ProductoService implements UserDetailsService{
     
     private Logger log = LoggerFactory.getLogger(this.getClass().getName());
 
-    @Override
-    public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     @Transactional
-    public void registrar(@NonNull Producto producto) throws Exception {
-
+    public void registrar(Usuario usuario,@NonNull Producto producto) throws Exception {
+        try {
         String nombre = producto.getNombre();
         Double cantidad = producto.getCantidad();
-//        Unidad unidad = producto.getUnidad();
         Double stock = producto.getStock();
-//        List <Categoria> categoria = producto.getCategoria();
-        
-        validar(nombre, cantidad, stock);
-        productoRepository.save(producto);
-
+        validar(nombre, producto.getPrecio(), cantidad, producto.getUnidad(), stock);
+        Usuario aux = usuarioService.getUsuarioById(usuario);
+        if(aux != null){
+            aux.getListaProductos().add(producto);
+            usuarioService.modificar(aux);
+        }else{
+            throw new Exception("Error al agregar un producto");
+        }
+        }catch (Exception e){
+            throw e;
+        }
     }
 
 
     @Transactional
     public void modificar(@NonNull Producto producto) throws ErrorServicio {
-       String nombre = producto.getNombre();
-        Double cantidad = producto.getCantidad();
-        Double stock = producto.getStock();
+        try {
+            String nombre = producto.getNombre();
+            Double cantidad = producto.getCantidad();
+            Double stock = producto.getStock();
 
-        validar(nombre, cantidad, stock);
+            validar(nombre, producto.getPrecio(), cantidad, producto.getUnidad(), stock);
 
-        Optional<Producto> respuesta = productoRepository.findById(producto.getId());
-        if (respuesta.isPresent()) {
-            Producto aProducto = respuesta.get();
-            aProducto.setNombre(nombre);
-            aProducto.setCantidad(cantidad);
-            aProducto.setStock(stock);
-            productoRepository.save(aProducto);
-            
-        } else {
-            throw new ErrorServicio("No se encontró el producto solicitado");
+            Optional<Producto> respuesta = productoRepository.findById(producto.getId());
+            if (respuesta.isPresent()) {
+                Producto aProducto = respuesta.get();
+
+                if (aProducto.getNombre() != producto.getNombre()) {
+                    aProducto.setNombre(nombre);
+                }
+                aProducto.setPrecio(producto.getPrecio());
+                aProducto.setCantidad(cantidad);
+                aProducto.setUnidad(producto.getUnidad());
+                aProducto.setStock(stock);
+                productoRepository.save(aProducto);
+            } else {
+                throw new ErrorServicio("No se encontró el producto solicitado");
+            }
+        }catch (Exception e){
+            throw e;
         }
-
     }
     
      @Transactional
@@ -82,29 +85,34 @@ public class ProductoService implements UserDetailsService{
 
     @Transactional
     public void borrar(@NonNull Producto producto) throws Exception {
-       
-         String id = producto.getId();
-         Optional<Producto> respuesta = productoRepository.findById(id);
-            if (respuesta.isPresent()) {
-                Producto product = respuesta.get();
-                productoRepository.delete(product);
-            } else {
-                throw new ErrorServicio("No se encontró el Producto solicitado.");
-            }
+       try {
+           String id = producto.getId();
+           Optional<Producto> respuesta = productoRepository.findById(id);
+           if (respuesta.isPresent()) {
+               productoRepository.delete(respuesta.get());
+           } else {
+               throw new ErrorServicio("No se encontró el Producto solicitado.");
+           }
+       } catch (Exception e){
+           throw e;
+       }
     }
 
-    private void validar(String nombre, Double cantidad, Double stock) throws ErrorServicio {
+    private void validar(String nombre, Double precio, Double cantidad, String unidad, Double stock) throws ErrorServicio {
 
         if (nombre == null || nombre.isEmpty()) {
-            throw new ErrorServicio("El nombre del Producto no puede ser nulo");
+            throw new ErrorServicio("El nombre no puede ser nulo");
+        }
+        if(precio == null){
+            throw new ErrorServicio("El precio no puede ser nulo");
         }
 
         if (cantidad == null){
             throw new ErrorServicio ("La Cantidad no puede ser nula");
         }
-
-
-
+        if(unidad == null){
+            throw new ErrorServicio ("La unidad no puede ser nula");
+        }
         if (stock == null) {
             throw new ErrorServicio("El stock no puede ser nulo");
         }

@@ -2,6 +2,7 @@ package com.recetario.usuario.domain;
 
 import com.recetario.favoritos.Favorito;
 import com.recetario.foto.Foto;
+import com.recetario.producto.Producto;
 import com.recetario.proveedores.Proveedor;
 import com.recetario.provincia.Provincia;
 import com.recetario.receta.Receta;
@@ -75,4 +76,10 @@ public class Usuario {
     @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true)
     private List<Favorito> listaFavoritos;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<Producto> listaProductos;
+
+
 }

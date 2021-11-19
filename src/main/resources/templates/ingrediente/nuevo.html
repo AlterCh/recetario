@@ -15,10 +15,7 @@
         <input  id="cantidad" type="number" placeholder="1.0" step="0.1" min="0" max="1000" th:field="*{cantidad}">
 
         <label for="unidades">Unidad</label>
-        <select id="unidades" th:field="*{unidades}">
-<!--                         unidad     llama a la clase unidadmedicion       trae el vector[]               GRAMO               GRAMO                  -->
-            <option th:each="unidad : ${T(com.recetario.enumeraciones.UnidadMedicion).values()}" th:value="${unidad}" th:text="${unidad}"></option>
-        </select>
+
 
     </form>
 </div>
