@@ -72,7 +72,7 @@ public class FavoritoController extends CusControlador {
         Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
         
         try {
-            model.addAttribute("provfav", favoritoService.getAllByUsuarioP(usuario));
+            model.addAttribute("provfav", favoritoService.getByUsuarioP(usuario));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -89,7 +89,7 @@ public class FavoritoController extends CusControlador {
         Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
         
         try {
-            model.addAttribute("recetasfav", favoritoService.getAllByUsuarioR(usuario));
+            model.addAttribute("recetasfav", favoritoService.getByUsuarioR(usuario));
         } catch (Exception e) {
             e.printStackTrace();
         }

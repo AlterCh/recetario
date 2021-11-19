@@ -16,16 +16,13 @@
                 </nav>
             </div>
         </header>
-        <div id="lista-de-proveedores-favoritos" class="">
-            <h3>Proveedores favoritos </h3>
-            <div th:if="${provfav.size() != 0 && provfav != null }"
-                 th:each="favorito : ${provfav}"
-                 th:object="${favorito}"
-                 th:each="proveedor : ${favorito.favoritosProveedores}"
-                 th:object="${proveedor}">
+        <div id="lista-de-recetas-favoritas" class="">
+            <h3>Recetas favoritas </h3>
+            <div th:value="${favorito}"
+                 th:each="receta : ${favorito.favoritoRecetas}"
+                 th:object="${receta}">
                 <h3 th:text="*{nombre}"></h3>
-                <h3 th:text="*{direccion}"></h3>
-                <h3 th:text="*{telefono}"></h3>
+                <h3 th:text="*{descripcion}"></h3>
             </div>
         </div>
         <footer class="footer">

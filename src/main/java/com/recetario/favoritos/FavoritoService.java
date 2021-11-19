@@ -32,25 +32,21 @@ public class FavoritoService {
     }
 
     @Transactional
-    public void guardarFavoritosProveedores(Favorito favorito) {
+    public void guardarFavoritosProveedores(Favorito favorito, Proveedor proveedor) {
         Optional<Favorito> aux = repo.findById(favorito.getId());
         if (aux.isPresent()) {
             Favorito fav = aux.get();
-            if (fav.getFavoritosProveedores() != favorito.getFavoritosProveedores()) {
-                fav.setFavoritosProveedores(favorito.getFavoritosProveedores());
-            }
+            fav.getFavoritosProveedores().add(proveedor);
             repo.save(fav);
         }
     }
 
     @Transactional
-    public void guardarFavoritosRecetas(Favorito favorito) {
+    public void guardarFavoritosRecetas(Favorito favorito, Receta receta) {
         Optional<Favorito> aux = repo.findById(favorito.getId());
         if (aux.isPresent()) {
             Favorito fav = aux.get();
-            if (fav.getFavoritosRecetas() != favorito.getFavoritosRecetas()) {
-                fav.setFavoritosRecetas(favorito.getFavoritosRecetas());
-            }
+            fav.getFavoritosRecetas().add(receta);
             repo.save(fav);
         }
     }
@@ -96,12 +92,12 @@ public class FavoritoService {
         }
     }
 
-    public List<Favorito> getAllByUsuarioP(Usuario usuario) {
-        return repo.getAllByUsuarioP(usuario.getId());
+    public Favorito getByUsuarioP(Usuario usuario) {
+        return repo.getById(usuario.getId());
     }
     
-    public List<Favorito> getAllByUsuarioR(Usuario usuario) {
-        return repo.getAllByUsuarioR(usuario.getId());
+    public Favorito getByUsuarioR(Usuario usuario) {
+        return repo.getById(usuario.getId());
     }
     
 }

@@ -72,7 +72,6 @@ public class Usuario {
             orphanRemoval = true)
     private List<Receta> listaRecetas;
 
-    @OneToMany(cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    private List<Favorito> listaFavoritos;
+    @OneToOne
+    private Favorito listaFavoritos;
 }
