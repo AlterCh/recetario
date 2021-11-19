@@ -7,46 +7,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
-    
+
 </head>
 
-<body>                         
-    <header class="encabezado">
-        <nav>
-          
-            <ul>
-                <li><a href="/">PROVEEDORES</a></li> 
-                <li><a href="/">PRODUCTOS</a></li>    
-            </ul>
-        </nav> 
-    </header>
+<body>
+<header class="encabezado">
+    <nav>
 
-    <main class="main">
-        <form action="form-result.php" target="_blank">
-            <div class="justify-content-md-end">
-                <button class="btn btn-primary me-md-2" type="button">Buscar:
-                    <input type="text" name="nombre"></label></p></button>
-              </div>
-      <fieldset>
-    
-    <b><legend>EDITAR PROVEEDOR</legend></b>
-    
-    <p><label>Nombre <input type="text" name="nombre"></label></p>
-    <p><label>Dirección <input type="text" name="direccion"></label></p>
-    <p><label>Telefono <input type="text" name="direccion"></label></p>
-    <p><label>Horarios<input type="text" name="direccion"></label></p>
-     <aside class="bd-sidebar">
- </main>
-    
-    <button type="button" class="btn btn-primary btn-lg">Editar</button>
-    <button type="button" class="btn btn-secondary btn-lg">Guardar</button>
+        <ul>
+            <li><a href="/">PROVEEDORES</a></li>
+            <li><a href="/">PRODUCTOS</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="main">
+    <div class="justify-content-md-end">
+        <button class="btn btn-primary me-md-2" type="button">Buscar:
+            <input type="text" name="nombre"></label></p></button>
+    </div>
+
+    <form  method="post" action="/proveedor/editar" target="_blank" th:object="${proveedor}">
+
+        <fieldset>
+            <b>
+                <legend>EDITAR PROVEEDOR</legend>
+            </b>
+            <input type="hidden" th:field="*{id}" th:value="*{id}">
+            <p><label>Nombre <input type="text" th:field="*{nombre}" th:value="*{nombre}"></label></p>
+            <p><label>Dirección <input type="text" th:field="*{direccion}" th:value="*{direccion}"></label></p>
+            <p><label>Telefono <input type="text" th:field="*{telefono}" th:value="*{telefono}"></label></p>
+            <!--            <p><label>Horarios  <input type="text" th:field="*{}" th:value="*{}"></label></p>-->
+            <aside class="bd-sidebar">
+            </aside>
+            <!--            <button type="submit" class="btn btn-primary btn-lg">Editar</button>-->
+            <button type="submit" class="btn btn-secondary btn-lg">Guardar</button>
+        </fieldset>
+    </form>
+
+</main>
 
 
-    <footer class="footer">
-        <div>
-            <p>QUIENES SOMOS</p>
-            <p>Copyright HUEVO FRITO </p>
-        </div>
-    </footer>
- </body>
+<footer class="footer">
+    <div>
+        <p>QUIENES SOMOS</p>
+        <p>Copyright HUEVO FRITO </p>
+    </div>
+</footer>
+</body>
 </html>

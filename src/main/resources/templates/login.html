@@ -65,6 +65,7 @@
         <!-- Registrarse -->
         <div id="registrarse">
             <form action="/registro" th:object="${usuario}" method="POST" enctype="multipart/form-data">
+                <p th:if="${error != null}" th:text="${error}" style="color:red; text-shadow: 1px 1px 2px white;"></p>
                 <div class="fila-arriba">
                     <div class="contenedor-input">
                         <label>
@@ -96,7 +97,7 @@
 
                 <div class="contenedor-input">
                     <label>
-                        Repetir Contraseña <span class="req"></span>
+                        Repetir Contraseña <span class="req">*</span>
                     </label>
                     <input type="password" name="clave2" required/>
                 </div>

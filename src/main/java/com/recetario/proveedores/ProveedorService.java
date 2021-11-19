@@ -36,7 +36,7 @@ public class ProveedorService {
 
 
     @Transactional
-    public void registrar(Usuario usuario,@NonNull Proveedor proveedor) throws Exception {
+    public void registrar(Usuario usuario, @NonNull Proveedor proveedor) throws Exception {
 
         String nombre = proveedor.getNombre();
         String direccion = proveedor.getDireccion();
@@ -56,7 +56,6 @@ public class ProveedorService {
     public void modificar(@NonNull Proveedor proveedor) throws ErrorServicio {
         String nombre = proveedor.getNombre();
         String direccion = proveedor.getDireccion();
-//        Provincia provincia = proveedor.getProvincia();
         String telefono = proveedor.getTelefono();
         validar(nombre, direccion, telefono);
 
@@ -65,7 +64,6 @@ public class ProveedorService {
             Proveedor aProveedor = respuesta.get();
             aProveedor.setNombre(nombre);
             aProveedor.setDireccion(direccion);
-//            aProveedor.setProvincia(provincia);
             aProveedor.setTelefono(telefono);
             aProveedor.setProductos(proveedor.getProductos());
             repo.save(aProveedor);
@@ -81,21 +79,10 @@ public class ProveedorService {
     }
 
     @Transactional
-    public void borrar(HttpSession httpSession, @NonNull Proveedor proveedor) throws Exception {
-
-        String id = proveedor.getId();
-        Optional<Proveedor> respuesta = repo.findById(id);
-        Usuario usuarioOptional = usuarioService.getUsuarioById((Usuario) httpSession.getAttribute("usuariosession"));
-        if (respuesta.isPresent()) {
-            Proveedor prov = respuesta.get();
-            List<Proveedor> proveedorList = usuarioOptional.getListaProveedores();
-            proveedorList.remove(prov);
-            usuarioOptional.setListaProveedores(proveedorList);
-            usuarioService.modificar(usuarioOptional);
-
-        } else {
-            throw new ErrorServicio("No se encontró/borró el Proveedor solicitado.");
-        }
+    public void borrar(Usuario usuario, @NonNull Proveedor proveedor) throws Exception {
+        Usuario aux = usuarioService.getUsuarioById(usuario);
+        aux.getListaProveedores().remove(proveedor);
+        usuarioService.modificar(aux);
     }
 
     private void validar(String nombre, String direccion, String telefono) throws ErrorServicio {
@@ -126,7 +113,7 @@ public class ProveedorService {
         Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
         Usuario aux = usuarioService.getUsuarioById(usuario);
         aux.getListaProveedores().forEach(proveedor -> {
-            if(proveedor.getId().equals(idProveedor)){
+            if (proveedor.getId().equals(idProveedor)) {
 
             }
         });

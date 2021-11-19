@@ -5,6 +5,7 @@ import com.recetario.errores.ErrorServicio;
 import com.recetario.proveedores.Proveedor;
 import com.recetario.proveedores.ProveedorRepository;
 import com.recetario.proveedores.ProveedorService;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,22 +29,19 @@ public class ProductoController extends CusControlador {
     @Autowired
     UsuarioService usuarioService;
     ErrorServicio ex;
-    
+
     /**
      * GET
      */
     @GetMapping("/nuevo")
     public String nuevoGet(HttpSession httpSession, ModelMap modelMap) {
-        //atributo proveedor con un objeto vacio
-        //el objeto vacio trae todos los atributos en null
-
         modelMap.addAttribute("producto", new Producto());
         return "producto/nuevo";
     }
 
     @GetMapping("/lista")
     public String listaGet(HttpSession httpSession,
-            ModelMap modelMap) {
+                           ModelMap modelMap) {
         modelMap.addAttribute("productos", productoService.getAll());
         return "producto/lista";
     }
@@ -56,8 +54,8 @@ public class ProductoController extends CusControlador {
         try {
             if (id != null && productoRepository.getById(id) != null) {
                 modelMap.addAttribute("producto", productoRepository.getById(id));
-             return "producto/editar";
-            }else{
+                return "producto/editar";
+            } else {
                 throw new Exception("No se ha podido encontrar el registro");
             }
         } catch (Exception ex) {
@@ -71,63 +69,60 @@ public class ProductoController extends CusControlador {
      * POST
      */
     /**
-     *
      * @param httpSession
      * @param modelMap
      * @return
      */
     @PostMapping("/nuevo")
     public String nuevoPost(HttpSession httpSession,
-            ModelMap modelMap,
-            @ModelAttribute Producto producto) throws Exception {
+                            ModelMap modelMap,
+                            @ModelAttribute Producto producto) throws Exception {
         try {
-            productoService.registrar(producto);
-            usuarioService.actualizarHttpSession(httpSession,usuarioService.getUsuarioById((Usuario) httpSession.getAttribute("usuariosession")));
-             return "redirect:/proveedor/lista";
+            Usuario aux = (Usuario) httpSession.getAttribute("usuariosession");
+            productoService.registrar(aux, producto);
+            usuarioService.actualizarHttpSession(httpSession, aux);
+            return "redirect:/producto/lista";
         } catch (ErrorServicio ex) {
+            ex.printStackTrace();
             modelMap.put("error", ex.getMessage());
-            Logger.getLogger(ProductoController.class.getName()).log(Level.SEVERE, null, ex);
             return "producto/nuevo";
         }
-        
-       
     }
 
     @PostMapping("/lista")
     public String listaPost(HttpSession httpSession,
-            ModelMap modelMap,
-            @ModelAttribute Proveedor proveedor,
-            @RequestParam("id") String id) {
+                            ModelMap modelMap,
+                            @ModelAttribute Proveedor proveedor,
+                            @RequestParam("id") String id) {
 
-            try {
-                if (id != null) {
+        try {
+            if (id != null) {
                 productoService.borrar(productoRepository.getById(id));
                 return "redirect:/producto/lista";
-                }else{
-                    throw new Exception("No se ha eliminado el registro, disculpe las molestias");
-                }
-            } catch (Exception ex) {
-                modelMap.put("error", ex.getMessage());
-                Logger.getLogger(ProductoController.class.getName()).log(Level.SEVERE, null, ex);
-                return "producto/lista";
+            } else {
+                throw new Exception("No se ha eliminado el registro, disculpe las molestias");
             }
+        } catch (Exception ex) {
+            modelMap.put("error", ex.getMessage());
+            Logger.getLogger(ProductoController.class.getName()).log(Level.SEVERE, null, ex);
+            return "producto/lista";
         }
-
+    }
 
 
     @PostMapping("/editar")
     public String editarPost(HttpSession httpSession,
-            ModelMap modelMap,
-            @ModelAttribute("producto") Producto producto) {
+                             ModelMap modelMap,
+                             @ModelAttribute("producto") Producto producto) {
         try {
             productoService.modificar(producto);
             return "redirect:/producto/lista";
         } catch (ErrorServicio ex) {
             Logger.getLogger(ProductoController.class.getName()).log(Level.SEVERE, null, ex);
         }
-       return "producto/editar";
+        return "producto/editar";
     }
-    
+
 
 }
 
