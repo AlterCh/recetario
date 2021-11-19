@@ -46,28 +46,29 @@ public class UsuarioService implements UserDetailsService {
      *
      * @param archivo: Imagen
      * @param u        : Usuario
-     * @param clave2   : clave para verificacion
      * @throws Exception
      */
     @Transactional
     public void registrar(
             @Nullable MultipartFile archivo,
-            @NonNull Usuario u,
-            @NonNull String clave2
+            @NonNull Usuario u
     ) throws Exception {
-
+        Usuario aux1 = repo.findByMail(u.getMail());
+        if (aux1 != null) {
+            throw new ErrorServicio("Usuario ya existe");
+        }
+        u.setAlta(new Date());
         try {
-            u.setAlta(new Date());
-            try {
-                u.setFoto(fotoService.guardar(archivo));
-            } catch (Exception e) {
-                e.printStackTrace();
-                u.setFoto(null);
-            }
-            encriptarClave(u);
-            repo.save(u);
+            u.setFoto(fotoService.guardar(archivo));
         } catch (Exception e) {
-            throw new Exception("Error al registrar usuario");
+            u.setFoto(null);
+            throw new ErrorServicio("No se pudo guardar la imagen");
+        }
+        encriptarClave(u);
+        try {
+            repo.save(u);
+        } catch (Exception e){
+            throw e;
         }
     }
 
@@ -183,7 +184,7 @@ public class UsuarioService implements UserDetailsService {
     }
 
     public void agregarFavorito(Favorito favorito, Usuario usuario) throws ErrorServicio {
-        
+
         try {
             Optional<Usuario> respuesta = repo.findById(usuario.getId());
             if (respuesta.isPresent()) {
@@ -197,20 +198,20 @@ public class UsuarioService implements UserDetailsService {
     }
 
     public void agregarProveedor(Proveedor proveedor, Usuario usuario) throws ErrorServicio {
-        try{
+        try {
 
             Optional<Usuario> usuarioOptional = repo.findById(usuario.getId());
-            if(usuarioOptional.isPresent()){
+            if (usuarioOptional.isPresent()) {
                 Usuario aux = usuarioOptional.get();
                 aux.getListaProveedores().add(proveedor);
                 repo.save(aux);
             }
-        }catch (Exception ex){
+        } catch (Exception ex) {
             throw new ErrorServicio("No se ha podido agregar el proveedor");
         }
     }
 
-    public void actualizarHttpSession(HttpSession httpSession,Usuario usuario){
-        httpSession.setAttribute("usuariosession",repo.getById(usuario.getId()));
+    public void actualizarHttpSession(HttpSession httpSession, Usuario usuario) {
+        httpSession.setAttribute("usuariosession", repo.getById(usuario.getId()));
     }
 }

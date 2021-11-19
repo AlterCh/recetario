@@ -1,5 +1,6 @@
 package com.recetario.controladores;
 
+import com.recetario.errores.ErrorServicio;
 import com.recetario.usuario.domain.Usuario;
 import com.recetario.usuario.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.util.Objects;
 
 
-
-    //TODO Esto es algo que se debe realizar/modificar/eliminar
+//TODO Esto es algo que se debe realizar/modificar/eliminar
 
 
 /**
@@ -85,17 +86,21 @@ public class PortalControlador extends CusControlador{
             @ModelAttribute("usuario") Usuario usuario,
             @RequestParam("clave2") String clave2,
             @RequestParam("archivo") MultipartFile archivo) {
+
         try {
+            System.out.println(usuario.getClave() + "-> "+ clave2);
+            if(!Objects.equals(usuario.getClave(), clave2)){
+                throw new ErrorServicio("Clave incorrecta");
+            }
             usuarioService.registrar(
                     archivo,
-                    usuario,
-                    clave2
+                    usuario
             );
             return "login";
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error", e.getMessage());
-            return "registro";
+            return "login";
         }
     }
 

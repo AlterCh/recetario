@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    
-    <head>
-        <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                    <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
-                        </head>
-   
-  <body>
-        
-  <header class="encabezado">
-        <nav>
-            <div><img src="/img/logotipo.png" alt=""></div>
-            <ul>
-                <li><a href="/">INICIO</a></li> 
-                <li><a href="/">VOLVER</a></li>    
-            </ul>
-        </nav> 
-    </header> 
-      
-      
-        <!--      Llamamos al objeto del controlador ProveedorController    -->
-        <main class="main">
-          <form action="/proveedor/nuevo" method="post" th:object="${proveedor}">
-          <fieldset>
-  
-           <b><h2>AGREGAR PROVEEDOR</h2></b>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
+</head>
+
+<body>
+
+<header class="encabezado">
+    <nav>
+        <div><img src="/img/logotipo.png" alt=""></div>
+        <ul>
+            <li><a href="/">INICIO</a></li>
+            <li><a href="/">VOLVER</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<!--      Llamamos al objeto del controlador ProveedorController    -->
+<main class="main">
+    <form action="/proveedor/nuevo" method="post" th:object="${proveedor}">
+        <fieldset>
+
+            <b><h2>AGREGAR PROVEEDOR</h2></b>
 
             <label>Nombre</label>
             <!--    th:field == los atributos del objeto -->
@@ -39,20 +39,19 @@
             <label>Telefono</label>
             <input type="number" class="form-control" name="telefono" th:field="*{telefono}"/>
 
-            
+
             <aside class="bd-sidebar">
-        </main>
-        
-        
-  
+                <button type="submit" class="btn btn-secondary btn-lg">Guardar</button>
 
-            <div style="width:100%; height:100%"></div>
-    <button type="button" class="btn btn-secondary btn-lg">Guardar</button> 
-            
-            
-            <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
-        </form>
 
-        <div th:replace="fragmentos/libs :: #libs"></div>
-    </body>
+                <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+    </form>
+</main>
+
+
+<div style="width:100%; height:100%"></div>
+
+
+<div th:replace="fragmentos/libs :: #libs"></div>
+</body>
 </html>
