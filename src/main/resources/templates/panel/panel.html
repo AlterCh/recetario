@@ -55,14 +55,14 @@
                 <a href="/">MI ALACENA</a>
                 <ul>
                     <li><a href="/producto/lista">VER STOCK</a></li>
-                    <li><a href="/listacompra/">Compras</a></li>
+                    <li><a href="/listacompra/lista">Compras</a></li>
                 </ul>
             </li>
             <li class="perfil">
                 <a href="/">PERFIL</a>
                 <ul>
-                    <li><a href="/configuracion/perfil">Editar</a></li>
-                    <li><a href="/perfil">Ver Perfil</a></li>
+                    <li><a href="/panel/perfil">Editar</a></li>
+                    <li><a href="/panel/perfil">Ver Perfil</a></li>
                     <li><a href="/favoritos">Favoritos</a></li>
                     <li><a href="/logout">SALIR</a></li>
                 </ul>
@@ -74,33 +74,40 @@
 <!--CUERPO DE LA PAGINA DENTRO DEL MAIN ACA VAN COLUMNAS / METODOS GET-->
 <main class="main">
     <div class="grid-container">
-        <div><h3>LISTA DE COMPRAS</h3>
-         <!--ACA VA LISTA DE COMPRAS-->
-         <p>ACA VAN LAS COMPRAS
-            ACA VAN LAS COMPRAS
-            ACA VAN LAS COMPRAS
-            ACA VAN LAS COMPRAS
-            ACA VAN LAS COMPRAS
-            ACA VAN LAS COMPRAS
-            ACA VAN LAS COMPRAS
-            ACA VAN LAS COMPRAS
-            ACA VAN LAS COMPRAS
-            ACA VAN LAS COMPRAS
-            ACA VAN LAS COMPRAS
-
-         </p>
-        
+        <div id="lista-de-compras" class="">
+            <h3>LISTA DE COMPRAS</h3>
+            <a href="/listacompra/nuevo">++</a>
+            <div th:if="${listas.size() != 0 && listas != null }"
+                 th:each="lista : ${listas}"
+                 th:object="${lista}">
+                <h2 th:text="*{fechaAgregado}"></h2>
+                <h2 th:text="*{nombre}"></h2>
+                <p th:text="*{lista}"></p>
+            </div>
         </div>
-        
-        <div><h3>RECETAS</h3> 
-        <!-- ACA VA LISTA DE RECETAS FAV  -->
+        <div id="lista-de-proveedores" class="">
+            <h3>PROVEEDORES</h3>
+            <a href="/proveedor/nuevo">++</a>
+            <div th:if="${proveedores.size() != 0 && proveedores != null }"
+                 th:each="proveedor : ${proveedores}"
+                 th:object="${proveedor}">
+                <h3 th:text="*{nombre}"></h3>
+                <p th:text="'Direccion: '+*{direccion}"></p>
 
+                <p th:text="'Telefono: '+*{telefono}"></p>
+            </div>
         </div>
+        <div id="lista-de-recetas" class="">
+            <h3>RECETAS</h3>
+            <a href="/receta/nuevo">++</a>
+            <div th:if="${recetas.size() != 0 && recetas != null }"
+                 th:each="receta : ${recetas}"
+                 th:object="${receta}">
 
-
-        <div><h3>PROVEEDORES</h3>
-        <!--ACA VAN LISTA DE PROVEEDORES FAV  -->
-
+                <h3 th:text="*{nombre}"></h3>
+                <img src="/img/not-found.jpg">
+                <p th:text="*{descripcion}"></p>
+            </div>
         </div>
     </div>
 

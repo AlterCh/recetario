@@ -7,12 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.beans.factory.annotation.Required;
 
 @Entity
 @Data
@@ -20,18 +18,22 @@ import org.hibernate.annotations.GenericGenerator;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@RequiredArgsConstructor
 public class Ingrediente {
 
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-    
-    @OneToOne
-    private Producto producto;
-    
-    private Double cantidad;
 
-    private String unidades;
+    @OneToOne
+    @NonNull
+    private Producto producto;
+
+    @Builder.Default
+    private Double cantidad = 0.0;
+
+    @Builder.Default
+    private String unidades = "";
 
 }
