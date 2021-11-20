@@ -105,7 +105,7 @@ public class ProveedorController extends CusControlador {
         try {
             Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
             if (id != null) {
-                proveedorService.borrar(httpSession,proveedorRepository.getById(id));
+                proveedorService.borrar(usuario,proveedorRepository.getById(id));
                 usuarioService.actualizarHttpSession(httpSession,usuario);
                 return "redirect:/proveedor/lista";
             } else {
@@ -125,11 +125,14 @@ public class ProveedorController extends CusControlador {
                              @ModelAttribute("proveedor") Proveedor proveedor) {
         try {
             proveedorService.modificar(proveedor);
+            usuarioService.actualizarHttpSession(httpSession,
+                    (Usuario) httpSession.getAttribute("usuariosession"));
             return "redirect:/proveedor/lista";
         } catch (ErrorServicio ex) {
-            Logger.getLogger(ProveedorController.class.getName()).log(Level.SEVERE, null, ex);
+ex.printStackTrace();
+return "proveedor/editar";
         }
-        return "proveedor/editar";
+
     }
 
 
