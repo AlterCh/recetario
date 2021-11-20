@@ -2,10 +2,18 @@
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragmentos/head :: head"></head>
 <body>
-<form action="/panel/listacompra/nuevo" method="post" th:object="${listaCompra}">
-    <input type="text" name="nombre" th:field="*{lista}"><br>
-
-    <button type="submit">Crear</button>
-</form>
+<div class="container">
+    <form action="/listacompra/nuevo" method="post" th:object="${listaCompra}">
+        <label for="nombre">Nombre de la Lista</label>
+        <br>
+        <input type="text" id="nombre" name="nombre" th:field="*{nombre}"><br>
+        <br>
+        <label for="descripcion">Descripcion de la lista</label>
+        <br>
+        <textarea class="form-control" id="descripcion" th:field="*{lista}" rows="4"></textarea>
+        <br>
+        <button type="submit">Crear</button>
+    </form>
+</div>
 </body>
 </html>
