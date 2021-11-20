@@ -1,5 +1,5 @@
 body{
-    
+    background-image: url(/src/main/resources/static/img/HUEVO.png); 
 
 }
 
@@ -64,3 +64,4 @@ body{
     margin-bottom: 4%; /*margen abajo*/
 
 
+}
