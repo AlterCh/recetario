@@ -4,13 +4,16 @@
 }
 
 body{
-    background-color: rgb(250, 200, 135);    
+    background-color: rgb(250, 200, 135);
+    background-image: url(/src/main/resources/static/img/HUEVO.png); 
+     
 
 }
 
 /*espaciado del cuerpo del html para que el navbar quede fijo*/
 .main {
     padding-top: 80px;
+    padding-bottom: 100px;
 }
 
 
