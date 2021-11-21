@@ -3,11 +3,15 @@ package com.recetario.receta;
 import com.recetario.controladores.CusControlador;
 import com.recetario.errores.ErrorServicio;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 
+import com.recetario.ingrediente.Ingrediente;
 import com.recetario.ingrediente.IngredienteService;
-import com.recetario.usuario.domain.Usuario;
-import com.recetario.usuario.service.UsuarioService;
+import com.recetario.producto.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,23 +22,23 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/receta")
 public class RecetaController extends CusControlador {
 
+    @Autowired
     private RecetaService recetaService;
-    private UsuarioService usuarioService;
+
+    @Autowired
     private IngredienteService ingredienteService;
 
 
-    @Autowired
-    public RecetaController(RecetaService recetaService, UsuarioService usuarioService, IngredienteService ingredienteService) {
-        this.recetaService = recetaService;
-        this.usuarioService = usuarioService;
-        this.ingredienteService = ingredienteService;
-    }
 
-    @GetMapping("/nuevo")
+
+    @GetMapping("/nuevo") //TODO
     public String nuevoGet(
             @RequestParam(value = "id_ingrediente",required = false) String id_ingrediente,
             HttpSession httpSession,
             ModelMap model) {
+        //lista ingredientes
+        //nueva receta
+        //lista de ingredientes agregados
         try{
             if(id_ingrediente != null){
                 ingredienteList.add(ingredienteService.getIngrediente(id_ingrediente));
@@ -58,25 +62,20 @@ public class RecetaController extends CusControlador {
 
     @GetMapping("/lista")
     public String listaGet(HttpSession httpSession, ModelMap model) {
-        Usuario u = (Usuario) httpSession.getAttribute("usuariosession");
-        model.addAttribute("recetas", recetaService.listarRecetasPorUsuario(u));
+        model.addAttribute("receta", recetaService.listarRecetas());
         return "receta/lista";
     }
 
     @GetMapping("/editar")
     public String editarGet(HttpSession httpSession, ModelMap model, Receta receta) {
-        model.addAttribute("receta", receta);
+        model.addAttribute("receta", receta); //Trae el Objeto a editar como atributo de Thymeleaf
         return "receta/editar";
     }
 
     @PostMapping("/nuevo")
-    public String nuevoPost(HttpSession httpSession,
-                            Model model,
-                            @ModelAttribute("receta") Receta receta) {
+    public String nuevoPost(Model model, @ModelAttribute("receta") Receta receta) {
         try {
-            Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
-            recetaService.registrar(usuario,receta);
-            usuarioService.actualizarHttpSession(httpSession,usuario);
+            recetaService.registrar(receta);
             return "receta/nuevo";
         } catch (ErrorServicio e) {
             model.addAttribute("error", e.getMessage());

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 @PreAuthorize("hasAnyRole('ROLE_USUARIO_REGISTRADO')")
 @RequestMapping("/panel")
-public class PanelController extends CusControlador {
+public class UsuarioController extends CusControlador {
 
     UsuarioService usuarioService;
     UsuarioRepository usuarioRepository;
@@ -29,7 +29,7 @@ public class PanelController extends CusControlador {
     ListaDeCompraService listaService;
 
     @Autowired
-    public PanelController(UsuarioService usuarioService, UsuarioRepository usuarioRepository, ProveedorService proveedorService, RecetaService recetaService, ListaDeCompraService listaDeCompraService) {
+    public UsuarioController(UsuarioService usuarioService, UsuarioRepository usuarioRepository, ProveedorService proveedorService, RecetaService recetaService, ListaDeCompraService listaDeCompraService) {
         this.usuarioService = usuarioService;
         this.usuarioRepository = usuarioRepository;
         this.proveedorService = proveedorService;
@@ -53,7 +53,7 @@ public class PanelController extends CusControlador {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "panel/panel";
+        return "panel/inicio";
     }
 
 
@@ -65,13 +65,14 @@ public class PanelController extends CusControlador {
             return x;
         }
         Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
+
         model.addAttribute("usuario", usuario);
         try {
 
         } catch (Exception ex) {
             model.addAttribute("error", ex.getMessage());
         }
-        return "panel/configuracion/perfil";
+        return "panel/perfil";
     }
 
     @PostMapping("/perfil")

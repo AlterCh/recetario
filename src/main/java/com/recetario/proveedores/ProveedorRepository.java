@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Repository
 public interface ProveedorRepository extends JpaRepository<Proveedor,String>{
-//EDICION
+
     @Query(value = "select * from proveedor p left join usuario_lista_proveedores ulp on p.id = ulp.lista_proveedores_id where ulp.usuario_id = :id",nativeQuery = true)
-    List<Proveedor> findProveedorByUsuarioId(@Param("id") String id);
+    List<Proveedor> findProveedorByUsuario(@Param("id") String id);
 }

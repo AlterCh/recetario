@@ -161,11 +161,12 @@ public class UsuarioService implements UserDetailsService {
                 .encode(u.getClave()));
     }
 
-    public Usuario getUsuario(Usuario usuario) throws ErrorServicio {
+    public Usuario getUsuarioById(Usuario usuario) throws ErrorServicio {
         Optional<Usuario> u = repo.findById(usuario.getId());
         if (!u.isPresent()) {
             throw new ErrorServicio(this.getClass().getName() + ": El usuario no se ha podido encontrar");
         }
+
         return u.get();
     }
 

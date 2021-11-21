@@ -7,23 +7,17 @@
 
         <label for="producto">Elegir el Producto</label>
         <select id="producto" th:field="*{producto}">
-            <option th:each="mprod: ${productos}"
-                    th:if="${*{producto} != null && *{producto} != mprod}"
-                    th:selected="*{producto}"
-                    th:value="${mprod}"
-                    th:text="${mprod.nombre}"></option>
+            <option th:each="mprod: ${productos}" th:if="${*{producto} != null && *{producto} != mprod}" th:selected="*{producto}" th:value="${mprod}" th:text="${mprod.nombre}"></option>
         </select>
 
         <label for="cantidad">Ingrese la cantidad </label>
-        <input  id="cantidad" type="number" placeholder="1.0" step="0.1" min="0" max="1000"
-                th:field="*{cantidad}"
-                th:value="*{cantidad}">
+        <input  id="cantidad" type="number" placeholder="1.0" step="0.1" min="0" max="1000" th:field="*{cantidad}" th:value="*{cantidad}">
 
-<!--        <label for="unidades">Unidad</label>-->
-<!--        <select id="unidades" th:field="*{unidades}">-->
-<!--            &lt;!&ndash;                         unidad     llama a la clase unidadmedicion       trae el vector[]               GRAMO               GRAMO                  &ndash;&gt;-->
-<!--            <option th:each="unidad : ${T(com.recetario.enumeraciones.UnidadMedicion).values()}" th:value="${unidad}" th:text="${unidad}"></option>-->
-<!--        </select>-->
+        <label for="unidades">Unidad</label>
+        <select id="unidades" th:field="*{unidades}">
+            <!--                         unidad     llama a la clase unidadmedicion       trae el vector[]               GRAMO               GRAMO                  -->
+            <option th:each="unidad : ${T(com.recetario.enumeraciones.UnidadMedicion).values()}" th:value="${unidad}" th:text="${unidad}"></option>
+        </select>
 
     </form>
 </div>

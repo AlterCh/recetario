@@ -1,27 +1,17 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-
-
-</head>
+    <head th:replace="fragmentos/head :: #head">
+        
+        
+    </head>
 <body>
 
-<p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
-<div th:each="producto : ${productos}"
-     th:object="${producto}">
-    <label>Nombre</label>
-    <p th:text="*{nombre}"/></p>
-    <label>Precio</label>
-    <p th:text="*{precio}"/>
-    <label>Cantidad</label>
-    <p th:text="*{cantidad}"/></p>
-    <label>Unidad</label>
-    <p th:text="*{unidad}"/></p>
-    <label>Stock</label>
-    <p name="stock" th:text="*{stock}"/></p>
-<hr>
-<hr>
-</div>
+    
 
+    
+    
+    
+<footer th:replace="fragmentos/footer :: #footer"></footer>
 <div th:replace="fragmentos/libs :: #libs"></div>
 </body>
 </html>

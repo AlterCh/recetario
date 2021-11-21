@@ -2,8 +2,6 @@ package com.recetario.producto;
 
 import com.recetario.controladores.CusControlador;
 import com.recetario.errores.ErrorServicio;
-import com.recetario.ingrediente.Ingrediente;
-import com.recetario.ingrediente.IngredienteService;
 import com.recetario.proveedores.Proveedor;
 import com.recetario.proveedores.ProveedorRepository;
 import com.recetario.proveedores.ProveedorService;
@@ -24,19 +22,12 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/producto")
 public class ProductoController extends CusControlador {
 
-    ProductoService productoService;
-    ProductoRepository productoRepository;
-    UsuarioService usuarioService;
-    IngredienteService  ingredienteService;
-
     @Autowired
-    public ProductoController(ProductoService productoService, ProductoRepository productoRepository, UsuarioService usuarioService, IngredienteService ingredienteService) {
-        this.productoService = productoService;
-        this.productoRepository = productoRepository;
-        this.usuarioService = usuarioService;
-        this.ingredienteService = ingredienteService;
-    }
-
+    ProductoService productoService;
+    @Autowired
+    ProductoRepository productoRepository;
+    @Autowired
+    UsuarioService usuarioService;
     ErrorServicio ex;
 
     /**
@@ -89,7 +80,6 @@ public class ProductoController extends CusControlador {
         try {
             Usuario aux = (Usuario) httpSession.getAttribute("usuariosession");
             productoService.registrar(aux, producto);
-            ingredienteService.registrar(new Ingrediente(producto));
             usuarioService.actualizarHttpSession(httpSession, aux);
             return "redirect:/producto/lista";
         } catch (ErrorServicio ex) {

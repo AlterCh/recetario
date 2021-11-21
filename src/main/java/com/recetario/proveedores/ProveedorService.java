@@ -16,7 +16,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
 
 @Service
 public class ProveedorService {
@@ -38,7 +42,7 @@ public class ProveedorService {
         String direccion = proveedor.getDireccion();
         String telefono = proveedor.getTelefono();
         validar(nombre, direccion, telefono);
-        Usuario aux = usuarioService.getUsuario(usuario);
+        Usuario aux = usuarioService.getUsuarioById(usuario);
         aux.getListaProveedores().add(proveedor);
         usuarioService.modificar(aux);
     }
@@ -76,7 +80,7 @@ public class ProveedorService {
 
     @Transactional
     public void borrar(Usuario usuario, @NonNull Proveedor proveedor) throws Exception {
-        Usuario aux = usuarioService.getUsuario(usuario);
+        Usuario aux = usuarioService.getUsuarioById(usuario);
         aux.getListaProveedores().remove(proveedor);
         usuarioService.modificar(aux);
     }
@@ -101,13 +105,13 @@ public class ProveedorService {
     }
 
     public List<Proveedor> getAllByUsuario(Usuario usuario) {
-        return repo.findProveedorByUsuarioId(usuario.getId());
+        return repo.findProveedorByUsuario(usuario.getId());
     }
 
     //TODO
     public void agregarProducto(HttpSession httpSession, String idProveedor, Producto producto) throws ErrorServicio {
         Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
-        Usuario aux = usuarioService.getUsuario(usuario);
+        Usuario aux = usuarioService.getUsuarioById(usuario);
         aux.getListaProveedores().forEach(proveedor -> {
             if (proveedor.getId().equals(idProveedor)) {
 

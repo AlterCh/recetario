@@ -19,11 +19,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
 @PreAuthorize("hasAnyRole('ROLE_USUARIO_REGISTRADO')")
-@RequestMapping("/listacompra")
+@RequestMapping("/panel/listacompra")
 public class ListaDeCompraController {
 
     ListaDeCompraRepository repo;
@@ -47,7 +48,7 @@ public class ListaDeCompraController {
             return "listacompra/nuevo";
         } catch (Exception e) {
             modelMap.addAttribute("error", e.getMessage());
-            return "panel";
+            return "listacompra/nuevo";
         }
     }
 
@@ -74,7 +75,7 @@ public class ListaDeCompraController {
                                        @ModelAttribute("listaCompra") ListaDeCompra listaCompra) {
         try {
             Usuario aux = usuarioService
-                    .getUsuario((Usuario) httpSession.getAttribute("usuariosession"));
+                    .getUsuarioById((Usuario) httpSession.getAttribute("usuariosession"));
             List<ListaDeCompra> unaLista = aux.getListaCompra();
             unaLista.add(listaCompra);
             aux.setListaCompra(unaLista);

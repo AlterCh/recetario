@@ -15,6 +15,10 @@ public interface RecetaRepository extends JpaRepository<Receta, String> {
     Receta findByNombre(String nombre);
 
     @Query(value = "select * from receta r left join usuario_lista_recetas ulr on r.id = ulr.lista_recetas_id where ulr.usuario_id = :id",nativeQuery = true)
-    List<Receta> findAllByUsuarioId(@Param("id")String id);
+    List<Receta> findRecetaByUsuario(@Param("id")String id);
+
+//    Receta findByCategoria(String categoria);
+
+//    Page<Receta> findAllByCategoriaNombre(String nombre, Pageable pageable);
 
 }

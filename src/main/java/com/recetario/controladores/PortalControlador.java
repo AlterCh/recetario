@@ -30,6 +30,8 @@ import java.util.Objects;
 @RequestMapping("/")
 public class PortalControlador extends CusControlador{
 
+    @Value("${msg}")
+    private String msg;
 
     @Autowired
     private UsuarioService usuarioService;
@@ -37,6 +39,7 @@ public class PortalControlador extends CusControlador{
     @GetMapping("")
 
     public String index() {
+        System.out.println(msg);
         return "index";
     }
 
