@@ -15,24 +15,26 @@
 </head>
 
 <body>
-<header class="encabezado">
-    <nav>
-        <div>
-            <img src="/img/logotipo.png">
-        </div>
 
-        <ul>
-            <li><a href="/inicio">INICIO</a></li>
-        </ul>
-    </nav>
-</header>
+    <header class="encabezado">
+        <nav>
+            <div>
+                <img src="/img/logotipo.png">
+            </div>
+
+            <ul>
+                <li><a href="/inicio">INICIO</a></li>
+            </ul>
+        </nav>
+    </header>
+
 
 <main class="main">
     <fieldset class="marcoform">
         <b>
             <h2>AGREGAR RECETA</h2>
         </b>
-        <form method="post" action="/receta/nuevo" target="_blank" th:object="${receta}">
+        <form method="post" action="/receta/nuevo" th:object="${receta}" category="editar">
             <p>
                 <label>Nombre
                     <input th:field="*{nombre}" type="text" name="nombre">

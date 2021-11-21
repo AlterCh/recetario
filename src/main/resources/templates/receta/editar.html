@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
 <header class="encabezado">
     <nav>
         <div><img src="/img/logotipo.png" alt=""></div>
@@ -29,7 +30,7 @@
             <legend>EDITAR RECETA</legend>
         </b>
         <form action="/receta/editar" th:object="${receta}" method="post">
-
+            <input type="hidden" th:field="*{id}" th:value="*{id}">
             <p><label>Nombre
                 <input type="text" th:field="*{nombre}" th:value="*{nombre}" name="nombre"></label></p>
             <p><label>Porciones

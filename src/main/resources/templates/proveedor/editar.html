@@ -8,7 +8,7 @@
 
 
     <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
-    <link rel="stylesheet" href="/css/styleinicio.css"> 
+    <link rel="stylesheet" href="/css/styleinicio.css">
     <!--<link rel="stylesheet" href="/src/main/resources/static/css/styleeditar.css">
     <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">-->
 
@@ -27,13 +27,14 @@
     </header>
 
     <main class="main">
-        <fieldset class="marcoform"> <!--CAJA CONTENEDORA FORM-->
-        <div class="justify-content-md-end">
-            <button class="btn btn-primary me-md-2" type="button">Buscar:
-                <input type="text" name="nombre"></label></p></button>
-        </div>
+        <fieldset class="marcoform">
+            <!--CAJA CONTENEDORA FORM-->
+            <div class="justify-content-md-end">
+                <button class="btn btn-primary me-md-2" type="button">Buscar:
+                    <input type="text" name="nombre"></label></p></button>
+            </div>
 
-        
+
             <form method="post" action="/proveedor/editar" target="_blank" th:object="${proveedor}">
 
 
@@ -46,9 +47,10 @@
                 <p><label>Telefono <input type="text" th:field="*{telefono}" th:value="*{telefono}"></label></p>
                 <!--            <p><label>Horarios  <input type="text" th:field="*{}" th:value="*{}"></label></p>-->
                 <aside class="bd-sidebar">
+
+                    <!--            <button type="submit" class="btn btn-primary btn-lg">Editar</button>-->
+                    <button type="submit" class="btn btn-secondary btn-lg">Guardar</button>
                 </aside>
-                <!--            <button type="submit" class="btn btn-primary btn-lg">Editar</button>-->
-                <button type="submit" class="btn btn-secondary btn-lg">Guardar</button>
         </fieldset>
         </form>
 
