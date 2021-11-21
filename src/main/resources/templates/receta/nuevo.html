@@ -34,7 +34,7 @@
         
         
         <div class="product-item" category="editar">
-
+            <form method="post" th:object="${receta}" action="/receta/nuevo">
             <p><label>Nombre<input type="text" name="nombre" th.field="*{nombre}"/></label></p>
             <p><label>Ingredientes<input type="text" name="ingredientes" th.field="*{ingredientes}"/></label></p>
             <p><label>Tiempo<input type="text" name="tiempo" th.field="*{tiempo}"/></label></p>
