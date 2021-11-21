@@ -31,9 +31,9 @@
                 <legend>EDITAR RECETA</legend>
             </b>
             <input type="hidden" th:field="*{id}" th:value="*{id}">
-            <p><label>Nombre <input type="text" name="nombre"></label></p>
-            <p><label>Porciones<input type="text" name="direccion"></label></p>
-            <p><label>Ingredientes<input type="text" name="direccion"></label></p>
+            <p><label>Nombre <input type="text" name="nombre" th:value="*{nombre}"></label></p>
+            <p><label>Porciones<input type="text" name="porciones" th:value="*{porciones}"></label></p>
+            <p><label>Ingredientes<input type="text" name="Ingredientes" th:value="*{ingredientes}"></label></p>
             <p>
             <div class="mb-3"><label>Descripcion</label></p>
                 <label for="exampleFormControlTextarea1" class="form-label"></label>
