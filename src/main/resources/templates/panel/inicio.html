@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
-    <link rel="stylesheet" href="/css/styleinicio.css"> 
-    <!-- <link rel="stylesheet" href="/src/main/resources/static/css/styleinicio.css"> Ruta que necesita visual -BORRAR ESTA LINEA NETBEANS -->
-    <!-- <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css"> Ruta que necesita visual -BORRAR ESTA LINEA NETBEANS --> 
+    <!-- <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
+    <link rel="stylesheet" href="/css/styleinicio.css">  -->
+    <link rel="stylesheet" href="/src/main/resources/static/css/styleinicio.css"> 
+     <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css"> 
 
 </head>
 
@@ -19,15 +19,14 @@
 <!-- CABECERA NAV BAR-->
 <header class="encabezado">
     <nav>
-        <div><img src="/img/logotipo.png" alt=""></div>
-        <!-- <div><img src="/src/main/resources/static/img/logotipo.png" alt=""></div> LOGO HUEVO FRITO/ BORRAR ESTA LINEA NETBEANS  -->
+        <!-- <div><img src="/img/logotipo.png" alt=""></div> -->
+        <div><img src="/src/main/resources/static/img/logotipo.png" alt=""></div> 
 
         <ul>
             <li>
                 <a href="/">RECETAS</a>
                 <ul><!--RUTAS SIN HTML PARA NETBEANS-->
                     <li><a href="/receta/nuevo">Agregar</a></li>
-                    <li><a href="/receta/editar">Editar</a></li>
                     <li><a href="/receta/lista">Ver Lista</a></li>
                     <li><a href="/favoritos/recetafav">Favoritos</a></li>
                 </ul>
@@ -36,16 +35,13 @@
                 <a href="/">PROVEEDORES</a>
                 <ul> 
                     <li><a href="/proveedor/nuevo">Agregar</a></li>
-                    <li><a href="/proveedor/editar">Editar</a></li>
                     <li><a href="/proveedor/lista">Ver Lista</a></li>
                     <li><a href="/favoritos/proveedorfav">Favoritos</a></li>
 
                     <li>
                         <a href="/">PRODUCTOS</a>
                         <ul>
-                            <li><a href="/producto/nuevo">Agregar</a></li>
-
-                            <li><a href="/producto/editar">Editar</a></li>
+                            <li><a href="/producto/nuevo">Agregar</a></li>                         
                             <li><a href="/producto/lista">Ver Lista</a></li>
                          </ul>
                     </li>
@@ -61,9 +57,8 @@
             <li class="perfil">
                 <a href="/">PERFIL</a>
                 <ul>
-                    <li><a href="/configuracion/perfil">Editar</a></li>
                     <li><a href="/perfil">Ver Perfil</a></li>
-                    <li><a href="/favoritos">Favoritos</a></li>
+                    <li><a href="/todosfavoritos">Favoritos</a></li>
                     <li><a href="/logout">SALIR</a></li>
                 </ul>
             </li>
