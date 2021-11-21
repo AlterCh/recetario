@@ -1,6 +1,5 @@
 package com.recetario.receta;
 
-import com.recetario.categoria.Categoria;
 import com.recetario.errores.ErrorServicio;
 import com.recetario.ingrediente.Ingrediente;
 import java.util.List;
@@ -8,31 +7,42 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import com.recetario.usuario.domain.Usuario;
+import com.recetario.usuario.repository.UsuarioRepository;
+import com.recetario.usuario.service.UsuarioService;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RecetaService {
     
+    private RecetaRepository recetaRepository;
+    private UsuarioRepository usuarioRepository;
+    private UsuarioService usuarioService;
+
     @Autowired
-    private RecetaRepository repo;
-    
+    public RecetaService(RecetaRepository recetaRepository, UsuarioRepository usuarioRepository, UsuarioService usuarioService) {
+        this.recetaRepository = recetaRepository;
+        this.usuarioRepository = usuarioRepository;
+        this.usuarioService = usuarioService;
+    }
+
     @Transactional
-    public void registrar(@NonNull Receta r) throws ErrorServicio { //C
+    public void registrar(Usuario u, @NonNull Receta r) throws ErrorServicio {
         try {
             validar(r);
-            repo.save(r);
+            Usuario usuario = usuarioService.getUsuario(u);
+            usuario.getListaRecetas().add(r);
+            usuarioService.modificar(usuario);
         } catch (ErrorServicio e) {
             throw new ErrorServicio("Hubo un error registrando la receta.");
         }
     }
     
     @Transactional
-    public List<Receta> listarRecetas() { //R
-        return repo.findAll();
+    public List<Receta> listarRecetasPorUsuario(Usuario usuario) {
+        recetaRepository.findAllByUsuarioId(usuario.getId());
+        return recetaRepository.findAll();
     }
     
 //    @Transactional
@@ -48,9 +58,8 @@ public class RecetaService {
         Integer porciones = r.getPorciones();
         String descripcion = r.getDescripcion();
         Integer tiempo = r.getTiempo();
-//        List<Categoria> categoria = r.getCategoria();
         
-        Optional<Receta> respuesta = repo.findById(r.getId());
+        Optional<Receta> respuesta = recetaRepository.findById(r.getId());
         if (respuesta.isPresent()) {
             Receta aReceta = respuesta.get();
             aReceta.setNombre(nombre);
@@ -58,8 +67,7 @@ public class RecetaService {
             aReceta.setPorciones(porciones);
             aReceta.setDescripcion(descripcion);
             aReceta.setTiempo(tiempo);
-//            aReceta.setCategoria(categoria);
-            repo.save(aReceta);
+            recetaRepository.save(aReceta);
         } else {
             throw new ErrorServicio("La receta no se encuentra registrada.");
         }
@@ -67,10 +75,10 @@ public class RecetaService {
     
     @Transactional
     public void borrar(String id) throws ErrorServicio { //D
-        Optional<Receta> respuesta = repo.findById(id);
+        Optional<Receta> respuesta = recetaRepository.findById(id);
         if (respuesta.isPresent()) {
             Receta rec = respuesta.get();
-            repo.delete(rec);
+            recetaRepository.delete(rec);
         } else {
             throw new ErrorServicio("La receta solicitada no esta registrada.");
         }
@@ -97,6 +105,6 @@ public class RecetaService {
     }
 
     public List<Receta> getAllByUsuario(Usuario usuario) {
-        return repo.findRecetaByUsuario(usuario.getId());
+        return recetaRepository.findAllByUsuarioId(usuario.getId());
     }
 }

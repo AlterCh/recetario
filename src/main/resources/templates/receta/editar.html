@@ -5,56 +5,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
-    <link rel="stylesheet" href="/css/styleeditar"> -->
-
-    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">
-    <link rel="stylesheet" href="/src/main/resources/static/css/styleeditar.css">
+   <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
+    <link rel="stylesheet" href="/css/styleeditar">
+<!--    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">-->
+<!--    <link rel="stylesheet" href="/src/main/resources/static/css/styleeditar.css">-->
 </head>
 
 <body>
-    <header class="encabezado">
-        <nav>
-            <div><img src="/img/logotipo.png" alt=""></div>
-            <ul>
-                <li><a href="/">INICIO</a></li>
 
-            </ul>
-        </nav>
-    </header>
+<header class="encabezado">
+    <nav>
+        <div><img src="/img/logotipo.png" alt=""></div>
+        <ul>
+            <li><a href="/">INICIO</a></li>
 
-    <main class="main">
-        <fieldset class="marcoform">
+        </ul>
+    </nav>
+</header>
 
-            <b>
-                <legend>EDITAR RECETA</legend>
-            </b>
+<main class="main">
+    <fieldset class="marcoform">
+
+        <b>
+            <legend>EDITAR RECETA</legend>
+        </b>
+        <form action="/receta/editar" th:object="${receta}" method="post">
             <input type="hidden" th:field="*{id}" th:value="*{id}">
-            <p><label>Nombre <input type="text" name="nombre" th:value="*{nombre}"></label></p>
-            <p><label>Porciones<input type="text" name="porciones" th:value="*{porciones}"></label></p>
-            <p><label>Ingredientes<input type="text" name="Ingredientes" th:value="*{ingredientes}"></label></p>
-            <p>
-            <div class="mb-3"><label>Descripcion</label></p>
-                <label for="exampleFormControlTextarea1" class="form-label"></label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <p><label>Nombre
+                <input type="text" th:field="*{nombre}" th:value="*{nombre}" name="nombre"></label></p>
+            <p><label>Porciones
+                <input type="text" th:field="*{porciones}" th:value="*{porciones}" name="porciones"></label></p>
+            <p><label>Ingredientes
+                <input type="text" th:field="*{ingredientes}" th:value="*{ingredientes}" name="ingredientes"></label>
+            </p>
+
+            <div class="mb-3"><label></label>
+                <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" th:field="*{descripcion}"
+                          th:value="*{descripcion}" rows="3"></textarea>
             </div>
-            <p><label>Tiempo<input type="text" name="direccion"></label></p>
+            <p><label>Tiempo
+                <input type="text" th:field="*{tiempo}" th:value="*{tiempo}" name="tiempo"></label></p>
             <aside class="bd-sidebar">
 
-                <button type="button" class="btn btn-primary btn-lg">Editar</button>
-                <button type="button" class="btn btn-secondary btn-lg">Guardar</button>
+                <!--            <button type="button" class="btn btn-primary btn-lg">Editar</button>-->
+                <button type="submit" class="btn btn-secondary btn-lg">Guardar</button>
             </aside>
+        </form>
+    </fieldset>
+</main>
+<footer class="footer">
+    <div>
+        <p align="center">Copyright HUEVO FRITO</p>
+    </div>
+</footer>
 
-        </fieldset>
-    </main>
-    <footer class="footer">
-        <div>
-            <p align="center">Copyright HUEVO FRITO</p>
-        </div>
-    </footer>
-
-    <div th:replace="fragmentos/libs :: #libs"></div>
+<div th:replace="fragmentos/libs :: #libs"></div>
 </body>
-
 </html>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="/css/styleNAVFOOTER.css" rel="stylesheet">
-        <link rel="stylesheet" href="/css/stylelista.css"> 
+        <link rel="stylesheet" href="/css/stylelista.css">
 
    <!-- <link rel="stylesheet" href="/src/main/resources/static/css/stylelista.css">
     <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">-->
@@ -58,7 +58,7 @@
                             <button name="id" th:value="${proveedor.id}">Edit</button>
                         </form>
                         <form action="/proveedor/favorito" method="get">
-                            <button name="id" th:value="${Favorito.id}">Favorito</button>
+                            <button name="id" th:value="${proveedor.id}">Favorito</button>
                         </form>
                     </td>
                 </tr>
@@ -75,5 +75,4 @@
 
     <div th:replace="fragmentos/libs :: #libs"></div>
 </body>
-
 </html>

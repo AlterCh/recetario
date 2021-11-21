@@ -35,7 +35,7 @@ public class ProductoService{
         Double cantidad = producto.getCantidad();
         Double stock = producto.getStock();
         validar(nombre, producto.getPrecio(), cantidad, producto.getUnidad(), stock);
-        Usuario aux = usuarioService.getUsuarioById(usuario);
+        Usuario aux = usuarioService.getUsuario(usuario);
         if(aux != null){
             aux.getListaProductos().add(producto);
             usuarioService.modificar(aux);
