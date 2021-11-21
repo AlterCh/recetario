@@ -37,18 +37,18 @@
             <fieldset class="marcoform">
 
                 <h2>AGREGAR PROVEEDOR</h2>
-                
-
-                <label>Nombre</label>
-                <!--    th:field == los atributos del objeto -->
-                <input type="text" class="form-control" name="nombre" th:field="*{nombre}" />
-
-                <label>Direccion</label>
-                <input type="text" class="form-control" name="direccion" th:field="*{direccion}" />
-
-                <label>Telefono</label>
-                <input type="number" class="form-control" name="telefono" th:field="*{telefono}" />
-
+                <p>
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" name="nombre" th:field="*{nombre}" />
+                </p>
+                <p>
+                    <label>Direccion</label>
+                    <input type="text" class="form-control" name="direccion" th:field="*{direccion}" />
+                </p>
+                <p>
+                    <label>Telefono</label>
+                    <input type="number" class="form-control" name="telefono" th:field="*{telefono}" />
+                </p>
 
                 <aside class="bd-sidebar">
                     <button type="submit" class="btn btn-secondary btn-lg">Guardar</button>

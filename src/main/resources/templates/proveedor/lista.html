@@ -33,47 +33,47 @@
 
     <main class="main">
 
-    <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
-    
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Direccion</th>
-                <th scope="col">Telefono</th>
-                <th scope="col">Accion</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!--    th:each == foreach (Proveedor x : proveedores)-->
-            <tr th:each="proveedor : ${proveedores}">
-                <td th:text="${proveedor.nombre}"></td>
-                <td th:text="${proveedor.direccion}"></td>
-                <td th:text="${proveedor.telefono}"></td>
-                <td>
-                    <form action="/proveedor/lista" method="post">
-                        <button name="id" th:value="${proveedor.id}">Delete</button>
-                    </form>
-                    <form action="/proveedor/editar" method="get">
-                        <button name="id" th:value="${proveedor.id}">Edit</button>
-                    </form>
-                    <form action="/proveedor/editar" method="get">
-                        <button name="id" th:value="${Favorito.id}">Favorito</button>
-                    </form>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
 
-</main>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--    th:each == foreach (Proveedor x : proveedores)-->
+                <tr th:each="proveedor : ${proveedores}">
+                    <td th:text="${proveedor.nombre}"></td>
+                    <td th:text="${proveedor.direccion}"></td>
+                    <td th:text="${proveedor.telefono}"></td>
+                    <td>
+                        <form action="/proveedor/lista" method="post">
+                            <button name="id" th:value="${proveedor.id}">Delete</button>
+                        </form>
+                        <form action="/proveedor/editar" method="get">
+                            <button name="id" th:value="${proveedor.id}">Edit</button>
+                        </form>
+                        <form action="/proveedor/editar" method="get">
+                            <button name="id" th:value="${Favorito.id}">Favorito</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-<footer class="footer">
-    <div>
-        <p align="center">Copyright HUEVO FRITO</p>
-    </div>
-</footer>
+    </main>
 
-<div th:replace="fragmentos/libs :: #libs"></div>
+    <footer class="footer">
+        <div>
+            <p align="center">Copyright HUEVO FRITO</p>
+        </div>
+    </footer>
+
+    <div th:replace="fragmentos/libs :: #libs"></div>
 </body>
 
 </html>

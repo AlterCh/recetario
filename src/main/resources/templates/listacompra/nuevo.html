@@ -34,8 +34,8 @@
     <main class="main">
         <fieldset class="marcoform">
             <form action="/panel/listacompra/nuevo" method="post" th:object="${listaCompra}">
-                <input type="text" name="nombre" th:field="*{lista}"><br>
-
+                <input type="text" name="nombre" th:field="*{lista}">
+                <br>
                 <button type="submit">Crear</button>
             </form>
         </fieldset>

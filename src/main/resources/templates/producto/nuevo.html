@@ -34,7 +34,7 @@
 
 
                 <h2>AGREGAR PRODUCTO</h2>
-                <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+                
                 <p><label>Nombre</label>
                     <input type="text" class="form-control" name="nombre" th:field="*{nombre}" />
                 </p>
@@ -50,9 +50,10 @@
                 <p><label>Stock</label>
                     <input type="number" class="form-control" name="stock" th:field="*{stock}" />
                 </p>
-
+                <aside class="bd-sidebar">
                 <button type="submit" class="btn btn-primary">Ingresar Producto</button>
-
+                <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+                </aside>
             </form>
         </fieldset>
     </main>
