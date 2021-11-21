@@ -53,7 +53,7 @@ public class PanelController extends CusControlador {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "panel";
+        return "panel/panel";
     }
 
 
