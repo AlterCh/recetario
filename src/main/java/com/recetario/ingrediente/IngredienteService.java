@@ -39,6 +39,7 @@ public class IngredienteService {
 
         try {
             validar(i);
+            ingredienteRepository.save(i);
         } catch (ErrorServicio e) {
             throw new ErrorServicio("No se pudo registrar el ingrediente, intente de nuevo.");
         }
@@ -91,7 +92,7 @@ public class IngredienteService {
         if (i == null) {
             throw new ErrorServicio("Ingrese los datos del ingrediente por favor.");
         }
-        if (i.getProducto() == null || i.getProducto().getNombre().isEmpty()) {
+        if (i.getProducto() == null || i.getProducto().getId().isEmpty()) {
             throw new ErrorServicio("El producto no existe o esta mal insertado.");
         }
         if (i.getCantidad() == null || i.getCantidad() < 0) {

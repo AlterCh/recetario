@@ -21,7 +21,7 @@ public class ListaDeCompra {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-
+    private String nombre;
     @DateTimeFormat(pattern = "dd/MM/yyyy", iso = DateTimeFormat.ISO.DATE)
     @Builder.Default
     private LocalDate fechaAgregado = LocalDate.now();

@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="fragmentos/head :: #head">
-        
-        
-        
-    </head>
+</head>
 <body>
+<div id="lista-de-recetas" class="">
+    <h3>RECETAS</h3>
+    <a href="/receta/nuevo">++</a>
+    <div th:if="${recetas.size() != 0 && recetas != null }"
+         th:each="receta : ${recetas}"
+         th:object="${receta}">
 
-    
+        <h3 th:text="*{nombre}"></h3>
+<!--        <p th:text="*{ingredientes}"></p>-->
+        <img src="/img/not-found.jpg">
+        <p th:text="*{descripcion}"></p>
+    </div>
+</div>
 
-
-<footer th:replace="fragmentos/footer :: #footer"></footer>
 <div th:replace="fragmentos/libs :: #libs"></div>
 </body>
 </html>
