@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="fragmentos/head :: head"></head>
+    
+    <head>
+                <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        
+        <!-- <link href="/css/styleNAVFOOTER.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/styleindex.css">  -->
+    
+        <link rel="stylesheet" href="/src/main/resources/static/css/styleproveedorfav.css">
+        <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css"> 
+       
+    
+    </head>
+
     <body>
-        <header class="header">
-            <div class="container logo-nav-container">
-                <a href="#">
-                    <img src="https://th.bing.com/th/id/R.cf61de8b9be1b46b167f19ff97c3a843?rik=wUk02rh2gje3wA&pid=ImgRaw&r=0"
-                         width="80" height="80"></a>
-                <nav class="navigation">
-                    <ul>
-                        <li><a href="/proveedor">Proveedores</a></li>
-                        <li><a href="/receta">Recetas</a></li>
-                        <li><a href="/favoritos">Favoritos</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+    
+        <header class="encabezado">
+            <nav>
+                   <div>
+                       <img src="/src/main/resources/static/img/logotipo.png"></div>
+                   
+                   <ul>
+                       <li><a href="/inicio">INICIO</a></li>                       
+                   </ul>
+               </nav> 
+           </header> 
+
+
+    <main class="main">
+        <fieldset class="marcoform">
         <div id="lista-de-proveedores-favoritos" class="">
-            <h3>Proveedores favoritos </h3>
+            
             <div th:if="${provfav.size() != 0 && provfav != null }"
                  th:each="favorito : ${provfav}"
                  th:object="${favorito}"
@@ -28,10 +43,13 @@
                 <h3 th:text="*{telefono}"></h3>
             </div>
         </div>
-        <footer class="footer">
-            <div class="container">
-                <p>Pagina diseñada por Huevo</p>
-            </div>
-        </footer>
-    </body>
+        </fieldset>
+    </main>
+    <footer class="footer">
+        <div>
+            <p align="center">Copyright HUEVO FRITO</p>
+        </div>
+    </footer>
+    <div th:replace="fragmentos/libs :: #libs"></div>
+</body>
 </html>

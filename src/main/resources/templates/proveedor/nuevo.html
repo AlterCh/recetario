@@ -1,57 +1,73 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
+
+
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
+    <!-- <link href="/css/styleNAVFOOTER.css" rel="stylesheet">
+            <link rel="stylesheet" href="/css/styleindex.css">  -->
+
+    <link rel="stylesheet" href="/src/main/resources/static/css/stylenuevo.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">
+
+
 </head>
 
 <body>
 
-<header class="encabezado">
-    <nav>
-        <div><img src="/img/logotipo.png" alt=""></div>
-        <ul>
-            <li><a href="/">INICIO</a></li>
-            <li><a href="/">VOLVER</a></li>
-        </ul>
-    </nav>
-</header>
+    <header class="encabezado">
+        <nav>
+            <div><img src="/src/main/resources/static/img/logotipo.png"></div>
+            <ul>
+                <li><a href="/inicio">INICIO</a></li>
+
+            </ul>
+        </nav>
+    </header>
 
 
-<!--      Llamamos al objeto del controlador ProveedorController    -->
-<main class="main">
-    <form action="/proveedor/nuevo" method="post" th:object="${proveedor}">
-        <fieldset>
+    <!--      Llamamos al objeto del controlador ProveedorController    -->
+    <main class="main">
+        <form action="/proveedor/nuevo" method="post" th:object="${proveedor}">
+            <fieldset class="marcoform">
 
-            <b><h2>AGREGAR PROVEEDOR</h2></b>
+                <h2>AGREGAR PROVEEDOR</h2>
+                
 
-            <label>Nombre</label>
-            <!--    th:field == los atributos del objeto -->
-            <input type="text" class="form-control" name="nombre" th:field="*{nombre}"/>
+                <label>Nombre</label>
+                <!--    th:field == los atributos del objeto -->
+                <input type="text" class="form-control" name="nombre" th:field="*{nombre}" />
 
-            <label>Direccion</label>
-            <input type="text" class="form-control" name="direccion" th:field="*{direccion}"/>
+                <label>Direccion</label>
+                <input type="text" class="form-control" name="direccion" th:field="*{direccion}" />
 
-            <label>Telefono</label>
-            <input type="number" class="form-control" name="telefono" th:field="*{telefono}"/>
-
-
-            <aside class="bd-sidebar">
-                <button type="submit" class="btn btn-secondary btn-lg">Guardar</button>
+                <label>Telefono</label>
+                <input type="number" class="form-control" name="telefono" th:field="*{telefono}" />
 
 
-                <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
-    </form>
-</main>
+                <aside class="bd-sidebar">
+                    <button type="submit" class="btn btn-secondary btn-lg">Guardar</button>
 
 
-<div style="width:100%; height:100%"></div>
+                    <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+                </aside>
+            </fieldset>
+        </form>
+    </main>
 
 
-<div th:replace="fragmentos/libs :: #libs"></div>
+    <footer class="footer">
+        <div>
+            <p align="center">Copyright HUEVO FRITO</p>
+        </div>
+    </footer>
+
+    <div th:replace="fragmentos/libs :: #libs"></div>
 </body>
+
 </html>
