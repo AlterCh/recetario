@@ -29,18 +29,18 @@
 
     <main class="main">
         <fieldset class="marcoform">
-        <b>
-            <h2>AGREGAR RECETA</h2>
-        </b>
-        </div>
+        
+        <h2>AGREGAR RECETA</h2>
+        
+        
         <div class="product-item" category="editar">
 
-            <p><label>Nombre<input type="text" name="nombre"></label></p>
-            <p><label>Ingredientes<input type="text" name="ingredientes"></label></p>
-            <p><label>Tiempo<input type="text" name="tiempo"></label></p>
-            <p><label>Porciones<input type="text" name="porciones"></label></p>
-            <p><label>Descripcion<input type="text" name="porciones"></label></p>
-            <p><label>Categoria<input type="text" name="porciones"></label></p>
+            <p><label>Nombre<input type="text" name="nombre" th.field="*{nombre}"/></label></p>
+            <p><label>Ingredientes<input type="text" name="ingredientes" th.field="*{ingredientes}"/></label></p>
+            <p><label>Tiempo<input type="text" name="tiempo" th.field="*{tiempo}"/></label></p>
+            <p><label>Porciones<input type="text" name="porciones" th.field="*{porciones}"/></label></p>
+            <p><label>Descripcion<input type="text" name="descripcion" th.field="*{descripcion}"/></label></p>
+            <p><label>Categoria<input type="text" name="categoria" th.field="*{categoria}"/></label></p>
 
             <input type="submit" value="Guardar">
         </fieldset>
