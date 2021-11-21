@@ -1,60 +1,60 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                    <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
-                        </head>
+    <!-- <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
+    <link rel="stylesheet" href="/css/styleeditar"> -->
 
-                        <body>
- <header class="encabezado">
+    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/styleeditar.css">
+</head>
+
+<body>
+    <header class="encabezado">
         <nav>
             <div><img src="/img/logotipo.png" alt=""></div>
             <ul>
-                <li><a href="/">INICIO</a></li> 
-                  
+                <li><a href="/">INICIO</a></li>
+
             </ul>
-        </nav> 
-    </header> 
+        </nav>
+    </header>
 
-<main class="main">
-    <form action="form-result.php" target="_blank">
+    <main class="main">
+        <fieldset class="marcoform">
 
-        <div class="justify-content-md-end">
-            <button class="btn btn-primary me-md-2" type="button">Buscar:
-                <input type="text" name="nombre"></label></p></button>
-          </div>
-  <fieldset>
+            <b>
+                <legend>EDITAR RECETA</legend>
+            </b>
 
+            <p><label>Nombre <input type="text" name="nombre"></label></p>
+            <p><label>Porciones<input type="text" name="direccion"></label></p>
+            <p><label>Ingredientes<input type="text" name="direccion"></label></p>
+            <p>
+            <div class="mb-3"><label>Descripcion</label></p>
+                <label for="exampleFormControlTextarea1" class="form-label"></label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <p><label>Tiempo<input type="text" name="direccion"></label></p>
+            <aside class="bd-sidebar">
 
+                <button type="button" class="btn btn-primary btn-lg">Editar</button>
+                <button type="button" class="btn btn-secondary btn-lg">Guardar</button>
+            </aside>
 
-<b><legend>EDITAR RECETA</legend></b>
+        </fieldset>
+    </main>
+    <footer class="footer">
+        <div>
+            <p align="center">Copyright HUEVO FRITO</p>
+        </div>
+    </footer>
 
-<p><label>Nombre <input type="text" name="nombre"></label></p>
-<p><label>Porciones<input type="text" name="direccion"></label></p>
-<p><label>Ingredientes<input type="text" name="direccion"></label></p>
-  <p><div class="mb-3"><label>Descripcion</label></p>
-<label for="exampleFormControlTextarea1" class="form-label"></label>
-<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-  <p><label>Tiempo<input type="text" name="direccion"></label></p>
- <aside class="bd-sidebar">
-</main>
-
-<button type="button" class="btn btn-primary btn-lg">Editar</button>
-<button type="button" class="btn btn-secondary btn-lg">Guardar</button>
-
-
-<footer class="footer">
-    <div>
-        <p>QUIENES SOMOS</p>
-        <p>Copyright HUEVO FRITO </p>
-    </div>
-</footer>
-
-<div th:replace="fragmentos/libs :: #libs"></div>
+    <div th:replace="fragmentos/libs :: #libs"></div>
 </body>
+
 </html>
