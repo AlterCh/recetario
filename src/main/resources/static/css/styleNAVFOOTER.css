@@ -4,9 +4,7 @@
 }
 
 body{
-    background-color: rgb(250, 200, 135);
-    
-     
+    background-color: rgb(250, 200, 135);     
 
 }
 
@@ -32,6 +30,11 @@ img{
     width: 200px;
     
 }
+
+.logo a{
+    background:none;
+}
+
 
 /*enlaces navbar*/
 a{
@@ -147,6 +150,7 @@ a:hover{
 .encabezado nav ul li:hover > ul{
     display: block;
 }
+
 
 
 

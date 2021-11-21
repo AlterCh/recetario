@@ -5,38 +5,40 @@
 <head>
     <title>RECETARIO</title>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    
-   <link href="/css/styleNAVFOOTER.css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="/css/styleNAVFOOTER.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/styleindex.css">
 
-<!--    <link rel="stylesheet" href="/src/main/resources/static/css/styleindex.css"> BORRAR ESTA LINEA NETBEANS -->
-<!--    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css"> BORRAR ESTA LINEA NETBEANS-->
-   
+    <!-- <link rel="stylesheet" href="/src/main/resources/static/css/styleindex.css"> BORRAR ESTA LINEA NETBEANS
+     <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css"> BORRAR ESTA LINEA NETBEANS-->
+
 
 </head>
 
 <body>
-    <header class="encabezado">
-     <nav>
-            <div><img src="/img/Logotipo.png" alt=""></div>
-            
-            <ul>
-                <li><a href="/login">ACCEDER</a></li>                       
-            </ul>
-        </nav> 
-    </header>    
-   
-    
-    <main class="main">
+<header class="encabezado">
+    <nav>
+            <div>
+                <img src="/img/logotipo.png"></div>
+
+        <ul>
+            <li><a href="/login">ACCEDER</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<main class="main">
     <div class="textinicial">
         <h1>¡BIENVENIDOS A HUEVO FRITO!</h1>
         <h2>Tu agenda personalizada de todos los días.</h2>
-        <p align="left">Esta es una plataforma en la que te puedes registrar y llevar un registro de tu inventario en alimentos, cargar recetas, buscar proveedores en caso de que te quedes sin stock, y compartir recetas con tus amigos.</p>
-        
-     
-        
+        <p align="left">Esta es una plataforma en la que te puedes registrar y llevar un registro de tu inventario en
+            alimentos, cargar recetas, buscar proveedores en caso de que te quedes sin stock, y compartir recetas con
+            tus amigos.</p>
+
+
     </div>
     <div class="logoback">
         <img src="/img/HUEVO.png"></a>
@@ -46,11 +48,12 @@
         <a href="/login">¡REGISTRATE!</a>
     </div> -->
 
-    </main>
-    <footer class="footer">
-        <div>
-            <p align="center">Copyright HUEVO FRITO</p>
-        </div>
-    </footer>
-    </body>
-    </html>
+</main>
+<footer class="footer">
+    <div>
+        <p align="center">Copyright HUEVO FRITO</p>
+    </div>
+</footer>
+    <div th:replace="fragmentos/libs :: #libs"></div>
+</body>
+</html>

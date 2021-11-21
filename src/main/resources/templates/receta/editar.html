@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
+   <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
+    <link rel="stylesheet" href="/css/styleeditar">
+<!--    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">-->
+<!--    <link rel="stylesheet" href="/src/main/resources/static/css/styleeditar.css">-->
 </head>
 
 <body>
@@ -21,39 +23,39 @@
 </header>
 
 <main class="main">
-    <div class="justify-content-md-end">
-        <button class="btn btn-primary me-md-2" type="button">Buscar:
-            <input type="text" name="nombre"></label></p></button>
-    </div>
-    <form action="/receta/editar" th:object="${receta}" method="post" >
+    <fieldset class="marcoform">
+
         <b>
             <legend>EDITAR RECETA</legend>
         </b>
-        <fieldset>
+        <form action="/receta/editar" th:object="${receta}" method="post">
+
             <p><label>Nombre
                 <input type="text" th:field="*{nombre}" th:value="*{nombre}" name="nombre"></label></p>
             <p><label>Porciones
                 <input type="text" th:field="*{porciones}" th:value="*{porciones}" name="porciones"></label></p>
             <p><label>Ingredientes
-                <input type="text" th:field="*{ingredientes}" th:value="*{ingredientes}" name="ingredientes"></label></p>
+                <input type="text" th:field="*{ingredientes}" th:value="*{ingredientes}" name="ingredientes"></label>
+            </p>
 
             <div class="mb-3"><label></label>
                 <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" th:field="*{descripcion}" th:value="*{descripcion}" rows="3" ></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" th:field="*{descripcion}"
+                          th:value="*{descripcion}" rows="3"></textarea>
             </div>
             <p><label>Tiempo
                 <input type="text" th:field="*{tiempo}" th:value="*{tiempo}" name="tiempo"></label></p>
             <aside class="bd-sidebar">
+
+                <!--            <button type="button" class="btn btn-primary btn-lg">Editar</button>-->
+                <button type="submit" class="btn btn-secondary btn-lg">Guardar</button>
+            </aside>
+        </form>
+    </fieldset>
 </main>
-
-<!--<button type="button" class="btn btn-primary btn-lg">Editar</button>-->
-<button type="button" class="btn btn-secondary btn-lg">Guardar</button>
-
-
 <footer class="footer">
     <div>
-        <p>QUIENES SOMOS</p>
-        <p>Copyright HUEVO FRITO </p>
+        <p align="center">Copyright HUEVO FRITO</p>
     </div>
 </footer>
 

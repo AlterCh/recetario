@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+ <link href="/css/styleNAVFOOTER.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/styleindex.css">  
+
+<!--<link rel="stylesheet" href="/src/main/resources/static/css/styletodosfav.css">
+<link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css"> -->
+
+
+</head>
+
+<body>
+
+<header class="encabezado">
+    <nav>
+           <div>
+               <img src="/img/logotipo.png"></div>
+           
+           <ul>
+               <li><a href="/inicio">INICIO</a></li>                       
+           </ul>
+       </nav> 
+   </header> 
+
+
+<main class="main">
+        <div id="lista-de-recetas-favoritas" class="">
+            <h4>recetas</h4>
+            <div th:if="${recetasfav.size() != 0 && recetasfav != null }"
+                 th:each="favorito : ${recetasfav}"
+                 th:object="${favorito}"
+                 th:each="receta : ${favorito.favoritosRecetas}"
+                 th:object="${receta}">
+                <th:text="*{nombre}"></th:text>
+                <th:text="*{descripcion}"></th:text>
+            </div>
+        </div>
+
+        <div id="lista-de-proveedores-favoritos" class="">
+            <h4>proveedores</h4>
+            <div th:if="${provfav.size() != 0 && provfav != null }"
+                 th:each="favorito : ${provfav}"
+                 th:object="${favorito}"
+                 th:each="proveedor : ${favorito.favoritosProveedores}"
+                 th:object="${proveedor}">
+                <th:text="*{nombre}">
+                <th:text="*{direccion}">
+                <th:text="*{telefono}">
+            </div>
+        </div>
+</main>     
+<footer class="footer">
+    <div>
+        <p align="center">Copyright HUEVO FRITO</p>
+    </div>
+</footer>    
+    
+    </body>
+</html>

@@ -6,53 +6,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
     <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
+    <link rel="stylesheet" href="/css/styleinicio.css"> 
+    <!--<link rel="stylesheet" href="/src/main/resources/static/css/styleeditar.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">-->
 
 </head>
 
 <body>
-<header class="encabezado">
-    <nav>
+    <header class="encabezado">
+        <nav>
+            <div>
+                <img src="/img/logotipo.png">
+            </div>
+            <ul>
+                <li><a href="/inicio">INICIO</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <ul>
-            <li><a href="/">PROVEEDORES</a></li>
-            <li><a href="/">PRODUCTOS</a></li>
-        </ul>
-    </nav>
-</header>
+    <main class="main">
+        <fieldset class="marcoform"> <!--CAJA CONTENEDORA FORM-->
+        <div class="justify-content-md-end">
+            <button class="btn btn-primary me-md-2" type="button">Buscar:
+                <input type="text" name="nombre"></label></p></button>
+        </div>
 
-<main class="main">
-    <div class="justify-content-md-end">
-        <button class="btn btn-primary me-md-2" type="button">Buscar:
-            <input type="text" name="nombre"></label></p></button>
-    </div>
+        
+            <form method="post" action="/proveedor/editar" target="_blank" th:object="${proveedor}">
 
-    <form  method="post" action="/proveedor/editar" target="_blank" th:object="${proveedor}">
 
-        <fieldset>
-            <b>
+
                 <legend>EDITAR PROVEEDOR</legend>
-            </b>
-            <input type="hidden" th:field="*{id}" th:value="*{id}">
-            <p><label>Nombre <input type="text" th:field="*{nombre}" th:value="*{nombre}"></label></p>
-            <p><label>Dirección <input type="text" th:field="*{direccion}" th:value="*{direccion}"></label></p>
-            <p><label>Telefono <input type="text" th:field="*{telefono}" th:value="*{telefono}"></label></p>
-            <!--            <p><label>Horarios  <input type="text" th:field="*{}" th:value="*{}"></label></p>-->
-            <aside class="bd-sidebar">
-            </aside>
-            <!--            <button type="submit" class="btn btn-primary btn-lg">Editar</button>-->
-            <button type="submit" class="btn btn-secondary btn-lg">Guardar</button>
+
+                <input type="hidden" th:field="*{id}" th:value="*{id}">
+                <p><label>Nombre <input type="text" th:field="*{nombre}" th:value="*{nombre}"></label></p>
+                <p><label>Dirección <input type="text" th:field="*{direccion}" th:value="*{direccion}"></label></p>
+                <p><label>Telefono <input type="text" th:field="*{telefono}" th:value="*{telefono}"></label></p>
+                <!--            <p><label>Horarios  <input type="text" th:field="*{}" th:value="*{}"></label></p>-->
+                <aside class="bd-sidebar">
+                </aside>
+                <!--            <button type="submit" class="btn btn-primary btn-lg">Editar</button>-->
+                <button type="submit" class="btn btn-secondary btn-lg">Guardar</button>
         </fieldset>
-    </form>
+        </form>
 
-</main>
+    </main>
 
 
-<footer class="footer">
-    <div>
-        <p>QUIENES SOMOS</p>
-        <p>Copyright HUEVO FRITO </p>
-    </div>
-</footer>
+    <footer class="footer">
+        <div>
+            <p align="center">Copyright HUEVO FRITO</p>
+        </div>
+    </footer>
+    <div th:replace="fragmentos/libs :: #libs"></div>
 </body>
+
 </html>

@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
     <link rel="stylesheet" href="/css/styleperfil.css">
-    <!--        <link rel="stylesheet" href="/src/main/resources/static/css/styleperfil.css"> BORRAR ESTA LINEA NETBEANS -->
-    <!--        <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css"> BORRAR ESTA LINEA NETBEANS-->
+    <!--<link rel="stylesheet" href="/src/main/resources/static/css/styleperfil.css"> BORRAR ESTA LINEA NETBEANS
+    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css"> BORRAR ESTA LINEA NETBEANS-->
 </head>
 
 <body>
@@ -17,7 +16,6 @@
 <header class="encabezado">
     <nav>
         <div><img src="/img/Logotipo.png" alt=""></div>
-
         <ul>
             <li><a href="/inicio">INICIO</a></li>
         </ul>
@@ -68,26 +66,42 @@
             <label>Foto</label>
             <input type="file" name="archivo"/>
         </div>
-        <button type="submit" >Actualizar</button>
+        <button type="submit">Actualizar</button>
     </form>
 
-<!--REVISAR-->
+    <!--REVISAR-->
     <div class="js-profile-editable-replace">
         <div class="clearfix d-flex d-md-block flex-items-center mb-4 mb-md-0">
             <div class="position-relative d-inline-block col-2 col-md-12 mr-3 mr-md-0 flex-shrink-0" style="z-index:4;">
-                <a class="tooltipped tooltipped-s d-block" aria-label="Change your avatar" data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:50365339,&quot;target&quot;:&quot;EDIT_AVATAR&quot;,&quot;user_id&quot;:50365339,&quot;originating_url&quot;:&quot;https://github.com/Rockstonebb&quot;}}" data-hydro-click-hmac="7c17386d39e3a68dbf375b38945c449eb954dddc2f6f66ce2fbb2bd7c447280e" href="https://github.com/account"><img style="height:auto;" alt="" class="avatar avatar-user width-full border color-bg-default" src="https://avatars.githubusercontent.com/u/50365339?v=4" width="260" height="260"></a>
+                <a class="tooltipped tooltipped-s d-block" aria-label="Change your avatar"
+                   data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:50365339,&quot;target&quot;:&quot;EDIT_AVATAR&quot;,&quot;user_id&quot;:50365339,&quot;originating_url&quot;:&quot;https://github.com/Rockstonebb&quot;}}"
+                   data-hydro-click-hmac="7c17386d39e3a68dbf375b38945c449eb954dddc2f6f66ce2fbb2bd7c447280e"
+                   href="https://github.com/account"><img style="height:auto;" alt=""
+                                                          class="avatar avatar-user width-full border color-bg-default"
+                                                          src="https://avatars.githubusercontent.com/u/50365339?v=4"
+                                                          width="260" height="260"></a>
 
                 <div class="user-status-container position-relative hide-sm hide-md">
 
-                    <div class="f5 js-user-status-context user-status-circle-badge-container" data-url="/users/status?circle=1&amp;compact=0&amp;link_mentions=1&amp;truncate=0">
+                    <div class="f5 js-user-status-context user-status-circle-badge-container"
+                         data-url="/users/status?circle=1&amp;compact=0&amp;link_mentions=1&amp;truncate=0">
 
-                        <div class="js-user-status-container user-status-circle-badge d-inline-block lh-condensed-ultra p-2" data-team-hovercards-enabled="">
+                        <div class="js-user-status-container user-status-circle-badge d-inline-block lh-condensed-ultra p-2"
+                             data-team-hovercards-enabled="">
                             <details class="js-user-status-details details-reset details-overlay details-overlay-dark">
-                                <summary class="btn-link btn-block Link--secondary no-underline js-toggle-user-status-edit toggle-user-status-edit " data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:50365339,&quot;target&quot;:&quot;EDIT_USER_STATUS&quot;,&quot;user_id&quot;:50365339,&quot;originating_url&quot;:&quot;https://github.com/Rockstonebb&quot;}}" data-hydro-click-hmac="d669eb25860aca54f751dfbc5aff98cf12c3c32bc7cb70a346842724fbe82e37" role="button">
+                                <summary
+                                        class="btn-link btn-block Link--secondary no-underline js-toggle-user-status-edit toggle-user-status-edit "
+                                        data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:50365339,&quot;target&quot;:&quot;EDIT_USER_STATUS&quot;,&quot;user_id&quot;:50365339,&quot;originating_url&quot;:&quot;https://github.com/Rockstonebb&quot;}}"
+                                        data-hydro-click-hmac="d669eb25860aca54f751dfbc5aff98cf12c3c32bc7cb70a346842724fbe82e37"
+                                        role="button">
                                     <div class="d-flex flex-items-center flex-items-stretch">
                                         <div class="f6 lh-condensed user-status-header d-inline-flex user-status-emoji-only-header circle">
                                             <div class="user-status-emoji-container flex-shrink-0 mr-2 d-flex flex-items-center flex-justify-center ">
-                                                <svg class="octicon octicon-smiley" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM5 8a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zM5.32 9.636a.75.75 0 011.038.175l.007.009c.103.118.22.222.35.31.264.178.683.37 1.285.37.602 0 1.02-.192 1.285-.371.13-.088.247-.192.35-.31l.007-.008a.75.75 0 111.222.87l-.614-.431c.614.43.614.431.613.431v.001l-.001.002-.002.003-.005.007-.014.019a1.984 1.984 0 01-.184.213c-.16.166-.338.316-.53.445-.63.418-1.37.638-2.127.629-.946 0-1.652-.308-2.126-.63a3.32 3.32 0 01-.715-.657l-.014-.02-.005-.006-.002-.003v-.002h-.001l.613-.432-.614.43a.75.75 0 01.183-1.044h.001z"></path></svg>
+                                                <svg class="octicon octicon-smiley" viewBox="0 0 16 16" version="1.1"
+                                                     width="16" height="16" aria-hidden="true">
+                                                    <path fill-rule="evenodd"
+                                                          d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM5 8a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zM5.32 9.636a.75.75 0 011.038.175l.007.009c.103.118.22.222.35.31.264.178.683.37 1.285.37.602 0 1.02-.192 1.285-.371.13-.088.247-.192.35-.31l.007-.008a.75.75 0 111.222.87l-.614-.431c.614.43.614.431.613.431v.001l-.001.002-.002.003-.005.007-.014.019a1.984 1.984 0 01-.184.213c-.16.166-.338.316-.53.445-.63.418-1.37.638-2.127.629-.946 0-1.652-.308-2.126-.63a3.32 3.32 0 01-.715-.657l-.014-.02-.005-.006-.002-.003v-.002h-.001l.613-.432-.614.43a.75.75 0 01.183-1.044h.001z"></path>
+                                                </svg>
                                             </div>
                                         </div>
                                         <div class="
@@ -99,494 +113,670 @@
                                         </div>
                                     </div>
                                 </summary>
-                                <details-dialog class="rounded-1 anim-fade-in fast Box Box--overlay" role="dialog" tabindex="-1" aria-modal="true">
-                                    <!-- '"` --><!-- </textarea></xmp> --><form class="position-relative flex-auto js-user-status-form" action="/users/status?circle=1&amp;compact=0&amp;link_mentions=1&amp;truncate=0" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="put" autocomplete="off"><input type="hidden" name="authenticity_token" value="IW4FszuF4bALi13ytQxg1Gi46kCmiWvLID+iEgJT53jhkH/lxCseHo9H7t0MvdQ/opNDls6+UaOJgzxFqCWOmg==">
-                                    <div class="Box-header color-bg-subtle border-bottom p-3">
-                                        <button class="Box-btn-octicon js-toggle-user-status-edit btn-octicon float-right" type="reset" aria-label="Close dialog" data-close-dialog="">
-                                            <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-x">
-                                                <path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path>
-                                            </svg>
-                                        </button>
-                                        <h3 class="Box-title f5 text-bold color-fg-default">Edit status</h3>
-                                    </div>
-                                    <input type="hidden" name="emoji" class="js-user-status-emoji-field" value="">
-                                    <input type="hidden" name="organization_id" class="js-user-status-org-id-field" value="">
-                                    <div class="px-3 py-2 color-fg-default">
-                                        <div class="js-characters-remaining-container position-relative mt-2">
-                                            <div class="input-group d-table form-group my-0 js-user-status-form-group">
+                                <details-dialog class="rounded-1 anim-fade-in fast Box Box--overlay" role="dialog"
+                                                tabindex="-1" aria-modal="true">
+                                    <!-- '"` --><!-- </textarea></xmp> -->
+                                    <form class="position-relative flex-auto js-user-status-form"
+                                          action="/users/status?circle=1&amp;compact=0&amp;link_mentions=1&amp;truncate=0"
+                                          accept-charset="UTF-8" method="post"><input type="hidden" name="_method"
+                                                                                      value="put"
+                                                                                      autocomplete="off"><input
+                                            type="hidden" name="authenticity_token"
+                                            value="IW4FszuF4bALi13ytQxg1Gi46kCmiWvLID+iEgJT53jhkH/lxCseHo9H7t0MvdQ/opNDls6+UaOJgzxFqCWOmg==">
+                                        <div class="Box-header color-bg-subtle border-bottom p-3">
+                                            <button class="Box-btn-octicon js-toggle-user-status-edit btn-octicon float-right"
+                                                    type="reset" aria-label="Close dialog" data-close-dialog="">
+                                                <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1"
+                                                     width="16" data-view-component="true" class="octicon octicon-x">
+                                                    <path fill-rule="evenodd"
+                                                          d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path>
+                                                </svg>
+                                            </button>
+                                            <h3 class="Box-title f5 text-bold color-fg-default">Edit status</h3>
+                                        </div>
+                                        <input type="hidden" name="emoji" class="js-user-status-emoji-field" value="">
+                                        <input type="hidden" name="organization_id" class="js-user-status-org-id-field"
+                                               value="">
+                                        <div class="px-3 py-2 color-fg-default">
+                                            <div class="js-characters-remaining-container position-relative mt-2">
+                                                <div class="input-group d-table form-group my-0 js-user-status-form-group">
               <span class="input-group-button d-table-cell v-align-middle" style="width: 1%">
-                <button aria-label="Choose an emoji" type="button" data-view-component="true" class="js-toggle-user-status-emoji-picker btn-outline btn p-0">
+                <button aria-label="Choose an emoji" type="button" data-view-component="true"
+                        class="js-toggle-user-status-emoji-picker btn-outline btn p-0">
 
 
                   <span class="js-user-status-original-emoji" hidden=""></span>
                   <span class="js-user-status-custom-emoji"></span>
                   <span class="js-user-status-no-emoji-icon">
-                    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-smiley">
-    <path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM5 8a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zM5.32 9.636a.75.75 0 011.038.175l.007.009c.103.118.22.222.35.31.264.178.683.37 1.285.37.602 0 1.02-.192 1.285-.371.13-.088.247-.192.35-.31l.007-.008a.75.75 0 111.222.87l-.614-.431c.614.43.614.431.613.431v.001l-.001.002-.002.003-.005.007-.014.019a1.984 1.984 0 01-.184.213c-.16.166-.338.316-.53.445-.63.418-1.37.638-2.127.629-.946 0-1.652-.308-2.126-.63a3.32 3.32 0 01-.715-.657l-.014-.02-.005-.006-.002-.003v-.002h-.001l.613-.432-.614.43a.75.75 0 01.183-1.044h.001z"></path>
+                    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
+                         data-view-component="true" class="octicon octicon-smiley">
+    <path fill-rule="evenodd"
+          d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM5 8a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zM5.32 9.636a.75.75 0 011.038.175l.007.009c.103.118.22.222.35.31.264.178.683.37 1.285.37.602 0 1.02-.192 1.285-.371.13-.088.247-.192.35-.31l.007-.008a.75.75 0 111.222.87l-.614-.431c.614.43.614.431.613.431v.001l-.001.002-.002.003-.005.007-.014.019a1.984 1.984 0 01-.184.213c-.16.166-.338.316-.53.445-.63.418-1.37.638-2.127.629-.946 0-1.652-.308-2.126-.63a3.32 3.32 0 01-.715-.657l-.014-.02-.005-.006-.002-.003v-.002h-.001l.613-.432-.614.43a.75.75 0 01.183-1.044h.001z"></path>
 </svg>
                   </span>
 
 
 
 </button>              </span>
-                                                <text-expander keys=": @" data-mention-url="/autocomplete/user-suggestions" data-emoji-url="/autocomplete/emoji">
-                                                    <input type="text" autocomplete="off" data-no-org-url="/autocomplete/user-suggestions" data-org-url="/suggestions?mention_suggester=1" data-maxlength="80" class="d-table-cell width-full form-control js-user-status-message-field js-characters-remaining-field" placeholder="What's happening?" name="message" value="" aria-label="What is your current status?">
-                                                </text-expander>
-                                                <div class="error">Could not update your status, please try again.</div>
-                                            </div>
-                                            <div style="margin-left: 53px" class="my-1 text-small label-characters-remaining js-characters-remaining" data-suffix="remaining" hidden="">
-                                                80 remaining
-                                            </div>
-                                        </div>
-                                        <include-fragment class="js-user-status-emoji-picker" data-url="/users/status/emoji"></include-fragment>
-                                        <div class="overflow-auto ml-n3 mr-n3 px-3 border-bottom" style="max-height: 33vh">
-                                            <div class="user-status-suggestions js-user-status-suggestions collapsed overflow-hidden">
-                                                <h4 class="f6 text-normal my-3">Suggestions:</h4>
-                                                <div class="mx-3 mt-2 clearfix">
-                                                    <div class="float-left col-6">
-                                                        <button type="button" value=":palm_tree:" class="d-flex flex-items-baseline flex-items-stretch lh-condensed f6 btn-link Link--secondary no-underline js-predefined-user-status mb-1">
-                                                            <div class="emoji-status-width mr-2 v-align-middle js-predefined-user-status-emoji">
-                                                                <g-emoji alias="palm_tree" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f334.png">🌴</g-emoji>
-                                                            </div>
-                                                            <div class="d-flex flex-items-center no-underline js-predefined-user-status-message ws-normal text-left" style="border-left: 1px solid transparent">
-                                                                On vacation
-                                                            </div>
-                                                        </button>
-                                                        <button type="button" value=":face_with_thermometer:" class="d-flex flex-items-baseline flex-items-stretch lh-condensed f6 btn-link Link--secondary no-underline js-predefined-user-status mb-1">
-                                                            <div class="emoji-status-width mr-2 v-align-middle js-predefined-user-status-emoji">
-                                                                <g-emoji alias="face_with_thermometer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f912.png">🤒</g-emoji>
-                                                            </div>
-                                                            <div class="d-flex flex-items-center no-underline js-predefined-user-status-message ws-normal text-left" style="border-left: 1px solid transparent">
-                                                                Out sick
-                                                            </div>
-                                                        </button>
+                                                    <text-expander keys=": @"
+                                                                   data-mention-url="/autocomplete/user-suggestions"
+                                                                   data-emoji-url="/autocomplete/emoji">
+                                                        <input type="text" autocomplete="off"
+                                                               data-no-org-url="/autocomplete/user-suggestions"
+                                                               data-org-url="/suggestions?mention_suggester=1"
+                                                               data-maxlength="80"
+                                                               class="d-table-cell width-full form-control js-user-status-message-field js-characters-remaining-field"
+                                                               placeholder="What's happening?" name="message" value=""
+                                                               aria-label="What is your current status?">
+                                                    </text-expander>
+                                                    <div class="error">Could not update your status, please try again.
                                                     </div>
-                                                    <div class="float-left col-6">
-                                                        <button type="button" value=":house:" class="d-flex flex-items-baseline flex-items-stretch lh-condensed f6 btn-link Link--secondary no-underline js-predefined-user-status mb-1">
-                                                            <div class="emoji-status-width mr-2 v-align-middle js-predefined-user-status-emoji">
-                                                                <g-emoji alias="house" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3e0.png">🏠</g-emoji>
-                                                            </div>
-                                                            <div class="d-flex flex-items-center no-underline js-predefined-user-status-message ws-normal text-left" style="border-left: 1px solid transparent">
-                                                                Working from home
-                                                            </div>
-                                                        </button>
-                                                        <button type="button" value=":dart:" class="d-flex flex-items-baseline flex-items-stretch lh-condensed f6 btn-link Link--secondary no-underline js-predefined-user-status mb-1">
-                                                            <div class="emoji-status-width mr-2 v-align-middle js-predefined-user-status-emoji">
-                                                                <g-emoji alias="dart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3af.png">🎯</g-emoji>
-                                                            </div>
-                                                            <div class="d-flex flex-items-center no-underline js-predefined-user-status-message ws-normal text-left" style="border-left: 1px solid transparent">
-                                                                Focusing
-                                                            </div>
-                                                        </button>
+                                                </div>
+                                                <div style="margin-left: 53px"
+                                                     class="my-1 text-small label-characters-remaining js-characters-remaining"
+                                                     data-suffix="remaining" hidden="">
+                                                    80 remaining
+                                                </div>
+                                            </div>
+                                            <include-fragment class="js-user-status-emoji-picker"
+                                                              data-url="/users/status/emoji"></include-fragment>
+                                            <div class="overflow-auto ml-n3 mr-n3 px-3 border-bottom"
+                                                 style="max-height: 33vh">
+                                                <div class="user-status-suggestions js-user-status-suggestions collapsed overflow-hidden">
+                                                    <h4 class="f6 text-normal my-3">Suggestions:</h4>
+                                                    <div class="mx-3 mt-2 clearfix">
+                                                        <div class="float-left col-6">
+                                                            <button type="button" value=":palm_tree:"
+                                                                    class="d-flex flex-items-baseline flex-items-stretch lh-condensed f6 btn-link Link--secondary no-underline js-predefined-user-status mb-1">
+                                                                <div class="emoji-status-width mr-2 v-align-middle js-predefined-user-status-emoji">
+                                                                    <g-emoji alias="palm_tree"
+                                                                             fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f334.png">
+                                                                        🌴
+                                                                    </g-emoji>
+                                                                </div>
+                                                                <div class="d-flex flex-items-center no-underline js-predefined-user-status-message ws-normal text-left"
+                                                                     style="border-left: 1px solid transparent">
+                                                                    On vacation
+                                                                </div>
+                                                            </button>
+                                                            <button type="button" value=":face_with_thermometer:"
+                                                                    class="d-flex flex-items-baseline flex-items-stretch lh-condensed f6 btn-link Link--secondary no-underline js-predefined-user-status mb-1">
+                                                                <div class="emoji-status-width mr-2 v-align-middle js-predefined-user-status-emoji">
+                                                                    <g-emoji alias="face_with_thermometer"
+                                                                             fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f912.png">
+                                                                        🤒
+                                                                    </g-emoji>
+                                                                </div>
+                                                                <div class="d-flex flex-items-center no-underline js-predefined-user-status-message ws-normal text-left"
+                                                                     style="border-left: 1px solid transparent">
+                                                                    Out sick
+                                                                </div>
+                                                            </button>
+                                                        </div>
+                                                        <div class="float-left col-6">
+                                                            <button type="button" value=":house:"
+                                                                    class="d-flex flex-items-baseline flex-items-stretch lh-condensed f6 btn-link Link--secondary no-underline js-predefined-user-status mb-1">
+                                                                <div class="emoji-status-width mr-2 v-align-middle js-predefined-user-status-emoji">
+                                                                    <g-emoji alias="house"
+                                                                             fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3e0.png">
+                                                                        🏠
+                                                                    </g-emoji>
+                                                                </div>
+                                                                <div class="d-flex flex-items-center no-underline js-predefined-user-status-message ws-normal text-left"
+                                                                     style="border-left: 1px solid transparent">
+                                                                    Working from home
+                                                                </div>
+                                                            </button>
+                                                            <button type="button" value=":dart:"
+                                                                    class="d-flex flex-items-baseline flex-items-stretch lh-condensed f6 btn-link Link--secondary no-underline js-predefined-user-status mb-1">
+                                                                <div class="emoji-status-width mr-2 v-align-middle js-predefined-user-status-emoji">
+                                                                    <g-emoji alias="dart"
+                                                                             fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3af.png">
+                                                                        🎯
+                                                                    </g-emoji>
+                                                                </div>
+                                                                <div class="d-flex flex-items-center no-underline js-predefined-user-status-message ws-normal text-left"
+                                                                     style="border-left: 1px solid transparent">
+                                                                    Focusing
+                                                                </div>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="user-status-limited-availability-container">
+                                                    <div class="form-checkbox my-0">
+                                                        <input type="checkbox" name="limited_availability" value="1"
+                                                               class="js-user-status-limited-availability-checkbox"
+                                                               data-default-message="I may be slow to respond."
+                                                               aria-describedby="limited-availability-help-text-truncate-false-compact-false"
+                                                               id="limited-availability-truncate-false-compact-false">
+                                                        <label class="d-block f5 color-fg-default mb-1"
+                                                               for="limited-availability-truncate-false-compact-false">
+                                                            Busy
+                                                        </label>
+                                                        <p class="note"
+                                                           id="limited-availability-help-text-truncate-false-compact-false">
+                                                            When others mention you, assign you, or request your review,
+                                                            GitHub will let them know that you have limited
+                                                            availability.
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="user-status-limited-availability-container">
-                                                <div class="form-checkbox my-0">
-                                                    <input type="checkbox" name="limited_availability" value="1" class="js-user-status-limited-availability-checkbox" data-default-message="I may be slow to respond." aria-describedby="limited-availability-help-text-truncate-false-compact-false" id="limited-availability-truncate-false-compact-false">
-                                                    <label class="d-block f5 color-fg-default mb-1" for="limited-availability-truncate-false-compact-false">
-                                                        Busy
-                                                    </label>
-                                                    <p class="note" id="limited-availability-help-text-truncate-false-compact-false">
-                                                        When others mention you, assign you, or request your review,
-                                                        GitHub will let them know that you have limited availability.
-                                                    </p>
+                                            <div class="d-inline-block f5 mr-2 pt-3 pb-2">
+                                                <div class="d-inline-block mr-1">
+                                                    Clear status
                                                 </div>
+
+                                                <details
+                                                        class="js-user-status-expire-drop-down f6 dropdown details-reset details-overlay d-inline-block mr-2">
+                                                    <summary aria-haspopup="true" data-view-component="true"
+                                                             class="btn-sm btn v-align-baseline">
+
+
+                                                        <div class="js-user-status-expiration-interval-selected d-inline-block v-align-baseline">
+                                                            Never
+                                                        </div>
+                                                        <div class="dropdown-caret"></div>
+
+
+                                                    </summary>
+                                                    <ul class="dropdown-menu dropdown-menu-se pl-0 overflow-auto"
+                                                        style="width: 220px; max-height: 15.5em">
+                                                        <li>
+                                                            <button type="button"
+                                                                    class="btn-link dropdown-item js-user-status-expire-button ws-normal"
+                                                                    title="Never">
+                                                                <span class="d-inline-block text-bold mb-1">Never</span>
+                                                                <div class="f6 lh-condensed">Keep this status until you
+                                                                    clear your status or edit your status.
+                                                                </div>
+                                                            </button>
+                                                        </li>
+                                                        <li class="dropdown-divider" role="none"></li>
+                                                        <li>
+                                                            <button type="button"
+                                                                    class="btn-link dropdown-item ws-normal js-user-status-expire-button"
+                                                                    title="in 30 minutes"
+                                                                    value="2021-11-20T18:44:03-03:00">
+                                                                in 30 minutes
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="button"
+                                                                    class="btn-link dropdown-item ws-normal js-user-status-expire-button"
+                                                                    title="in 1 hour" value="2021-11-20T19:14:03-03:00">
+                                                                in 1 hour
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="button"
+                                                                    class="btn-link dropdown-item ws-normal js-user-status-expire-button"
+                                                                    title="in 4 hours"
+                                                                    value="2021-11-20T22:14:03-03:00">
+                                                                in 4 hours
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="button"
+                                                                    class="btn-link dropdown-item ws-normal js-user-status-expire-button"
+                                                                    title="today" value="2021-11-20T23:59:59-03:00">
+                                                                today
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="button"
+                                                                    class="btn-link dropdown-item ws-normal js-user-status-expire-button"
+                                                                    title="this week" value="2021-11-21T23:59:59-03:00">
+                                                                this week
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                </details>
+                                                <input class="js-user-status-expiration-date-input" type="hidden"
+                                                       name="expires_at" value="">
                                             </div>
-                                        </div>
-                                        <div class="d-inline-block f5 mr-2 pt-3 pb-2">
-                                            <div class="d-inline-block mr-1">
-                                                Clear status
-                                            </div>
-
-                                            <details class="js-user-status-expire-drop-down f6 dropdown details-reset details-overlay d-inline-block mr-2">
-                                                <summary aria-haspopup="true" data-view-component="true" class="btn-sm btn v-align-baseline">
-
-
-                                                    <div class="js-user-status-expiration-interval-selected d-inline-block v-align-baseline">
-                                                        Never
-                                                    </div>
-                                                    <div class="dropdown-caret"></div>
-
-
-
-                                                </summary>
-                                                <ul class="dropdown-menu dropdown-menu-se pl-0 overflow-auto" style="width: 220px; max-height: 15.5em">
-                                                    <li>
-                                                        <button type="button" class="btn-link dropdown-item js-user-status-expire-button ws-normal" title="Never">
-                                                            <span class="d-inline-block text-bold mb-1">Never</span>
-                                                            <div class="f6 lh-condensed">Keep this status until you clear your status or edit your status.</div>
-                                                        </button>
-                                                    </li>
-                                                    <li class="dropdown-divider" role="none"></li>
-                                                    <li>
-                                                        <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 30 minutes" value="2021-11-20T18:44:03-03:00">
-                                                            in 30 minutes
-                                                        </button>
-                                                    </li>
-                                                    <li>
-                                                        <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 1 hour" value="2021-11-20T19:14:03-03:00">
-                                                            in 1 hour
-                                                        </button>
-                                                    </li>
-                                                    <li>
-                                                        <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 4 hours" value="2021-11-20T22:14:03-03:00">
-                                                            in 4 hours
-                                                        </button>
-                                                    </li>
-                                                    <li>
-                                                        <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="today" value="2021-11-20T23:59:59-03:00">
-                                                            today
-                                                        </button>
-                                                    </li>
-                                                    <li>
-                                                        <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="this week" value="2021-11-21T23:59:59-03:00">
-                                                            this week
-                                                        </button>
-                                                    </li>
-                                                </ul>
-                                            </details>
-                                            <input class="js-user-status-expiration-date-input" type="hidden" name="expires_at" value="">
-                                        </div>
-
-                                        <include-fragment class="js-user-status-org-picker" data-url="/users/status/organizations"></include-fragment>
-                                    </div>
-                                    <div class="d-flex flex-items-center flex-justify-between p-3 border-top">
-                                        <button type="submit" disabled="" class="width-full btn btn-primary mr-2 js-user-status-submit">
-                                            Set status
-                                        </button>
-                                        <button type="button" disabled="" class="width-full js-clear-user-status-button btn ml-2 ">
-                                            Clear status
-                                        </button>
-                                    </div>
-                                </form>    </details-dialog>
-                            </details>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="vcard-names-container float-left js-profile-editable-names col-12 py-3 js-sticky js-user-profile-sticky-fields" style="position: sticky;" data-original-top="0px" hidden="">
-                <h1 class="vcard-names ">
+</main>
+<include-fragment class="js-user-status-org-picker" data-url="/users/status/organizations"></include-fragment>
+</div>
+<div class="d-flex flex-items-center flex-justify-between p-3 border-top">
+    <button type="submit" disabled="" class="width-full btn btn-primary mr-2 js-user-status-submit">
+        Set status
+    </button>
+    <button type="button" disabled="" class="width-full js-clear-user-status-button btn ml-2 ">
+        Clear status
+    </button>
+</div>
+</form>    </details-dialog>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="vcard-names-container float-left js-profile-editable-names col-12 py-3 js-sticky js-user-profile-sticky-fields"
+     style="position: sticky;" data-original-top="0px" hidden="">
+    <h1 class="vcard-names ">
         <span class="p-name vcard-fullname d-block overflow-hidden" itemprop="name">
           Simon Gomez Torres
         </span>
-                    <span class="p-nickname vcard-username d-block" itemprop="additionalName">
+        <span class="p-nickname vcard-username d-block" itemprop="additionalName">
           Rockstonebb
-
         </span>
-                </h1>
-            </div>
-        </div>
-
-        <div class="mb-2 user-status-container d-md-none">
-
-            <div class="js-user-status-container rounded-1 px-2 py-1 mt-2 border" data-team-hovercards-enabled="">
-                <details class="js-user-status-details details-reset details-overlay details-overlay-dark">
-                    <summary class="btn-link btn-block Link--secondary no-underline js-toggle-user-status-edit toggle-user-status-edit " role="menuitem" data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:50365339,&quot;target&quot;:&quot;EDIT_USER_STATUS&quot;,&quot;user_id&quot;:50365339,&quot;originating_url&quot;:&quot;https://github.com/Rockstonebb&quot;}}" data-hydro-click-hmac="d669eb25860aca54f751dfbc5aff98cf12c3c32bc7cb70a346842724fbe82e37">
-                        <div class="d-flex flex-items-center flex-items-stretch">
-                            <div class="f6 lh-condensed user-status-header d-flex user-status-emoji-only-header circle">
-                                <div class="user-status-emoji-container flex-shrink-0 mr-2 d-flex flex-items-center flex-justify-center lh-condensed-ultra v-align-bottom">
-                                    <svg class="octicon octicon-smiley" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM5 8a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zM5.32 9.636a.75.75 0 011.038.175l.007.009c.103.118.22.222.35.31.264.178.683.37 1.285.37.602 0 1.02-.192 1.285-.371.13-.088.247-.192.35-.31l.007-.008a.75.75 0 111.222.87l-.614-.431c.614.43.614.431.613.431v.001l-.001.002-.002.003-.005.007-.014.019a1.984 1.984 0 01-.184.213c-.16.166-.338.316-.53.445-.63.418-1.37.638-2.127.629-.946 0-1.652-.308-2.126-.63a3.32 3.32 0 01-.715-.657l-.014-.02-.005-.006-.002-.003v-.002h-.001l.613-.432-.614.43a.75.75 0 01.183-1.044h.001z"></path></svg>
-                                </div>
-                            </div>
-                            <div class="
-
+    </h1>
+</div>
+</div>
+<div class="mb-2 user-status-container d-md-none">
+    <div class="js-user-status-container rounded-1 px-2 py-1 mt-2 border" data-team-hovercards-enabled="">
+        <details class="js-user-status-details details-reset details-overlay details-overlay-dark">
+            <summary
+                    class="btn-link btn-block Link--secondary no-underline js-toggle-user-status-edit toggle-user-status-edit "
+                    role="menuitem"
+                    data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:50365339,&quot;target&quot;:&quot;EDIT_USER_STATUS&quot;,&quot;user_id&quot;:50365339,&quot;originating_url&quot;:&quot;https://github.com/Rockstonebb&quot;}}"
+                    data-hydro-click-hmac="d669eb25860aca54f751dfbc5aff98cf12c3c32bc7cb70a346842724fbe82e37">
+                <div class="d-flex flex-items-center flex-items-stretch">
+                    <div class="f6 lh-condensed user-status-header d-flex user-status-emoji-only-header circle">
+                        <div class="user-status-emoji-container flex-shrink-0 mr-2 d-flex flex-items-center flex-justify-center lh-condensed-ultra v-align-bottom">
+                            <svg class="octicon octicon-smiley" viewBox="0 0 16 16" version="1.1" width="16" height="16"
+                                 aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                      d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM5 8a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zM5.32 9.636a.75.75 0 011.038.175l.007.009c.103.118.22.222.35.31.264.178.683.37 1.285.37.602 0 1.02-.192 1.285-.371.13-.088.247-.192.35-.31l.007-.008a.75.75 0 111.222.87l-.614-.431c.614.43.614.431.613.431v.001l-.001.002-.002.003-.005.007-.014.019a1.984 1.984 0 01-.184.213c-.16.166-.338.316-.53.445-.63.418-1.37.638-2.127.629-.946 0-1.652-.308-2.126-.63a3.32 3.32 0 01-.715-.657l-.014-.02-.005-.006-.002-.003v-.002h-.001l.613-.432-.614.43a.75.75 0 01.183-1.044h.001z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="
            user-status-message-wrapper f6 min-width-0" style="line-height: 20px;">
-                                <div class="css-truncate css-truncate-target width-fit color-fg-default text-left">
-                                    <span class="color-fg-muted">Set status</span>
-                                </div>
-                            </div>
+                        <div class="css-truncate css-truncate-target width-fit color-fg-default text-left">
+                            <span class="color-fg-muted">Set status</span>
                         </div>
-                    </summary>
-                    <details-dialog class="rounded-1 anim-fade-in fast Box Box--overlay" role="dialog" tabindex="-1" aria-modal="true">
-                        <!-- '"` --><!-- </textarea></xmp> --><form class="position-relative flex-auto js-user-status-form" action="/users/status?circle=0&amp;compact=1&amp;link_mentions=1&amp;truncate=0" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="put" autocomplete="off"><input type="hidden" name="authenticity_token" value="+RKlGI9fyu8ZDFSaH/UZyTU2a6iWNY17rW0uGvhmCmU57N9OcPE1QZ3A57WmRK0i/x3Cfv4CtxME0bBNUhBjhw==">
-                        <div class="Box-header color-bg-subtle border-bottom p-3">
-                            <button class="Box-btn-octicon js-toggle-user-status-edit btn-octicon float-right" type="reset" aria-label="Close dialog" data-close-dialog="">
-                                <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-x">
-                                    <path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path>
-                                </svg>
-                            </button>
-                            <h3 class="Box-title f5 text-bold color-fg-default">Edit status</h3>
-                        </div>
-                        <input type="hidden" name="emoji" class="js-user-status-emoji-field" value="">
-                        <input type="hidden" name="organization_id" class="js-user-status-org-id-field" value="">
-                        <div class="px-3 py-2 color-fg-default">
-                            <div class="js-characters-remaining-container position-relative mt-2">
-                                <div class="input-group d-table form-group my-0 js-user-status-form-group">
+                    </div>
+                </div>
+            </summary>
+            <details-dialog class="rounded-1 anim-fade-in fast Box Box--overlay" role="dialog" tabindex="-1"
+                            aria-modal="true">
+                <!-- '"` --><!-- </textarea></xmp> -->
+                <form class="position-relative flex-auto js-user-status-form"
+                      action="/users/status?circle=0&amp;compact=1&amp;link_mentions=1&amp;truncate=0"
+                      accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="put"
+                                                                  autocomplete="off"><input type="hidden"
+                                                                                            name="authenticity_token"
+                                                                                            value="+RKlGI9fyu8ZDFSaH/UZyTU2a6iWNY17rW0uGvhmCmU57N9OcPE1QZ3A57WmRK0i/x3Cfv4CtxME0bBNUhBjhw==">
+                    <div class="Box-header color-bg-subtle border-bottom p-3">
+                        <button class="Box-btn-octicon js-toggle-user-status-edit btn-octicon float-right" type="reset"
+                                aria-label="Close dialog" data-close-dialog="">
+                            <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
+                                 data-view-component="true" class="octicon octicon-x">
+                                <path fill-rule="evenodd"
+                                      d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path>
+                            </svg>
+                        </button>
+                        <h3 class="Box-title f5 text-bold color-fg-default">Edit status</h3>
+                    </div>
+                    <input type="hidden" name="emoji" class="js-user-status-emoji-field" value="">
+                    <input type="hidden" name="organization_id" class="js-user-status-org-id-field" value="">
+                    <div class="px-3 py-2 color-fg-default">
+                        <div class="js-characters-remaining-container position-relative mt-2">
+                            <div class="input-group d-table form-group my-0 js-user-status-form-group">
               <span class="input-group-button d-table-cell v-align-middle" style="width: 1%">
-                <button aria-label="Choose an emoji" type="button" data-view-component="true" class="js-toggle-user-status-emoji-picker btn-outline btn p-0">
+                <button aria-label="Choose an emoji" type="button" data-view-component="true"
+                        class="js-toggle-user-status-emoji-picker btn-outline btn p-0">
 
 
                   <span class="js-user-status-original-emoji" hidden=""></span>
                   <span class="js-user-status-custom-emoji"></span>
                   <span class="js-user-status-no-emoji-icon">
-                    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-smiley">
-    <path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM5 8a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zM5.32 9.636a.75.75 0 011.038.175l.007.009c.103.118.22.222.35.31.264.178.683.37 1.285.37.602 0 1.02-.192 1.285-.371.13-.088.247-.192.35-.31l.007-.008a.75.75 0 111.222.87l-.614-.431c.614.43.614.431.613.431v.001l-.001.002-.002.003-.005.007-.014.019a1.984 1.984 0 01-.184.213c-.16.166-.338.316-.53.445-.63.418-1.37.638-2.127.629-.946 0-1.652-.308-2.126-.63a3.32 3.32 0 01-.715-.657l-.014-.02-.005-.006-.002-.003v-.002h-.001l.613-.432-.614.43a.75.75 0 01.183-1.044h.001z"></path>
+                    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
+                         data-view-component="true" class="octicon octicon-smiley">
+    <path fill-rule="evenodd"
+          d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM5 8a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zM5.32 9.636a.75.75 0 011.038.175l.007.009c.103.118.22.222.35.31.264.178.683.37 1.285.37.602 0 1.02-.192 1.285-.371.13-.088.247-.192.35-.31l.007-.008a.75.75 0 111.222.87l-.614-.431c.614.43.614.431.613.431v.001l-.001.002-.002.003-.005.007-.014.019a1.984 1.984 0 01-.184.213c-.16.166-.338.316-.53.445-.63.418-1.37.638-2.127.629-.946 0-1.652-.308-2.126-.63a3.32 3.32 0 01-.715-.657l-.014-.02-.005-.006-.002-.003v-.002h-.001l.613-.432-.614.43a.75.75 0 01.183-1.044h.001z"></path>
 </svg>
                   </span>
 
 
 
 </button>              </span>
-                                    <text-expander keys=": @" data-mention-url="/autocomplete/user-suggestions" data-emoji-url="/autocomplete/emoji">
-                                        <input type="text" autocomplete="off" data-no-org-url="/autocomplete/user-suggestions" data-org-url="/suggestions?mention_suggester=1" data-maxlength="80" class="d-table-cell width-full form-control js-user-status-message-field js-characters-remaining-field" placeholder="What's happening?" name="message" value="" aria-label="What is your current status?">
-                                    </text-expander>
-                                    <div class="error">Could not update your status, please try again.</div>
-                                </div>
-                                <div style="margin-left: 53px" class="my-1 text-small label-characters-remaining js-characters-remaining" data-suffix="remaining" hidden="">
-                                    80 remaining
-                                </div>
+                                <text-expander keys=": @" data-mention-url="/autocomplete/user-suggestions"
+                                               data-emoji-url="/autocomplete/emoji">
+                                    <input type="text" autocomplete="off"
+                                           data-no-org-url="/autocomplete/user-suggestions"
+                                           data-org-url="/suggestions?mention_suggester=1" data-maxlength="80"
+                                           class="d-table-cell width-full form-control js-user-status-message-field js-characters-remaining-field"
+                                           placeholder="What's happening?" name="message" value=""
+                                           aria-label="What is your current status?">
+                                </text-expander>
+                                <div class="error">Could not update your status, please try again.</div>
                             </div>
-                            <include-fragment class="js-user-status-emoji-picker" data-url="/users/status/emoji"></include-fragment>
-                            <div class="overflow-auto ml-n3 mr-n3 px-3 border-bottom" style="max-height: 33vh">
-                                <div class="user-status-suggestions js-user-status-suggestions collapsed overflow-hidden">
-                                    <h4 class="f6 text-normal my-3">Suggestions:</h4>
-                                    <div class="mx-3 mt-2 clearfix">
-                                        <div class="float-left col-6">
-                                            <button type="button" value=":palm_tree:" class="d-flex flex-items-baseline flex-items-stretch lh-condensed f6 btn-link Link--secondary no-underline js-predefined-user-status mb-1">
-                                                <div class="emoji-status-width mr-2 v-align-middle js-predefined-user-status-emoji">
-                                                    <g-emoji alias="palm_tree" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f334.png">🌴</g-emoji>
-                                                </div>
-                                                <div class="d-flex flex-items-center no-underline js-predefined-user-status-message ws-normal text-left" style="border-left: 1px solid transparent">
-                                                    On vacation
-                                                </div>
-                                            </button>
-                                            <button type="button" value=":face_with_thermometer:" class="d-flex flex-items-baseline flex-items-stretch lh-condensed f6 btn-link Link--secondary no-underline js-predefined-user-status mb-1">
-                                                <div class="emoji-status-width mr-2 v-align-middle js-predefined-user-status-emoji">
-                                                    <g-emoji alias="face_with_thermometer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f912.png">🤒</g-emoji>
-                                                </div>
-                                                <div class="d-flex flex-items-center no-underline js-predefined-user-status-message ws-normal text-left" style="border-left: 1px solid transparent">
-                                                    Out sick
-                                                </div>
-                                            </button>
-                                        </div>
-                                        <div class="float-left col-6">
-                                            <button type="button" value=":house:" class="d-flex flex-items-baseline flex-items-stretch lh-condensed f6 btn-link Link--secondary no-underline js-predefined-user-status mb-1">
-                                                <div class="emoji-status-width mr-2 v-align-middle js-predefined-user-status-emoji">
-                                                    <g-emoji alias="house" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3e0.png">🏠</g-emoji>
-                                                </div>
-                                                <div class="d-flex flex-items-center no-underline js-predefined-user-status-message ws-normal text-left" style="border-left: 1px solid transparent">
-                                                    Working from home
-                                                </div>
-                                            </button>
-                                            <button type="button" value=":dart:" class="d-flex flex-items-baseline flex-items-stretch lh-condensed f6 btn-link Link--secondary no-underline js-predefined-user-status mb-1">
-                                                <div class="emoji-status-width mr-2 v-align-middle js-predefined-user-status-emoji">
-                                                    <g-emoji alias="dart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3af.png">🎯</g-emoji>
-                                                </div>
-                                                <div class="d-flex flex-items-center no-underline js-predefined-user-status-message ws-normal text-left" style="border-left: 1px solid transparent">
-                                                    Focusing
-                                                </div>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="user-status-limited-availability-container">
-                                    <div class="form-checkbox my-0">
-                                        <input type="checkbox" name="limited_availability" value="1" class="js-user-status-limited-availability-checkbox" data-default-message="I may be slow to respond." aria-describedby="limited-availability-help-text-truncate-false-compact-true" id="limited-availability-truncate-false-compact-true">
-                                        <label class="d-block f5 color-fg-default mb-1" for="limited-availability-truncate-false-compact-true">
-                                            Busy
-                                        </label>
-                                        <p class="note" id="limited-availability-help-text-truncate-false-compact-true">
-                                            When others mention you, assign you, or request your review,
-                                            GitHub will let them know that you have limited availability.
-                                        </p>
-                                    </div>
-                                </div>
+                            <div style="margin-left: 53px"
+                                 class="my-1 text-small label-characters-remaining js-characters-remaining"
+                                 data-suffix="remaining" hidden="">
+                                80 remaining
                             </div>
-                            <div class="d-inline-block f5 mr-2 pt-3 pb-2">
-                                <div class="d-inline-block mr-1">
-                                    Clear status
-                                </div>
-
-                                <details class="js-user-status-expire-drop-down f6 dropdown details-reset details-overlay d-inline-block mr-2">
-                                    <summary aria-haspopup="true" data-view-component="true" class="btn-sm btn v-align-baseline">
-
-
-                                        <div class="js-user-status-expiration-interval-selected d-inline-block v-align-baseline">
-                                            Never
-                                        </div>
-                                        <div class="dropdown-caret"></div>
-
-
-
-                                    </summary>
-                                    <ul class="dropdown-menu dropdown-menu-se pl-0 overflow-auto" style="width: 220px; max-height: 15.5em">
-                                        <li>
-                                            <button type="button" class="btn-link dropdown-item js-user-status-expire-button ws-normal" title="Never">
-                                                <span class="d-inline-block text-bold mb-1">Never</span>
-                                                <div class="f6 lh-condensed">Keep this status until you clear your status or edit your status.</div>
-                                            </button>
-                                        </li>
-                                        <li class="dropdown-divider" role="none"></li>
-                                        <li>
-                                            <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 30 minutes" value="2021-11-20T18:44:03-03:00">
-                                                in 30 minutes
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 1 hour" value="2021-11-20T19:14:03-03:00">
-                                                in 1 hour
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 4 hours" value="2021-11-20T22:14:03-03:00">
-                                                in 4 hours
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="today" value="2021-11-20T23:59:59-03:00">
-                                                today
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="this week" value="2021-11-21T23:59:59-03:00">
-                                                this week
-                                            </button>
-                                        </li>
-                                    </ul>
-                                </details>
-                                <input class="js-user-status-expiration-date-input" type="hidden" name="expires_at" value="">
-                            </div>
-
-                            <include-fragment class="js-user-status-org-picker" data-url="/users/status/organizations"></include-fragment>
                         </div>
-                        <div class="d-flex flex-items-center flex-justify-between p-3 border-top">
-                            <button type="submit" disabled="" class="width-full btn btn-primary mr-2 js-user-status-submit">
-                                Set status
-                            </button>
-                            <button type="button" disabled="" class="width-full js-clear-user-status-button btn ml-2 ">
+                        <include-fragment class="js-user-status-emoji-picker"
+                                          data-url="/users/status/emoji"></include-fragment>
+                        <div class="overflow-auto ml-n3 mr-n3 px-3 border-bottom" style="max-height: 33vh">
+                            <div class="user-status-suggestions js-user-status-suggestions collapsed overflow-hidden">
+                                <h4 class="f6 text-normal my-3">Suggestions:</h4>
+                                <div class="mx-3 mt-2 clearfix">
+                                    <div class="float-left col-6">
+                                        <button type="button" value=":palm_tree:"
+                                                class="d-flex flex-items-baseline flex-items-stretch lh-condensed f6 btn-link Link--secondary no-underline js-predefined-user-status mb-1">
+                                            <div class="emoji-status-width mr-2 v-align-middle js-predefined-user-status-emoji">
+                                                <g-emoji alias="palm_tree"
+                                                         fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f334.png">
+                                                    🌴
+                                                </g-emoji>
+                                            </div>
+                                            <div class="d-flex flex-items-center no-underline js-predefined-user-status-message ws-normal text-left"
+                                                 style="border-left: 1px solid transparent">
+                                                On vacation
+                                            </div>
+                                        </button>
+                                        <button type="button" value=":face_with_thermometer:"
+                                                class="d-flex flex-items-baseline flex-items-stretch lh-condensed f6 btn-link Link--secondary no-underline js-predefined-user-status mb-1">
+                                            <div class="emoji-status-width mr-2 v-align-middle js-predefined-user-status-emoji">
+                                                <g-emoji alias="face_with_thermometer"
+                                                         fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f912.png">
+                                                    🤒
+                                                </g-emoji>
+                                            </div>
+                                            <div class="d-flex flex-items-center no-underline js-predefined-user-status-message ws-normal text-left"
+                                                 style="border-left: 1px solid transparent">
+                                                Out sick
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class="float-left col-6">
+                                        <button type="button" value=":house:"
+                                                class="d-flex flex-items-baseline flex-items-stretch lh-condensed f6 btn-link Link--secondary no-underline js-predefined-user-status mb-1">
+                                            <div class="emoji-status-width mr-2 v-align-middle js-predefined-user-status-emoji">
+                                                <g-emoji alias="house"
+                                                         fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3e0.png">
+                                                    🏠
+                                                </g-emoji>
+                                            </div>
+                                            <div class="d-flex flex-items-center no-underline js-predefined-user-status-message ws-normal text-left"
+                                                 style="border-left: 1px solid transparent">
+                                                Working from home
+                                            </div>
+                                        </button>
+                                        <button type="button" value=":dart:"
+                                                class="d-flex flex-items-baseline flex-items-stretch lh-condensed f6 btn-link Link--secondary no-underline js-predefined-user-status mb-1">
+                                            <div class="emoji-status-width mr-2 v-align-middle js-predefined-user-status-emoji">
+                                                <g-emoji alias="dart"
+                                                         fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3af.png">
+                                                    🎯
+                                                </g-emoji>
+                                            </div>
+                                            <div class="d-flex flex-items-center no-underline js-predefined-user-status-message ws-normal text-left"
+                                                 style="border-left: 1px solid transparent">
+                                                Focusing
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-status-limited-availability-container">
+                                <div class="form-checkbox my-0">
+                                    <input type="checkbox" name="limited_availability" value="1"
+                                           class="js-user-status-limited-availability-checkbox"
+                                           data-default-message="I may be slow to respond."
+                                           aria-describedby="limited-availability-help-text-truncate-false-compact-true"
+                                           id="limited-availability-truncate-false-compact-true">
+                                    <label class="d-block f5 color-fg-default mb-1"
+                                           for="limited-availability-truncate-false-compact-true">
+                                        Busy
+                                    </label>
+                                    <p class="note" id="limited-availability-help-text-truncate-false-compact-true">
+                                        When others mention you, assign you, or request your review,
+                                        GitHub will let them know that you have limited availability.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-inline-block f5 mr-2 pt-3 pb-2">
+                            <div class="d-inline-block mr-1">
                                 Clear status
-                            </button>
+                            </div>
+
+                            <details
+                                    class="js-user-status-expire-drop-down f6 dropdown details-reset details-overlay d-inline-block mr-2">
+                                <summary aria-haspopup="true" data-view-component="true"
+                                         class="btn-sm btn v-align-baseline">
+
+
+                                    <div class="js-user-status-expiration-interval-selected d-inline-block v-align-baseline">
+                                        Never
+                                    </div>
+                                    <div class="dropdown-caret"></div>
+
+
+                                </summary>
+                                <ul class="dropdown-menu dropdown-menu-se pl-0 overflow-auto"
+                                    style="width: 220px; max-height: 15.5em">
+                                    <li>
+                                        <button type="button"
+                                                class="btn-link dropdown-item js-user-status-expire-button ws-normal"
+                                                title="Never">
+                                            <span class="d-inline-block text-bold mb-1">Never</span>
+                                            <div class="f6 lh-condensed">Keep this status until you clear your status or
+                                                edit your status.
+                                            </div>
+                                        </button>
+                                    </li>
+                                    <li class="dropdown-divider" role="none"></li>
+                                    <li>
+                                        <button type="button"
+                                                class="btn-link dropdown-item ws-normal js-user-status-expire-button"
+                                                title="in 30 minutes" value="2021-11-20T18:44:03-03:00">
+                                            in 30 minutes
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                                class="btn-link dropdown-item ws-normal js-user-status-expire-button"
+                                                title="in 1 hour" value="2021-11-20T19:14:03-03:00">
+                                            in 1 hour
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                                class="btn-link dropdown-item ws-normal js-user-status-expire-button"
+                                                title="in 4 hours" value="2021-11-20T22:14:03-03:00">
+                                            in 4 hours
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                                class="btn-link dropdown-item ws-normal js-user-status-expire-button"
+                                                title="today" value="2021-11-20T23:59:59-03:00">
+                                            today
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button"
+                                                class="btn-link dropdown-item ws-normal js-user-status-expire-button"
+                                                title="this week" value="2021-11-21T23:59:59-03:00">
+                                            this week
+                                        </button>
+                                    </li>
+                                </ul>
+                            </details>
+                            <input class="js-user-status-expiration-date-input" type="hidden" name="expires_at"
+                                   value="">
                         </div>
-                    </form>    </details-dialog>
-                </details>
-            </div>
 
-        </div>
-
-
-        <div class="d-flex flex-column">
-            <div class="flex-order-1 flex-md-order-none">
-                <div class="d-flex flex-lg-row flex-md-column">
-                </div>
-
-                <!-- '"` --><!-- </textarea></xmp> --><form class="position-relative flex-auto js-profile-editable-form" action="/users/Rockstonebb" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="put" autocomplete="off"><input type="hidden" name="authenticity_token" value="0eqiAIbBYheYVUq5WgOzjxB8Eja3LW5t6E8qEoYEUdbZMWEYFIwj9HYJIKGhBZorsG2gKTMIiCwE+/IctPA1OQ==">
-                <div class="mb-1 mb-2">
-                    <label for="user_profile_name" class="d-block mb-1">Name</label>
-                    <input class="width-full form-control" id="user_profile_name" placeholder="Name" aria-label="Name" name="user[profile_name]" value="Simon Gomez Torres">
-                </div>
-
-
-                <div class="js-length-limited-input-container">
-                    <label for="user_profile_bio" class="d-block mb-1">Bio</label>
-                    <textarea class="form-control js-length-limited-input mb-1 width-full js-user-profile-bio-edit" id="user_profile_bio" name="user[profile_bio]" placeholder="Add a bio" aria-label="Add a bio" rows="3" data-input-max-length="160" data-warning-text="{{remaining}} remaining"></textarea>
-                    <div class="d-none js-length-limited-input-warning user-profile-bio-message text-right m-0"></div>
-                </div>
-
-
-                <div class="color-fg-muted mt-2 d-flex flex-items-center">
-                    <svg style="width: 16px;" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-organization">
-                        <path fill-rule="evenodd" d="M1.5 14.25c0 .138.112.25.25.25H4v-1.25a.75.75 0 01.75-.75h2.5a.75.75 0 01.75.75v1.25h2.25a.25.25 0 00.25-.25V1.75a.25.25 0 00-.25-.25h-8.5a.25.25 0 00-.25.25v12.5zM1.75 16A1.75 1.75 0 010 14.25V1.75C0 .784.784 0 1.75 0h8.5C11.216 0 12 .784 12 1.75v12.5c0 .085-.006.168-.018.25h2.268a.25.25 0 00.25-.25V8.285a.25.25 0 00-.111-.208l-1.055-.703a.75.75 0 11.832-1.248l1.055.703c.487.325.779.871.779 1.456v5.965A1.75 1.75 0 0114.25 16h-3.5a.75.75 0 01-.197-.026c-.099.017-.2.026-.303.026h-3a.75.75 0 01-.75-.75V14h-1v1.25a.75.75 0 01-.75.75h-3zM3 3.75A.75.75 0 013.75 3h.5a.75.75 0 010 1.5h-.5A.75.75 0 013 3.75zM3.75 6a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM3 9.75A.75.75 0 013.75 9h.5a.75.75 0 010 1.5h-.5A.75.75 0 013 9.75zM7.75 9a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM7 6.75A.75.75 0 017.75 6h.5a.75.75 0 010 1.5h-.5A.75.75 0 017 6.75zM7.75 3a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5z"></path>
-                    </svg>
-                    <input class="ml-2 form-control flex-auto input-sm" placeholder="Company" aria-label="Company" name="user[profile_company]" value="">
-                </div>
-
-                <div class="color-fg-muted mt-2 d-flex flex-items-center">
-                    <svg style="width: 16px;" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-location">
-                        <path fill-rule="evenodd" d="M11.536 3.464a5 5 0 010 7.072L8 14.07l-3.536-3.535a5 5 0 117.072-7.072v.001zm1.06 8.132a6.5 6.5 0 10-9.192 0l3.535 3.536a1.5 1.5 0 002.122 0l3.535-3.536zM8 9a2 2 0 100-4 2 2 0 000 4z"></path>
-                    </svg>
-                    <input class="ml-2 form-control flex-auto input-sm" placeholder="Location" aria-label="Location" name="user[profile_location]" value="">
-                </div>
-
-
-                <div class="color-fg-muted mt-2 d-flex flex-items-center">
-                    <svg style="width: 16px;" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-link">
-                        <path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-                    </svg>
-                    <input class="ml-2 form-control flex-auto input-sm" placeholder="Website" aria-label="Website" name="user[profile_blog]" value="">
-                </div>
-
-                <div class="color-fg-muted mt-2 d-flex flex-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 273.5 222.3" height="16" width="16"><title>Twitter</title><path d="M273.5 26.3a109.77 109.77 0 0 1-32.2 8.8 56.07 56.07 0 0 0 24.7-31 113.39 113.39 0 0 1-35.7 13.6 56.1 56.1 0 0 0-97 38.4 54 54 0 0 0 1.5 12.8A159.68 159.68 0 0 1 19.1 10.3a56.12 56.12 0 0 0 17.4 74.9 56.06 56.06 0 0 1-25.4-7v.7a56.11 56.11 0 0 0 45 55 55.65 55.65 0 0 1-14.8 2 62.39 62.39 0 0 1-10.6-1 56.24 56.24 0 0 0 52.4 39 112.87 112.87 0 0 1-69.7 24 119 119 0 0 1-13.4-.8 158.83 158.83 0 0 0 86 25.2c103.2 0 159.6-85.5 159.6-159.6 0-2.4-.1-4.9-.2-7.3a114.25 114.25 0 0 0 28.1-29.1" fill="currentColor"></path></svg>
-
-                    <input class="ml-2 form-control flex-auto input-sm" placeholder="Twitter username" aria-label="Twitter username" name="user[profile_twitter_username]" value="">
-                </div>
-
-                <div class="my-3">
-                    <div class="js-profile-editable-error color-fg-danger my-3"></div>
-                    <button type="submit" data-view-component="true" class="btn-primary btn-sm btn">
-
-                        Save
-
-
-                    </button>
-                    <button type="reset" data-view-component="true" class="js-profile-editable-cancel btn-sm btn">
-
-                        Cancel
-
-
-                    </button>
-                </div>
-            </form>
-            </div>
-
-
-            <div class="js-profile-editable-area d-flex flex-column d-md-block" hidden="">
-                <div class="p-note user-profile-bio mb-3 js-user-profile-bio f4" data-bio-text="" hidden=""></div>
-
-                <div class="mb-3">
-                    <button name="button" type="button" class="btn btn-block js-profile-editable-edit-button" data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:50365339,&quot;target&quot;:&quot;INLINE_EDIT_BUTTON&quot;,&quot;user_id&quot;:50365339,&quot;originating_url&quot;:&quot;https://github.com/Rockstonebb&quot;}}" data-hydro-click-hmac="dfb5aa90cbad43787ca53020d24f312a8db9fd96b8708c9badf0d17ac30b340f">Edit profile</button>
-
-                </div>
-
-                <div class="flex-order-1 flex-md-order-none mt-2 mt-md-0">
-                    <div class="mb-3">
-                        <a class="Link--secondary no-underline no-wrap" href="https://github.com/Rockstonebb?tab=followers">
-                            <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-people">
-                                <path fill-rule="evenodd" d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"></path>
-                            </svg>
-                            <span class="text-bold color-fg-default">2</span>
-                            followers
-                        </a>        · <a class="Link--secondary no-underline no-wrap" href="https://github.com/Rockstonebb?tab=following">
-                        <span class="text-bold color-fg-default">6</span>
-                        following
-                    </a>        · <a class="Link--secondary no-underline no-wrap" href="https://github.com/Rockstonebb?tab=stars">
-                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-star">
-                            <path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
-                        </svg>
-                        <span class="text-bold color-fg-default">2</span>
-                    </a>      </div>
-                </div>
-
-                <ul class="vcard-details">
-
-
-
-                </ul>
-            </div>
-
-        </div>
-
-
-
-
-        <div class="border-top color-border-muted pt-3 mt-3 clearfix hide-sm hide-md">
-            <h2 class="mb-2 h4">Organizations</h2>
-
-            <a aria-label="FITER1" itemprop="follows" class="avatar-group-item" data-hovercard-type="organization" data-hovercard-url="/orgs/FITER1/hovercard" data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:50365339,&quot;target&quot;:&quot;MEMBER_ORGANIZATION_AVATAR&quot;,&quot;user_id&quot;:50365339,&quot;originating_url&quot;:&quot;https://github.com/Rockstonebb&quot;}}" data-hydro-click-hmac="9ee1c9355c8876e5765389610bf3cbe4b36b39ab9423f823a75ff816b7684a0b" href="/FITER1">
-                <img src="https://avatars.githubusercontent.com/u/40765054?s=64&amp;v=4" alt="@FITER1" size="32" data-view-component="true" class="avatar" width="32" height="32">
-            </a>    <a aria-label="BancoNexa" itemprop="follows" class="avatar-group-item" data-hovercard-type="organization" data-hovercard-url="/orgs/BancoNexa/hovercard" data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:50365339,&quot;target&quot;:&quot;MEMBER_ORGANIZATION_AVATAR&quot;,&quot;user_id&quot;:50365339,&quot;originating_url&quot;:&quot;https://github.com/Rockstonebb&quot;}}" data-hydro-click-hmac="9ee1c9355c8876e5765389610bf3cbe4b36b39ab9423f823a75ff816b7684a0b" href="/BancoNexa">
-            <img src="https://avatars.githubusercontent.com/u/91097379?s=64&amp;v=4" alt="@BancoNexa" size="32" data-view-component="true" class="avatar" width="32" height="32">
-        </a></div>
-
-
+                        <include-fragment class="js-user-status-org-picker"
+                                          data-url="/users/status/organizations"></include-fragment>
+                    </div>
+                    <div class="d-flex flex-items-center flex-justify-between p-3 border-top">
+                        <button type="submit" disabled="" class="width-full btn btn-primary mr-2 js-user-status-submit">
+                            Set status
+                        </button>
+                        <button type="button" disabled="" class="width-full js-clear-user-status-button btn ml-2 ">
+                            Clear status
+                        </button>
+                    </div>
+                </form>
+            </details-dialog>
+        </details>
     </div>
 
-</main>
+</div>
 
+
+<div class="d-flex flex-column">
+    <div class="flex-order-1 flex-md-order-none">
+        <div class="d-flex flex-lg-row flex-md-column">
+        </div>
+
+        <!-- '"` --><!-- </textarea></xmp> -->
+        <form class="position-relative flex-auto js-profile-editable-form" action="/users/Rockstonebb"
+              accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="put"
+                                                          autocomplete="off"><input type="hidden"
+                                                                                    name="authenticity_token"
+                                                                                    value="0eqiAIbBYheYVUq5WgOzjxB8Eja3LW5t6E8qEoYEUdbZMWEYFIwj9HYJIKGhBZorsG2gKTMIiCwE+/IctPA1OQ==">
+            <div class="mb-1 mb-2">
+                <label for="user_profile_name" class="d-block mb-1">Name</label>
+                <input class="width-full form-control" id="user_profile_name" placeholder="Name" aria-label="Name"
+                       name="user[profile_name]" value="Simon Gomez Torres">
+            </div>
+
+
+            <div class="js-length-limited-input-container">
+                <label for="user_profile_bio" class="d-block mb-1">Bio</label>
+                <textarea class="form-control js-length-limited-input mb-1 width-full js-user-profile-bio-edit"
+                          id="user_profile_bio" name="user[profile_bio]" placeholder="Add a bio" aria-label="Add a bio"
+                          rows="3" data-input-max-length="160" data-warning-text="{{remaining}} remaining"></textarea>
+                <div class="d-none js-length-limited-input-warning user-profile-bio-message text-right m-0"></div>
+            </div>
+
+
+            <div class="color-fg-muted mt-2 d-flex flex-items-center">
+                <svg style="width: 16px;" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
+                     data-view-component="true" class="octicon octicon-organization">
+                    <path fill-rule="evenodd"
+                          d="M1.5 14.25c0 .138.112.25.25.25H4v-1.25a.75.75 0 01.75-.75h2.5a.75.75 0 01.75.75v1.25h2.25a.25.25 0 00.25-.25V1.75a.25.25 0 00-.25-.25h-8.5a.25.25 0 00-.25.25v12.5zM1.75 16A1.75 1.75 0 010 14.25V1.75C0 .784.784 0 1.75 0h8.5C11.216 0 12 .784 12 1.75v12.5c0 .085-.006.168-.018.25h2.268a.25.25 0 00.25-.25V8.285a.25.25 0 00-.111-.208l-1.055-.703a.75.75 0 11.832-1.248l1.055.703c.487.325.779.871.779 1.456v5.965A1.75 1.75 0 0114.25 16h-3.5a.75.75 0 01-.197-.026c-.099.017-.2.026-.303.026h-3a.75.75 0 01-.75-.75V14h-1v1.25a.75.75 0 01-.75.75h-3zM3 3.75A.75.75 0 013.75 3h.5a.75.75 0 010 1.5h-.5A.75.75 0 013 3.75zM3.75 6a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM3 9.75A.75.75 0 013.75 9h.5a.75.75 0 010 1.5h-.5A.75.75 0 013 9.75zM7.75 9a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM7 6.75A.75.75 0 017.75 6h.5a.75.75 0 010 1.5h-.5A.75.75 0 017 6.75zM7.75 3a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5z"></path>
+                </svg>
+                <input class="ml-2 form-control flex-auto input-sm" placeholder="Company" aria-label="Company"
+                       name="user[profile_company]" value="">
+            </div>
+
+            <div class="color-fg-muted mt-2 d-flex flex-items-center">
+                <svg style="width: 16px;" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
+                     data-view-component="true" class="octicon octicon-location">
+                    <path fill-rule="evenodd"
+                          d="M11.536 3.464a5 5 0 010 7.072L8 14.07l-3.536-3.535a5 5 0 117.072-7.072v.001zm1.06 8.132a6.5 6.5 0 10-9.192 0l3.535 3.536a1.5 1.5 0 002.122 0l3.535-3.536zM8 9a2 2 0 100-4 2 2 0 000 4z"></path>
+                </svg>
+                <input class="ml-2 form-control flex-auto input-sm" placeholder="Location" aria-label="Location"
+                       name="user[profile_location]" value="">
+            </div>
+
+
+            <div class="color-fg-muted mt-2 d-flex flex-items-center">
+                <svg style="width: 16px;" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
+                     data-view-component="true" class="octicon octicon-link">
+                    <path fill-rule="evenodd"
+                          d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
+                </svg>
+                <input class="ml-2 form-control flex-auto input-sm" placeholder="Website" aria-label="Website"
+                       name="user[profile_blog]" value="">
+            </div>
+
+            <div class="color-fg-muted mt-2 d-flex flex-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 273.5 222.3" height="16" width="16"><title>
+                    Twitter</title>
+                    <path d="M273.5 26.3a109.77 109.77 0 0 1-32.2 8.8 56.07 56.07 0 0 0 24.7-31 113.39 113.39 0 0 1-35.7 13.6 56.1 56.1 0 0 0-97 38.4 54 54 0 0 0 1.5 12.8A159.68 159.68 0 0 1 19.1 10.3a56.12 56.12 0 0 0 17.4 74.9 56.06 56.06 0 0 1-25.4-7v.7a56.11 56.11 0 0 0 45 55 55.65 55.65 0 0 1-14.8 2 62.39 62.39 0 0 1-10.6-1 56.24 56.24 0 0 0 52.4 39 112.87 112.87 0 0 1-69.7 24 119 119 0 0 1-13.4-.8 158.83 158.83 0 0 0 86 25.2c103.2 0 159.6-85.5 159.6-159.6 0-2.4-.1-4.9-.2-7.3a114.25 114.25 0 0 0 28.1-29.1"
+                          fill="currentColor"></path>
+                </svg>
+
+                <input class="ml-2 form-control flex-auto input-sm" placeholder="Twitter username"
+                       aria-label="Twitter username" name="user[profile_twitter_username]" value="">
+            </div>
+
+            <div class="my-3">
+                <div class="js-profile-editable-error color-fg-danger my-3"></div>
+                <button type="submit" data-view-component="true" class="btn-primary btn-sm btn">
+
+                    Save
+
+
+                </button>
+                <button type="reset" data-view-component="true" class="js-profile-editable-cancel btn-sm btn">
+
+                    Cancel
+
+
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="js-profile-editable-area d-flex flex-column d-md-block" hidden="">
+        <div class="p-note user-profile-bio mb-3 js-user-profile-bio f4" data-bio-text="" hidden=""></div>
+
+        <div class="mb-3">
+            <button name="button" type="button" class="btn btn-block js-profile-editable-edit-button"
+                    data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:50365339,&quot;target&quot;:&quot;INLINE_EDIT_BUTTON&quot;,&quot;user_id&quot;:50365339,&quot;originating_url&quot;:&quot;https://github.com/Rockstonebb&quot;}}"
+                    data-hydro-click-hmac="dfb5aa90cbad43787ca53020d24f312a8db9fd96b8708c9badf0d17ac30b340f">Edit
+                profile
+            </button>
+
+        </div>
+
+        <div class="flex-order-1 flex-md-order-none mt-2 mt-md-0">
+            <div class="mb-3">
+                <a class="Link--secondary no-underline no-wrap" href="https://github.com/Rockstonebb?tab=followers">
+                    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
+                         data-view-component="true" class="octicon octicon-people">
+                        <path fill-rule="evenodd"
+                              d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"></path>
+                    </svg>
+                    <span class="text-bold color-fg-default">2</span>
+                    followers
+                </a> · <a class="Link--secondary no-underline no-wrap"
+                          href="https://github.com/Rockstonebb?tab=following">
+                <span class="text-bold color-fg-default">6</span>
+                following
+            </a> · <a class="Link--secondary no-underline no-wrap" href="https://github.com/Rockstonebb?tab=stars">
+                <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
+                     data-view-component="true" class="octicon octicon-star">
+                    <path fill-rule="evenodd"
+                          d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
+                </svg>
+                <span class="text-bold color-fg-default">2</span>
+            </a></div>
+        </div>
+
+        <ul class="vcard-details">
+
+
+        </ul>
+    </div>
+
+</div>
+
+
+<div class="border-top color-border-muted pt-3 mt-3 clearfix hide-sm hide-md">
+    <h2 class="mb-2 h4">Organizations</h2>
+
+    <a aria-label="FITER1" itemprop="follows" class="avatar-group-item" data-hovercard-type="organization"
+       data-hovercard-url="/orgs/FITER1/hovercard"
+       data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:50365339,&quot;target&quot;:&quot;MEMBER_ORGANIZATION_AVATAR&quot;,&quot;user_id&quot;:50365339,&quot;originating_url&quot;:&quot;https://github.com/Rockstonebb&quot;}}"
+       data-hydro-click-hmac="9ee1c9355c8876e5765389610bf3cbe4b36b39ab9423f823a75ff816b7684a0b" href="/FITER1">
+        <img src="https://avatars.githubusercontent.com/u/40765054?s=64&amp;v=4" alt="@FITER1" size="32"
+             data-view-component="true" class="avatar" width="32" height="32">
+    </a> <a aria-label="BancoNexa" itemprop="follows" class="avatar-group-item" data-hovercard-type="organization"
+            data-hovercard-url="/orgs/BancoNexa/hovercard"
+            data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:50365339,&quot;target&quot;:&quot;MEMBER_ORGANIZATION_AVATAR&quot;,&quot;user_id&quot;:50365339,&quot;originating_url&quot;:&quot;https://github.com/Rockstonebb&quot;}}"
+            data-hydro-click-hmac="9ee1c9355c8876e5765389610bf3cbe4b36b39ab9423f823a75ff816b7684a0b" href="/BancoNexa">
+    <img src="https://avatars.githubusercontent.com/u/91097379?s=64&amp;v=4" alt="@BancoNexa" size="32"
+         data-view-component="true" class="avatar" width="32" height="32">
+</a></div>
+
+</div>
+
+</main>
 
 <!--PIE DE PAGINA FUERA DEL MAIN-->
 <footer class="footer">
