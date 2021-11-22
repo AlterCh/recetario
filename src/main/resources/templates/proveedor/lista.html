@@ -7,18 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="/css/styleNAVFOOTER.css" rel="stylesheet">
-        <link rel="stylesheet" href="/css/stylelista.css">
+    <!-- <link href="/css/styleNAVFOOTER.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/stylelista.css"> -->
 
-   <!-- <link rel="stylesheet" href="/src/main/resources/static/css/stylelista.css">
-    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">-->
+    <link rel="stylesheet" href="/src/main/resources/static/css/stylelista.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">
 
 
 </head>
 
 <body>
-
-
     <header class="encabezado">
         <nav>
             <div>
@@ -26,16 +24,15 @@
             </div>
 
             <ul>
-                <li><a href="/inicio">INICIO</a></li>
+                <li><a href="/panel">INICIO</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="main">
-
-        <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
-
+        <h3>PROVEEDORES</h3>
         <table class="table">
+            <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
             <thead>
                 <tr>
                     <th scope="col">Nombre</th>
@@ -44,8 +41,7 @@
                     <th scope="col">Accion</th>
                 </tr>
             </thead>
-            <tbody>
-                <!--    th:each == foreach (Proveedor x : proveedores)-->
+            
                 <tr th:each="proveedor : ${proveedores}">
                     <td th:text="${proveedor.nombre}"></td>
                     <td th:text="${proveedor.direccion}"></td>
@@ -62,9 +58,7 @@
                         </form>
                     </td>
                 </tr>
-            </tbody>
         </table>
-
     </main>
 
     <footer class="footer">
@@ -75,4 +69,5 @@
 
     <div th:replace="fragmentos/libs :: #libs"></div>
 </body>
+
 </html>
