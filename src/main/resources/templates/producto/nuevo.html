@@ -9,13 +9,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- <!-- <link href="/css/styleNAVFOOTER.css" rel="stylesheet">
-<link rel="stylesheet" href="/css/stylenuevo.css">  
-<link rel="stylesheet" href="/css/stylenuevo.css">   -->
+    <link href="/css/styleNAVFOOTER.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/stylenuevo.css">
 
-    <link rel="stylesheet" href="/src/main/resources/static/css/stylenuevo.css">
-    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">
-  
+
+    <!-- <link rel="stylesheet" href="/src/main/resources/static/css/stylenuevo.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css"> -->
+
 
 
 </head>
@@ -36,7 +36,7 @@
 
 
                 <h3>AGREGAR PRODUCTO</h3>
-                
+
                 <p><label>Nombre</label>
                     <input type="text" class="form-control" name="nombre" th:field="*{nombre}" />
                 </p>
@@ -53,8 +53,8 @@
                     <input type="number" class="form-control" name="stock" th:field="*{stock}" />
                 </p>
                 <aside class="bd-sidebar">
-                <button type="submit" class="btn btn-primary">Ingresar Producto</button>
-                <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+                    <button type="submit" class="btn btn-primary">Ingresar Producto</button>
+                    <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
                 </aside>
             </form>
         </fieldset>
