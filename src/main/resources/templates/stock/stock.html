@@ -11,6 +11,7 @@
    
     <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">
     <link rel="stylesheet" href="/src/main/resources/static/css/stylestock.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/stylelista.css">
 
 </head>
 
@@ -30,75 +31,29 @@
 
 
 <main class="main">
+    <h3>PRODUCTOS</h3>
+    <table class="table">
 
-
-    <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
-
-    <table class="table-prov">
         <thead>
-        <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Unidad</th>
-            <th scope="col">Stock</th>
-            <th scope="col">Accion</th>
-        </tr>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Unidad</th>
+                <th scope="col">Stock</th>
+                
+            </tr>
         </thead>
-        <tbody>
-            <tr th:each="producto : ${productos}">
+
+
+        <tr th:each="producto : ${productos}">
             <td th:text="${producto.nombre}"></td>
             <td th:text="${producto.precio}"></td>
             <td th:text="${producto.cantidad}"></td>
             <td th:text="${producto.unidad}"></td>
             <td th:text="${producto.stock}"></td>
-            <td>
-                <form action="/producto/lista" method="post">
-                    <button name="id" th:value="${producto.id}">Delete</button>
-                </form>
-                <form action="/producto/editar" method="get">
-                    <button name="id" th:value="${producto.id}">Edit</button>
-                </form>
-                <form action="/producto/favorito" method="get">
-                    <button name="id" th:value="${producto.id}">Favorito</button>
-                </form>
-            </td>
         </tr>
-        </tbody>
-    </table>
 
-    <table class="table-rece">
-        <thead>
-        <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col">Ingredientes</th>
-            <th scope="col">Tiempo</th>
-            <th scope="col">Accion</th>
-        </tr>
-        </thead>
-        <tbody>
-       
-        <tr th:if="${recetas.size() != 0 && recetas != null }"
-            th:each="receta : ${recetas}">
-            <td th:text="${receta.nombre}"></td>
-            <td th:text="${receta.descripcion}"></td>
-            <td th:text="${receta.ingredientes}"></td>
-            <td th:text="${receta.tiempo}"></td>
-            <td th:text="${receta.porciones}"></td>
-            <td>
-                <form action="/receta/lista" method="post">
-                    <button name="id" th:value="${receta.id}">Delete</button>
-                </form>
-                <form action="/receta/editar" method="get">
-                    <button name="id" th:value="${receta.id}">Edit</button>
-                </form>
-                <form action="/receta/favorito" method="get">
-                    <button name="id" th:value="${receta.id}">Favorito</button>
-                </form>
-            </td>
-        </tr>
-        </tbody>
     </table>
 
 </main>

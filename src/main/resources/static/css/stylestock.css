@@ -1,46 +1,8 @@
-/*PROVEEDORES*/
-.table-prov td{
-    ize-adjust: 50%;
-    border: 2px solid black;
-    height: 50%;
+body{
+    background-image: url(/src/main/resources/static/img/HUEVO.png);
+    background-repeat: repeat;
 }
 
-.table-prov thead{
-    font-family: Arial, Helvetica, sans-serif;
+.table{
+    height: 10%;
 }
-
-.table-prov{
-    margin-left: 35% 
-    
-}
-.form{
-    padding: 4px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: black;
-    color: rgb(241, 203, 76);
-
-}
-
-
-
-
-/*RECETAS*/
-.table-rece td{
-    border-collapse: collapse;
-    border: 1px solid black;
-
-}
-
-.table-rece thead{
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.table-rece{
-    margin-left: 35% 
-}
-
-
