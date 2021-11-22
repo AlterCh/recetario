@@ -57,8 +57,8 @@ body{
 
 .grid-container div h3{
     text-align: center;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 5%; /*margen izauierdo*/
+    margin-right: 5%; /*margen derecho*/
     color:blanchedalmond;
     margin-top: 4%; /*margen arriba*/
     margin-bottom: 4%; /*margen abajo*/

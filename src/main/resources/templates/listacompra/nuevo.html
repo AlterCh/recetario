@@ -7,46 +7,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/styleNAVFOOTER.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/stylenuevo.css">
-    <!--    <link rel="stylesheet" href="/src/main/resources/static/css/stylenuevo.css">-->
-    <!--    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">-->
+    <!-- <link href="/css/styleNAVFOOTER.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/stylenuevo.css"> -->
+    <link rel="stylesheet" href="/src/main/resources/static/css/stylenuevo.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">
 </head>
 
 <body>
-<header class="encabezado">
-    <nav>
+    <header class="encabezado">
+        <nav>
+            <div>
+                <!-- <img src="/img/logotipo.png"> -->
+                <img src="/src/main/resources/static/img/logotipo.png">
+            </div>
+            <ul>
+                <li><a href="/inicio">INICIO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <fieldset class="marcoform">
+            <form action="/listacompra/nuevo" method="post" th:object="${listaCompra}">
+                <h3>LISTA DE COMPRA</h3>
+                <label for="nombre">NOMBRE</label>
+                <br>
+                <input type="text" id="nombre" name="nombre" th:field="*{nombre}"><br>
+                <br>
+                <label for="descripcion">DESCRIPCION DE LA LISTA</label>
+                <br>
+                <textarea class="form-control" id="descripcion" th:field="*{lista}" rows="8"></textarea>
+                <br>
+                <button type="submit">Crear</button>
+            </form>
+        </fieldset>
+    </main>
+
+    <footer class="footer">
         <div>
-            <img src="/img/logotipo.png">
+            <p align="center">Copyright HUEVO FRITO</p>
         </div>
-        <ul>
-            <li><a href="/inicio">INICIO</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main class="main">
-    <fieldset class="marcoform">
-        <form action="/listacompra/nuevo" method="post" th:object="${listaCompra}">
-            <label for="nombre">Nombre de la Lista</label>
-            <br>
-            <input type="text" id="nombre" name="nombre" th:field="*{nombre}"><br>
-            <br>
-            <label for="descripcion">Descripcion de la lista</label>
-            <br>
-            <textarea class="form-control" id="descripcion" th:field="*{lista}" rows="4"></textarea>
-            <br>
-            <button type="submit">Crear</button>
-        </form>
-    </fieldset>
-</main>
-
-<footer class="footer">
-    <div>
-        <p align="center">Copyright HUEVO FRITO</p>
-    </div>
-</footer>
-<div th:replace="fragmentos/libs :: #libs"></div>
+    </footer>
+    <div th:replace="fragmentos/libs :: #libs"></div>
 
 </body>
+
 </html>
