@@ -1,0 +1,58 @@
+.main{
+    background-image: url(/src/main/resources/static/img/HUEVO.png); 
+    background-repeat: repeat;
+    background-color: transparent;
+}
+
+
+.marcoform{
+    background-color: rgb(63, 185, 116) ;
+    border-radius: 12px;
+    text-align: center;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 2%; /*margen arriba*/
+    margin-bottom: 6%; /*margen abajo*/
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border:rgb(241, 203, 76) solid;
+    border-color: ;
+}
+
+.marcoform label{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(241, 203, 76);
+    margin-bottom: 2%;
+    margin-top: 3%;
+    font-size: 16px;
+    text-align: left;
+}
+
+.marcoform input{
+    text-align: center;
+    font-size: 12px;
+    width: 70%;
+    margin-bottom: 3%;
+    
+}
+.marcoform button{
+    padding: 4px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: rgb(241, 203, 76);
+
+}
+
+.marcoform h3{
+    font-family: Arial, Helvetica, sans-serif;
+    color:blanchedalmond;
+    margin-bottom: 4%; /*margen abajo*/
+}
+
+.marcoform textarea{
+    width: 71%;
+}
