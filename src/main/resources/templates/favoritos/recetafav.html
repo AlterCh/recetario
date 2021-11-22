@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="/css/styleNAVFOOTER.css" rel="stylesheet">
-<link rel="stylesheet" href="/css/styleindex.css">  
+    <!-- <link href="/css/styleNAVFOOTER.css" rel="stylesheet">
+<   link rel="stylesheet" href="/css/stylerecetafav.css">   -->
 
-   <!-- <link rel="stylesheet" href="/src/main/resources/static/css/stylerecetafav.css">
-    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">-->
-
+    <link rel="stylesheet" href="/src/main/resources/static/css/stylerecetafav.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/stylenuevo.css">
 
 </head>
 
@@ -32,17 +32,16 @@
 
     <main class="main">
         <fieldset class="marcoform">
+            <h3>RECETAS FAVORITAS</h3>
             <div id="lista-de-recetas-favoritas">
-
                 <div th:if="${recetasfav.size() != 0 && recetasfav != null }" th:each="favorito : ${recetasfav}"
                     th:object="${favorito}" th:each="receta : ${favorito.favoritosRecetas}" th:object="${receta}">
-                    <h3 th:text="*{nombre}"></h3>
-                    <h3 th:text="*{descripcion}"></h3>
+                    <h4 th:text="*{nombre}">Nombre:</h4>
+                    <h4 th:text="*{descripcion}">Descripción:</h4>
                 </div>
             </div>
         </fieldset>
     </main>
-
 
 
     <footer class="footer">

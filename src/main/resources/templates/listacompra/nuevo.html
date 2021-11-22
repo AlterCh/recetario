@@ -30,11 +30,11 @@
         <fieldset class="marcoform">
             <form action="/listacompra/nuevo" method="post" th:object="${listaCompra}">
                 <h3>LISTA DE COMPRA</h3>
-                <label for="nombre">NOMBRE</label>
+                <label for="nombre">Nombre</label>
                 <br>
                 <input type="text" id="nombre" name="nombre" th:field="*{nombre}"><br>
                 <br>
-                <label for="descripcion">DESCRIPCION DE LA LISTA</label>
+                <label for="descripcion">Descrpcion de la lista</label>
                 <br>
                 <textarea class="form-control" id="descripcion" th:field="*{lista}" rows="8"></textarea>
                 <br>
