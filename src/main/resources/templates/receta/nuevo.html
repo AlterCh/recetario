@@ -1,73 +1,74 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                    <!-- <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">
-                    <link rel="stylesheet" href="/src/main/resources/static/css/stylenuevo.css"> -->
+    <!-- <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/stylenuevo.css"> -->
 
-                    <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
-                        <link rel="stylesheet" href="/css/stylenuevo.css">
+    <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
+    <link rel="stylesheet" href="/css/stylenuevo.css">
 
-                            </head>
+</head>
 
-                            <body>
+<body>
 
-                                <header class="encabezado">
-                                    <nav>
-                                        <div>
-                                            <img src="/img/logotipo.png">
-                                        </div>
+    <header class="encabezado">
+        <nav>
+            <div>
+                <img src="/img/logotipo.png">
+            </div>
 
-                                        <ul>
-                                            <li><a href="/panel">INICIO</a></li>
-                                        </ul>
-                                    </nav>
-                                </header>
-
-
-                                <main class="main">
-                                    <fieldset class="marcoform">
-                                        <b>
-                                            <h2>AGREGAR RECETA</h2>
-                                        </b>
-                                        <form method="post" action="/receta/nuevo" th:object="${receta}" category="editar">
-                                            <p>
-                                                <label>Nombre
-                                                    <input th:field="*{nombre}" type="text" name="nombre">
-                                                </label>
-                                            </p>
-                                            <p><label>Ingredientes
-                                                    <!--<textarea class="form-control" id="descripcion" th:field="*{lista}" rows="8"></textarea>-->
-
-                                                    <input th:field="*{ingredientes}" type="text" name="ingredientes"></label>
-                                            </p>
-                                            <p><label>Tiempo
-                                                    <input th:field="*{tiempo}" type="text" name="tiempo"></label>
-                                            </p>
-                                            <p><label>Porciones
-                                                    <input th:field="*{porciones}" type="number" min="0" max="10" name="porciones"></label>
-                                            </p>
-                                            <p><label>Descripcion
-                                                    <input th:field="*{descripcion}" type="text"></label></p>
-                                            <!--                                <p><label>Categoria-->
-                                            <!--                                    <input th:field="*{}" type="text" ></label></p>-->
-                                            <input type="submit" value="Guardar">
-                                        </form>
-                                    </fieldset>
-                                </main>
-
-                                <footer class="footer">
-                                    <div>
-                                        <p align="center">Copyright HUEVO FRITO</p>
-                                    </div>
-                                </footer>
-                                <div th:replace="fragmentos/libs :: #libs"></div>
+            <ul>
+                <li><a href="/panel">INICIO</a></li>
+            </ul>
+        </nav>
+    </header>
 
 
-                            </body>
+    <main class="main">
+        <fieldset class="marcoform">
+            
+                <h2>AGREGAR RECETA</h2>
+            
+            <form method="post" action="/receta/nuevo" th:object="${receta}" category="editar">
+                <p>
+                    <label>Nombre
+                        <input th:field="*{nombre}" type="text" name="nombre">
+                    </label>
+                </p>
+                <p><label>Ingredientes
+                        <!--<textarea class="form-control" id="descripcion" th:field="*{lista}" rows="8"></textarea>-->
 
-                            </html>
+                        <input th:field="*{ingredientes}" type="text" name="ingredientes">
+                    </label>
+                </p>
+                <p><label>Tiempo
+                        <input th:field="*{tiempo}" type="text" name="tiempo"></label>
+                </p>
+                <p><label>Porciones
+                        <input th:field="*{porciones}" type="number" min="0" max="10" name="porciones"></label>
+                </p>
+                <p><label>Descripcion
+                        <input th:field="*{descripcion}" type="text"></label></p>
+                <!--                                <p><label>Categoria-->
+                <!--                                    <input th:field="*{}" type="text" ></label></p>-->
+                <input type="submit" value="Guardar">
+            </form>
+        </fieldset>
+    </main>
+
+    <footer class="footer">
+        <div>
+            <p align="center">Copyright HUEVO FRITO</p>
+        </div>
+    </footer>
+    <div th:replace="fragmentos/libs :: #libs"></div>
+
+
+</body>
+
+</html>

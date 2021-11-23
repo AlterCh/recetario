@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"></html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+</html>
 
 
 <head>
@@ -18,42 +20,49 @@
 </head>
 
 <body>
-<header class="encabezado">
-    <nav>
+    <header class="encabezado">
+        <nav>
             <div>
-                <img src="/img/logotipo.png"></div>
+                <img src="/img/logotipo.png">
+            </div>
 
-        <ul>
-            <li><a href="/login">ACCEDER</a></li>
-        </ul>
-    </nav>
-</header>
-
-
-<main class="main">
-    <div class="textinicial">
-        <h1>¡BIENVENIDOS A HUEVO FRITO!</h1>
-        <h2>Tu agenda personalizada de todos los días.</h2>
-        <p align="left">Esta es una plataforma en la que te puedes registrar y llevar un registro de tu inventario en
-            alimentos, cargar recetas, buscar proveedores en caso de que te quedes sin stock, y compartir recetas con
-            tus amigos.</p>
+            <ul>
+                <li><a href="/login">ACCEDER</a></li>
+            </ul>
+        </nav>
+    </header>
 
 
-    </div>
-    <div class="logoback">
-        <img src="/img/HUEVO.png"></a>
-    </div>
+    <main class="main">
+        <div class="textinicial">
+            <h1>¡BIENVENIDOS A HUEVO FRITO!</h1>
+            <h2>Tu agenda personalizada de todos los días.</h2>
+            <p align="left">Esta es una plataforma en la que te puedes registrar y llevar un registro de tu inventario
+                en alimentos, cargar recetas, buscar a tus proveedores en caso de que te quedes sin stock.</p>
 
-    <!-- <div class="boton">
+            <p align="left">Puedes consultar tus recetas personales cuando quieras. 
+                Además, tiene una opción para que guardes tu lista de compras.    
+            </p>
+
+            
+
+
+        </div>
+        <div class="logoback">
+            <img src="/img/HUEVO.png"></a>
+        </div>
+
+        <!-- <div class="boton">
         <a href="/login">¡REGISTRATE!</a>
     </div> -->
 
-</main>
-<footer class="footer">
-    <div>
-        <p align="center">Copyright HUEVO FRITO</p>
-    </div>
-</footer>
+    </main>
+    <footer class="footer">
+        <div>
+            <p align="center">Copyright HUEVO FRITO</p>
+        </div>
+    </footer>
     <div th:replace="fragmentos/libs :: #libs"></div>
 </body>
+
 </html>
