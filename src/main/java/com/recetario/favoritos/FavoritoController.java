@@ -2,8 +2,12 @@ package com.recetario.favoritos;
 
 import com.recetario.controladores.CusControlador;
 import com.recetario.errores.ErrorServicio;
+import com.recetario.proveedores.Proveedor;
+import com.recetario.receta.Receta;
 import com.recetario.usuario.domain.Usuario;
 import com.recetario.usuario.service.UsuarioService;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
@@ -27,36 +31,8 @@ public class FavoritoController extends CusControlador {
     private FavoritoService favoritoService;
 
     @Autowired
-    private FavoritoRepository repo;
-
-    @Autowired
     private UsuarioService usuarioService;
 
-
-    @GetMapping("/lista")
-    public String listaGet(HttpSession httpSession,
-            ModelMap modelMap) {
-        modelMap.addAttribute("favoritos", favoritoService.listarFavoritos());
-        return "favorito/lista";
-    }
-
-    @GetMapping("/editar")
-    public String editarGet(HttpSession httpSession,
-            ModelMap modelMap,
-            @RequestParam String id) {
-        try {
-            if (id != null && repo.getById(id) != null) {
-                modelMap.addAttribute("favoritos", repo.getById(id));
-                return "favorito/editar";
-            } else {
-                throw new Exception("No se pudo editar lo solicitado, intente nuevamente.");
-            }
-        } catch (Exception e) {
-            modelMap.put("error", e.getMessage());
-            Logger.getLogger(FavoritoController.class.getName()).log(Level.SEVERE, null, e);
-            return "redirect:/proveedor/lista";
-        }
-    }
 
     @GetMapping("/proveedor")
     public String proveedoresFavoritosGet(HttpSession httpSession, Model model) {
@@ -65,16 +41,20 @@ public class FavoritoController extends CusControlador {
             return x;
         }
         Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
-        
         try {
-            model.addAttribute("provfav", favoritoService.getAllByUsuarioP(usuario));
+            List<Proveedor> proveedorList = new ArrayList<>();
+            usuario.getListaProveedores().forEach(proveedor -> {
+                if (proveedor.getFavorito()) {
+                    proveedorList.add(proveedor);
+                }
+            });
+            model.addAttribute("proveedorFav", proveedorList);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
         return "favoritos/proveedorfav";
     }
-    
+
     @GetMapping("/recetas")
     public String recetasFavoritasGet(HttpSession httpSession, Model model) {
         String x = checkUsuario(httpSession);
@@ -82,57 +62,40 @@ public class FavoritoController extends CusControlador {
             return x;
         }
         Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
-        
         try {
-            model.addAttribute("recetasfav", favoritoService.getAllByUsuarioR(usuario));
+            List<Receta> recetaList = new ArrayList<>();
+            usuario.getListaRecetas().forEach(receta -> {
+                if (receta.getFavorito()) {
+                    recetaList.add(receta);
+                }
+            });
+            model.addAttribute("recetasfav", recetaList);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
         return "favoritos/recetafav";
     }
 
-    @PostMapping("/nuevo")
-    public String nuevoPost(@ModelAttribute Favorito favorito, HttpSession httpSession, ModelMap model) throws ErrorServicio {
+    @GetMapping("/nuevo")
+    public String nuevoPost(@RequestParam("id") String id,
+                            @RequestParam("tipo") String tipo,
+                            HttpSession httpSession,
+                            ModelMap model) throws ErrorServicio {
         try {
-            favoritoService.nuevoFavorito(favorito, httpSession, model);
-            return "redirect:/favorito/lista";
+            Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
+            favoritoService.setFavorito(usuario, id, tipo);
+            usuarioService.actualizarHttpSession(httpSession, usuario);
+            if (tipo.equals("proveedor")) {
+                return "redirect:/favorito/proveedor";
+            } else if (tipo.equals("receta")) {
+                return "redirect:/favorito/recetas";
+            } else {
+                return "redirect:/";
+            }
         } catch (ErrorServicio e) {
             model.addAttribute("error", e.getMessage());
             Logger.getLogger(FavoritoController.class.getName()).log(Level.SEVERE, null, e);
             return "favorito/nuevo";
         }
-    }
-
-    @PostMapping("/lista")
-    public String listaPost(HttpSession httpSession,
-            ModelMap modelMap,
-            @ModelAttribute Favorito favoritos,
-            @RequestParam("id") String id) {
-        try {
-            if (id != null) {
-                favoritoService.borrar(repo.getById(id));
-                return "redirect:/favorito/lista";
-            } else {
-                throw new ErrorServicio("No se eliminó lo registrado.");
-            }
-        } catch (ErrorServicio e) {
-            modelMap.put("error", e.getMessage());
-            Logger.getLogger(FavoritoController.class.getName()).log(Level.SEVERE, null, e);
-            return "favorito/lista";
-        }
-    }
-
-    @PostMapping("/editar")
-    public String editarPost(HttpSession httpSession,
-            ModelMap modelMap,
-            @ModelAttribute("favorito") Favorito favorito) {
-        try {
-            favoritoService.modificar(favorito);
-            return "redirect:/favorito/lista";
-        } catch (Exception e) {
-            Logger.getLogger(FavoritoController.class.getName()).log(Level.SEVERE, null, e);
-        }
-        return "favorito/editar";
     }
 }
