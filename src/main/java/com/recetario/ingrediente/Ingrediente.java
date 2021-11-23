@@ -3,10 +3,8 @@ package com.recetario.ingrediente;
 
 import com.recetario.producto.Producto;
 import com.recetario.siu.Unidad;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+
+import javax.persistence.*;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -26,14 +24,14 @@ public class Ingrediente {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 
-    @OneToOne
     @NonNull
+    @OneToOne(cascade = CascadeType.ALL)
     private Producto producto;
 
     @Builder.Default
     private Double cantidad = 0.0;
 
     @Builder.Default
-    private String unidades = "";
+    private String unidades = "gr";
 
 }

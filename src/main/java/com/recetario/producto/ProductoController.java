@@ -89,7 +89,7 @@ public class ProductoController extends CusControlador {
         try {
             Usuario aux = (Usuario) httpSession.getAttribute("usuariosession");
             productoService.registrar(aux, producto);
-            ingredienteService.registrar(new Ingrediente(producto));
+//            ingredienteService.registrar(new Ingrediente(producto));
             usuarioService.actualizarHttpSession(httpSession, aux);
             return "redirect:/producto/lista";
         } catch (ErrorServicio ex) {
@@ -102,7 +102,6 @@ public class ProductoController extends CusControlador {
     @PostMapping("/lista")
     public String listaPost(HttpSession httpSession,
                             ModelMap modelMap,
-                            @ModelAttribute Proveedor proveedor,
                             @RequestParam("id") String id) {
 
         try {

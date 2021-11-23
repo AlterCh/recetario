@@ -92,9 +92,7 @@ public class IngredienteService {
         if (i == null) {
             throw new ErrorServicio("Ingrese los datos del ingrediente por favor.");
         }
-        if (i.getProducto() == null || i.getProducto().getId().isEmpty()) {
-            throw new ErrorServicio("El producto no existe o esta mal insertado.");
-        }
+
         if (i.getCantidad() == null || i.getCantidad() < 0) {
             throw new ErrorServicio("La cantidad no puede ser nula o menor a cero.");
         }
