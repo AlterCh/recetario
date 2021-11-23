@@ -84,8 +84,8 @@ public class ProveedorController extends CusControlador {
                             @ModelAttribute Proveedor proveedor) throws Exception {
         try {
             Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
-            proveedorService.nuevo(usuario,proveedor);
-            usuarioService.actualizarHttpSession(httpSession,usuario);
+            proveedorService.nuevo(usuario, proveedor);
+            usuarioService.actualizarHttpSession(httpSession, usuario);
             return "redirect:/proveedor/lista";
         } catch (ErrorServicio ex) {
             modelMap.put("error", ex.getMessage());
@@ -105,8 +105,8 @@ public class ProveedorController extends CusControlador {
         try {
             Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
             if (id != null) {
-                proveedorService.borrar(usuario,proveedorRepository.getById(id));
-                usuarioService.actualizarHttpSession(httpSession,usuario);
+                proveedorService.borrar(usuario, proveedorRepository.getById(id));
+                usuarioService.actualizarHttpSession(httpSession, usuario);
                 return "redirect:/proveedor/lista";
             } else {
                 throw new Exception("No se ha eliminado el registro, disculpe las molestias");
@@ -123,14 +123,14 @@ public class ProveedorController extends CusControlador {
     public String editarPost(HttpSession httpSession,
                              ModelMap modelMap,
                              @ModelAttribute("proveedor") Proveedor proveedor) {
+        Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
         try {
-            proveedorService.modificar(proveedor);
-            usuarioService.actualizarHttpSession(httpSession,
-                    (Usuario) httpSession.getAttribute("usuariosession"));
+            proveedorService.modificar(usuario, proveedor);
+            usuarioService.actualizarHttpSession(httpSession, usuario);
             return "redirect:/proveedor/lista";
-        } catch (ErrorServicio ex) {
-ex.printStackTrace();
-return "proveedor/editar";
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return "proveedor/editar";
         }
 
     }

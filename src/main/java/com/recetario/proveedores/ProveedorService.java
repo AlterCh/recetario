@@ -49,24 +49,38 @@ public class ProveedorService {
     }
 
     @Transactional
-    public void modificar(@NonNull Proveedor proveedor) throws ErrorServicio {
-        String nombre = proveedor.getNombre();
-        String direccion = proveedor.getDireccion();
-        String telefono = proveedor.getTelefono();
-        validar(nombre, direccion, telefono);
+    public void modificar(Usuario usuario, @NonNull Proveedor proveedor) throws ErrorServicio {
+        try {
+            String nombre = proveedor.getNombre();
+            String direccion = proveedor.getDireccion();
+            String telefono = proveedor.getTelefono();
+            validar(nombre, direccion, telefono);
 
-        Optional<Proveedor> respuesta = repo.findById(proveedor.getId());
-        if (respuesta.isPresent()) {
-            Proveedor aProveedor = respuesta.get();
-            aProveedor.setNombre(nombre);
-            aProveedor.setDireccion(direccion);
-            aProveedor.setTelefono(telefono);
-            aProveedor.setProductos(proveedor.getProductos());
-            repo.save(aProveedor);
-        } else {
-            throw new ErrorServicio("No se encontró el proveedor solicitado");
+            Optional<Proveedor> respuesta = repo.findById(proveedor.getId());
+            if (respuesta.isPresent()) {
+                usuario.getListaProveedores().remove(respuesta.get());
+                Proveedor aProveedor = respuesta.get();
+                if (aProveedor.getNombre() != proveedor.getNombre()) {
+                    aProveedor.setNombre(nombre);
+                }
+                if (aProveedor.getDireccion() != proveedor.getDireccion()) {
+                    aProveedor.setDireccion(direccion);
+                }
+                if (aProveedor.getTelefono() != proveedor.getTelefono()) {
+                    aProveedor.setTelefono(telefono);
+                }
+                if (aProveedor.getProductos() != proveedor.getProductos()) {
+                    aProveedor.setProductos(proveedor.getProductos());
+                }
+                usuario.getListaProveedores().add(aProveedor);
+                usuarioService.modificar(usuario);
+            } else {
+                throw new ErrorServicio("No se encontró el proveedor solicitado");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
         }
-
     }
 
     @Transactional

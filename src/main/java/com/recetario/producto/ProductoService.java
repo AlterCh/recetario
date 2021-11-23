@@ -50,7 +50,7 @@ public class ProductoService {
 
 
     @Transactional
-    public void modificar(@NonNull Producto producto) throws ErrorServicio {
+    public void modificar(Usuario usuario,@NonNull Producto producto) throws ErrorServicio {
         try {
             String nombre = producto.getNombre();
             Double cantidad = producto.getCantidad();
@@ -60,16 +60,28 @@ public class ProductoService {
 
             Optional<Producto> respuesta = productoRepository.findById(producto.getId());
             if (respuesta.isPresent()) {
+                usuario.getListaProductos().remove(producto);
                 Producto aProducto = respuesta.get();
 
                 if (aProducto.getNombre() != producto.getNombre()) {
                     aProducto.setNombre(nombre);
                 }
-                aProducto.setPrecio(producto.getPrecio());
-                aProducto.setCantidad(cantidad);
-                aProducto.setUnidad(producto.getUnidad());
-                aProducto.setStock(stock);
-                productoRepository.save(aProducto);
+                if (aProducto.getPrecio() != producto.getPrecio()) {
+                    aProducto.setPrecio(producto.getPrecio());
+                }
+                if (aProducto.getCantidad() != producto.getCantidad()) {
+                    aProducto.setCantidad(cantidad);
+                }
+                if (aProducto.getUnidad() != producto.getUnidad()) {
+                    aProducto.setUnidad(producto.getUnidad());
+                }
+                if (aProducto.getStock() != producto.getStock()) {
+                    aProducto.setStock(stock);
+                }
+
+                usuario.getListaProductos().add(aProducto);
+                usuarioService.modificar(usuario);
+
             } else {
                 throw new ErrorServicio("No se encontró el producto solicitado");
             }

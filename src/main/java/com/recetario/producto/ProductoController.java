@@ -54,18 +54,18 @@ public class ProductoController extends CusControlador {
     @GetMapping("/editar")
     public String editarGet(HttpSession httpSession,
                             ModelMap modelMap,
-                            @RequestParam String id) {
+                            @RequestParam("productoId") String productoId) {
 
         try {
-            if (id != null && productoRepository.getById(id) != null) {
-                modelMap.addAttribute("producto", productoRepository.getById(id));
+            if (productoId != null && productoRepository.getById(productoId) != null) {
+                modelMap.addAttribute("producto", productoRepository.getById(productoId));
                 return "producto/editar";
             } else {
                 throw new Exception("No se ha podido encontrar el registro");
             }
         } catch (Exception ex) {
             modelMap.put("error", ex.getMessage());
-            Logger.getLogger(ProductoController.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
             return "redirect:/producto/lista";
         }
     }
@@ -85,7 +85,6 @@ public class ProductoController extends CusControlador {
         try {
             Usuario aux = (Usuario) httpSession.getAttribute("usuariosession");
             productoService.registrar(aux, producto);
-//            ingredienteService.registrar(new Ingrediente(producto));
             usuarioService.actualizarHttpSession(httpSession, aux);
             return "redirect:/producto/lista";
         } catch (ErrorServicio ex) {
@@ -122,13 +121,17 @@ public class ProductoController extends CusControlador {
     public String editarPost(HttpSession httpSession,
                              ModelMap modelMap,
                              @ModelAttribute("producto") Producto producto) {
+        Usuario aux = (Usuario) httpSession.getAttribute("usuariosession");
         try {
-            productoService.modificar(producto);
+            productoService.modificar(aux,producto);
+            usuarioService.actualizarHttpSession(httpSession,aux);
             return "redirect:/producto/lista";
         } catch (ErrorServicio ex) {
-            Logger.getLogger(ProductoController.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+            modelMap.put("error", ex.getMessage());
+            return "producto/editar";
         }
-        return "producto/editar";
+
     }
 
 

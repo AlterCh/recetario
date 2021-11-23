@@ -20,7 +20,6 @@ import java.util.Set;
 
 @Entity //JPA
 @Data //Getter y Setter
-@ToString //To String
 @Builder //Defaults
 @AllArgsConstructor //Constructor con todos los parametros
 @NoArgsConstructor //Constructor vacío

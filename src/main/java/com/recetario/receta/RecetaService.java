@@ -64,7 +64,7 @@ public class RecetaService {
         Optional<Receta> respuesta = recetaRepository.findById(r.getId());
         if (respuesta.isPresent()) {
 
-            usuario.getListaRecetas().remove(r);
+            usuario.getListaRecetas().remove(respuesta.get());
 
             Receta aReceta = respuesta.get();
             if (aReceta.getNombre() != nombre) {

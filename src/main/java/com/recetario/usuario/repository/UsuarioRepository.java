@@ -1,5 +1,6 @@
 package com.recetario.usuario.repository;
 
+import com.recetario.proveedores.Proveedor;
 import com.recetario.usuario.domain.ListaDeCompra;
 import com.recetario.usuario.domain.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
