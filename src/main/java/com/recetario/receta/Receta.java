@@ -36,6 +36,9 @@ public class Receta {
     private String descripcion;
     
     private Integer tiempo;
+   
+    @Builder.Default
+    private Boolean favorito = false; 
 
 //    @Embedded
 //    @OneToMany

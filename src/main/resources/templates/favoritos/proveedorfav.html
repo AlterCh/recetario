@@ -31,6 +31,7 @@
 
     <main class="main">
         <fieldset class="marcoform">
+<<<<<<< Updated upstream
         <div id="lista-de-proveedores-favoritos" class="">
             
             <div th:if="${provfav.size() != 0 && provfav != null }"
@@ -41,6 +42,18 @@
                 <h3 th:text="*{nombre}"></h3>
                 <h3 th:text="*{direccion}"></h3>
                 <h3 th:text="*{telefono}"></h3>
+=======
+            <h3>PROVEEDORES FAVORITOS</h3>
+            <div id="lista-de-proveedores-favoritos" >
+
+                <div th:if="${provfav.size() != 0 && provfav != null }" th:each="favorito : ${provfav}"
+                    th:object="${favorito}" th:each="proveedor : ${favorito.favoritosProveedores}"
+                    th:object="${proveedor}">
+                    <h4 th:text="*{nombre}">Nombre:</h4>
+                    <h4 th:text="*{direccion}">Dirección:</h4>
+                    <h4 th:text="*{telefono}">Teléfono:</h4>
+                </div>
+>>>>>>> Stashed changes
             </div>
         </div>
         </fieldset>

@@ -36,4 +36,7 @@ public class Proveedor {
     @OneToMany
     private List<Producto> productos;
     
+    @Builder.Default
+    private Boolean favorito = false; 
+    
 }

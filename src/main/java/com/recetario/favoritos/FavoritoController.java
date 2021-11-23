@@ -70,16 +70,18 @@ public class FavoritoController extends CusControlador {
             return x;
         }
         Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
-        
+
         try {
             model.addAttribute("provfav", favoritoService.getAllByUsuarioP(usuario));
+            return "favoritos/proveedorfav";
         } catch (Exception e) {
             e.printStackTrace();
+            return "redirect:/panel";
+            
         }
-        
-        return "favoritos/proveedorfav";
+
     }
-    
+
     @GetMapping("/recetas")
     public String recetasFavoritasGet(HttpSession httpSession, Model model) {
         String x = checkUsuario(httpSession);
@@ -87,14 +89,15 @@ public class FavoritoController extends CusControlador {
             return x;
         }
         Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
-        
+
         try {
-            model.addAttribute("recetasfav", favoritoService.getAllByUsuarioR(usuario));
+            model.addAttribute("recetafav", favoritoService.getAllByUsuarioR(usuario));
+            return "favoritos/recetafav";
         } catch (Exception e) {
             e.printStackTrace();
+            return "redirect:/panel";
         }
-        
-        return "favoritos/recetafav";
+
     }
 
     @PostMapping("/nuevo")

@@ -20,15 +20,34 @@ public class FavoritoService {
 
     @Autowired
     private FavoritoRepository repo;
-    
+
     @Autowired
     private UsuarioService usuarioService;
 
     @Transactional
-    public void nuevoFavorito(@ModelAttribute Favorito favorito, HttpSession httpSession, ModelMap model) throws ErrorServicio {
-        Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
+    public void nuevoFavorito(Usuario usuario, String id, String tipo) throws ErrorServicio {
+       
+        if (tipo = "proveedor") {
+            Optional<Favorito> aux = repo.findById(favorito.getId());
+            if (aux.isPresent()) {
+                Favorito fav = aux.get();
+                if (fav.getFavoritosProveedores() != favorito.getFavoritosProveedores()) {
+                    fav.setFavoritosProveedores(favorito.getFavoritosProveedores());
+                }
+                repo.save(fav);
+            }
+        } else if (tipo = "receta") {
+            Optional<Favorito> aux = repo.findById(favorito.getId());
+            if (aux.isPresent()) {
+                Favorito fav = aux.get();
+                if (fav.getFavoritosRecetas() != favorito.getFavoritosRecetas()) {
+                    fav.setFavoritosRecetas(favorito.getFavoritosRecetas());
+                }
+                repo.save(fav);
+            }
+        }
         usuarioService.agregarFavorito(favorito, usuario);
-        usuarioService.actualizarHttpSession(httpSession,usuario);
+        usuarioService.actualizarHttpSession(httpSession, usuario);
     }
 
     @Transactional
@@ -57,10 +76,10 @@ public class FavoritoService {
 
     @Transactional
     public void modificar(@NonNull Favorito favorito) throws ErrorServicio {
-        
+
         List<Proveedor> proveedoresFav = favorito.getFavoritosProveedores();
         List<Receta> recetasFav = favorito.getFavoritosRecetas();
-        
+
         Optional<Favorito> respuesta = repo.findById(favorito.getId());
         if (respuesta.isPresent()) {
             Favorito fav = respuesta.get();
@@ -70,9 +89,9 @@ public class FavoritoService {
         } else {
             throw new ErrorServicio("Lo solicitado no fue encontrado, intente de nuevo por favor.");
         }
-        
+
     }
-    
+
     @Transactional
     public List<Favorito> listarFavoritos() {
         return repo.findAll();
@@ -99,9 +118,9 @@ public class FavoritoService {
     public List<Favorito> getAllByUsuarioP(Usuario usuario) {
         return repo.getAllByUsuarioP(usuario.getId());
     }
-    
+
     public List<Favorito> getAllByUsuarioR(Usuario usuario) {
         return repo.getAllByUsuarioR(usuario.getId());
     }
-    
+
 }

@@ -14,10 +14,10 @@ List<Receta> findRecetaByUsuario(@Param("id")String id);
 @Repository
 public interface FavoritoRepository extends JpaRepository<Favorito, String> {
     
-    @Query(value = "SELECT * FROM favorito f LEFT JOIN usuario_lista_favoritos ulf ON f.id = ulf.usuario_lista_favoritos WHERE ulf.usuario_id = :id AND favoritos_recetas != null AND favoritos_proveedores = null",nativeQuery = true)
+    @Query(value = "SELECT * FROM favorito f LEFT JOIN usuario_lista_favoritos ulf ON f.id = ulf.lista_favoritos_id WHERE ulf.usuario_id = :id AND favoritos_recetas != null AND favoritos_proveedores = null",nativeQuery = true)
     public List<Favorito> getAllByUsuarioR(@Param("id")String id);
     
-    @Query(value = "SELECT * FROM favorito f LEFT JOIN usuario_lista_favoritos ulf ON f.id = ulf.usuario_lista_favoritos WHERE ulf.usuario_id = :id AND favoritos_recetas = null AND favoritos_proveedores != null", nativeQuery = true)
+    @Query(value = "SELECT * FROM favorito f LEFT JOIN usuario_lista_favoritos ulf ON f.id = ulf.lista_favoritos_id WHERE ulf.usuario_id = :id AND favoritos_recetas = null AND favoritos_proveedores != null", nativeQuery = true)
     public List<Favorito> getAllByUsuarioP(@Param("id")String id); 
     
 }
