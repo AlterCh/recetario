@@ -34,17 +34,18 @@
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripcion</th>
-                        <th scope="col">Ingredientes</th>
+<!--                        <th scope="col">Ingredientes</th>-->
                         <th scope="col">Tiempo</th>
                         <th scope="col">Porciones</th>
                         <th scope="col">Accion</th>
                     </tr>
                 </thead>
-
-                    <tr th:if="${recetas.size() != 0 && recetas != null }" th:each="receta : ${recetas}">
+                    <!--                            th:if="${recetas.size() != 0 && recetas != null }" -->
+                    <tr th:each="receta : ${recetas}">
                         <td th:text="${receta.nombre}"></td>
                         <td th:text="${receta.descripcion}"></td>
-                        <td th:text="${receta.ingredientes}"></td>
+<!--                        <td></td>-->
+<!--                        <td th:text="${receta.ingredientes.size()}"></td>-->
                         <td th:text="${receta.tiempo}"></td>
                         <td th:text="${receta.porciones}"></td>
                         <td>

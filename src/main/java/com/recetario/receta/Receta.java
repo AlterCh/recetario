@@ -28,8 +28,8 @@ public class Receta {
     
     private String nombre;
     
-    @OneToMany
-    private List<Ingrediente> ingredientes;
+//    @OneToMany
+//    private List<Ingrediente> ingredientes;
     
     private Integer porciones;
     
@@ -37,8 +37,6 @@ public class Receta {
     
     private Integer tiempo;
 
-//    @Embedded
-//    @OneToMany
-//    private List<Categoria> categoria;
+
     
 }

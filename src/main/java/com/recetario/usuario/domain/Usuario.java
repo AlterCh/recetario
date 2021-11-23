@@ -8,12 +8,15 @@ import com.recetario.provincia.Provincia;
 import com.recetario.receta.Receta;
 import com.recetario.rol.Rol;
 
+import java.util.HashSet;
 import java.util.List;
+
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity //JPA
 @Data //Getter y Setter
@@ -59,27 +62,33 @@ public class Usuario {
     private Rol rol;
 
     @OneToOne
-    private PreferenciasUsuario preferenciasUsuario ;
+    private PreferenciasUsuario preferenciasUsuario;
 
     @OneToMany(cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    private List<ListaDeCompra> listaCompra;
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    private Set<ListaDeCompra> listaCompra = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    private List<Proveedor> listaProveedores;
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    private Set<Proveedor> listaProveedores = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    private List<Receta> listaRecetas;
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    @Builder.Default
+    private Set<Receta> listaRecetas = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    private List<Favorito> listaFavoritos;
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    private Set<Favorito> listaFavoritos = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    private List<Producto> listaProductos;
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    private Set<Producto> listaProductos = new HashSet<>();
 
 
 }

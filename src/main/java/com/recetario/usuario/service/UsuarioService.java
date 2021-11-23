@@ -3,7 +3,9 @@ package com.recetario.usuario.service;
 import com.recetario.errores.ErrorServicio;
 import com.recetario.favoritos.Favorito;
 import com.recetario.foto.FotoService;
+import com.recetario.producto.Producto;
 import com.recetario.proveedores.Proveedor;
+import com.recetario.receta.Receta;
 import com.recetario.usuario.domain.Usuario;
 import com.recetario.usuario.repository.UsuarioRepository;
 import com.recetario.usuario.domain.PreferenciasUsuario;
@@ -178,6 +180,7 @@ public class UsuarioService implements UserDetailsService {
                 repo.save(aux);
             }
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ErrorServicio(this.getClass().getName() + ": No se ha podido modificar el usuario");
         }
     }
@@ -210,8 +213,20 @@ public class UsuarioService implements UserDetailsService {
         }
     }
 
+
+
     public void actualizarHttpSession(HttpSession httpSession, Usuario usuario) {
         httpSession.removeAttribute("usuariosession");
         httpSession.setAttribute("usuariosession", repo.getById(usuario.getId()));
+    }
+
+    public void borrarReceta(Usuario usuario, Receta receta) throws ErrorServicio {
+        usuario.getListaRecetas().remove(receta);
+        modificar(usuario);
+    }
+
+    public void borrarProducto(Producto producto, Usuario usuario) throws ErrorServicio {
+        usuario.getListaProductos().remove(producto);
+        modificar(usuario);
     }
 }

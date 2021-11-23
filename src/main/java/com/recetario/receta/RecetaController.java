@@ -6,6 +6,8 @@ import com.recetario.errores.ErrorServicio;
 import javax.servlet.http.HttpSession;
 
 import com.recetario.ingrediente.IngredienteService;
+import com.recetario.proveedores.Proveedor;
+import com.recetario.proveedores.ProveedorController;
 import com.recetario.usuario.domain.Usuario;
 import com.recetario.usuario.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/receta")
@@ -32,40 +37,37 @@ public class RecetaController extends CusControlador {
 
     @GetMapping("/nuevo")
     public String nuevoGet(
-            @RequestParam(value = "id_ingrediente",required = false) String id_ingrediente,
             HttpSession httpSession,
             ModelMap model) {
-        try{
-            if(id_ingrediente != null){
-                ingredienteList.add(ingredienteService.getIngrediente(id_ingrediente));
-            }
-        } catch (ErrorServicio errorServicio) {
-            errorServicio.printStackTrace();
-            model.addAttribute("error", errorServicio.getMessage());
-        }
-        model.addAttribute("ingredientes_agregados",ingredienteList);
         model.addAttribute("receta", new Receta());
         return "receta/nuevo";
+
     }
+
     @GetMapping("/ingrediente")
     public String nuevoIngrediente(
             HttpSession httpSession,
-            ModelMap modelMap){
+            ModelMap modelMap) {
 
         return "receta/RecetaIngrediente";
     }
 
-
     @GetMapping("/lista")
     public String listaGet(HttpSession httpSession, ModelMap model) {
         Usuario u = (Usuario) httpSession.getAttribute("usuariosession");
-        model.addAttribute("recetas", recetaService.listarRecetasPorUsuario(u));
+        model.addAttribute("recetas", recetaService.getAllByUsuario(u));
         return "receta/lista";
     }
 
+    private void printTestUsuario(Usuario u) {
+        System.out.println(":: LISTA DE RECETAS USUARIO => "+ u.getNombre()+ " ::");
+        u.getListaRecetas().forEach(System.out::println);
+        System.out.println(":: LISTA DE RECETAS USUARIO => "+ u.getNombre()+ " ::");
+    }
+
     @GetMapping("/editar")
-    public String editarGet(HttpSession httpSession, ModelMap model, Receta receta) {
-        model.addAttribute("receta", receta);
+    public String editarGet(HttpSession httpSession, ModelMap model,@RequestParam("id") String id) {
+        model.addAttribute("receta", recetaService.getById(id));
         return "receta/editar";
     }
 
@@ -75,21 +77,50 @@ public class RecetaController extends CusControlador {
                             @ModelAttribute("receta") Receta receta) {
         try {
             Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
-            recetaService.registrar(usuario,receta);
-            usuarioService.actualizarHttpSession(httpSession,usuario);
-            return "receta/nuevo";
+            recetaService.registrar(usuario, receta);
+            usuarioService.actualizarHttpSession(httpSession, usuario);
+            return "redirect:/receta/lista";
         } catch (ErrorServicio e) {
             model.addAttribute("error", e.getMessage());
+            return "receta/nuevo";
         }
-        return "receta/nuevo";
+
     }
 
-    @PostMapping("/editar")
-    public String editarPost(HttpSession httpSession, ModelMap model, @ModelAttribute("receta") Receta receta) {
+    @PostMapping("/lista")
+    public String listaPost(HttpSession httpSession,
+                            ModelMap modelMap,
+                            @RequestParam("id") String id) {
+        Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
+
         try {
-            recetaService.modificar(receta);
+            if (id != null) {
+                recetaService.borrar(usuario, recetaService.getById(id));
+                usuarioService.actualizarHttpSession(httpSession, usuario);
+                return "redirect:/receta/lista";
+            } else {
+                throw new Exception("No se ha eliminado el registro, disculpe las molestias");
+            }
+        } catch (Exception ex) {
+            modelMap.addAttribute("recetas", recetaService.getAllByUsuario(usuario));
+            modelMap.put("error", ex.getMessage());
+            ex.printStackTrace();
+            return "receta/lista";
+        }
+    }
+
+
+    @PostMapping("/editar")
+    public String editarPost(HttpSession httpSession,
+                             ModelMap model,
+                             @ModelAttribute("receta") Receta receta) {
+        Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
+        try {
+            recetaService.modificar(usuario,receta);
+            usuarioService.actualizarHttpSession(httpSession,usuario);
             return "receta/editar";
         } catch (ErrorServicio ex) {
+            ex.printStackTrace();
             model.addAttribute("error", ex.getMessage());
         }
         return "receta/editar";

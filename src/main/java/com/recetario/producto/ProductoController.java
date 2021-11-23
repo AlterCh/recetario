@@ -2,11 +2,7 @@ package com.recetario.producto;
 
 import com.recetario.controladores.CusControlador;
 import com.recetario.errores.ErrorServicio;
-import com.recetario.ingrediente.Ingrediente;
 import com.recetario.ingrediente.IngredienteService;
-import com.recetario.proveedores.Proveedor;
-import com.recetario.proveedores.ProveedorRepository;
-import com.recetario.proveedores.ProveedorService;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,7 +39,7 @@ public class ProductoController extends CusControlador {
      * GET
      */
     @GetMapping("/nuevo")
-    public String nuevoGet(HttpSession httpSession, ModelMap modelMap) {
+    public String nuevoGet(ModelMap modelMap) {
         modelMap.addAttribute("producto", new Producto());
         return "producto/nuevo";
     }
@@ -102,18 +98,21 @@ public class ProductoController extends CusControlador {
     @PostMapping("/lista")
     public String listaPost(HttpSession httpSession,
                             ModelMap modelMap,
-                            @RequestParam("id") String id) {
+                            @RequestParam("productoId") String productoId) {
 
         try {
-            if (id != null) {
-                productoService.borrar(productoRepository.getById(id));
+            if (productoId != null) {
+                Usuario usuario = usuarioService.getUsuario((Usuario) httpSession.getAttribute("usuariosession"));
+                productoService.borrar(productoId,usuario);
+                usuarioService.actualizarHttpSession(httpSession,usuario);
                 return "redirect:/producto/lista";
             } else {
                 throw new Exception("No se ha eliminado el registro, disculpe las molestias");
             }
         } catch (Exception ex) {
+            modelMap.addAttribute("productos", productoService.getAll());
             modelMap.put("error", ex.getMessage());
-            Logger.getLogger(ProductoController.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
             return "producto/lista";
         }
     }

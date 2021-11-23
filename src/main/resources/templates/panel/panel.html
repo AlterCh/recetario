@@ -72,12 +72,13 @@
         <div class="lista-de-compras">
             <h3>LISTA DE COMPRAS</h3>
             <a href="/listacompra/nuevo">AGREGAR</a>
-            <div th:if="${listas.size() != 0 && listas != null }"
+            <div  th:if="${listas.size() != 0 && listas != null }"
                  th:each="lista : ${listas}"
-                 th:object="${lista}">
-                <h2 th:text="*{fechaAgregado}"></h2>
-                <h2 th:text="*{nombre}"></h2>
-                <p th:text="*{lista}"></p>
+                 th:object="${lista}"
+                  th:id="'listaCompra-'+*{id}">
+                <h2 id="fechaAgregado" th:text="*{fechaAgregado}"></h2>
+                <h2 id="titulo" th:text="*{nombre}"></h2>
+                <p  id="lista" th:text="*{lista}"></p>
             </div>
         </div>
         <div id="lista-de-proveedores" class="">

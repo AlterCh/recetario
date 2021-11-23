@@ -85,16 +85,16 @@ public class ProductoService {
 
 
     @Transactional
-    public void borrar(@NonNull Producto producto) throws Exception {
+    public void borrar(@NonNull String id, Usuario usuario) throws Exception {
         try {
-            String id = producto.getId();
             Optional<Producto> respuesta = productoRepository.findById(id);
             if (respuesta.isPresent()) {
-                productoRepository.delete(respuesta.get());
+                usuarioService.borrarProducto(respuesta.get(), usuario);
             } else {
                 throw new ErrorServicio("No se encontró el Producto solicitado.");
             }
         } catch (Exception e) {
+            e.printStackTrace();
             throw e;
         }
     }

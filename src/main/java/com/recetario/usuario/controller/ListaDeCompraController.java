@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @PreAuthorize("hasAnyRole('ROLE_USUARIO_REGISTRADO')")
@@ -75,7 +76,7 @@ public class ListaDeCompraController {
         try {
             Usuario aux = usuarioService
                     .getUsuario((Usuario) httpSession.getAttribute("usuariosession"));
-            List<ListaDeCompra> unaLista = aux.getListaCompra();
+            Set<ListaDeCompra> unaLista = aux.getListaCompra();
             unaLista.add(listaCompra);
             aux.setListaCompra(unaLista);
             usuarioRepository.save(aux);
