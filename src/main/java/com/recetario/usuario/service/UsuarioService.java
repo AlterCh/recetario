@@ -211,6 +211,7 @@ public class UsuarioService implements UserDetailsService {
     }
 
     public void actualizarHttpSession(HttpSession httpSession, Usuario usuario) {
+        httpSession.removeAttribute("usuariosession");
         httpSession.setAttribute("usuariosession", repo.getById(usuario.getId()));
     }
 }
