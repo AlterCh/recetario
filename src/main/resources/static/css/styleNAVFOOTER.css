@@ -21,6 +21,12 @@ body h4{
     color: black;
 }
 
+body h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: rgb(250, 200, 135);
+}
+
 /*espaciado del cuerpo del html para que el navbar quede fijo*/
 .main {
     padding-top: 80px;
