@@ -50,12 +50,14 @@
                         <td th:text="${receta.porciones}"></td>
                         <td>
                             <form action="/receta/lista" method="post">
+
                                 <button name="id" th:value="${receta.id}">Delete</button>
                             </form>
                             <form action="/receta/editar" method="get">
                                 <button name="id" th:value="${receta.id}">Edit</button>
                             </form>
-                            <form action="/receta/favorito" method="get">
+                            <form action="/favorito/nuevo" method="post">
+                                <input type="hidden" name="tipo" value="receta">
                                 <button name="id" th:value="${receta.id}">Favorito</button>
                             </form>
                         </td>

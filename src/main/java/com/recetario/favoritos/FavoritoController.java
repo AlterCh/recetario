@@ -76,7 +76,7 @@ public class FavoritoController extends CusControlador {
         return "favoritos/recetafav";
     }
 
-    @GetMapping("/nuevo")
+    @PostMapping("/nuevo")
     public String nuevoPost(@RequestParam("id") String id,
                             @RequestParam("tipo") String tipo,
                             HttpSession httpSession,
@@ -86,9 +86,9 @@ public class FavoritoController extends CusControlador {
             favoritoService.setFavorito(usuario, id, tipo);
             usuarioService.actualizarHttpSession(httpSession, usuario);
             if (tipo.equals("proveedor")) {
-                return "redirect:/favorito/proveedor";
+                return "redirect:/proveedor/lista";
             } else if (tipo.equals("receta")) {
-                return "redirect:/favorito/recetas";
+                return "redirect:/receta/lista";
             } else {
                 return "redirect:/";
             }

@@ -53,7 +53,8 @@
                         <form action="/proveedor/editar" method="get">
                             <button name="id" th:value="${proveedor.id}">Edit</button>
                         </form>
-                        <form action="/proveedor/favorito" method="get">
+                        <form action="/favorito/nuevo" method="post">
+                            <input type="hidden" name="tipo" value="proveedor">
                             <button name="id" th:value="${proveedor.id}">Favorito</button>
                         </form>
                     </td>

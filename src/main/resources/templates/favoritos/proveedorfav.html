@@ -34,10 +34,8 @@
         <fieldset class="marcoform">
             <h3>PROVEEDORES FAVORITOS</h3>
             <div id="lista-de-proveedores-favoritos" class="">
-
-                <div th:if="${provfav.size() != 0 && provfav != null }" th:each="favorito : ${provfav}"
-                    th:object="${favorito}" th:each="proveedor : ${favorito.favoritosProveedores}"
-                    th:object="${proveedor}">
+                <div th:if="${proveedorFav.size() != 0 && proveedorFav != null }" th:each="favorito : ${proveedorFav}"
+                    th:object="${favorito}" >
                     <h4 th:text="*{nombre}">Nombre:</h4>
                     <h4 th:text="*{direccion}">Dirección:</h4>
                     <h4 th:text="*{telefono}">Teléfono:</h4>

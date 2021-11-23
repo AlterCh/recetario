@@ -1,7 +1,6 @@
 package com.recetario.usuario.service;
 
 import com.recetario.errores.ErrorServicio;
-import com.recetario.favoritos.Favorito;
 import com.recetario.foto.FotoService;
 import com.recetario.producto.Producto;
 import com.recetario.proveedores.Proveedor;
@@ -9,6 +8,7 @@ import com.recetario.receta.Receta;
 import com.recetario.usuario.domain.Usuario;
 import com.recetario.usuario.repository.UsuarioRepository;
 import com.recetario.usuario.domain.PreferenciasUsuario;
+import java.util.Iterator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -185,14 +185,32 @@ public class UsuarioService implements UserDetailsService {
         }
     }
 
-    public void agregarFavorito(Favorito favorito, Usuario usuario) throws ErrorServicio {
+    public void agregarFavorito(Object favorito, Usuario usuario, String tipo) throws ErrorServicio {
 
         try {
             Optional<Usuario> respuesta = repo.findById(usuario.getId());
             if (respuesta.isPresent()) {
                 Usuario aux = respuesta.get();
-                aux.getListaFavoritos().add(favorito);
-                repo.save(aux);
+                if(tipo == "proveedor"){
+                    Iterator<Proveedor> proveedores = aux.getListaProveedores().iterator();
+                    if(proveedores.hasNext()){
+                        Proveedor p = proveedores.next();
+                        if(p.getId().equals(((Proveedor) favorito).getId())){
+                            aux.getListaRecetas().remove(p);
+                            aux.getListaProveedores().add((Proveedor) favorito);
+                        }
+                    }
+                }else if (tipo == "receta"){
+                    Iterator<Receta> recetas = aux.getListaRecetas().iterator();
+                    if(recetas.hasNext()){
+                        Receta r = recetas.next();
+                        if(r.getId().equals(((Receta) favorito).getId())){
+                            aux.getListaRecetas().remove(r);
+                            aux.getListaRecetas().add((Receta) favorito);
+                        }
+                    }
+                }
+                modificar(aux);
             }
         } catch (Exception e) {
             throw new ErrorServicio("No se pudo completar esta acción.");

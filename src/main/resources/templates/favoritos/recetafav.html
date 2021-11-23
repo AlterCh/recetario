@@ -34,9 +34,9 @@
             <h3>RECETAS FAVORITAS</h3>
             <div id="lista-de-recetas-favoritas">
                 <div th:if="${recetasfav.size() != 0 && recetasfav != null }" th:each="favorito : ${recetasfav}"
-                    th:object="${favorito}" th:each="receta : ${favorito.favoritosRecetas}" th:object="${receta}">
+                    th:object="${favorito}">
                     <h4 th:text="*{nombre}">Nombre:</h4>
-                    <h4 th:text="*{descripcion}">Descripción:</h4>
+                    <h4 th:text="*{descripcion}"></h4>
                 </div>
             </div>
         </fieldset>
