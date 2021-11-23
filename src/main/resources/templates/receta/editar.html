@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
-    <link rel="stylesheet" href="/css/styleeditar">
-   <!-- <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">
-   <link rel="stylesheet" href="/src/main/resources/static/css/styleeditar.css"> -->
+   <!-- <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
+    <!-- <link rel="stylesheet" href="stylenuevo.css"> -->
+   <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">
+   <link rel="stylesheet" href="/src/main/resources/static/css/stylenuevo.css">
 </head>
 
 <body>
@@ -26,9 +26,7 @@
 <main class="main">
     <fieldset class="marcoform">
 
-        <b>
-            <legend>EDITAR RECETA</legend>
-        </b>
+       <h3>EDITAR RECETA</h3>
         <form action="/receta/editar" th:object="${receta}" method="post">
             <input type="hidden" th:field="*{id}" th:value="*{id}">
             <p><label>Nombre

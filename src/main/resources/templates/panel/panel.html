@@ -87,7 +87,7 @@
             <div th:if="${proveedores.size() != 0 && proveedores != null }"
                  th:each="proveedor : ${proveedores}"
                  th:object="${proveedor}">
-                <h3 th:text="*{nombre}"></h3>
+                <h2 th:text="*{nombre}"></h2>
                 <p th:text="'Direccion: '+*{direccion}"></p>
 
                 <p th:text="'Telefono: '+*{telefono}"></p>
@@ -100,7 +100,7 @@
                  th:each="receta : ${recetas}"
                  th:object="${receta}">
 
-                <h3 th:text="*{nombre}"></h3>
+                <h2 th:text="*{nombre}"></h2>
 <!--                <img src="/img/not-found.jpg">-->
                 <p th:text="*{descripcion}"></p>
             </div>
