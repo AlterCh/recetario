@@ -5,68 +5,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--        <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">-->
-    <!--        <link rel="stylesheet" href="/src/main/resources/static/css/stylelista.css">-->
+    <!-- <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/stylelista.css"> -->
     <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
-    <link rel="stylesheet" href="/css/stylenuevo.css">
+    <link rel="stylesheet" href="/css/stylelista.css">
 </head>
 
 
 <body>
 
-<header class="encabezado">
-    <nav>
+    <header class="encabezado">
+        <nav>
+            <div>
+                <img src="/img/logotipo.png">
+            </div>
+
+            <ul>
+                <li><a href="/panel">INICIO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <h3>RECETAS</h3>
+                <table class="table">
+                <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Ingredientes</th>
+                        <th scope="col">Tiempo</th>
+                        <th scope="col">Porciones</th>
+                        <th scope="col">Accion</th>
+                    </tr>
+                </thead>
+
+                    <tr th:if="${recetas.size() != 0 && recetas != null }" th:each="receta : ${recetas}">
+                        <td th:text="${receta.nombre}"></td>
+                        <td th:text="${receta.descripcion}"></td>
+                        <td th:text="${receta.ingredientes}"></td>
+                        <td th:text="${receta.tiempo}"></td>
+                        <td th:text="${receta.porciones}"></td>
+                        <td>
+                            <form action="/receta/lista" method="post">
+                                <button name="id" th:value="${receta.id}">Delete</button>
+                            </form>
+                            <form action="/receta/editar" method="get">
+                                <button name="id" th:value="${receta.id}">Edit</button>
+                            </form>
+                            <form action="/receta/favorito" method="get">
+                                <button name="id" th:value="${receta.id}">Favorito</button>
+                            </form>
+                        </td>
+                    </tr>
+            </table>
+    </main>
+
+    <footer class="footer">
         <div>
-            <img src="/img/logotipo.png">
+            <p align="center">Copyright HUEVO FRITO</p>
         </div>
-
-        <ul>
-            <li><a href="/inicio">INICIO</a></li>
-        </ul>
-    </nav>
-</header>
-
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">Nombre</th>
-        <th scope="col">Descripcion</th>
-        <th scope="col">>Ingredientes</th>
-        <th scope="col">Tiempo</th>
-        <th scope="col">Accion</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!--    th:each == foreach (Proveedor x : proveedores)-->
-    <tr th:if="${recetas.size() != 0 && recetas != null }"
-        th:each="receta : ${recetas}">
-        <td th:text="${receta.nombre}"></td>
-        <td th:text="${receta.descripcion}"></td>
-        <td th:text="${receta.ingredientes}"></td>
-        <td th:text="${receta.tiempo}"></td>
-        <td th:text="${receta.porciones}"></td>
-        <td>
-            <form action="/receta/lista" method="post">
-                <button name="id" th:value="${receta.id}">Delete</button>
-            </form>
-            <form action="/receta/editar" method="get">
-                <button name="id" th:value="${receta.id}">Edit</button>
-            </form>
-            <form action="/receta/favorito" method="get">
-                <button name="id" th:value="${receta.id}">Favorito</button>
-            </form>
-        </td>
-    </tr>
-    </tbody>
-</table>
-
-<footer class="footer">
-    <div>
-        <p align="center">Copyright HUEVO FRITO</p>
-    </div>
-</footer>
+    </footer>
 
 
-<div th:replace="fragmentos/libs :: #libs"></div>
+    <div th:replace="fragmentos/libs :: #libs"></div>
 </body>
+
 </html>

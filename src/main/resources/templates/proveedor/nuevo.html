@@ -10,10 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="/css/styleNAVFOOTER.css" rel="stylesheet">
-            <link rel="stylesheet" href="/css/styleindex.css"> 
+    <link rel="stylesheet" href="/css/stylenuevo.css"> 
 
-    <!--<link rel="stylesheet" href="/src/main/resources/static/css/stylenuevo.css">
-    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">-->
+    <!-- <link rel="stylesheet" href="/src/main/resources/static/css/stylenuevo.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css"> -->
 
 
 </head>
@@ -24,7 +24,7 @@
         <nav>
             <div><img src="/img/logotipo.png"></div>
             <ul>
-                <li><a href="/inicio">INICIO</a></li>
+                <li><a href="/panel">INICIO</a></li>
 
             </ul>
         </nav>
@@ -36,7 +36,7 @@
         <form action="/proveedor/nuevo" method="post" th:object="${proveedor}">
             <fieldset class="marcoform">
 
-                <h2>AGREGAR PROVEEDOR</h2>
+                <h3>AGREGAR PROVEEDOR</h3>
                 <p>
                     <label>Nombre</label>
                     <input type="text" class="form-control" name="nombre" th:field="*{nombre}" />

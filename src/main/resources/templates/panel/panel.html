@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
     <link rel="stylesheet" href="/css/styleinicio.css">
-    <!--<link rel="stylesheet" href="/src/main/resources/static/css/styleinicio.css">
+    <!-- <link rel="stylesheet" href="/src/main/resources/static/css/stylepanel.css">
      <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css"> -->
 
 </head>
@@ -19,12 +19,12 @@
 <!-- CABECERA NAV BAR-->
 <header class="encabezado">
     <nav>
-
-        <div><img src="/img/logotipo.png" alt=""></div>
+        <img src="/src/main/resources/static/img/logotipo.png">
+        <!-- <div><img src="/img/logotipo.png" alt=""></div> -->
 
         <ul>
             <li>
-                <a href="/">RECETAS</a>
+                <a href="/receta/lista">RECETAS</a>
                 <ul><!--RUTAS SIN HTML PARA NETBEANS-->
                     <li><a href="/receta/nuevo">Agregar</a></li>
                     <li><a href="/receta/lista">Ver Lista</a></li>
@@ -32,14 +32,14 @@
                 </ul>
             </li>
             <li>
-                <a href="/">PROVEEDORES</a>
+                <a href="/proveedor/lista">PROVEEDORES</a>
                 <ul> 
                     <li><a href="/proveedor/nuevo">Agregar</a></li>
                     <li><a href="/proveedor/lista">Ver Lista</a></li>
                     <li><a href="/favoritos/proveedorfav">Favoritos</a></li>
 
                     <li>
-                        <a href="/">PRODUCTOS</a>
+                        <a href="/producto/lista">PRODUCTOS</a>
                         <ul>
                             <li><a href="/producto/nuevo">Agregar</a></li>
                             <li><a href="/producto/lista">Ver Lista</a></li>
@@ -48,14 +48,14 @@
                 </ul>
             </li>
             <li>
-                <a href="/">MI ALACENA</a>
+                <a href="/producto/lista">MI ALACENA</a>
                 <ul>
                     <li><a href="/producto/lista">VER STOCK</a></li>
                     <li><a href="/listacompra/lista">Compras</a></li>
                 </ul>
             </li>
             <li class="perfil">
-                <a href="/">PERFIL</a>
+                <a href="/perfil">PERFIL</a>
                 <ul>
                     <li><a href="/perfil">Ver Perfil</a></li>
                     <li><a href="/todosfavoritos">Favoritos</a></li>
@@ -69,9 +69,9 @@
 <!--CUERPO DE LA PAGINA DENTRO DEL MAIN ACA VAN COLUMNAS / METODOS GET-->
 <main class="main">
     <div class="grid-container">
-        <div id="lista-de-compras" class="">
+        <div class="lista-de-compras">
             <h3>LISTA DE COMPRAS</h3>
-            <a href="/listacompra/nuevo">++</a>
+            <a href="/listacompra/nuevo">AGREGAR</a>
             <div th:if="${listas.size() != 0 && listas != null }"
                  th:each="lista : ${listas}"
                  th:object="${lista}">
@@ -82,7 +82,7 @@
         </div>
         <div id="lista-de-proveedores" class="">
             <h3>PROVEEDORES</h3>
-            <a href="/proveedor/nuevo">++</a>
+            <a href="/proveedor/nuevo">AGREGAR</a>
             <div th:if="${proveedores.size() != 0 && proveedores != null }"
                  th:each="proveedor : ${proveedores}"
                  th:object="${proveedor}">
@@ -94,7 +94,7 @@
         </div>
         <div id="lista-de-recetas" class="">
             <h3>RECETAS</h3>
-            <a href="/receta/nuevo">++</a>
+            <a href="/receta/nuevo">AGREGAR</a>
             <div th:if="${recetas.size() != 0 && recetas != null }"
                  th:each="receta : ${recetas}"
                  th:object="${receta}">

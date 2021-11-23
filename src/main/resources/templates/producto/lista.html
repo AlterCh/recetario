@@ -8,74 +8,75 @@
 
     <link rel="stylesheet" href="/css/styleNAVFOOTER.css">
     <link rel="stylesheet" href="/css/stylelista.css">
-    <!--<link rel="stylesheet" href="/src/main/resources/static/css/stylelista.css">
-    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css">-->
+    <!-- <link rel="stylesheet" href="/src/main/resources/static/css/stylelista.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/styleNAVFOOTER.css"> -->
+
 
 </head>
 
 <body>
 
-<header class="encabezado">
-    <nav>
+    <header class="encabezado">
+        <nav>
+            <div>
+                <img src="/img/logotipo.png">
+            </div>
+
+            <ul>
+                <li><a href="/panel">INICIO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main class="main">
+        <h3>PRODUCTOS</h3>
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Unidad</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Accion</th>
+                </tr>
+            </thead>
+
+
+            <tr th:each="producto : ${productos}">
+                <td th:text="${producto.nombre}"></td>
+                <td th:text="${producto.precio}"></td>
+                <td th:text="${producto.cantidad}"></td>
+                <td th:text="${producto.unidad}"></td>
+                <td th:text="${producto.stock}"></td>
+                <td>
+                    <form action="/producto/lista" method="post">
+                        <button name="id" th:value="${producto.id}">Delete</button>
+                    </form>
+                    <form action="/producto/editar" method="get">
+                        <button name="id" th:value="${producto.id}">Edit</button>
+                    </form>
+                    <form action="/producto/favorito" method="get">
+                        <button name="id" th:value="${producto.id}">Favorito</button>
+                    </form>
+                    <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+                </td>
+            </tr>
+
+        </table>
+
+    </main>
+
+    <footer class="footer">
         <div>
-            <img src="/img/logotipo.png">
+            <p align="center">Copyright HUEVO FRITO</p>
         </div>
-
-        <ul>
-            <li><a href="/inicio">INICIO</a></li>
-        </ul>
-    </nav>
-</header>
+    </footer>
 
 
-<main class="main">
-
-
-    <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Unidad</th>
-            <th scope="col">Stock</th>
-            <th scope="col">Accion</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!--    th:each == foreach (Proveedor x : proveedores)-->
-        <tr th:each="producto : ${productos}">
-            <td th:text="${producto.nombre}"></td>
-            <td th:text="${producto.precio}"></td>
-            <td th:text="${producto.cantidad}"></td>
-            <td th:text="${producto.unidad}"></td>
-            <td th:text="${producto.stock}"></td>
-            <td>
-                <form action="/producto/lista" method="post">
-                    <button name="id" th:value="${producto.id}">Delete</button>
-                </form>
-                <form action="/producto/editar" method="get">
-                    <button name="id" th:value="${producto.id}">Edit</button>
-                </form>
-                <form action="/producto/favorito" method="get">
-                    <button name="id" th:value="${producto.id}">Favorito</button>
-                </form>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-
-</main>
-
-<footer class="footer">
-    <div>
-        <p align="center">Copyright HUEVO FRITO</p>
-    </div>
-</footer>
-
-
-<div th:replace="fragmentos/libs :: #libs"></div>
+    <div th:replace="fragmentos/libs :: #libs"></div>
 </body>
+
 </html>

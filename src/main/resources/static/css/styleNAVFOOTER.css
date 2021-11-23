@@ -8,6 +8,19 @@ body{
 
 }
 
+body p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: black;
+
+}
+
+body h4{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: black;
+}
+
 /*espaciado del cuerpo del html para que el navbar quede fijo*/
 .main {
     padding-top: 80px;
@@ -158,9 +171,9 @@ a:hover{
 .footer {
     background:rgb(0, 0, 0);
     padding: 15px 30px;
-    color: white;
+    /* color: rgb(255, 255, 255);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 14px; */
 
     position:fixed;  /*posicion fija del footer*/
     left:0px;
@@ -169,4 +182,9 @@ a:hover{
     width:100%;
 }
 
+.footer p{
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
 

@@ -1,0 +1,65 @@
+body{
+    background-image: url(/src/main/resources/static/img/HUEVO.png); 
+    background-repeat: repeat;
+    
+}
+
+/*RECETAS*/
+.marcoform1{
+    background-color: rgb(63, 185, 116) ;
+    border-radius: 12px;
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 53%;
+    margin-top: 2%; /*margen arriba*/
+    margin-bottom: 6%; /*margen abajo*/
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border:rgb(241, 203, 76) solid;
+    border-color: ;
+}
+
+.marcoform1 label{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(241, 203, 76);
+    margin-bottom: 2%;
+    margin-top: 3%;
+    font-size: 16px;
+    text-align: left;
+}
+
+.marcoform1 h3{
+    font-family: Arial, Helvetica, sans-serif;
+    color:blanchedalmond;
+    margin-bottom: 4%; /*margen abajo*/
+}
+
+/*PROVEEDORES*/
+.marcoform2{
+    background-color: rgb(63, 185, 116) ;
+    border-radius: 12px;
+    text-align: center;
+    margin-left: 53%;
+    margin-right: 5%;
+    margin-top: -16.5%; /*margen arriba*/
+    margin-bottom: 6%; /*margen abajo*/
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border:rgb(241, 203, 76) solid;
+    border-color: ;
+}
+
+.marcoform2 label{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(241, 203, 76);
+    margin-bottom: 2%;
+    margin-top: 3%;
+    font-size: 16px;
+    text-align: left;
+}
+
+.marcoform2 h3{
+    font-family: Arial, Helvetica, sans-serif;
+    color:blanchedalmond;
+    margin-bottom: 4%; /*margen abajo*/
+}
