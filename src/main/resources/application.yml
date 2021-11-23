@@ -10,7 +10,7 @@ spring:
   #  Configuracion Creacion de tablas (Hibernate)
   jpa:
 #    defer-datasource-initialization: true
-    show-sql: true
+    show-sql: false
     hibernate:
       ddl-auto: update
     properties:

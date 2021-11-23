@@ -39,7 +39,7 @@ public class FotoController {
             headers.setContentType(MediaType.IMAGE_JPEG);
             return new ResponseEntity<>(foto, headers, HttpStatus.OK);
         } catch (Exception exception) {
-            Logger.getLogger(FotoController.class.getName()).info("Error jpeg");
+            Logger.getLogger(FotoController.class.getName()).info(exception.getMessage());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }

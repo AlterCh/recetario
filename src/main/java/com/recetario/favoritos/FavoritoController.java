@@ -32,11 +32,6 @@ public class FavoritoController extends CusControlador {
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping("/nuevo")
-    public String nuevoGet(HttpSession httpSession, ModelMap model) {
-        model.addAttribute("favorito", new Favorito());
-        return "favorito/nuevo";
-    }
 
     @GetMapping("/lista")
     public String listaGet(HttpSession httpSession,
